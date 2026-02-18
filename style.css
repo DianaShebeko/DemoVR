@@ -454,7 +454,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: rgba(103,115,131,0.6);
+  background-color: rgba(0,0,0,0.6);
   cursor: pointer;
   -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
@@ -500,6 +500,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 50px;
 }
 
+/*изменить саму иконку*/
 .info-hotspot .info-hotspot-icon {
   width: 70%;
   height: 70%;
