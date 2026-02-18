@@ -766,16 +766,6 @@ position: absolute;
   transition: opacity 0.3s ease-in-out 0.4s;
 }
 
-/* ОТКЛЮЧАЕМ выезжающую анимацию */
-.info-hotspot .info-hotspot-header,
-.desktop.no-touch .info-hotspot .info-hotspot-header:hover,
-.desktop .info-hotspot.visible .info-hotspot-header {
-  width: 30px !important;
-  height: 30px !important;
-  border-radius: 50% !important;
-}
-
-
 .info-hotspot {
   position: relative;
 }
