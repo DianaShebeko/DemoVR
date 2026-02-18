@@ -456,6 +456,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 50%;
   background-color: rgba(0,0,0,0.6);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 /*  -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
   transition: width 0.3s ease-in-out 0.5s,
@@ -470,6 +473,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 25px;
 }
 
+/*
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover {
   width: 260px;
   border-radius: 5px;
@@ -478,6 +482,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: width 0.3s ease-in-out,
               border-radius 0.3s ease-in-out;
 }
+
 
 .desktop .info-hotspot.visible .info-hotspot-header,
 .desktop.no-touch .info-hotspot.visible .info-hotspot-header:hover {
@@ -491,10 +496,14 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: width 0.3s ease-in-out,
               border-radius 0.3s ease-in-out;
 }
+*/
 
 .info-hotspot .info-hotspot-icon-wrapper {
   width: 40px;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile .info-hotspot .info-hotspot-icon-wrapper {
