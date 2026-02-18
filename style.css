@@ -608,7 +608,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot .info-hotspot-text {
-  position: absolute;
+  display: none;
+/*  position: absolute;
   width: 300px;
   height: auto;
   max-height: 200px;
@@ -620,7 +621,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-bottom-left-radius: 5px;
   overflow-y: auto;
   visibility: hidden;
-  /* rotate(90deg) causes transition flicker on Firefox 58 */
+  /* rotate(90deg) causes transition flicker on Firefox 58 
   -ms-transform: perspective(200px) rotateX(-89.999deg);
   -webkit-transform: perspective(200px) rotateX(-89.999deg);
   transform: perspective(200px) rotateX(-89.999deg);
@@ -640,6 +641,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   -webkit-user-select: text;
   -ms-user-select: text;
   user-select: text;
+ */
 }
 
 .desktop .info-hotspot.visible .info-hotspot-text {
