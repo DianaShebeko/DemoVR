@@ -456,11 +456,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 50%;
   background-color: rgba(0,0,0,0.6);
   cursor: pointer;
-  -webkit-transition: width 0.3s ease-in-out 0.5s,
+/*  -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
   transition: width 0.3s ease-in-out 0.5s,
               border-radius 0.3s ease-in-out 0.5s;
-			  
+*/			  
 	box-shadow: 0 0 0 2px #fff;
 }
 
