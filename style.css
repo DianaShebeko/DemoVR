@@ -509,34 +509,39 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
   left: 50%;
-  top: 38px;
+  top: 48px; /* Под иконкой */
+  
+  /* Центрирование блока относительно иконки */
   transform: translateX(-50%);
   
-  width: 0;
-  height: 30px;
-  padding: 0;
+  /* Ширина сразу по контенту */
+  width: auto;
+  height: auto;
+  
+  /* Отступы внутри черного прямоугольника */
+  padding: 6px 12px;
+  
+  /* Скрываем через прозрачность */
+  opacity: 0;
+  visibility: hidden;
+  
+  /* Текст в одну строку */
+  white-space: nowrap;
   overflow: hidden;
-  text-align: center; /* Выравнивание текста по центру внутри блока */
   
+  /* Стиль черного прямоугольника */
   background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 4px; /* Слегка скруглим углы прямоугольника */
+  border-radius: 4px;
+  text-align: center;
   
-  
-  /* Анимация появления ширины и отступов */
-  -webkit-transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
-			  
-  white-space: nowrap; 
+  /* Плавное появление */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .desktop .info-hotspot.visible .info-hotspot-title-wrapper,
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
-  width: 220px;
-  padding: 0 5px;
-  
-  /* Убираем задержку появления, чтобы прямоугольник рос синхронно с текстом */
-  -webkit-transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
 }
 
 .info-hotspot .info-hotspot-title-wrapper:before {
