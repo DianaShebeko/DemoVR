@@ -449,22 +449,16 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   opacity: 1;
 }
 
-/*иконка информации*/
 .info-hotspot .info-hotspot-header {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rgba(0,0,0,0.6);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgb(103,115,131);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-/*  -webkit-transition: width 0.3s ease-in-out 0.5s,
+  -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
   transition: width 0.3s ease-in-out 0.5s,
               border-radius 0.3s ease-in-out 0.5s;
-*/			  
-	box-shadow: 0 0 0 2px #fff;
 }
 
 .mobile .info-hotspot .info-hotspot-header {
@@ -472,7 +466,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 50px;
   border-radius: 25px;
 }
-
 
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover {
   width: 260px;
@@ -482,7 +475,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: width 0.3s ease-in-out,
               border-radius 0.3s ease-in-out;
 }
-
 
 .desktop .info-hotspot.visible .info-hotspot-header,
 .desktop.no-touch .info-hotspot.visible .info-hotspot-header:hover {
@@ -497,13 +489,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               border-radius 0.3s ease-in-out;
 }
 
-
 .info-hotspot .info-hotspot-icon-wrapper {
   width: 40px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .mobile .info-hotspot .info-hotspot-icon-wrapper {
@@ -511,32 +499,24 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 50px;
 }
 
-/*изменить саму иконку*/
 .info-hotspot .info-hotspot-icon {
-  width: 70%;
-  height: 70%;
-  margin: 15%;
+  width: 90%;
+  height: 90%;
+  margin: 5%;
 }
 
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
-  top: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  width: auto;
-  padding: 4px 8px;
-
-  background: rgba(0,0,0,0.65);
-  border-radius: 4px;
-
-  font-size: 12px;
-  white-space: nowrap;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: opacity 0.15s ease;
+  left: 40px;
+  top: 0;
+  width: 0;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+  -webkit-transition: width 0s 0.4s,
+                      padding 0s 0.4s;
+  transition: width 0s 0.4s,
+              padding 0s 0.4s;
 }
 
 .desktop .info-hotspot.visible .info-hotspot-title-wrapper,
@@ -613,32 +593,53 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot .info-hotspot-text {
-position: absolute;
-  top: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 320px;              /* базовый tablet */
-  max-width: calc(100vw - 20px);
-
-  padding: 12px 14px;
-  font-size: 14px;
-  line-height: 1.4;
-
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-
+  position: absolute;
+  width: 300px;
+  height: auto;
+  max-height: 200px;
+  top: 40px;
+  left: 0;
+  padding: 10px;
+  background-color: rgb(58,68,84);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow-y: auto;
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  }
+  /* rotate(90deg) causes transition flicker on Firefox 58 */
+  -ms-transform: perspective(200px) rotateX(-89.999deg);
+  -webkit-transform: perspective(200px) rotateX(-89.999deg);
+  transform: perspective(200px) rotateX(-89.999deg);
+  -ms-transform-origin: 50% 0 0;
+  -webkit-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0.3s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0.3s;
+
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
 
 .desktop .info-hotspot.visible .info-hotspot-text {
   visibility: visible;
-  opacity: 1;
+  -ms-transform: perspective(200px) rotateX(0deg);
+  -webkit-transform: perspective(200px) rotateX(0deg);
+  transform: perspective(200px) rotateX(0deg);
+  -webkit-transition: -ms-transform 0.3s 0.3s,
+                      -webkit-transform 0.3s 0.3s,
+                      transform 0.3s 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s 0.3s,
+              -webkit-transform 0.3s 0.3s,
+              transform 0.3s 0.3s,
+              visibility 0s 0s;
 }
 
 /* Info hotspot modal */
@@ -648,25 +649,30 @@ position: absolute;
 }
 
 .info-hotspot-modal {
- position: fixed;        /* поверх всего контента */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* по центру */
-  width: 90%;             /* адаптивно */
-  max-width: 1024px;      /* фиксированная максимальная ширина */
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-  padding: 20px 40px 20px 20px;
-  z-index: 10000;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 11000 !important;
+  background-color: rgba(0,0,0,.5);
+  line-height: 1.2em;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease;}
+  -webkit-transition: opacity 0.2s ease-in-out 0.5s,
+                      visibility 0s 0.7s;
+  transition: opacity 0.2s ease-in-out 0.5s,
+              visibility 0s 0.7s;
+}
 
 .info-hotspot-modal.visible {
   opacity: 1;
   visibility: visible;
+  -webkit-transition: opacity 0.2s ease-in-out,
+                      visibility 0s 0s;
+  transition: opacity 0.2s ease-in-out,
+              visibility 0s 0s;
 }
 
 .info-hotspot-modal .info-hotspot-header {
@@ -769,13 +775,6 @@ position: absolute;
   -webkit-transition: opacity 0.3s ease-in-out 0.4s;
   transition: opacity 0.3s ease-in-out 0.4s;
 }
-
-.info-hotspot {
-  position: relative;
-}
-
-
-
 
 /* View control buttons */
 
