@@ -509,7 +509,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
   left: 50%;
-  top: 48px; /* Под иконкой */
+  top: 38px; /* Под иконкой */
   
   /* Центрирование блока относительно иконки */
   transform: translateX(-50%);
@@ -530,7 +530,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   overflow: hidden;
   
   /* Стиль черного прямоугольника */
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(103,115,131, 0.7);
   border-radius: 4px;
   text-align: center;
   
