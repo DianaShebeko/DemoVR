@@ -473,7 +473,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 25px;
 }
 
-/*
+
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover {
   width: 260px;
   border-radius: 5px;
@@ -496,7 +496,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: width 0.3s ease-in-out,
               border-radius 0.3s ease-in-out;
 }
-*/
+
 
 .info-hotspot .info-hotspot-icon-wrapper {
   width: 40px;
