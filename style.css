@@ -659,10 +659,10 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* Info hotspot modal */
 
-.desktop .info-hotspot-modal {
+/*.desktop .info-hotspot-modal {
   display: none;
 }
-
+*/
 .info-hotspot-modal {
   top: 0;
   left: 0;
