@@ -770,32 +770,6 @@ position: absolute;
   position: relative;
 }
 
-/* подпись */
-.info-hotspot::after {
-  content: attr(data-title);
-  position: absolute;
-  top: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 4px 8px;
-  font-size: 12px;
-  line-height: 1.2;
-  white-space: nowrap;
-
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  border-radius: 4px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-/* показываем при наведении */
-.no-touch .info-hotspot:hover::after {
-  opacity: 1;
-}
 
 
 
