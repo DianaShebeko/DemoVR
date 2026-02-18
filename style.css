@@ -449,11 +449,12 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   opacity: 1;
 }
 
+/*иконка информации*/
 .info-hotspot .info-hotspot-header {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: rgb(103,115,131);
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgba(103,115,131,0.6);
   cursor: pointer;
   -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
@@ -500,9 +501,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot .info-hotspot-icon {
-  width: 90%;
-  height: 90%;
-  margin: 5%;
+  width: 70%;
+  height: 70%;
+  margin: 15%;
 }
 
 .info-hotspot .info-hotspot-title-wrapper {
