@@ -22,6 +22,7 @@ var APP_DATA = {
           "size": 2048
         }
       ],
+	  "audio": "content/music.mp3",
       "faceSize": 1344,
       "initialViewParameters": {
         "yaw": -2.730861247759062,
@@ -362,7 +363,8 @@ var APP_DATA = {
           "yaw": -0.08789999099448664,
           "pitch": -0.33145385476256095,
           "title": "Заголовок к коллекции фото №5",
-          "text": "Text"
+          "text": "Text",
+		  "images": "content/IMG_1359.jpg"
         }
       ]
     },
