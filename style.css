@@ -453,7 +453,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: rgba(0,115,131);
+  background-color: rgba(0,0,0,0.6);
   cursor: pointer;
   -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
@@ -709,15 +709,15 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   */
   position: relative; /* Меняем с absolute на relative */
   top: 60px;
-  left: auto;
-  right: auto;
+  left: 10px;
+  right: 10px;
   width: 90%;              /* Адаптивная ширина для мобильных */
   max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
   height: auto;
   min-height: 60px;
   
   background-color: rgba(103, 115, 131, 0.9);
-  margin: 0 auto 20px auto; /* Центрируем и отступ снизу */
+ /* margin: 0 auto 20px auto; /* Центрируем и отступ снизу */
   padding: 0 20px;
   box-sizing: border-box;
   
@@ -731,8 +731,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 .info-hotspot-modal.visible .info-hotspot-header {
   opacity: 1;
-  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
-  transition: opacity 0.3s ease-in-out 0.2s;
+ /* -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;*/
 }
 
 .info-hotspot-modal .info-hotspot-icon-wrapper {
