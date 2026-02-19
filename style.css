@@ -1085,27 +1085,42 @@ body.view-control-buttons .viewControlButton {
 .sceneList-inner {
   display: flex;
   height: 100%;
-}
-
-/* список слева */
-#sceneList .scenes {
-  width: 40%;
-  overflow-y: auto;
-}
-
-/* карта справа */
-.floorplan {
-  width: 60%;
-  position: relative;
-  padding: 10px;
-}
-
-.floorplan-image {
   width: 100%;
+  overflow: hidden;
+}
+
+/* Список слева — оригинальная ширина */
+#sceneList .scenes {
+  width: 220px;              /* Оригинальная ширина */
+  min-width: 220px;          /* Не сжимать */
+  overflow-y: auto;
+  background-color: rgba(58, 68, 84, 0.8);
+  flex-shrink: 0;            /* Запретить сжатие */
+}
+
+/* Карта справа — всё оставшееся место */
+.floorplan {
+  flex: 1;                   /* Занимает всё свободное место */
+  position: relative;
+  padding: 20px;
+  overflow: auto;            /* Прокрутка если картинка большая */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Картинка плана */
+.floorplan-image {
+  max-width: 100%;           /* Не шире контейнера */
+  max-height: 100%;          /* Не выше контейнера */
+  width: auto;
+  height: auto;
+  object-fit: contain;       /* Сохранять пропорции */
   display: block;
 }
 
-/* точки на карте */
+/* Точки на карте */
 .floor-point {
   position: absolute;
   width: 24px;
@@ -1117,4 +1132,11 @@ body.view-control-buttons .viewControlButton {
   line-height: 24px;
   font-size: 14px;
   cursor: pointer;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.floor-point:hover {
+  background: #ff7043;
+  transform: translate(-50%, -50%) scale(1.2);
 }
