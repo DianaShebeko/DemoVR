@@ -1081,16 +1081,25 @@ body.view-control-buttons .viewControlButton {
 }
 
 /* ===== FLOOR PLAN ===== */
-/* ===== FLOOR PLAN ===== */
-
-/* Увеличиваем ширину sceneList когда есть карта */
+/* Оригинальное поведение - скрыт слева */
 #sceneList {
-  width: 100%;              /* Было 220px */
-  max-width: 1200px;        /* Максимальная ширина */
+  position: absolute;
+  top: 0;
+  left: -220px;           /* Скрыт по умолчанию */
+  padding-top: 40px;
+  width: 220px;           /* Оригинальная ширина */
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transition: margin-left 0.5s ease-in-out;
+  transition: margin-left 0.5s ease-in-out;
 }
 
+/* Когда открыт - выезжает и становится шире */
 #sceneList.enabled {
-  margin-left: 0;           /* Было 220px */
+  margin-left: 220px;     /* Выезжает */
+  width: 100%;            /* Расширяется для карты */
+  max-width: 1200px;      /* Максимальная ширина */
 }
 
 .sceneList-inner {
@@ -1102,33 +1111,33 @@ body.view-control-buttons .viewControlButton {
 
 /* Список слева — фиксированная ширина */
 #sceneList .scenes {
-  width: 250px;             /* Фиксированная ширина для списка */
-  min-width: 250px;         /* Не сжимать */
+  width: 250px;
+  min-width: 250px;
   overflow-y: auto;
   background-color: rgba(58, 68, 84, 0.8);
-  flex-shrink: 0;           /* Запретить сжатие */
+  flex-shrink: 0;
 }
 
 /* Карта справа — всё оставшееся место */
 .floorplan {
-  flex: 1;                  /* Занимает всё свободное место */
+  flex: 1;
   position: relative;
   padding: 20px;
-  overflow: auto;           /* Прокрутка если картинка большая */
+  overflow: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
-  min-height: 400px;        /* Минимальная высота */
+  min-height: 400px;
 }
 
 /* Картинка плана */
 .floorplan-image {
-  max-width: 100%;          /* Не шире контейнера */
-  max-height: 100%;         /* Не выше контейнера */
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
-  object-fit: contain;      /* Сохранять пропорции */
+  object-fit: contain;
   display: block;
 }
 
