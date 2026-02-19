@@ -711,9 +711,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: opacity 0.3s ease-in-out 0.2s;
   */
   position: relative; /* Меняем с absolute на relative */
-  top: auto;
-  left: auto;
-  right: auto;
   width: 90%;              /* Адаптивная ширина для мобильных */
   max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
   height: auto;
@@ -739,8 +736,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot-modal .info-hotspot-icon-wrapper {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height:40px;
 }
 
 .info-hotspot-modal .info-hotspot-icon {
@@ -749,14 +746,25 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   margin: 5%;
 }
 
+/*Центрированный заголовок*/
 .info-hotspot-modal .info-hotspot-title-wrapper {
-  position: absolute;
+/*  position: absolute;
   top: 0;
   left: 50px;
   right: 50px;
   width: auto;
   height: 50px;
-  padding: 0 10px;
+  padding: 0 10px;*/
+  
+   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info-hotspot-modal .info-hotspot-title-wrapper:before {
@@ -780,10 +788,10 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: rgb(78,88,104);
-  background-color: rgba(78,88,104,0.8);
+  background-color: rgba(18,18,18,0.8);
   cursor: pointer;
 }
 
