@@ -708,7 +708,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: opacity 0.3s ease-in-out 0.2s;
   */
   position: relative; /* Меняем с absolute на relative */
-  top: auto;
+  top: 60px;
   left: auto;
   right: auto;
   width: 90%;              /* Адаптивная ширина для мобильных */
