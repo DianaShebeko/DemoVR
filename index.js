@@ -353,8 +353,8 @@
     var slider = document.createElement('div');
     slider.classList.add('info-hotspot-slider');
     slider.style.position = 'relative';
-    slider.style.width = '320px';
-    slider.style.height = '240px';
+    slider.style.width = '100%';        // ширина под родителя
+	slider.style.maxWidth = '1000px';
     slider.style.marginTop = '10px';
     slider.style.overflow = 'hidden';
 
