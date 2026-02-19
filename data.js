@@ -228,7 +228,7 @@ var APP_DATA = {
           "yaw": -0.0023637977799673138,
           "pitch": -0.34067066079122377,
           "title": "Петр Крымов. Юбилейный обед инвалидов. 1859",
-          "text": "Text"
+		  "images": "content/Obed-Invalidov-1859.jpg",
         }
       ]
     },
