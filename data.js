@@ -364,7 +364,7 @@ var APP_DATA = {
           "pitch": -0.33145385476256095,
           "title": "Заголовок к коллекции фото №5",
           "text": "Text",
-		  "images": "content/IMG_1359.jpg"
+		  "images": ["content/IMG_1359.jpg"]
         }
       ]
     },
