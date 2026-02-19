@@ -332,6 +332,70 @@
     // Place header and text into wrapper element.
     wrapper.appendChild(header);
     wrapper.appendChild(text);
+	
+  // --- Блок с изображениями (слайдер) ---
+  if (hotspot.images && hotspot.images.length > 0) {
+    var slider = document.createElement('div');
+    slider.classList.add('info-hotspot-slider');
+    slider.style.position = 'relative';
+    slider.style.width = '320px';
+    slider.style.height = '240px';
+    slider.style.marginTop = '10px';
+    slider.style.overflow = 'hidden';
+
+    var img = document.createElement('img');
+    img.src = hotspot.images[0];
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'contain';
+    slider.appendChild(img);
+
+    var current = 0;
+
+    // Кнопка вперед
+    var nextBtn = document.createElement('button');
+    nextBtn.innerHTML = '>';
+    nextBtn.style.position = 'absolute';
+    nextBtn.style.top = '50%';
+    nextBtn.style.right = '5px';
+    nextBtn.style.transform = 'translateY(-50%)';
+    nextBtn.style.background = 'rgba(0,0,0,0.3)';
+    nextBtn.style.color = '#fff';
+    slider.appendChild(nextBtn);
+    nextBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      current = (current + 1) % hotspot.images.length;
+      img.src = hotspot.images[current];
+    });
+
+    // Кнопка назад
+    var prevBtn = document.createElement('button');
+    prevBtn.innerHTML = '<';
+    prevBtn.style.position = 'absolute';
+    prevBtn.style.top = '50%';
+    prevBtn.style.left = '5px';
+    prevBtn.style.transform = 'translateY(-50%)';
+    prevBtn.style.background = 'rgba(0,0,0,0.3)';
+    prevBtn.style.color = '#fff';
+    slider.appendChild(prevBtn);
+    prevBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      current = (current - 1 + hotspot.images.length) % hotspot.images.length;
+      img.src = hotspot.images[current];
+    });
+
+    text.appendChild(slider);
+  }
+	
+	if (hotspot.video) {
+		var video = document.createElement('video');
+		video.src = hotspot.video; // например 'videos/myvideo.mp4'
+		video.width = 320;
+		video.height = 240;
+		video.controls = true;
+		video.style.marginTop = '10px';
+		text.appendChild(video);
+    }
 
     // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
@@ -385,6 +449,22 @@
     }
     return null;
   }
+  
+  //* ===== FLOORMAP ======= *
+  var floorPoints = document.querySelectorAll('.floor-point');
+
+floorPoints.forEach(function(point) {
+  point.addEventListener('click', function() {
+    var sceneId = point.getAttribute('data-scene');
+    var scene = findSceneById(sceneId);
+
+    if (scene) {
+      switchScene(scene);
+      hideSceneList(); // закрываем панель после перехода
+    }
+  });
+});
+
 
   // Display the initial scene.
   switchScene(scenes[0]);
