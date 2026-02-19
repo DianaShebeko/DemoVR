@@ -562,7 +562,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot .info-hotspot-close-wrapper {
-  position: absolute;
+  display: none
+  /*position: absolute;
   left: 260px;
   top: 0;
   height: 40px;
@@ -584,6 +585,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               -webkit-transform 0.3s 0.3s,
               transform 0.3s 0.3s,
               visibility 0s 0.6s;
+			  */
 }
 
 .desktop .info-hotspot.visible .info-hotspot-close-wrapper {
