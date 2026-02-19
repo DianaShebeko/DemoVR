@@ -1081,23 +1081,26 @@ body.view-control-buttons .viewControlButton {
 }
 
 /* ===== FLOOR PLAN ===== */
-/* Оригинальное поведение - скрыт слева */
+/* Оригинальное поведение/
 #sceneList {
   position: absolute;
   top: 0;
-  left: -220px;           /* Скрыт по умолчанию */
+  left: 0;          
   padding-top: 40px;
   width: 220px;           /* Оригинальная ширина */
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-transition: margin-left 0.5s ease-in-out;
-  transition: margin-left 0.5s ease-in-out;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 /* Когда открыт - выезжает и становится шире */
 #sceneList.enabled {
-  margin-left: 220px;     /* Выезжает */
+  opacity: 1;
+  visibility: visible;
   width: 100%;            /* Расширяется для карты */
   max-width: 1200px;      /* Максимальная ширина */
 }
@@ -1129,6 +1132,9 @@ body.view-control-buttons .viewControlButton {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
   min-height: 400px;
+  
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Картинка плана */
