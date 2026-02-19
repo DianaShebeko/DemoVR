@@ -495,6 +495,10 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot .info-hotspot-icon-wrapper {
   width: 30px;
   height: 30px;
+
+  display: flex;
+  align-items: center;      /* Центр по вертикали */
+  justify-content: center;  /* Центр по горизонтали */
 }
 
 .mobile .info-hotspot .info-hotspot-icon-wrapper {
@@ -505,7 +509,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot .info-hotspot-icon {
   width: 90%;
   height: 90%;
-  margin: 5%;
+  /*margin: 5%;*/
 }
 
 /*настройка заголовка*/
