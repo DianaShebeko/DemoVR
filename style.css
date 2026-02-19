@@ -709,11 +709,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   */
   position: relative; /* Меняем с absolute на relative */
   top: 60px;
-  left: 10px;
-  right: 10px;
+  left: auto;
+  right: auto;
   width: 90%;              /* Адаптивная ширина для мобильных */
   max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
-  height: auto;
+  height: 50px;
   min-height: 60px;
   
   background-color: rgba(103, 115, 131, 0.9);
