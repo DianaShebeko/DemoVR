@@ -354,7 +354,7 @@
     slider.classList.add('info-hotspot-slider');
     slider.style.position = 'relative';
     slider.style.width = '100%';        // ширина под родителя
-	slider.style.maxWidth = '1000px';
+	slider.style.maxWidth = '900px';
     slider.style.marginTop = '10px';
     slider.style.overflow = 'hidden';
 
