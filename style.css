@@ -511,6 +511,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border: 2px solid rgba(200, 200, 200, 0.9);
 
   cursor: pointer;
+  display: flex;
+  align-items: center;      /* Центр по вертикали */
+  justify-content: center;  /* Центр по горизонтали */
   -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
   transition: width 0.3s ease-in-out 0.5s,
@@ -549,7 +552,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 30px;
   height: 30px;
 
-  display: flex;
   align-items: center;      /* Центр по вертикали */
   justify-content: center;  /* Центр по горизонтали */
 }
