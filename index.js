@@ -33,9 +33,15 @@
   // Scene info elements
 	var sceneInfoToggle = document.getElementById('sceneInfoToggle');
 	var sceneInfoModal = document.getElementById('sceneInfoModal');
-	var sceneInfoTitle = sceneInfoModal.querySelector('.scene-info-title-wrapper');
-	var sceneInfoText = sceneInfoModal.querySelector('.scene-info-text');
-	var sceneInfoClose = sceneInfoModal.querySelector('.scene-info-close-wrapper');
+
+	var sceneInfoTitle = sceneInfoModal ?
+	  sceneInfoModal.querySelector('.scene-info-title-wrapper') : null;
+
+	var sceneInfoText = sceneInfoModal ?
+	  sceneInfoModal.querySelector('.scene-info-text') : null;
+
+	var sceneInfoClose = sceneInfoModal ?
+	  sceneInfoModal.querySelector('.scene-info-close-wrapper') : null;
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
