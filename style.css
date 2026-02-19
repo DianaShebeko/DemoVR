@@ -889,7 +889,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 90%;              /* Адаптивная ширина */
   max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
   max-height: 60vh;        /* Не больше 60% высоты экрана */
-  margin: 60px auto 20px auto; /* Центрируем и отступ снизу */
+  margin: 0px auto 20px auto; /* Центрируем и отступ снизу */
 
   
   padding: 20px;
