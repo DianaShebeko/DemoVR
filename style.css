@@ -562,9 +562,10 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot .info-hotspot-icon {
-  width: 90%;
-  height: 90%;
-  /*margin: 5%;*/
+  display: block;
+  width: 18px;              /* Фиксированный размер (60% от 30px) */
+  height: 18px;
+  margin: 0;
 }
 
 /*настройка заголовка*/
