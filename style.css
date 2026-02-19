@@ -1080,3 +1080,41 @@ body.view-control-buttons .viewControlButton {
 .viewControlButton-6 {
   margin-left: 105px;
 }
+
+/* ===== FLOOR PLAN ===== */
+.sceneList-inner {
+  display: flex;
+  height: 100%;
+}
+
+/* список слева */
+#sceneList .scenes {
+  width: 40%;
+  overflow-y: auto;
+}
+
+/* карта справа */
+.floorplan {
+  width: 60%;
+  position: relative;
+  padding: 10px;
+}
+
+.floorplan-image {
+  width: 100%;
+  display: block;
+}
+
+/* точки на карте */
+.floor-point {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #ff5722;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 14px;
+  cursor: pointer;
+}
