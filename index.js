@@ -30,18 +30,6 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   
-  // Scene info elements
-	var sceneInfoToggle = document.getElementById('sceneInfoToggle');
-	var sceneInfoModal = document.getElementById('sceneInfoModal');
-
-	var sceneInfoTitle = sceneInfoModal ?
-	  sceneInfoModal.querySelector('.scene-info-title-wrapper') : null;
-
-	var sceneInfoText = sceneInfoModal ?
-	  sceneInfoModal.querySelector('.scene-info-text') : null;
-
-	var sceneInfoClose = sceneInfoModal ?
-	  sceneInfoModal.querySelector('.scene-info-close-wrapper') : null;
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -202,7 +190,6 @@
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
-	updateSceneInfo(scene);
 
   }
 
@@ -210,41 +197,6 @@
     sceneNameElement.innerHTML = sanitize(scene.data.name);
   }
   
-  // ===== Scene Info Logic =====
-
-	function updateSceneInfo(scene) {
-	  if (!sceneInfoToggle) return;
-
-	  if (scene.data.sceneInfo) {
-		document.body.classList.add('scene-info-enabled');
-	  } else {
-		document.body.classList.remove('scene-info-enabled');
-	  }
-	}
-
-	sceneInfoToggle && sceneInfoToggle.addEventListener('click', function () {
-	  var scene = scenes.find(function(s) {
-		return s.data.id === sceneNameElement.getAttribute('data-id');
-	  }) || scenes[0];
-
-	  if (!scene.data.sceneInfo) return;
-
-	  sceneInfoTitle.textContent = scene.data.sceneInfo.title || scene.data.name;
-	  sceneInfoText.innerHTML = scene.data.sceneInfo.text || '';
-
-	  sceneInfoModal.classList.add('visible');
-	});
-
-	sceneInfoClose && sceneInfoClose.addEventListener('click', function () {
-	  sceneInfoModal.classList.remove('visible');
-	});
-
-	sceneInfoModal && sceneInfoModal.addEventListener('click', function (e) {
-	  if (e.target === sceneInfoModal) {
-		sceneInfoModal.classList.remove('visible');
-	  }
-	});
-
   function updateSceneList(scene) {
     for (var i = 0; i < sceneElements.length; i++) {
       var el = sceneElements[i];
