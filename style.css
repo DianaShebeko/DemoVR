@@ -833,11 +833,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 90%;              /* Адаптивная ширина */
   max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
   max-height: 60vh;        /* Не больше 60% высоты экрана */
-  margin: 110px auto 20px auto; /* Центрируем и отступ снизу */
+  margin: 60px auto 20px auto; /* Центрируем и отступ снизу */
 
   
   padding: 20px;
-  background-color: rgba(18, 18, 18, 0.8);
+  background-color: rgba(18, 18, 18, 0.7);
   border-radius: 5px;
   overflow-y: auto;        /* Прокрутка, если текст длинный */
   box-sizing: border-box;
