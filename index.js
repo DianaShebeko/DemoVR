@@ -30,6 +30,8 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   
+  var currentAudio = null;
+  
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -190,7 +192,18 @@
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
-
+	
+    // === АУДИО ===
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    if (scene.data.audio) {
+        currentAudio = new Audio(scene.data.audio);
+        currentAudio.play().catch(function(err){
+            console.log("Автовоспроизведение заблокировано браузером:", err);
+        });
+    }
   }
 
   function updateSceneName(scene) {

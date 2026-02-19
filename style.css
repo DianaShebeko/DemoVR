@@ -1081,29 +1081,33 @@ body.view-control-buttons .viewControlButton {
 }
 
 /* ===== FLOOR PLAN ===== */
+/* Панель списка и карты */
 #sceneList {
   position: absolute;
   top: 0;
-  left: 0;          
+  left: 0;           /* Стоит на месте, не ездит */
   padding-top: 40px;
-  width: 220px;           /* Оригинальная ширина */
+  width: 100%;       /* Сразу широкая */
+  max-width: 1200px;
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  z-index: 1000;     /* Поверх панорамы */
+  background-color: #000; /* Черный фон, чтобы не было прозрачно */
 
+  /* Скрыта по умолчанию */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-/* Когда открыт - выезжает и становится шире */
+/* Когда открыта — просто появляется */
 #sceneList.enabled {
   opacity: 1;
   visibility: visible;
-  width: 100%;            /* Расширяется для карты */
-  max-width: 1200px;      /* Максимальная ширина */
 }
 
+/* Контейнер внутри */
 .sceneList-inner {
   display: flex;
   height: 100%;
@@ -1111,7 +1115,7 @@ body.view-control-buttons .viewControlButton {
   overflow: hidden;
 }
 
-/* Список слева — фиксированная ширина */
+/* Список комнат (слева) */
 #sceneList .scenes {
   width: 250px;
   min-width: 250px;
@@ -1120,7 +1124,7 @@ body.view-control-buttons .viewControlButton {
   flex-shrink: 0;
 }
 
-/* Карта справа — всё оставшееся место */
+/* Карта (справа) */
 .floorplan {
   flex: 1;
   position: relative;
@@ -1132,11 +1136,17 @@ body.view-control-buttons .viewControlButton {
   background-color: rgba(0, 0, 0, 0.3);
   min-height: 400px;
   
+  /* Плавное появление карты */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Картинка плана */
+#sceneList.enabled .floorplan {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+/* Картинка */
 .floorplan-image {
   max-width: 100%;
   max-height: 100%;
@@ -1146,7 +1156,7 @@ body.view-control-buttons .viewControlButton {
   display: block;
 }
 
-/* Точки на карте */
+/* Точки */
 .floor-point {
   position: absolute;
   width: 24px;
@@ -1160,6 +1170,13 @@ body.view-control-buttons .viewControlButton {
   cursor: pointer;
   transform: translate(-50%, -50%);
   z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#sceneList.enabled .floor-point {
+  opacity: 1;
+  transition-delay: 0.4s;
 }
 
 .floor-point:hover {
