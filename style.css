@@ -711,16 +711,16 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: opacity 0.3s ease-in-out 0.2s;
   */
   position: relative; /* Меняем с absolute на relative */
-  top: 60px;
+  top: auto;
   left: auto;
   right: auto;
   width: 90%;              /* Адаптивная ширина для мобильных */
   max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
-  height: 50px;
+  height: auto;
   min-height: 60px;
   
   background-color: rgba(18, 18, 18, 0.9);
- /* margin: 0 auto 20px auto; /* Центрируем и отступ снизу */
+  margin: 60px auto 20px auto; /* Центрируем и отступ снизу */
   padding: 0 20px;
   box-sizing: border-box;
   
