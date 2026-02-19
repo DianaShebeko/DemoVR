@@ -693,7 +693,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot-modal .info-hotspot-header {
-  position: absolute;
+/*  position: absolute;
   top: 60px;
   left: 10px;
   right: 10px;
@@ -703,6 +703,27 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   background-color: rgba(103,115,131,0.8);
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
+  */
+  position: relative; /* Меняем с absolute на relative */
+  top: auto;
+  left: auto;
+  right: auto;
+  width: 90%;              /* Адаптивная ширина для мобильных */
+  max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
+  height: auto;
+  min-height: 60px;
+  
+  background-color: rgba(103, 115, 131, 0.9);
+  margin: 0 auto 20px auto; /* Центрируем и отступ снизу */
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Чтобы разнести заголовок и крестик */
+  
+  opacity: 0; /* Скрыто по умолчанию для анимации */
   transition: opacity 0.3s ease-in-out 0.2s;
 }
 
@@ -768,7 +789,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .info-hotspot-modal .info-hotspot-text {
-  position: absolute;
+  /*position: absolute;
   top: 110px;
   bottom: 10px;
   left: 10px;
@@ -785,6 +806,25 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   -webkit-user-select: text;
   -ms-user-select: text;
   user-select: text;
+  */
+  position: relative; /* Меняем с absolute на relative */
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  
+  width: 90%;              /* Адаптивная ширина */
+  max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
+  max-height: 60vh;        /* Не больше 60% высоты экрана */
+  
+  padding: 20px;
+  background-color: rgba(58, 68, 84, 0.9);
+  border-radius: 5px;
+  overflow-y: auto;        /* Прокрутка, если текст длинный */
+  box-sizing: border-box;
+  
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out 0.4s;
 }
 
 .info-hotspot-modal.visible .info-hotspot-text {
