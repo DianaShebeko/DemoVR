@@ -490,8 +490,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 */
 .info-hotspot .info-hotspot-icon-wrapper {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .mobile .info-hotspot .info-hotspot-icon-wrapper {
