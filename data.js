@@ -22,7 +22,7 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-	  "audio": "content/24689686.mp3",
+	  "audio": "audio/24689686.mp3",
       "faceSize": 1344,
       "initialViewParameters": {
         "yaw": -2.730861247759062,

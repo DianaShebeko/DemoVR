@@ -31,7 +31,7 @@
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   
   var currentAudio = null;
-  
+  var isAudioEnabled = true;
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -479,6 +479,29 @@ floorPoints.forEach(function(point) {
     }
   });
 });
+
+// === Обработчик кнопки аудио ===
+var audioToggleElement = document.querySelector('#audioToggle');
+if (audioToggleElement) {
+  audioToggleElement.addEventListener('click', function() {
+    if (currentAudio) {
+      if (isAudioEnabled) {
+        currentAudio.pause();
+        isAudioEnabled = false;
+        audioToggleElement.classList.remove('enabled');
+      } else {
+        currentAudio.play();
+        isAudioEnabled = true;
+        audioToggleElement.classList.add('enabled');
+      }
+    }
+  });
+  
+  // Инициализация: если в первой сцене есть аудио
+  if (scenes[0] && scenes[0].data.audio) {
+    audioToggleElement.classList.add('enabled');
+  }
+}
 
 
   // Display the initial scene.

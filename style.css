@@ -1161,4 +1161,39 @@ body.view-control-buttons .viewControlButton {
 .floor-point:hover {
   background: #ff7043;
   transform: translate(-50%, -50%) scale(1.2);
+  
+  
+  /*АУДИО*/
+  .control-button {
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.control-button .icon {
+  width: 28px;
+  height: 28px;
+  display: none;
+}
+
+.control-button .icon.off {
+  display: block;
+}
+
+.control-button.enabled .icon.off {
+  display: none;
+}
+
+.control-button.enabled .icon.on {
+  display: block;
+}
 }
