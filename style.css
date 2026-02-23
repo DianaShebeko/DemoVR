@@ -1199,8 +1199,8 @@ body.view-control-buttons .viewControlButton {
   background: rgba(0, 0, 0, 0.7);
 }
 #audioBtn img {
-  width: 70%;     
-  height: 70%;
+  width: 55%;     
+  height: 55%;
   margin: 15%;
 }
 
@@ -1208,7 +1208,7 @@ body.view-control-buttons .viewControlButton {
 #audioBar {
   position: absolute;
   bottom: 80px;
-  right: 80px; /* ← подгоните под кнопку */
+  right: 40px; /* ← подгоните под кнопку */
   background: #222;
   padding: 8px 12px;
   border-radius: 5px;
