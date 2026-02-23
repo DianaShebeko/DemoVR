@@ -1258,7 +1258,7 @@ body.view-control-buttons .viewControlButton {
   height: 60%;
   margin: 15%;
   transform: translateY(3px);  
-   transform: translateX(5px);  
+   transform: translateX(3px);  
 
 }
 
