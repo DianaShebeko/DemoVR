@@ -58,7 +58,7 @@ body.fullscreen-enabled.scene-info-enabled #titleBar {
 
 /* Если есть multiple scenes + scene info */
 body.multiple-scenes.scene-info-enabled #titleBar {
-  left: 80px; /* Место для кнопки списка сцен слева */
+  left: 40px; /* Место для кнопки списка сцен слева */
 }
 
 .mobile #titleBar {
