@@ -51,16 +51,6 @@ a, a:hover, a:active, a:visited {
   text-align: center;
  }
 
-/* Если есть fullscreen + scene info */
-body.fullscreen-enabled.scene-info-enabled #titleBar {
-  right: 120px;
-}
-
-/* Если есть multiple scenes + scene info */
-body.multiple-scenes.scene-info-enabled #titleBar {
-  left: 40px; /* Место для кнопки списка сцен слева */
-}
-
 .mobile #titleBar {
   height: 50px;
   right: 50px;
