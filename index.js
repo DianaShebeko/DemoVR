@@ -480,9 +480,6 @@ floorPoints.forEach(function(point) {
   });
 });
 
-  // Display the initial scene.
-  switchScene(scenes[0]);
-
 // === ПРОСТОЙ АУДИОГИД ===
 var gAudio = null;
 var audioBtn = document.getElementById('audioBtn');
@@ -557,6 +554,9 @@ switchScene = function(scene) {
     };
   }
 };
+
+  // Display the initial scene.
+  switchScene(scenes[0]);
 
 
 })();

@@ -1213,7 +1213,7 @@ body.view-control-buttons .viewControlButton {
   transition: background 0.2s;
 }
 #audioBtn:hover {
-  background: rgba(0, 123, 255, 0.6);
+  background: rgba(0, 0, 0, 0.7);
 }
 #audioBtn img {
   width: 40px;
