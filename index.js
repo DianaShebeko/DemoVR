@@ -573,7 +573,7 @@ if (audioSeek) {
 		gAudio.preload = 'metadata';
 		gAudio.ontimeupdate = updateTime;
 		gAudio.onended = function() {
-		  if (audioBtn) audioBtn.querySelector('img').src = 'img/audio.png';
+		  if (audioBtn) audioBtn.querySelector('img').src = 'img/audio-muted.png';
 		  if (audioSeek) audioSeek.value = 0;
 		  if (audioTime) audioTime.textContent = '0:00';
 		};
