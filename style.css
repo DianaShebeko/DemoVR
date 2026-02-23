@@ -1144,7 +1144,7 @@ body.view-control-buttons .viewControlButton {
   display: flex;
   flex-direction: column;        /* ← Кнопки в строчку */
   gap: 8px;
-  margin: 5px 0 10px 0;
+  margin: 10px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
