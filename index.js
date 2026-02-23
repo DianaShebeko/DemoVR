@@ -32,7 +32,6 @@
   var sceneInfoToggleElement = document.querySelector('#sceneInfoToggle');
     
   var guideAudio = null;     // аудио для гида
-  var currentAudio = null;   
   var currentSceneWrapper = null;
   
   // Detect desktop or mobile mode.
@@ -194,18 +193,6 @@
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
-	
-    // === АУДИО ===
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-    }
-    if (scene.data.audio) {
-        currentAudio = new Audio(scene.data.audio);
-        currentAudio.play().catch(function(err){
-            console.log("Автовоспроизведение заблокировано браузером:", err);
-        });
-    }
 	
 	currentSceneWrapper = scene;
   }
