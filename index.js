@@ -345,14 +345,15 @@
     slider.classList.add('info-hotspot-slider');
     slider.style.position = 'relative';
     slider.style.width = '100%';        // ширина под родителя
-	slider.style.maxHeight = '500px';
+	slider.style.maxHeight = '400px';
     slider.style.marginTop = '10px';
-    slider.style.overflow = 'auto';
+    slider.style.overflow = 'hidden';
 
     var img = document.createElement('img');
     img.src = hotspot.images[0];
     img.style.width = '100%';
     img.style.height = 'auto';
+	img.style.maxHeight = '400px';         // ← Ограничение высоты
     img.style.objectFit = 'contain';
     slider.appendChild(img);
 
