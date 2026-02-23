@@ -1169,7 +1169,7 @@ body.view-control-buttons .viewControlButton {
   display: inline-flex;       /* ← Кнопка в строчку */
   align-items: center;
   padding: 10px 20px;
-  background: rgba(58, 68, 84, 0.8);
+  background: rgba(35, 35, 38, 0.8);
   border: 1px solid rgba(200, 200, 200, 0.3);
   border-radius: 3px;
   color: #aaa;
