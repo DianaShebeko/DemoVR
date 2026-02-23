@@ -43,20 +43,13 @@ a, a:hover, a:active, a:visited {
 }
 
 #titleBar {
- /* position: absolute;
+ position: absolute;
   top: 0;
   left: 0;
   right: 40px;
   height: 40px;
   text-align: center;
-  */
-   position: absolute;
-  top: 0;
-  left: 0;
-  right: 80px; /* Место для кнопок справа */
-  height: 40px;
-  text-align: center;
-}
+ }
 
 /* Если есть fullscreen + scene info */
 body.fullscreen-enabled.scene-info-enabled #titleBar {
@@ -170,8 +163,10 @@ body.fullscreen-enabled #fullscreenToggle {
   width: 40px;
   height: 40px;
   padding: 5px;
+/*  
   background-color: rgb(103,115,131);
   background-color: rgba(103,115,131,0.8);
+*/
 }
 
 .mobile #autorotateToggle {
@@ -219,15 +214,13 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 /* === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoToggle {
-  display: none;
+  display: block;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 880;
   width: 40px;
   height: 40px;
   padding: 5px;
-  background-color: rgba(103, 115, 131, 0.8);
-  cursor: pointer;
 }
 
 body.scene-info-enabled #sceneInfoToggle {
@@ -240,19 +233,9 @@ body.scene-info-enabled #sceneInfoToggle {
   right: 5px;
   width: 30px;
   height: 30px;
-  border-radius: 15px;
-  border: 2px solid rgba(200, 200, 200, 0.9);
-  background-color: rgba(18, 18, 18, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-#sceneInfoToggle .icon svg {
-  width: 60%;
-  height: 60%;
-}
-
+/* === КНОПКА ИНФОРМАЦИИ СПИСКА СЦЕН === */
 #sceneListToggle {
   position: absolute;
   top: 0;
@@ -1203,7 +1186,7 @@ body.view-control-buttons .viewControlButton {
   right: 140px;
   width: 50px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
