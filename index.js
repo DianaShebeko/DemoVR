@@ -31,6 +31,7 @@
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   
 	var guideAudio = null;     // аудио для гида
+	var currentAudio = null;   // <-- ДОБАВИТЬ эту строку
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -410,15 +411,6 @@
 		video.style.marginTop = '10px';
 		text.appendChild(video);
     }
-	  
-	  // Сборка
-	  playerWrapper.appendChild(playBtn);
-	  playerWrapper.appendChild(progress);
-	  playerWrapper.appendChild(timeDisplay);
-	  playerWrapper.appendChild(audio); // скрытый элемент
-	  
-	  text.appendChild(playerWrapper);
-	}
 
     // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
@@ -498,28 +490,6 @@ var audioBar = document.getElementById('audioBar');
 var audioSeek = document.getElementById('audioSeek');
 var audioTime = document.getElementById('audioTime');
 
-// Клик = play/pause
-if (audioBtn) audioBtn.addEventListener('click', function(e) {
-  e.stopPropagation();
-  if (!gAudio) return;
-  gAudio.paused ? gAudio.play() : gAudio.pause();
-  audioBtn.querySelector('img').src = gAudio.paused ? 'img/audio.png' : 'img/audio-muted.png';
-});
-
-// Hover = показать панель
-if (audioBtn && audioBar) {
-  audioBtn.onmouseenter = function() { if (gAudio) audioBar.style.display = 'block'; };
-  audioBar.onmouseenter = function() { audioBar.style.display = 'block'; };
-  audioBar.onmouseleave = function() { audioBar.style.display = 'none'; };
-  audioBtn.onmouseleave = function() { setTimeout(function(){ if (!audioBar.matches(':hover')) audioBar.style.display = 'none'; }, 200); };
-}
-
-// Перемотка
-if (audioSeek) audioSeek.oninput = function() {
-  if (gAudio && gAudio.duration) gAudio.currentTime = (audioSeek.value / 100) * gAudio.duration;
-};
-
-// Обновление времени
 function updateTime() {
   if (gAudio && gAudio.duration && audioSeek && audioTime) {
     audioSeek.value = (gAudio.currentTime / gAudio.duration) * 100;
@@ -528,17 +498,54 @@ function updateTime() {
   }
 }
 
-// При переключении сцены
-var oldSwitch = switchScene;
+// Клик = play/pause
+if (audioBtn) {
+  audioBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (!gAudio) return;
+    if (gAudio.paused) {
+      gAudio.play().catch(function(err) { console.log("Play error:", err); });
+      audioBtn.querySelector('img').src = 'img/audio-muted.png';
+    } else {
+      gAudio.pause();
+      audioBtn.querySelector('img').src = 'img/audio.png';
+    }
+  });
+  
+  // Hover = показать панель
+  audioBtn.onmouseenter = function() { if (gAudio) audioBar.style.display = 'block'; };
+  audioBtn.onmouseleave = function() { setTimeout(function(){ if (audioBar && !audioBar.matches(':hover')) audioBar.style.display = 'none'; }, 200); };
+}
+
+// Панель
+if (audioBar) {
+  audioBar.onmouseenter = function() { audioBar.style.display = 'block'; };
+  audioBar.onmouseleave = function() { audioBar.style.display = 'none'; };
+}
+
+// Перемотка
+if (audioSeek) {
+  audioSeek.oninput = function() {
+    if (gAudio && gAudio.duration) {
+      gAudio.currentTime = (audioSeek.value / 100) * gAudio.duration;
+    }
+  };
+}
+
+// Переопределение switchScene для аудио
+var oldSwitchScene = switchScene;
 switchScene = function(scene) {
-  oldSwitch(scene); // вызываем оригинальную функцию
+  oldSwitchScene(scene);
   
   // Сброс старого аудио
   if (gAudio) { gAudio.pause(); gAudio = null; }
   if (audioBar) audioBar.style.display = 'none';
-  if (audioBtn) { audioBtn.style.display = scene.data.audioGuide ? 'block' : 'none'; audioBtn.querySelector('img').src = 'img/audio.png'; }
+  if (audioBtn) {
+    audioBtn.style.display = scene.data.audioGuide ? 'block' : 'none';
+    audioBtn.querySelector('img').src = 'img/audio.png';
+  }
   
-  // Новое аудио, если есть
+  // Новое аудио
   if (scene.data.audioGuide) {
     gAudio = new Audio(scene.data.audioGuide);
     gAudio.preload = 'metadata';
@@ -550,5 +557,6 @@ switchScene = function(scene) {
     };
   }
 };
+
 
 })();
