@@ -172,6 +172,24 @@
   <input type="range" id="audioSeek" min="0" max="100" value="0">
   <span id="audioTime">0:00</span>
  </div>
+ 
+ <!-- Модальное окно информации о сцене -->
+<div id="sceneInfoModal">
+  <div class="scene-info-header">
+    <div class="scene-info-icon-wrapper">
+      <img src="img/info.png" class="scene-info-icon" alt="ℹ️">
+    </div>
+    <div class="scene-info-title-wrapper">
+      <div class="scene-info-title" id="sceneInfoTitle">О сцене</div>
+    </div>
+    <div class="scene-info-close-wrapper" id="sceneInfoClose">
+      <img src="img/close.png" class="scene-info-close-icon" alt="✕">
+    </div>
+  </div>
+  <div class="scene-info-text" id="sceneInfoText">
+    Текст информации о сцене...
+  </div>
+</div>
 
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
