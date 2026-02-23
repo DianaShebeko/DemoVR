@@ -33,6 +33,8 @@
     
   var guideAudio = null;     // аудио для гида
   var currentAudio = null;   // <-- ДОБАВИТЬ эту строку
+  
+  var sceneData = currentSceneWrapper;
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -205,6 +207,8 @@
             console.log("Автовоспроизведение заблокировано браузером:", err);
         });
     }
+	
+	currentSceneWrapper = scene;
   }
 
   function updateSceneName(scene) {
@@ -563,25 +567,36 @@ switchScene = function(scene) {
 	var sceneInfoText = document.getElementById('sceneInfoText');
 	var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
 
-	// Открытие модального окна по клику на кнопку
 	if (sceneInfoToggle) {
 	  sceneInfoToggle.addEventListener('click', function(e) {
 		e.stopPropagation();
 		
-		var currentScene = viewer.currentScene();
-		var sceneData = scenes.find(s => s.scene === currentScene);
+		// ← ИСПРАВЛЕНИЕ: используем currentSceneWrapper
+		var sceneData = currentSceneWrapper;
 		
 		if (sceneData && sceneData.data.sceneInfo) {
-		  // Заполняем контент из данных сцены
 		  if (sceneInfoTitle) sceneInfoTitle.textContent = sceneData.data.sceneInfo.title || 'О сцене';
 		  if (sceneInfoText) sceneInfoText.textContent = sceneData.data.sceneInfo.text || '';
-		  
-		  // Показываем модальное окно
 		  sceneInfoModal.classList.add('visible');
 		}
 	  });
 	}
 
+// Закрытие модального окна (крестик)
+if (sceneInfoClose) {
+  sceneInfoClose.addEventListener('click', function() {
+    sceneInfoModal.classList.remove('visible');
+  });
+}
+
+// Закрытие по клику вне контента
+if (sceneInfoModal) {
+  sceneInfoModal.addEventListener('click', function(e) {
+    if (e.target === sceneInfoModal) {
+      sceneInfoModal.classList.remove('visible');
+    }
+  });
+}
 	// Закрытие модального окна (крестик)
 	if (sceneInfoClose) {
 	  sceneInfoClose.addEventListener('click', function() {
