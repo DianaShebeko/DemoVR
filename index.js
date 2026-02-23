@@ -532,33 +532,6 @@ if (audioSeek) {
     }
   };
 }
-
-// Переопределение switchScene для аудио
-var oldSwitchScene = switchScene;
-switchScene = function(scene) {
-  oldSwitchScene(scene);
-  
-  // Сброс старого аудио
-  if (gAudio) { gAudio.pause(); gAudio = null; }
-  if (audioBar) audioBar.style.display = 'none';
-  if (audioBtn) {
-    audioBtn.style.display = scene.data.audioGuide ? 'block' : 'none';
-    audioBtn.querySelector('img').src = 'img/audio.png';
-  }
-  
-  // Новое аудио
-  if (scene.data.audioGuide) {
-    gAudio = new Audio(scene.data.audioGuide);
-    gAudio.preload = 'metadata';
-    gAudio.ontimeupdate = updateTime;
-    gAudio.onended = function() {
-      if (audioBtn) audioBtn.querySelector('img').src = 'img/audio.png';
-      if (audioSeek) audioSeek.value = 0;
-      if (audioTime) audioTime.textContent = '0:00';
-    };
-  }
-};
-
 	// === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ → МОДАЛЬНОЕ ОКНО ===
 	var sceneInfoToggle = document.getElementById('sceneInfoToggle');
 	var sceneInfoModal = document.getElementById('sceneInfoModal');
@@ -595,12 +568,31 @@ switchScene = function(scene) {
 	  });
 	}
 
-	// Обновление кнопки при переключении сцены
-	var oldSwitch = switchScene;
+	// === ОБЪЕДИНЁННОЕ ПЕРЕОПРЕДЕЛЕНИЕ switchScene ===
+	var originalSwitchScene = switchScene;
 	switchScene = function(scene) {
-	  oldSwitch(scene);
+	  // 1. Сначала вызываем оригинальную логику
+	  originalSwitchScene(scene);
 	  
-	  // Показываем/скрываем кнопку в зависимости от наличия sceneInfo
+	  // 2. === АУДИОГИД ===
+	  if (gAudio) { gAudio.pause(); gAudio = null; }
+	  if (audioBar) audioBar.style.display = 'none';
+	  if (audioBtn) {
+		audioBtn.style.display = scene.data.audioGuide ? 'block' : 'none';
+		audioBtn.querySelector('img').src = 'img/audio.png';
+	  }
+	  if (scene.data.audioGuide) {
+		gAudio = new Audio(scene.data.audioGuide);
+		gAudio.preload = 'metadata';
+		gAudio.ontimeupdate = updateTime;
+		gAudio.onended = function() {
+		  if (audioBtn) audioBtn.querySelector('img').src = 'img/audio.png';
+		  if (audioSeek) audioSeek.value = 0;
+		  if (audioTime) audioTime.textContent = '0:00';
+		};
+	  }
+	  
+	  // 3. === ИНФОРМАЦИЯ О СЦЕНЕ ===
 	  if (sceneInfoToggle) {
 		if (scene.data.sceneInfo) {
 		  sceneInfoToggle.style.display = 'block';
