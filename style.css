@@ -1153,13 +1153,12 @@ body.view-control-buttons .viewControlButton {
 .floor-btn {
   display: inline-flex;       /* ← Кнопка в строчку */
   align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
+  padding: 10px 20px;
   background: rgba(58, 68, 84, 0.8);
   border: 1px solid rgba(200, 200, 200, 0.3);
   border-radius: 3px;
   color: #aaa;
-  font-size: 11px;
+  font-size: 14px;
   cursor: pointer;
   transition: color 0.2s, background 0.2s;
   white-space: nowrap;        /* ← Текст не переносится */
