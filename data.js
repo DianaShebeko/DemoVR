@@ -3,6 +3,7 @@ var APP_DATA = {
     {
       "id": "0--",
       "name": "Главная лестница",
+	  "audioGuide": "audio/24689686.mp3"	  
       "levels": [
         {
           "tileSize": 256,
@@ -22,7 +23,6 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-	  "audio": "audio/24689686.mp3",
       "faceSize": 1344,
       "initialViewParameters": {
         "yaw": -2.730861247759062,
