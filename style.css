@@ -1211,7 +1211,7 @@ body.view-control-buttons .viewControlButton {
 #audioBar {
   position: absolute;
   bottom: 80px;
-  right: 120px; /* ← подгоните под кнопку */
+  right: 80px; /* ← подгоните под кнопку */
   background: #222;
   padding: 8px 12px;
   border-radius: 5px;
