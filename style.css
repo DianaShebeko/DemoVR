@@ -1182,6 +1182,8 @@ body.view-control-buttons .viewControlButton {
   cursor: pointer;
   transition: color 0.2s, background 0.2s;
   white-space: nowrap;        /* ← Текст не переносится */
+  
+  display: none;
 }
 
 .floor-btn:hover {
@@ -1194,11 +1196,6 @@ body.view-control-buttons .viewControlButton {
 .floor-btn.active {
   color: #fff;
   font-weight: bold;
-}
-
-/* Скрываем точки других этажей */
-.floor-point {
-  display: none;
 }
 
 .floor-point.visible {
