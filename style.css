@@ -1140,6 +1140,43 @@ body.view-control-buttons .viewControlButton {
   transform: translate(-50%, -50%) scale(1.2);
 }
   
+  /* === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ === */
+.floor-toggle {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.floor-btn {
+  padding: 6px 12px;
+  background: rgba(58, 68, 84, 0.8);
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.floor-btn:hover {
+  background: rgba(103, 115, 131, 0.8);
+}
+
+.floor-btn.active {
+  background: rgba(0, 123, 255, 0.8);
+  border-color: rgba(0, 123, 255, 1);
+}
+
+/* Скрываем точки других этажей */
+.floor-point {
+  display: none;  /* Скрыты по умолчанию */
+}
+
+.floor-point.visible {
+  display: block;  /* Показываем только активные */
+}
+  
 .control-button {
   position: absolute;
   bottom: 20px;

@@ -106,14 +106,26 @@
     
    </ul>
   
+	  <!-- Переключатель этажей -->
+	<div class="floor-toggle">
+	  <button class="floor-btn active" data-floor="1">1 этаж</button>
+	  <button class="floor-btn" data-floor="2">2 этаж</button>
+	  <button class="floor-btn" data-floor="3">3 этаж</button>
+	</div>
+  
   	  <!-- Правая часть — карта -->
     <div class="floorplan">
       <img src="img/floorplan.jpg" class="floorplan-image">
 
-      <!-- Точки -->
-      <div class="floor-point" data-scene="0--" style="top:75%; left:71%;">1</div>
-      <div class="floor-point" data-scene="3--" style="top:65%; left:67%;">2</div>
-      <div class="floor-point" data-scene="1---2-" style="top:75%; left:75%;">3</div>
+	  <!-- 1 этаж -->
+	  <div class="floor-point" data-scene="0--" data-floor="1" style="top:75%; left:71%;">1</div>
+	  <div class="floor-point" data-scene="3--" data-floor="1" style="top:65%; left:67%;">2</div>
+
+	  <!-- 2 этаж -->
+	  <div class="floor-point" data-scene="1---2-" data-floor="2" style="top:75%; left:75%;">1</div>
+	  
+	  <!-- 3 этаж -->
+	  <div class="floor-point" data-scene="2---3-" data-floor="3" style="top:70%; left:70%;">1</div>
     </div>
 
  </div>	
