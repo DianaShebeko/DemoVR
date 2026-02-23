@@ -1101,6 +1101,8 @@ body.view-control-buttons .viewControlButton {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;  /* ← ДОБАВИТЬ: прижимает вправо */
+
 /*  
   background-color: rgba(0, 0, 0, 0.3);
   min-height: 400px;
