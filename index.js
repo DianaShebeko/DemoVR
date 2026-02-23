@@ -356,7 +356,7 @@
 	img.style.maxHeight = '400px';         // ← Ограничение высоты
     img.style.objectFit = 'contain';
     slider.appendChild(img);
-
+	if (hotspot.images.length > 1) {
     var current = 0;
 
     // Кнопка вперед
@@ -390,6 +390,7 @@
       current = (current - 1 + hotspot.images.length) % hotspot.images.length;
       img.src = hotspot.images[current];
     });
+	}
 
     text.appendChild(slider);
   }
