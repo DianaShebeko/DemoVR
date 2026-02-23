@@ -890,7 +890,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 100%;
   overflow: hidden;
   z-index: 11000 !important;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   
   display: none;
   flex-direction: column;
@@ -899,7 +899,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+  -webkit-transition: opacity 0.2s ease-in-out 0.5s,
+                      visibility 0s 0.7s;
+  transition: opacity 0.2s ease-in-out 0.5s,
+              visibility 0s 0.7s;
+
 }
 
 #sceneInfoModal.visible {
@@ -1198,7 +1202,7 @@ body.view-control-buttons .viewControlButton {
 #audioBar {
   position: absolute;
   bottom: 80px;
-  right: 40px; /* ← подгоните под кнопку */
+  right: 50px; /* ← подгоните под кнопку */
   background: #222;
   padding: 8px 12px;
   border-radius: 5px;
