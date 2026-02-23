@@ -30,9 +30,9 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   var sceneInfoToggleElement = document.querySelector('#sceneInfoToggle');
-  
-	var guideAudio = null;     // аудио для гида
-	var currentAudio = null;   // <-- ДОБАВИТЬ эту строку
+    
+  var guideAudio = null;     // аудио для гида
+  var currentAudio = null;   // <-- ДОБАВИТЬ эту строку
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -556,8 +556,66 @@ switchScene = function(scene) {
   }
 };
 
+	// === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ → МОДАЛЬНОЕ ОКНО ===
+	var sceneInfoToggle = document.getElementById('sceneInfoToggle');
+	var sceneInfoModal = document.getElementById('sceneInfoModal');
+	var sceneInfoTitle = document.getElementById('sceneInfoTitle');
+	var sceneInfoText = document.getElementById('sceneInfoText');
+	var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
+
+	// Открытие модального окна по клику на кнопку
+	if (sceneInfoToggle) {
+	  sceneInfoToggle.addEventListener('click', function(e) {
+		e.stopPropagation();
+		
+		var currentScene = viewer.currentScene();
+		var sceneData = scenes.find(s => s.scene === currentScene);
+		
+		if (sceneData && sceneData.data.sceneInfo) {
+		  // Заполняем контент из данных сцены
+		  if (sceneInfoTitle) sceneInfoTitle.textContent = sceneData.data.sceneInfo.title || 'О сцене';
+		  if (sceneInfoText) sceneInfoText.textContent = sceneData.data.sceneInfo.text || '';
+		  
+		  // Показываем модальное окно
+		  sceneInfoModal.classList.add('visible');
+		}
+	  });
+	}
+
+	// Закрытие модального окна (крестик)
+	if (sceneInfoClose) {
+	  sceneInfoClose.addEventListener('click', function() {
+		sceneInfoModal.classList.remove('visible');
+	  });
+	}
+
+	// Закрытие по клику вне контента
+	if (sceneInfoModal) {
+	  sceneInfoModal.addEventListener('click', function(e) {
+		if (e.target === sceneInfoModal) {
+		  sceneInfoModal.classList.remove('visible');
+		}
+	  });
+	}
+
+	// Обновление кнопки при переключении сцены
+	var oldSwitch = switchScene;
+	switchScene = function(scene) {
+	  oldSwitch(scene);
+	  
+	  // Показываем/скрываем кнопку в зависимости от наличия sceneInfo
+	  if (sceneInfoToggle) {
+		if (scene.data.sceneInfo) {
+		  sceneInfoToggle.style.display = 'block';
+		  document.body.classList.add('scene-info-enabled');
+		} else {
+		  sceneInfoToggle.style.display = 'none';
+		  document.body.classList.remove('scene-info-enabled');
+		}
+	  }
+	};
+
   // Display the initial scene.
   switchScene(scenes[0]);
-
 
 })();
