@@ -744,7 +744,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   */
   position: relative; /* Меняем с absolute на relative */
   width: 90%;              /* Адаптивная ширина для мобильных */
-  max-width: 1024px;       /* ВАШЕ ОГРАНИЧЕНИЕ */
+  max-width: 1024px;       /* ОГРАНИЧЕНИЕ */
   height: 50px;
   min-height: 60px;
   
@@ -922,8 +922,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   min-height: 50px;
   
   background-color: rgba(18, 18, 18, 0.9);
-  margin: 60px auto 5px auto;
-  padding: 0 20px;
+  margin: 60px auto 0px auto;
+/*  padding: 0 20px;*/
   box-sizing: border-box;
   
   display: grid;
