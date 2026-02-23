@@ -566,7 +566,7 @@ if (audioSeek) {
 	  if (audioBar) audioBar.style.display = 'none';
 	  if (audioBtn) {
 		audioBtn.style.display = scene.data.audioGuide ? 'block' : 'none';
-		audioBtn.querySelector('img').src = 'img/audio.png';
+		audioBtn.querySelector('img').src = 'img/audio-muted.png';
 	  }
 	  if (scene.data.audioGuide) {
 		gAudio = new Audio(scene.data.audioGuide);
