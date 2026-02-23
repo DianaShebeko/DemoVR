@@ -25,7 +25,7 @@ html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background-color: #000;
-  color: #fff;
+  color: #f7f8fc;
 }
 
 a, a:hover, a:active, a:visited {
@@ -748,7 +748,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 50px;
   min-height: 60px;
   
-  background-color: rgba(18, 18, 18, 0.9);
+  background-color: rgba(29, 29, 31, 0.9);
   margin: 60px auto 0px auto; /* Центрируем и отступ снизу */
   padding: 0 20px;
   box-sizing: border-box;
@@ -822,8 +822,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   right: 0;
   width: 40px;
   height: 40px;
-  background-color: rgb(78,88,104);
-  background-color: rgba(18,18,18,0.8);
+ /* background-color: rgb(78,88,104);
+  background-color: rgba(18,18,18,0.8);*/
   cursor: pointer;
 }
 
@@ -866,7 +866,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
   
   padding: 20px;
-  background-color: rgba(18, 18, 18, 0.7);
+  background-color: rgba(35, 35, 38, 0.7);
   border-radius: 5px;
   overflow-y: auto;        /* Прокрутка, если текст длинный */
   box-sizing: border-box;
@@ -890,7 +890,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 100%;
   overflow: hidden;
   z-index: 11000 !important;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   
   display: none;
   flex-direction: column;
