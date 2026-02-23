@@ -217,14 +217,14 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   display: block;
   position: absolute;
   top: 0;
-  right: 880;
+  right: 880px;
   width: 40px;
   height: 40px;
   padding: 5px;
 }
 
 body.scene-info-enabled #sceneInfoToggle {
-  display: block;
+  display: block;		/* Показываем, если есть инфо */
 }
 
 #sceneInfoToggle .icon {

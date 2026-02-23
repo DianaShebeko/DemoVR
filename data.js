@@ -3,6 +3,10 @@ var APP_DATA = {
     {
       "id": "0--",
       "name": "Главная лестница",
+	  "sceneInfo": {                 
+		"title": "Главная лестница",
+		"text": "История главной лестницы..."
+	  },
 	  "audioGuide": "audio/24689686.mp3",
 	  "levels": [
         {

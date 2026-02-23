@@ -29,6 +29,7 @@
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
+  var sceneInfoToggleElement = document.querySelector('#sceneInfoToggle');
   
 	var guideAudio = null;     // аудио для гида
 	var currentAudio = null;   // <-- ДОБАВИТЬ эту строку
