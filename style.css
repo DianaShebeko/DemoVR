@@ -888,7 +888,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 100%;
   overflow: hidden;
   z-index: 11000 !important;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(35, 35, 38, 0.4);
   
   display: none;
   flex-direction: column;
