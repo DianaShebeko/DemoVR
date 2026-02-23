@@ -160,13 +160,13 @@
 
 <!-- Кнопка аудиогида -->
 <a href="javascript:void(0)" id="audioBtn" title="Аудиогид">
-  <img src="img/audio.png" style="width:40px;height:40px;">
+  <img src="img/audio.png">
 </a>
 <!-- Панель управления -->
-<div id="audioBar" style="display:none;position:absolute;bottom:70px;right:20px;background:#222;padding:5px 10px;border-radius:5px;z-index:200;">
-  <input type="range" id="audioSeek" style="width:150px;" min="0" max="100" value="0">
-  <span id="audioTime" style="color:#fff;font-size:11px;margin-left:5px;">0:00</span>
-</div>
+<div id="audioBar">
+  <input type="range" id="audioSeek" min="0" max="100" value="0">
+  <span id="audioTime">0:00</span>
+ </div>
 
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
