@@ -594,4 +594,36 @@ if (audioSeek) {
   // Display the initial scene.
   switchScene(scenes[0]);
 
+// === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ ===
+(function initFloorToggle() {
+  var floorBtns = document.querySelectorAll('.floor-btn');
+  var floorPoints = document.querySelectorAll('.floor-point');
+  var currentFloor = '1';
+
+  function showFloor(floor) {
+    currentFloor = floor;
+    
+    floorBtns.forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.floor === floor);
+    });
+    
+    floorPoints.forEach(function(point) {
+      if (point.dataset.floor === floor) {
+        point.classList.add('visible');
+      } else {
+        point.classList.remove('visible');
+      }
+    });
+  }
+
+  floorBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showFloor(this.dataset.floor);
+    });
+  });
+
+  // Инициализация — показываем 1 этаж
+  showFloor('1');
+})();
+
 })();

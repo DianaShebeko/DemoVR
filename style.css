@@ -1140,23 +1140,24 @@ body.view-control-buttons .viewControlButton {
   transform: translate(-50%, -50%) scale(1.2);
 }
   
-  /* === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ === */
+/* === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ === */
 .floor-toggle {
   display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
+  gap: 4px;
+  margin-bottom: 8px;
   justify-content: center;
 }
 
 .floor-btn {
-  padding: 6px 12px;
+  padding: 4px 10px;
   background: rgba(58, 68, 84, 0.8);
   border: 1px solid rgba(200, 200, 200, 0.3);
-  border-radius: 4px;
+  border-radius: 3px;
   color: #fff;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
   transition: background 0.2s;
+  min-width: 50px;
 }
 
 .floor-btn:hover {
@@ -1170,11 +1171,11 @@ body.view-control-buttons .viewControlButton {
 
 /* Скрываем точки других этажей */
 .floor-point {
-  display: none;  /* Скрыты по умолчанию */
+  display: none;
 }
 
 .floor-point.visible {
-  display: block;  /* Показываем только активные */
+  display: block;
 }
   
 .control-button {
