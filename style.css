@@ -922,7 +922,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   min-height: 50px;
   
   background-color: rgba(18, 18, 18, 0.9);
-  margin: 60px auto 20px auto;
+  margin: 60px auto 5px auto;
   padding: 0 20px;
   box-sizing: border-box;
   
