@@ -1200,7 +1200,7 @@ body.view-control-buttons .viewControlButton {
 #audioBtn {
   position: absolute;
   bottom: 20px;
-  right: 140px; /* ← меняйте это число, чтобы сдвигать кнопку */
+  right: 1080px;
   width: 50px;
   height: 50px;
   background: rgba(0, 0, 0, 0.5);
@@ -1262,10 +1262,4 @@ body.view-control-buttons .viewControlButton {
   color: #ccc;
   text-align: center;
   font-family: sans-serif;
-}
-
-/* Адаптив для мобильных */
-@media (max-width: 500px) {
-  #audioBtn { right: 80px; bottom: 15px; }
-  #audioBar { right: 60px; bottom: 70px; }
 }
