@@ -1199,12 +1199,9 @@ body.view-control-buttons .viewControlButton {
   background: rgba(0, 0, 0, 0.7);
 }
 #audioBtn img {
-  width: 35px;
-  height: 35px;
-  
-  align-items: center;      /* Центр по вертикали */
-  justify-content: center;  /* Центр по горизонтали */
-
+  width: 70%;     
+  height: 70%;
+  margin: 15%;
 }
 
 /* Панель управления (прогресс + время) */
