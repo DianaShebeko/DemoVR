@@ -3,7 +3,7 @@ var APP_DATA = {
     {
       "id": "0--",
       "name": "Главная лестница",
-	  "audioGuide": "audio/24689686.mp3"	  
+	  "audioGuide": "audio/24689686.mp3",  
       "levels": [
         {
           "tileSize": 256,
