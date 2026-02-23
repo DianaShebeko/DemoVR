@@ -217,7 +217,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   display: block;
   position: absolute;
   top: 0;
-  right: 880px;
+  right: 440px;
   width: 40px;
   height: 40px;
   padding: 5px;
@@ -1183,7 +1183,7 @@ body.view-control-buttons .viewControlButton {
 #audioBtn {
   position: absolute;
   bottom: 20px;
-  right: 140px;
+  right: 120px;
   width: 50px;
   height: 50px;
   background: rgba(0, 0, 0, 0.3);
@@ -1201,6 +1201,10 @@ body.view-control-buttons .viewControlButton {
 #audioBtn img {
   width: 35px;
   height: 35px;
+  
+  align-items: center;      /* Центр по вертикали */
+  justify-content: center;  /* Центр по горизонтали */
+
 }
 
 /* Панель управления (прогресс + время) */
