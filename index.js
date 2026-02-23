@@ -502,10 +502,10 @@ if (audioBtn) {
     if (!gAudio) return;
     if (gAudio.paused) {
       gAudio.play().catch(function(err) { console.log("Play error:", err); });
-      audioBtn.querySelector('img').src = 'img/audio-muted.png';
+      audioBtn.querySelector('img').src = 'img/audio.png';
     } else {
       gAudio.pause();
-      audioBtn.querySelector('img').src = 'img/audio.png';
+      audioBtn.querySelector('img').src = 'img/audio-muted.png';
     }
   });
   
