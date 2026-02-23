@@ -1308,3 +1308,80 @@ body.view-control-buttons .viewControlButton {
   text-align: center;
   font-family: sans-serif;
 }
+
+/* === БЛОКИ КОНТЕНТА === */
+.info-hotspot-text .content-block {
+  margin-bottom: 15px;
+}
+
+.info-hotspot-text .content-text {
+  line-height: 1.6em;
+  color: #f7f8fc;
+}
+
+.info-hotspot-text .content-image img,
+.info-hotspot-text .content-video video {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+
+/* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
+.info-hotspot-slider {
+  max-height: 400px;
+  overflow: hidden !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.info-hotspot-slider img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Кнопки слайдера */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.slider-btn.next { right: 5px; }
+.slider-btn.prev { left: 5px; }
+
+/* === МОДАЛЬНОЕ ОКНО: ПРОКРУТКА === */
+.info-hotspot-modal .info-hotspot-text {
+  overflow-y: auto;        /* Прокрутка контента */
+  max-height: 60vh;        /* Ограничение высоты */
+}
+
+.info-hotspot-slider {
+  overflow: hidden !important;  /* НЕТ прокрутки у слайдера */
+}

@@ -335,76 +335,142 @@
     text.classList.add('info-hotspot-text');
     text.innerHTML = hotspot.text;
 
+	  // === ГИБКИЙ КОНТЕНТ ===
+	  if (hotspot.content && hotspot.content.length > 0) {
+		hotspot.content.forEach(function(block) {
+			
+			// === ТЕКСТ ===
+		  if (block.type === 'text') {
+			var textBlock = document.createElement('div');
+			textBlock.classList.add('content-block', 'content-text');
+			textBlock.innerHTML = block.value;
+			text.appendChild(textBlock);
+		  }
+		  
+		  // === ОДИНОЧНОЕ ИЗОБРАЖЕНИЕ ===
+		  else if (block.type === 'image') {
+	      if (!block.images || block.images.length <= 1) {		  
+			var imgBlock = document.createElement('div');
+			imgBlock.classList.add('content-block', 'content-image');
+			
+			var img = document.createElement('img');
+			img.src = block.src;
+			img.alt = block.alt || '';
+			img.style.maxWidth = '100%';
+			img.style.height = 'auto';
+			img.style.maxHeight = '400px';
+			img.style.objectFit = 'contain';
+			img.style.display = 'block';
+			img.style.margin = '10px auto';
+			
+			imgBlock.appendChild(img);
+			text.appendChild(imgBlock);
+		  }
+		      // Если несколько изображений — создаём слайдер
+			else if (block.images && block.images.length > 1) {
+			var sliderBlock = document.createElement('div');
+			sliderBlock.classList.add('content-block', 'content-slider');
+			
+			var slider = document.createElement('div');
+			slider.classList.add('info-hotspot-slider');
+			slider.style.position = 'relative';
+			slider.style.width = '100%';
+			slider.style.maxHeight = '400px';
+			slider.style.marginTop = '10px';
+			slider.style.overflow = 'hidden';
+			
+			var img = document.createElement('img');
+			img.src = block.images[0];
+			img.alt = block.alt || '';
+			img.style.width = '100%';
+			img.style.height = 'auto';
+			img.style.maxHeight = '400px';
+			img.style.objectFit = 'contain';
+			img.style.display = 'block';
+			slider.appendChild(img);
+			
+			// Кнопки навигации
+			var current = 0;
+			
+			// Кнопка вперёд
+			var nextBtn = document.createElement('button');
+			nextBtn.innerHTML = '>';
+			nextBtn.className = 'slider-btn next';
+			nextBtn.style.position = 'absolute';
+			nextBtn.style.top = '50%';
+			nextBtn.style.right = '5px';
+			nextBtn.style.transform = 'translateY(-50%)';
+			nextBtn.style.background = 'rgba(0,0,0,0.3)';
+			nextBtn.style.color = '#fff';
+			nextBtn.style.border = 'none';
+			nextBtn.style.cursor = 'pointer';
+			nextBtn.style.width = '30px';
+			nextBtn.style.height = '30px';
+			nextBtn.style.borderRadius = '50%';
+			nextBtn.style.fontSize = '16px';
+			nextBtn.style.zIndex = '5';
+			slider.appendChild(nextBtn);
+			
+			nextBtn.addEventListener('click', function(e){
+			  e.stopPropagation();
+			  current = (current + 1) % block.images.length;
+			  img.src = block.images[current];
+			});
+			
+			// Кнопка назад
+			var prevBtn = document.createElement('button');
+			prevBtn.innerHTML = '<';
+			prevBtn.className = 'slider-btn prev';
+			prevBtn.style.position = 'absolute';
+			prevBtn.style.top = '50%';
+			prevBtn.style.left = '5px';
+			prevBtn.style.transform = 'translateY(-50%)';
+			prevBtn.style.background = 'rgba(0,0,0,0.3)';
+			prevBtn.style.color = '#fff';
+			prevBtn.style.border = 'none';
+			prevBtn.style.cursor = 'pointer';
+			prevBtn.style.width = '30px';
+			prevBtn.style.height = '30px';
+			prevBtn.style.borderRadius = '50%';
+			prevBtn.style.fontSize = '16px';
+			prevBtn.style.zIndex = '5';
+			slider.appendChild(prevBtn);
+			
+			prevBtn.addEventListener('click', function(e){
+			  e.stopPropagation();
+			  current = (current - 1 + block.images.length) % block.images.length;
+			  img.src = block.images[current];
+			});
+        
+        sliderBlock.appendChild(slider);
+        text.appendChild(sliderBlock);
+      }
+    }
+
+		  else if (block.type === 'video') {
+			var videoBlock = document.createElement('div');
+			videoBlock.classList.add('content-block', 'content-video');
+			
+			var video = document.createElement('video');
+			video.src = block.src;
+			if (block.poster) video.poster = block.poster;
+			video.controls = true;
+			video.style.maxWidth = '100%';
+			video.style.height = 'auto';
+			video.style.maxHeight = '400px';
+			video.style.margin = '10px auto';
+			video.style.display = 'block';
+			
+			videoBlock.appendChild(video);
+			text.appendChild(videoBlock);
+		  }
+		});
+	  }
+	  
     // Place header and text into wrapper element.
     wrapper.appendChild(header);
     wrapper.appendChild(text);
 	
-  // --- Блок с изображениями (слайдер) ---
-  if (hotspot.images && hotspot.images.length > 0) {
-    var slider = document.createElement('div');
-    slider.classList.add('info-hotspot-slider');
-    slider.style.position = 'relative';
-    slider.style.width = '100%';        // ширина под родителя
-	slider.style.maxHeight = '400px';
-    slider.style.marginTop = '10px';
-    slider.style.overflow = 'hidden';
-
-    var img = document.createElement('img');
-    img.src = hotspot.images[0];
-    img.style.width = '100%';
-    img.style.height = 'auto';
-	img.style.maxHeight = '400px';         // ← Ограничение высоты
-    img.style.objectFit = 'contain';
-    slider.appendChild(img);
-	if (hotspot.images.length > 1) {
-    var current = 0;
-
-    // Кнопка вперед
-    var nextBtn = document.createElement('button');
-    nextBtn.innerHTML = '>';
-    nextBtn.style.position = 'absolute';
-    nextBtn.style.top = '50%';
-    nextBtn.style.right = '5px';
-    nextBtn.style.transform = 'translateY(-50%)';
-    nextBtn.style.background = 'rgba(0,0,0,0.3)';
-    nextBtn.style.color = '#fff';
-    slider.appendChild(nextBtn);
-    nextBtn.addEventListener('click', function(e){
-      e.stopPropagation();
-      current = (current + 1) % hotspot.images.length;
-      img.src = hotspot.images[current];
-    });
-
-    // Кнопка назад
-    var prevBtn = document.createElement('button');
-    prevBtn.innerHTML = '<';
-    prevBtn.style.position = 'absolute';
-    prevBtn.style.top = '50%';
-    prevBtn.style.left = '5px';
-    prevBtn.style.transform = 'translateY(-50%)';
-    prevBtn.style.background = 'rgba(0,0,0,0.3)';
-    prevBtn.style.color = '#fff';
-    slider.appendChild(prevBtn);
-    prevBtn.addEventListener('click', function(e){
-      e.stopPropagation();
-      current = (current - 1 + hotspot.images.length) % hotspot.images.length;
-      img.src = hotspot.images[current];
-    });
-	}
-
-    text.appendChild(slider);
-  }
-	
-	if (hotspot.video) {
-		var video = document.createElement('video');
-		video.src = hotspot.video; // например 'videos/myvideo.mp4'
-		video.width = 320;
-		video.height = 240;
-		video.controls = true;
-		video.style.marginTop = '10px';
-		text.appendChild(video);
-    }
-
     // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
     modal.innerHTML = wrapper.innerHTML;
