@@ -211,6 +211,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   width: 40px;
   height: 40px;
   padding: 5px;
+  cursor: pointer;
 }
 
 body.scene-info-enabled #sceneInfoToggle {
@@ -223,6 +224,19 @@ body.scene-info-enabled #sceneInfoToggle {
   right: 5px;
   width: 30px;
   height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(103, 115, 131, 0.8); /* цвет обводки */
+  background-color: transparent; /* прозрачный фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+#sceneInfoToggle .icon img {
+  width: 60%;
+  height: 60%;
+  opacity: 0.9;
 }
 
 /* === КНОПКА ИНФОРМАЦИИ СПИСКА СЦЕН === */
