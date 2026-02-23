@@ -32,10 +32,9 @@
   var sceneInfoToggleElement = document.querySelector('#sceneInfoToggle');
     
   var guideAudio = null;     // аудио для гида
-  var currentAudio = null;   // <-- ДОБАВИТЬ эту строку
+  var currentAudio = null;   
+  var currentSceneWrapper = null;
   
-  var sceneData = currentSceneWrapper;
-
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
     var setMode = function() {
@@ -571,32 +570,15 @@ switchScene = function(scene) {
 	  sceneInfoToggle.addEventListener('click', function(e) {
 		e.stopPropagation();
 		
-		// ← ИСПРАВЛЕНИЕ: используем currentSceneWrapper
-		var sceneData = currentSceneWrapper;
-		
-		if (sceneData && sceneData.data.sceneInfo) {
-		  if (sceneInfoTitle) sceneInfoTitle.textContent = sceneData.data.sceneInfo.title || 'О сцене';
-		  if (sceneInfoText) sceneInfoText.textContent = sceneData.data.sceneInfo.text || '';
+		// Используем currentSceneWrapper, который обновляется в switchScene
+		if (currentSceneWrapper && currentSceneWrapper.data.sceneInfo) {
+		  if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title || 'О сцене';
+		  if (sceneInfoText) sceneInfoText.textContent = currentSceneWrapper.data.sceneInfo.text || '';
 		  sceneInfoModal.classList.add('visible');
 		}
 	  });
 	}
 
-// Закрытие модального окна (крестик)
-if (sceneInfoClose) {
-  sceneInfoClose.addEventListener('click', function() {
-    sceneInfoModal.classList.remove('visible');
-  });
-}
-
-// Закрытие по клику вне контента
-if (sceneInfoModal) {
-  sceneInfoModal.addEventListener('click', function(e) {
-    if (e.target === sceneInfoModal) {
-      sceneInfoModal.classList.remove('visible');
-    }
-  });
-}
 	// Закрытие модального окна (крестик)
 	if (sceneInfoClose) {
 	  sceneInfoClose.addEventListener('click', function() {
