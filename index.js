@@ -354,7 +354,7 @@
 			imgBlock.classList.add('content-block', 'content-image');
 			
 			var img = document.createElement('img');
-			img.src = block.src[0];
+			img.src = block.images[0];
 			img.alt = block.alt || '';
 			img.style.maxWidth = '100%';
 			img.style.height = 'auto';
