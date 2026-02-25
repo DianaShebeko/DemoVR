@@ -1379,7 +1379,7 @@ body.view-control-buttons .viewControlButton {
 /* === МОДАЛЬНОЕ ОКНО: ПРОКРУТКА === */
 .info-hotspot-modal .info-hotspot-text {
   overflow-y: auto;        /* Прокрутка контента */
-  max-height: 60vh;        /* Ограничение высоты */
+  max-height: 80vh;        /* Ограничение высоты */
 }
 
 .info-hotspot-slider {
