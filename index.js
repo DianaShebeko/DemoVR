@@ -450,22 +450,39 @@
     }
 
 		  else if (block.type === 'video') {
-			var videoBlock = document.createElement('div');
-			videoBlock.classList.add('content-block', 'content-video');
-			
-			var video = document.createElement('video');
-			video.src = block.src;
-			if (block.poster) video.poster = block.poster;
-			video.controls = true;
-			video.style.maxWidth = '100%';
-			video.style.height = 'auto';
-			video.style.maxHeight = '400px';
-			video.style.margin = '10px auto';
-			video.style.display = 'block';
-			
-			videoBlock.appendChild(video);
-			text.appendChild(videoBlock);
-		  }
+			  var videoBlock = document.createElement('div');
+			  videoBlock.classList.add('content-block', 'content-video');
+
+			  // === ЕСЛИ ЭТО EMBED (rutube/youtube) ===
+			  if (block.src.includes('rutube.ru') || block.src.includes('youtube.com') || block.src.includes('youtu.be')) {
+				
+				var iframe = document.createElement('iframe');
+				iframe.src = block.src;
+				iframe.style.width = '100%';
+				iframe.style.height = '400px';
+				iframe.style.border = 'none';
+				iframe.allowFullscreen = true;
+				
+				videoBlock.appendChild(iframe);
+
+			  } 
+			  // === ЕСЛИ ЭТО ОБЫЧНЫЙ MP4 ===
+			  else {
+				var video = document.createElement('video');
+				video.src = block.src;
+				if (block.poster) video.poster = block.poster;
+				video.controls = true;
+				video.style.maxWidth = '100%';
+				video.style.height = 'auto';
+				video.style.maxHeight = '400px';
+				video.style.margin = '10px auto';
+				video.style.display = 'block';
+
+				videoBlock.appendChild(video);
+			  }
+
+			  text.appendChild(videoBlock);
+			}
 		});
 	  }
 	  

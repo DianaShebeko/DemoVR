@@ -1009,6 +1009,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 0 0 5px 5px;
   color: #f7f8fc;
   text-align: left;
+  text-indent: 2em;
   line-height: 1.6em;
   box-sizing: border-box;
  
