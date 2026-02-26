@@ -333,7 +333,9 @@
     // Create text element.
     var text = document.createElement('div');
     text.classList.add('info-hotspot-text');
-    text.innerHTML = hotspot.text;
+    if (hotspot.text) {
+		text.innerHTML = hotspot.text;
+	}
 
 	  // === ГИБКИЙ КОНТЕНТ ===
 	  if (hotspot.content && hotspot.content.length > 0) {
