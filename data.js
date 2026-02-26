@@ -1025,7 +1025,7 @@ var APP_DATA = {
 		  },
 		  {
 			  "type": "video",			  
-			  "src": "content/250_лет_Чесменскому_дворцу.mp4"
+			  "src": "https://rutube.ru/play/embed/a5c9ae6fb8cf2f2cde2fc07347f21db1"
 		  }
 		  ],
         },
