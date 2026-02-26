@@ -1008,7 +1008,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   background-color: rgba(35, 35, 38, 0.9);
   border-radius: 0 0 5px 5px;
   color: #f7f8fc;
-  text-align: left;
+  text-align: justify;
   text-indent: 2em;
   line-height: 1.6em;
   box-sizing: border-box;
@@ -1020,6 +1020,26 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 #sceneInfoModal.visible .scene-info-text {
   opacity: 1;
 }
+
+/* === КАРТИНКА — по центру === */
+.scene-info-image {
+  display: block;
+  margin: 20px auto;  /* auto по горизонтали = центрирование */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* === ЗАМЕТКА — по центру курсивом === */
+.scene-info-note {
+  display: block;
+  margin: 10px auto 20px;
+  text-align: center;
+  font-style: italic;
+  color: #ccc;  /* чуть светлее основного текста */
+  font-size: 14px;
+}
+
 
 /* View control buttons */
 
@@ -1329,6 +1349,16 @@ body.view-control-buttons .viewControlButton {
   display: block;
   margin: 10px auto;
   border-radius: 4px;
+}
+
+/* === ЗАМЕТКА — по центру курсивом === */
+.info-hotspot-text .content-note {
+  display: block;
+  margin: 10px auto 20px;
+  text-align: center;
+  font-style: italic;
+  color: #ccc;  /* чуть светлее основного текста */
+  font-size: 14px;
 }
 
 /* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */

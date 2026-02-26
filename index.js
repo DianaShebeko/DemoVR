@@ -349,6 +349,13 @@
 			text.appendChild(textBlock);
 		  }
 		  
+		  else if (block.type == 'note')  {
+			var noteBlock = document.createElement('div');
+			noteBlock.classList.add('content-block', 'content-note');
+			noteBlock.innerHTML = block.value;
+			text.appendChild(noteBlock);			  
+		  }
+		  
 		  // === ОДИНОЧНОЕ ИЗОБРАЖЕНИЕ ===
 		  else if (block.type === 'image') {
 	      if (!block.images || block.images.length <= 1) {		  
@@ -613,14 +620,54 @@ if (audioSeek) {
 	var sceneInfoText = document.getElementById('sceneInfoText');
 	var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
 
+	function renderSceneInfoContent() {
+	  const container = document.getElementById('sceneInfoText');
+	  if (!container) return;
+	  
+	  container.innerHTML = ''; // Очищаем
+	  
+	  const content = currentSceneWrapper.data.sceneInfo.content;
+	  if (!content) return;
+	  
+	  content.forEach(item => {
+		
+		// === ТЕКСТ ===
+		if (item.type === 'text') {
+		  const p = document.createElement('p');
+		  p.className = 'scene-info-paragraph';
+		  p.textContent = item.text;
+		  container.appendChild(p);
+		}
+		
+		// === КАРТИНКА ===
+		else if (item.type === 'image') {
+		  const img = document.createElement('img');
+		  img.src = item.src;
+		  img.className = 'scene-info-image'; // класс для CSS (отступы, размер)
+		  container.appendChild(img);
+		}		
+		
+		// === ЗАМЕТКА (по центру курсивом) ===
+		else if (item.type === 'note') {
+		  const p = document.createElement('p');
+		  p.className = 'scene-info-note';
+		  p.textContent = item.text;
+		  container.appendChild(p);
+		}
+				
+	  });
+	}
+
 	if (sceneInfoToggle) {
 	  sceneInfoToggle.addEventListener('click', function(e) {
 		e.stopPropagation();
 		
-		// Используем currentSceneWrapper, который обновляется в switchScene
 		if (currentSceneWrapper && currentSceneWrapper.data.sceneInfo) {
 		  if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title || 'О сцене';
-		  if (sceneInfoText) sceneInfoText.textContent = currentSceneWrapper.data.sceneInfo.text || '';
+		  
+		  // Вызываем рендеринг без параметров
+		  renderSceneInfoContent();
+		  
 		  sceneInfoModal.classList.add('visible');
 		}
 	  });
