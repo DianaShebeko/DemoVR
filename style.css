@@ -1205,6 +1205,7 @@ body.view-control-buttons .viewControlButton {
   font-size: 14px;
   cursor: pointer;
   transition: color 0.2s, background 0.2s;
+  box-sizing: border-box;        /* ← Важно: padding внутри границ */
   white-space: nowrap;        /* ← Текст не переносится */
 
 }
