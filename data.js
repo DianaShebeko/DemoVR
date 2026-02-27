@@ -374,8 +374,17 @@ var APP_DATA = {
         {
           "yaw": 0.008409709878794303,
           "pitch": 0.5489081686050206,
-          "title": "Title",
-          "text": "Text"
+          "title": "Экспонаты №1",
+		  "content": [
+		  {
+			  "type": "image",
+			  "images": ["content/IMG_1359.jpg"]
+		  },
+		  {
+			  "type": "text",
+			  "value": "Текст описания к объектам"
+		  }		  
+		  ]
         },
         {
           "yaw": -0.08789999099448664,
