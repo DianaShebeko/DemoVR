@@ -1044,7 +1044,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 /* View control buttons */
 
 .viewControlButton {
-  display: none;
+  /*display: none;*/
   position: absolute;
   bottom: 0;
   left: 50%;
