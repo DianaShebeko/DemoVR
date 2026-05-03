@@ -94,9 +94,9 @@ body.multiple-scenes.mobile #titleBar {
 .mobile #titleBar .sceneName {
   line-height: 40px;
 }
-
+/*
 #fullscreenToggle {
-  /*display: none;*/
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -128,7 +128,7 @@ body.fullscreen-enabled #fullscreenToggle {
   top: 10px;
   right: 10px;
 }
-
+*/
 #fullscreenToggle .icon.on {
   display: none;
 }
@@ -145,6 +145,7 @@ body.fullscreen-enabled #fullscreenToggle {
   display: none;
 }
 
+/*
 #autorotateToggle {
   display: block;
   position: absolute;
@@ -164,7 +165,6 @@ body.fullscreen-enabled #fullscreenToggle {
   height: 50px;
 }
 
-/* If there is a fullscreen button, autorotate must placed a bit to the left */
 body.fullscreen-enabled #autorotateToggle {
   right: 40px;
 }
@@ -185,6 +185,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   top: 10px;
   right: 10px;
 }
+*/
 
 #autorotateToggle .icon.on {
   display: none;
@@ -201,6 +202,8 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 #autorotateToggle.enabled .icon.off {
   display: none;
 }
+
+
 
 /* === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoToggle {
@@ -1137,26 +1140,46 @@ body.view-control-buttons .viewControlButton {
     display: block;
 }
 
-/* Скрытое меню */
-.hidden-menu {
-    position: absolute;
-    bottom: calc(100% + 10px);
-    right: 0;
-    background: rgba(0,0,0,0.85);
-    padding: 10px;
-    border-radius: 12px;
-    z-index: 101;
-    /* Скрыто */
-    transform: translateY(-20px);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.menu-wrapper {
+    position: relative;
 }
 
-.menu-wrapper:hover .hidden-menu {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+.hidden-menu {
+    position: absolute;
+    bottom: calc(100% + 10px); /* Появляется строго НАД кнопкой */
+    right: 0;
+    display: flex;
+    flex-direction: column; /* Столбиком */
+    gap: 8px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    z-index: 101;
+    display: none; /* Скрыто по умолчанию */
+}
+
+.hidden-menu.open {
+    display: flex; /* Появляется только с классом .open */
+}
+
+.hidden-menu a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4); /* Полупрозрачный квадрат */
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+    .hidden-menu a:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+.hidden-menu img, .hidden-menu .icon {
+    width: 30px;
+    height: 30px;
 }
 
 /* ===== FLOOR PLAN ===== */
@@ -1326,7 +1349,7 @@ body.view-control-buttons .viewControlButton {
 
 
 /* === КНОПКА АУДИОГИДА === */
-#audioBtn {
+/*#audioBtn {
   position: absolute;
   bottom: 20px;
   right: 120px;
@@ -1351,6 +1374,7 @@ body.view-control-buttons .viewControlButton {
   transform: translateX(2px) translateY(3px);  
 
 }
+*/
 
 /* Панель управления (прогресс + время) */
 #audioBar {
