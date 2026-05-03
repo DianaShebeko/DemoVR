@@ -580,29 +580,20 @@ function updateTime() {
   }
 }
 
-// Клик = play/pause
 if (audioBtn) {
-  audioBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    if (!gAudio) return;
-    if (gAudio.paused) {
-      gAudio.play().catch(function(err) { console.log("Play error:", err); });
-      audioBtn.querySelector('img').src = 'img/audio.png';
-    } else {
-      gAudio.pause();
-      audioBtn.querySelector('img').src = 'img/audio-muted.png';
-    }
-  });
-  
-  // Hover = показать панель
-  audioBtn.onmouseenter = function() { if (gAudio) audioBar.style.display = 'block'; };
-  audioBtn.onmouseleave = function() { setTimeout(function(){ if (audioBar && !audioBar.matches(':hover')) audioBar.style.display = 'none'; }, 200); };
-}
+    audioBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-// Панель
-if (audioBar) {
-  audioBar.onmouseenter = function() { audioBar.style.display = 'block'; };
-  audioBar.onmouseleave = function() { audioBar.style.display = 'none'; };
+        if (!gAudio) return;
+
+        if (gAudio.paused) {
+            gAudio.play().catch(err => console.log("Play error:", err));
+        } else {
+            gAudio.pause();
+        }
+        this.classList.toggle('enabled');
+    });
 }
 
 // Перемотка
@@ -613,12 +604,13 @@ if (audioSeek) {
     }
   };
 }
-	// === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ → МОДАЛЬНОЕ ОКНО ===
-	var sceneInfoToggle = document.getElementById('sceneInfoToggle');
-	var sceneInfoModal = document.getElementById('sceneInfoModal');
-	var sceneInfoTitle = document.getElementById('sceneInfoTitle');
-	var sceneInfoText = document.getElementById('sceneInfoText');
-	var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
+
+// === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ → МОДАЛЬНОЕ ОКНО ===
+var sceneInfoToggle = document.getElementById('sceneInfoToggle');
+var sceneInfoModal = document.getElementById('sceneInfoModal');
+var sceneInfoTitle = document.getElementById('sceneInfoTitle');
+var sceneInfoText = document.getElementById('sceneInfoText');
+var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
 
 	function renderSceneInfoContent() {
 	  const container = document.getElementById('sceneInfoText');

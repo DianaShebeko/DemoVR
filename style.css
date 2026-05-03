@@ -1182,6 +1182,31 @@ body.view-control-buttons .viewControlButton {
     height: 30px;
 }
 
+/* AudioBtn */
+#audioBtn .icon.off {
+    display: block;
+}
+
+#audioBtn .icon.on {
+    display: none;
+}
+
+#audioBtn.enabled .icon.off {
+    display: none;
+}
+
+#audioBtn.enabled .icon.on {
+    display: block;
+}
+
+/* Панель скрыта по умолчанию */
+#audioBar {
+    display: none;
+}
+#audioBar.visible {
+    display: flex;
+}
+
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
