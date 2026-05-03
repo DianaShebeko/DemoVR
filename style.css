@@ -1100,13 +1100,14 @@ body.view-control-buttons .viewControlButton {
 .bottom-toolbar {
     position: absolute;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0%;
+    right: 0%;
     display: flex;
     align-items: center;
+    justify-content: space-between; 
     gap: 15px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 10px 20px;
+    padding: 14px 0px;
 }
 
 .bottom-toolbar img {
