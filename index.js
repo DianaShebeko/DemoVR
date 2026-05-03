@@ -193,7 +193,22 @@
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
-	
+
+    if (gAudio) {
+        gAudio.pause();
+        gAudio = null;
+    }
+    if (audioBtn) { audioBtn.classList.remove('enabled'); }
+    if (audioBar) { audioBar.classList.remove('visible'); }
+    if (audioSeek) audioSeek.value = 0;
+    if (audioTime) audioTime.textContent = '0:00';
+
+    if (scene.data.audioGuide) {
+        gAudio = new Audio(scene.data.audioGuide);
+        gAudio.preload = 'metadata';
+        gAudio.ontimeupdate = updateTime;
+    }
+
 	currentSceneWrapper = scene;
   }
 
@@ -551,7 +566,7 @@
   }
   
   //* ===== FLOORMAP ======= *
-  var floorPoints = document.querySelectorAll('.floor-point');
+var floorPoints = document.querySelectorAll('.floor-point');
 
 floorPoints.forEach(function(point) {
   point.addEventListener('click', function() {
@@ -565,7 +580,40 @@ floorPoints.forEach(function(point) {
   });
 });
 
-// === ПРОСТОЙ АУДИОГИД ===
+/*========= НИЖНЕЕ МЕНЮ ==========*/
+var menuBtn = document.getElementById('btnMenuHidden');
+var hiddenMenu = document.getElementById('hiddenMenu');
+var audioOnOffBtn = document.getElementById('audioOnOff');
+
+// 4. Скрытое меню (Открыть/Закрыть)
+if (menuBtn && hiddenMenu) {
+    menuBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        hiddenMenu.classList.toggle('open');
+        menuBtn.classList.toggle('enabled');
+    });
+
+    // Закрытие при клике в пустоту
+    document.addEventListener('click', function (e) {
+        if (!menuBtn.contains(e.target) && !hiddenMenu.contains(e.target)) {
+            hiddenMenu.classList.remove('open');
+            menuBtn.classList.remove('enabled');
+        }
+    });
+}
+
+// 5. Глобальный вкл/выкл звука (в меню)
+if (audioOnOffBtn) {
+    audioOnOffBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (gAudio) { gAudio.muted = !gAudio.muted; }
+        this.classList.toggle('enabled');
+    });
+}
+
+    // === АУДИОГИД ===
 var gAudio = null;
 var audioBtn = document.getElementById('audioBtn');
 var audioBar = document.getElementById('audioBar');
@@ -584,15 +632,21 @@ if (audioBtn) {
     audioBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-
         if (!gAudio) return;
 
-        if (gAudio.paused) {
-            gAudio.play().catch(err => console.log("Play error:", err));
-        } else {
-            gAudio.pause();
-        }
+        if (gAudio.paused) { gAudio.play(); }
+        else { gAudio.pause(); }
+
+        // Иконка меняется сама через CSS (класс enabled)
         this.classList.toggle('enabled');
+    });
+
+    // Показать панель при наведении
+    audioBtn.addEventListener('mouseenter', function () {
+        if (audioBar) audioBar.classList.add('visible');
+    });
+    audioBtn.addEventListener('mouseleave', function () {
+        if (audioBar) audioBar.classList.remove('visible');
     });
 }
 
@@ -604,6 +658,7 @@ if (audioSeek) {
     }
   };
 }
+
 
 // === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ → МОДАЛЬНОЕ ОКНО ===
 var sceneInfoToggle = document.getElementById('sceneInfoToggle');

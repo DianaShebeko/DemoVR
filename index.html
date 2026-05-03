@@ -150,14 +150,17 @@
 
     <!-- ПРАВЫЕ КНОПКИ -->
     <div class="toolbar-right">
-        <a href="javascript:void(0)" id="audioBtn">
-            <img class="icon off" src="img/audioPlay.png">
-            <img class="icon on" src="img/audioPause.png">
-        </a>
-        <!-- Панель управления -->
-        <div id="audioBar">
-            <input type="range" id="audioSeek" min="0" max="100" value="0">
-            <span id="audioTime">0:00</span>
+        <!-- Обёртка для локального плеера -->
+        <div class="audio-wrapper">
+            <a href="javascript:void(0)" id="audioBtn">
+                <img class="icon off" src="img/audioPlay.png">
+                <img class="icon on" src="img/audioPause.png">
+            </a>
+            <!-- Панель выезжает НАД кнопкой -->
+            <div id="audioBar">
+                <input type="range" id="audioSeek" min="0" max="100" value="0">
+                <span id="audioTime">0:00</span>
+            </div>
         </div>
 
         <!-- Обёртка для выпадающего меню -->
