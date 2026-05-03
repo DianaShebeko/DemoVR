@@ -1226,7 +1226,7 @@ body.view-control-buttons .viewControlButton {
   display: block;
 }
   
-/*.control-button {
+.control-button {
   position: absolute;
   bottom: 20px;
   right: 80px;
@@ -1258,7 +1258,7 @@ body.view-control-buttons .viewControlButton {
 .control-button.enabled .icon.on {
   display: block;
 }
-*/
+
 
 /* === КНОПКА АУДИОГИДА === */
 #audioBtn {
