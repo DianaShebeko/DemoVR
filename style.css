@@ -1099,7 +1099,7 @@ body.view-control-buttons .viewControlButton {
 /* НИЖНЕЕ МЕНЮ */
 .bottom-toolbar {
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
     left: 0%;
     right: 0%;
     display: flex;
@@ -1107,13 +1107,18 @@ body.view-control-buttons .viewControlButton {
     justify-content: space-between; 
     gap: 15px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 14px 0px;
+    padding: 0px 0px;
 }
 
 .bottom-toolbar img {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.toolbar-right {
+    display: flex;
+    gap: 15px; /* Расстояние между правыми иконками */
 }
 
 .bottom-toolbar .icon.off {
