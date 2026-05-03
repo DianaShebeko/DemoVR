@@ -1044,7 +1044,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 /* View control buttons */
 
 .viewControlButton {
-  /*display: none;*/
+  display: none;
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -1092,6 +1092,25 @@ body.view-control-buttons .viewControlButton {
 }
 .viewControlButton-6 {
   margin-left: 105px;
+}
+
+/* НИЖНЕЕ МЕНЮ */
+.bottom-toolbar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+}
+
+.bottom-toolbar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
 /* ===== FLOOR PLAN ===== */
