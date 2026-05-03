@@ -240,6 +240,7 @@ body.scene-info-enabled #sceneInfoToggle {
 }
 
 /* === КНОПКА ИНФОРМАЦИИ СПИСКА СЦЕН === */
+/*
 #sceneListToggle {
   position: absolute;
   top: 0;
@@ -291,6 +292,7 @@ body.scene-info-enabled #sceneInfoToggle {
 #sceneListToggle.enabled .icon.off {
   display: none;
 }
+*/
 
 #sceneList {
   position: absolute;
@@ -1111,6 +1113,22 @@ body.view-control-buttons .viewControlButton {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+.bottom-toolbar .icon.off {
+    display: block;
+}
+
+.bottom-toolbar .icon.on {
+    display: none;
+}
+
+.bottom-toolbar a.enabled .icon.off {
+    display: none;
+}
+
+.bottom-toolbar a.enabled .icon.on {
+    display: block;
 }
 
 /* ===== FLOOR PLAN ===== */
