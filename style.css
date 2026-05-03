@@ -96,7 +96,7 @@ body.multiple-scenes.mobile #titleBar {
 }
 
 #fullscreenToggle {
-  display: none;
+  /*display: none;*/
   position: absolute;
   top: 0;
   right: 0;
