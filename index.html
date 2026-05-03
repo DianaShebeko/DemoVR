@@ -136,22 +136,13 @@
   	
 </div>
 
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
-
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
 
 <a href="javascript:void(0)" id="sceneInfoToggle">
   <img class="icon" src="img/info.png">
 </a>
 
 <div class="bottom-toolbar">
-    <!-- ЛЕВЫЕ КНОПКИ -->
+    <!-- ЛЕВАЯ КНОПКА -->
     <a href="javascript:void(0)" id="sceneListToggle">
         <img class="icon off" src="img/expand.png">
         <img class="icon on" src="img/collapse.png">
@@ -163,10 +154,38 @@
             <img class="icon off" src="img/playAudio.png">
             <img class="icon on" src="img/pauseAudio.png">
         </a>
-        <a href="javascript:void(0)" id="btnMenuHidden">
-            <img class="icon off" src="img/expand.png">
-            <img class="icon on" src="img/collapse.png">
-        </a>
+        <!-- Панель управления -->
+        <div id="audioBar">
+            <input type="range" id="audioSeek" min="0" max="100" value="0">
+            <span id="audioTime">0:00</span>
+        </div>
+
+        <!-- Обёртка для выпадающего меню -->
+        <div class="menu-wrapper">
+            <a href="javascript:void(0)" id="btnMenuHidden">
+                <img class="icon off" src="img/expand.png">
+                <img class="icon on" src="img/collapse.png">
+            </a>
+
+            <!-- Скрытое меню -->
+            <div class="hidden-menu" id="hiddenMenu">
+                <a href="javascript:void(0)" id="audioBtn">
+                    <img src="img/audio-muted.png">
+                </a>
+                <a href="javascript:void(0)" id="autorotateToggle">
+                    <img class="icon off" src="img/play.png">
+                    <img class="icon on" src="img/pause.png">
+                </a>
+                <a href="javascript:void(0)" id="fullscreenToggle">
+                    <img class="icon off" src="img/fullscreen.png">
+                    <img class="icon on" src="img/windowed.png">
+                </a>
+                <!-- Будущая VR кнопка -->
+                <a href="javascript:void(0)" id="vrBtn" class="future-btn">
+                    <span>VR</span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -188,16 +207,6 @@
 <a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
   <img class="icon" src="img/minus.png">
 </a>
-
-<!-- Кнопка аудиогида -->
-<a href="javascript:void(0)" id="audioBtn" title="Аудиогид">
-  <img src="img/audio-muted.png">
-</a>
-<!-- Панель управления -->
-<div id="audioBar">
-  <input type="range" id="audioSeek" min="0" max="100" value="0">
-  <span id="audioTime">0:00</span>
- </div>
  
  <!-- Модальное окно информации о сцене -->
 <div id="sceneInfoModal">
