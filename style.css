@@ -1152,7 +1152,7 @@ body.view-control-buttons .viewControlButton {
     flex-direction: column; /* Столбиком */
     gap: 8px;
     padding: 8px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     z-index: 101;
     display: none; /* Скрыто по умолчанию */
@@ -1245,24 +1245,20 @@ body.view-control-buttons .viewControlButton {
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
-  position: absolute;
-  top: 0;
-  left: -220px;           /* Скрыт по умолчанию */
-  padding-top: 40px;
-  width: 220px;           /* Оригинальная ширина */
-  max-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-transition: margin-left 0.5s ease-in-out;
-  transition: margin-left 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 700px; /* подгони под свою карту */
+    height: 100%;
+    padding-top: 40px;
+    transform: translateX(-100%); /* Скрыт ровно на свою ширину */
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Когда открыт - выезжает и становится шире */
-#sceneList.enabled {
-  margin-left: 220px;     /* Выезжает */
-  width: 100%;            /* Расширяется для карты */
-  max-width: 1200px;      /* Максимальная ширина */
-}
+    #sceneList.enabled {
+        transform: translateX(0);
+    }
 
 .sceneList-inner {
   display: flex;
@@ -1285,7 +1281,7 @@ body.view-control-buttons .viewControlButton {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     overflow: hidden;
 }
