@@ -1211,7 +1211,8 @@ body.view-control-buttons .viewControlButton {
     width: 150px;
 }
 
-.audio-wrapper:hover #audioBar {
+/* Панель появляется при наведении на ВЕСЬ нижний тулбар */
+.bottom-toolbar:hover #audioBar {
     display: flex;
 }
 
