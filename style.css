@@ -1247,12 +1247,12 @@ body.view-control-buttons .viewControlButton {
 #sceneList {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -700px;
     width: 100%;
     max-width: 700px; /* подгони под свою карту */
     height: 100%;
     padding-top: 40px;
-    transform: translateX(-100%); /* Скрыт ровно на свою ширину */
+    /*transform: translateX(-100%);*/ /* Скрыт ровно на свою ширину */
     transition: transform 0.5s ease-in-out;
 }
 
