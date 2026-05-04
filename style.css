@@ -380,8 +380,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 /* Link hotspot */
 
 .link-hotspot {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   margin-left: -30px;
   margin-top: -30px;
   opacity: 0.9;
@@ -447,7 +447,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .mobile .link-hotspot {
-  top: 19px; /* ( 70 - (16 + 2*8) ) / 2 */
+  top: 19px; 
 }
 
 .no-touch .link-hotspot:hover .link-hotspot-tooltip {
@@ -1197,21 +1197,22 @@ body.view-control-buttons .viewControlButton {
 /* Обёртка плеера */
 .audio-wrapper {
     position: relative;
+    padding: 25px 10px 5px 10px;
 }
 
 /* Панель управления (прогресс + время) */
 #audioBar {
     position: absolute;
-    bottom: 0px;
-    right: 35px; /* ← подгоните под кнопку */
+    bottom: calc(100% + 10px);
+    right: 35px;
     z-index: 100;
     display: none; /* скрыто по умолчанию, показывается при hover */
     flex-direction: column;
     gap: 6px;
-    min-width: 200px;
+    width: 150px;
 }
 
-#audioBar.visible {
+.audio-wrapper:hover #audioBar {
     display: flex;
 }
 
