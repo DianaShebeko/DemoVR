@@ -1197,7 +1197,6 @@ body.view-control-buttons .viewControlButton {
 /* Обёртка плеера */
 .audio-wrapper {
     position: relative;
-    padding: 25px 10px 5px 10px;
 }
 
 /* Панель управления (прогресс + время) */
@@ -1329,8 +1328,15 @@ body.view-control-buttons .viewControlButton {
 .floor-toggle {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    padding: 10px;
+    align-items: center; /* ← Выравнивает текст и кнопки по одной линии */
+    gap: 20px;
+}
+
+.floor-label {
+    font-size: 40px;
+    color: #aaa; /* Цвет как у неактивной кнопки */
+    font-weight: normal;
+    pointer-events: none; /* Клик по слову не мешает кнопкам */
 }
 
 .floor-btn {
@@ -1339,7 +1345,7 @@ body.view-control-buttons .viewControlButton {
     display: flex; /* центрирует текст внутри кнопки */
     background: rgba(35, 35, 38, 0.8);
     color: #aaa;
-    font-size: 14px;
+    font-size: 40px;
     cursor: pointer;
     border: none;
     transition: background 0.2s, color 0.2s;
