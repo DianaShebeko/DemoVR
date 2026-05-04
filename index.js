@@ -813,9 +813,9 @@ switchScene = function (scene) {
   function showFloor(floor) {
     currentFloor = floor;
     
-    floorBtns.forEach(function(btn) {
+    floorBtns.forEach(function (btn) {
       btn.classList.toggle('active', btn.dataset.floor === floor);
-    });
+     });
     
     floorPoints.forEach(function(point) {
       if (point.dataset.floor === floor) {
@@ -827,7 +827,8 @@ switchScene = function (scene) {
   }
 
   floorBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
+      btn.addEventListener('click', function (e) {
+      e.preventDefault();         
       showFloor(this.dataset.floor);
     });
   });

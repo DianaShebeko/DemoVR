@@ -1282,16 +1282,16 @@ body.view-control-buttons .viewControlButton {
 
 /* Карта справа — всё оставшееся место */
 .floorplan {
-  flex: 1;
-  position: relative;
-  padding: 20px;
-  overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: -90px;  /* ← Сдвигает карту левее на 50px */
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
 
-/*  
+    margin-left: 20px;
+    /*  
   background-color: rgba(0, 0, 0, 0.3);
   min-height: 400px;
   */
@@ -1299,7 +1299,7 @@ body.view-control-buttons .viewControlButton {
 
 /* Картинка плана */
 .floorplan-image {
-    width: 220px;
+    width: 440px;
     height: auto;
     max-width: 100%; 
     object-fit: contain;
@@ -1309,14 +1309,9 @@ body.view-control-buttons .viewControlButton {
 /* Точки на карте */
 .floor-point {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 7px;
+  height: 7px;
   background: #ff5722;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 24px;
-  font-size: 14px;
   cursor: pointer;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -1339,11 +1334,14 @@ body.view-control-buttons .viewControlButton {
 }
 
 .floor-btn {
-    padding: 8px 16px;
+    width: 50px; /* ← фиксированная ширина */
+    height: 50px; /* ← фиксированная высота */
+    display: flex; /* центрирует текст внутри кнопки */
     background: rgba(35, 35, 38, 0.8);
     color: #aaa;
     font-size: 14px;
     cursor: pointer;
+    border: none;
     transition: background 0.2s, color 0.2s;
 }
 
