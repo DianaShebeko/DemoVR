@@ -1296,7 +1296,7 @@ body.view-control-buttons .viewControlButton {
     overflow: auto;
     display: flex;
     align-items: center;
-    justify-content: flex-star;
+    justify-content: left;
 }
 
 /* Картинка плана */
