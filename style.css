@@ -1280,6 +1280,14 @@ body.view-control-buttons .viewControlButton {
   flex-shrink: 0;
 }
 
+/* Правая колонка: карта сверху, кнопки снизу */
+.floorplan-right {
+    display: flex;
+    flex-direction: column; /* Вертикальная раскладка */
+    flex: 1; /* Занимает всё оставшееся место */
+    overflow: hidden;
+}
+
 /* Карта справа — всё оставшееся место */
 .floorplan {
     flex: 1;
@@ -1288,13 +1296,7 @@ body.view-control-buttons .viewControlButton {
     overflow: auto;
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
-
-    margin-left: 20px;
-    /*  
-  background-color: rgba(0, 0, 0, 0.3);
-  min-height: 400px;
-  */
+    justify-content: center; 
 }
 
 /* Картинка плана */
@@ -1329,7 +1331,7 @@ body.view-control-buttons .viewControlButton {
 .floor-toggle {
     display: flex;
     flex-direction: row;
-    align-items: center; /* ← Выравнивает текст и кнопки по одной линии */
+    align-items: center;
     gap: 20px;
 }
 
@@ -1347,6 +1349,7 @@ body.view-control-buttons .viewControlButton {
     background: rgba(35, 35, 38, 0.8);
     color: #aaa;
     font-size: 40px;
+    justify-content: center; 
     cursor: pointer;
     border: none;
     transition: background 0.2s, color 0.2s;
