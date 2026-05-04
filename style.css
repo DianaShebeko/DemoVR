@@ -67,11 +67,11 @@ body.fullscreen-enabled.mobile #titleBar {
 
 /* If there are multiple scenes the title bar must make space for the scene list toggle */
 body.multiple-scenes #titleBar {
-  left: 40px;
+  left: 0px;
 }
 
 body.multiple-scenes.mobile #titleBar {
-  left: 50px;
+  left: 0px;
 }
 
 #titleBar .sceneName {
