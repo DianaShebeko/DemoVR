@@ -46,7 +46,7 @@ a, a:hover, a:active, a:visited {
  position: absolute;
   top: 0;
   left: 0;
-  right: 40px;
+  right: 0px;
   height: 40px;
   text-align: center;
  }
@@ -1202,11 +1202,9 @@ body.view-control-buttons .viewControlButton {
 /* Панель управления (прогресс + время) */
 #audioBar {
     position: absolute;
-    bottom: 80px;
-    right: 50px; /* ← подгоните под кнопку */
-    background: rgba(35, 35, 38, 0.8);
+    bottom: 6px;
+    right: 45px; /* ← подгоните под кнопку */
     padding: 8px 12px;
-    border-radius: 5px;
     z-index: 100;
     display: none; /* скрыто по умолчанию, показывается при hover */
     flex-direction: column;
@@ -1214,9 +1212,9 @@ body.view-control-buttons .viewControlButton {
     min-width: 200px;
 }
 
-    #audioBar.visible {
-        display: flex;
-    }
+#audioBar.visible {
+    display: flex;
+}
 
 /* Ползунок перемотки */
 #audioSeek {
@@ -1242,7 +1240,6 @@ body.view-control-buttons .viewControlButton {
     font-size: 11px;
     color: #ccc;
     text-align: center;
-    font-family: sans-serif;
 }
 
 /* ===== FLOOR PLAN ===== */
