@@ -1203,7 +1203,7 @@ body.view-control-buttons .viewControlButton {
 /* Панель управления (прогресс + время) */
 #audioBar {
     position: absolute;
-    bottom: calc(100% + 10px);
+    bottom: 0;
     right: 35px;
     z-index: 100;
     display: none; /* скрыто по умолчанию, показывается при hover */
