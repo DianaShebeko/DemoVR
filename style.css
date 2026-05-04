@@ -1256,9 +1256,9 @@ body.view-control-buttons .viewControlButton {
     transition: transform 0.5s ease-in-out;
 }
 
-    #sceneList.enabled {
-        transform: translateX(0);
-    }
+#sceneList.enabled {
+     left: 0
+}
 
 .sceneList-inner {
   display: flex;
