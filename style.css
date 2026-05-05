@@ -1248,7 +1248,7 @@ body.view-control-buttons .viewControlButton {
     position: absolute;
     top: 0;
     left: 0;
-    width: 250px; /* Исходная ширина списка */
+    width: 500px; /* Исходная ширина списка */
     height: 100%;
     padding-top: 40px;
     background-color: rgba(35, 35, 38, 0.8);
