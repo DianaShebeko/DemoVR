@@ -94,6 +94,24 @@ body.multiple-scenes.mobile #titleBar {
 .mobile #titleBar .sceneName {
   line-height: 40px;
 }
+
+#titleBar .title-logo {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    display: block;
+}
+
+#titleBar .title-logo img {
+    height: 30px; 
+    width: auto;
+    display: block;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+
 /*
 #fullscreenToggle {
   display: none;
@@ -128,7 +146,7 @@ body.fullscreen-enabled #fullscreenToggle {
   top: 10px;
   right: 10px;
 }
-*/
+
 #fullscreenToggle .icon.on {
   display: none;
 }
@@ -144,7 +162,7 @@ body.fullscreen-enabled #fullscreenToggle {
 #fullscreenToggle.enabled .icon.off {
   display: none;
 }
-
+*/
 /*
 #autorotateToggle {
   display: block;
