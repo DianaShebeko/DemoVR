@@ -1313,10 +1313,10 @@ body.view-control-buttons .viewControlButton {
 /* Точки на карте */
 .floor-point {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background: black;
-    border: 1px solid gray;
+    border: 3px solid gray;
     box-sizing: border-box;
     cursor: pointer;
     transform: translate(-50%, -50%);
