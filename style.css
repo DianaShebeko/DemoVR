@@ -1049,15 +1049,15 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 /* View control buttons */
 
 .viewControlButton {
-  display: none;
+  /*display: none;*/
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 40px;
   height: 40px;
   padding: 5px;
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  /*background-color: rgb(103,115,131);
+  background-color: rgba(103,115,131,0.8);*/
 }
 
 body.view-control-buttons .viewControlButton {
