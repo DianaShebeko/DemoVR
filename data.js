@@ -1512,7 +1512,7 @@ var APP_DATA = {
   ],
   "name": "DemoVR",
   "settings": {
-    "mouseViewMode": "dragFree",
+    "mouseViewMode": "drag",
     "autorotateEnabled": false,
     "fullscreenButton": false,
     "viewControlButtons": false
