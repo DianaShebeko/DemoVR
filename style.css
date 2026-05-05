@@ -1248,12 +1248,12 @@ body.view-control-buttons .viewControlButton {
     position: absolute;
     top: 0;
     left: 0;
-    width: 500px; /* Исходная ширина списка */
+    width: 700px; /* Исходная ширина списка */
     height: 100%;
     padding-top: 40px;
     background-color: rgba(35, 35, 38, 0.8);
     overflow-y: auto;
-    margin-left: -650px; /* Скрыт за левым краем */
+    margin-left: -700px; /* Скрыт за левым краем */
     transition: margin-left 0.5s ease-in-out;
 }
 
