@@ -1245,20 +1245,21 @@ body.view-control-buttons .viewControlButton {
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0px;
-    width: 100%;
-    max-width: 500px; /* подгони под свою карту */
+    left: 0;
+    width: 250px; /* Исходная ширина списка */
     height: 100%;
     padding-top: 40px;
-    transform: translateX(-100%); /* Скрыт: сдвинут влево на свою ширину */
-    transition: transform 0.5s ease-in-out;
+    background-color: rgba(35, 35, 38, 0.8);
+    overflow-y: auto;
+    margin-left: -650px; /* Скрыт за левым краем */
+    transition: margin-left 0.5s ease-in-out;
 }
 
-    #sceneList.enabled {
-        transform: translateX(0); /* Открыт: возврат на место */
-    }
+#sceneList.enabled {
+    margin-left: 0;
+}
 
 .sceneList-inner {
   display: flex;
