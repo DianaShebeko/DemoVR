@@ -1249,7 +1249,7 @@ body.view-control-buttons .viewControlButton {
     top: 0;
     left: 0px;
     width: 100%;
-    max-width: 700px; /* подгони под свою карту */
+    max-width: 500px; /* подгони под свою карту */
     height: 100%;
     padding-top: 40px;
     transform: translateX(-100%); /* Скрыт: сдвинут влево на свою ширину */
