@@ -381,96 +381,53 @@
 			var img = document.createElement('img');
 			img.src = block.images[0];
 			img.alt = block.alt || '';
-			img.style.maxWidth = '100%';
-			img.style.height = 'auto';
-			img.style.maxHeight = '400px';
-			img.style.objectFit = 'contain';
-			img.style.display = 'block';
-			img.style.margin = '10px auto';
-			
-			imgBlock.appendChild(img);
+
+            imgBlock.appendChild(img);
 			text.appendChild(imgBlock);
 		  }
 		      // Если несколько изображений — создаём слайдер
-			else if (block.images && block.images.length > 1) {
-			var sliderBlock = document.createElement('div');
-			sliderBlock.classList.add('content-block', 'content-slider');
-			
-			var slider = document.createElement('div');
-			slider.classList.add('info-hotspot-slider');
-			slider.style.position = 'relative';
-			slider.style.width = '100%';
-			slider.style.maxHeight = '400px';
-			slider.style.marginTop = '10px';
-			slider.style.overflow = 'hidden';
-			
-			var img = document.createElement('img');
-			img.src = block.images[0];
-			img.alt = block.alt || '';
-			img.style.width = '100%';
-			img.style.height = 'auto';
-			img.style.maxHeight = '400px';
-			img.style.objectFit = 'contain';
-			img.style.display = 'block';
-			slider.appendChild(img);
-			
-			// Кнопки навигации
-			var current = 0;
-			
-			// Кнопка вперёд
-			var nextBtn = document.createElement('button');
-			nextBtn.innerHTML = '>';
-			nextBtn.className = 'slider-btn next';
-			nextBtn.style.position = 'absolute';
-			nextBtn.style.top = '50%';
-			nextBtn.style.right = '5px';
-			nextBtn.style.transform = 'translateY(-50%)';
-			nextBtn.style.background = 'rgba(0,0,0,0.3)';
-			nextBtn.style.color = '#fff';
-			nextBtn.style.border = 'none';
-			nextBtn.style.cursor = 'pointer';
-			nextBtn.style.width = '30px';
-			nextBtn.style.height = '30px';
-			nextBtn.style.borderRadius = '50%';
-			nextBtn.style.fontSize = '16px';
-			nextBtn.style.zIndex = '5';
-			slider.appendChild(nextBtn);
-			
-			nextBtn.addEventListener('click', function(e){
-			  e.stopPropagation();
-			  current = (current + 1) % block.images.length;
-			  img.src = block.images[current];
-			});
-			
-			// Кнопка назад
-			var prevBtn = document.createElement('button');
-			prevBtn.innerHTML = '<';
-			prevBtn.className = 'slider-btn prev';
-			prevBtn.style.position = 'absolute';
-			prevBtn.style.top = '50%';
-			prevBtn.style.left = '5px';
-			prevBtn.style.transform = 'translateY(-50%)';
-			prevBtn.style.background = 'rgba(0,0,0,0.3)';
-			prevBtn.style.color = '#fff';
-			prevBtn.style.border = 'none';
-			prevBtn.style.cursor = 'pointer';
-			prevBtn.style.width = '30px';
-			prevBtn.style.height = '30px';
-			prevBtn.style.borderRadius = '50%';
-			prevBtn.style.fontSize = '16px';
-			prevBtn.style.zIndex = '5';
-			slider.appendChild(prevBtn);
-			
-			prevBtn.addEventListener('click', function(e){
-			  e.stopPropagation();
-			  current = (current - 1 + block.images.length) % block.images.length;
-			  img.src = block.images[current];
-			});
-        
-        sliderBlock.appendChild(slider);
-        text.appendChild(sliderBlock);
-      }
-    }
+          else  {
+              var slider = document.createElement('div');
+              slider.className = 'info-hotspot-slider';
+
+              var slides = document.createElement('div');
+              slides.className = 'slides';
+
+              block.images.forEach(function (src) {
+                  var slide = document.createElement('div');
+                  slide.className = 'slide';
+                  var img = document.createElement('img');
+                  img.src = src;
+                  slide.appendChild(img);
+                  slides.appendChild(slide);
+              });
+
+              var prev = document.createElement('button');
+              prev.className = 'slider-btn prev';
+              prev.innerHTML = '&#8592;';
+
+              var next = document.createElement('button');
+              next.className = 'slider-btn next';
+              next.innerHTML = '&#8594;';
+
+              slider.appendChild(slides);
+              slider.appendChild(prev);
+              slider.appendChild(next);
+              text.appendChild(slider);
+
+              // Логика
+              var count = block.images.length, cur = 0;
+              function go(i) {
+                  if (i < 0) i = count - 1;
+                  else if (i >= count) i = 0;
+                  cur = i;
+                  slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+              }
+              prev.onclick = e => { e.stopPropagation(); go(cur - 1); };
+              next.onclick = e => { e.stopPropagation(); go(cur + 1); };
+              go(0);
+              }
+          }
 
 		  else if (block.type === 'video') {
 			  var videoBlock = document.createElement('div');
