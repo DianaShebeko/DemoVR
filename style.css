@@ -1264,6 +1264,21 @@ body.view-control-buttons .viewControlButton {
     text-align: center;
 }
 
+/* Кнопка "Домой"*/
+#sceneHome .icon.on {
+    display: none;
+}
+/* Скрываем дубль */
+#sceneHome .icon.off {
+    display: block;
+}
+
+/* Опционально: эффект при наведении */
+#sceneHome:hover .icon.off {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
