@@ -734,7 +734,7 @@ switchScene = function (scene) {
     if (audioBtn) {
         // Показываем кнопку только если у сцены есть аудио
         audioBtn.style.display = scene.data.audioGuide ? 'flex' : 'none';
-        audioBtn.classList.remove('enabled');
+        audioBtn.classList.add('enabled');
         if (audioBar) audioBar.style.display = scene.data.audioGuide ? '' : 'none';
     }
 
@@ -746,6 +746,8 @@ switchScene = function (scene) {
         gAudio = new Audio(scene.data.audioGuide);
         gAudio.preload = 'metadata';
         gAudio.ontimeupdate = updateTime;
+        gAudio.play();
+
         gAudio.onended = function () {
             if (audioBtn) audioBtn.classList.remove('enabled');
             if (audioSeek) audioSeek.value = 0;
