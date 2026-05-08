@@ -146,14 +146,17 @@
 
 <div class="bottom-toolbar">
     <!-- ЛЕВАЯ КНОПКА -->
-    <a href="javascript:void(0)" id="sceneListToggle">
-        <img class="icon off" src="img/plan.png">
-        <img class="icon on" src="img/planOpened.png">
-    </a>
+    <div class="toolbar-left">
 
-    <a href="javascript:void(0)" id="sceneHome">
-        <img class="icon" src="img/home.png">
-    </a>
+        <a href="javascript:void(0)" id="sceneListToggle">
+            <img class="icon off" src="img/plan.png">
+            <img class="icon on" src="img/planOpened.png">
+        </a>
+
+        <a href="javascript:void(0)" id="sceneHome">
+            <img class="icon" src="img/home.png">
+        </a>
+    </div>
 
     <!-- ПРАВЫЕ КНОПКИ -->
     <div class="toolbar-right">
@@ -195,51 +198,51 @@
             </div>
         </div>
     </div>
-</div>
-
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
-</a>
- 
- <!-- Модальное окно информации о сцене -->
-<div id="sceneInfoModal">
-  <div class="scene-info-header">
-    <div class="scene-info-icon-wrapper">
-      <img src="img/info.png" class="scene-info-icon" alt="ℹ️">
     </div>
-    <div class="scene-info-title-wrapper">
-      <div class="scene-info-title" id="sceneInfoTitle">О сцене</div>
-    </div>
-    <div class="scene-info-close-wrapper" id="sceneInfoClose">
-      <img src="img/close.png" class="scene-info-close-icon" alt="✕">
-    </div>
-  </div>
-  <div class="scene-info-text" id="sceneInfoText">
-    Текст информации о сцене...
-  </div>
-</div>
 
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
+    <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+        <img class="icon" src="img/up.png">
+    </a>
+    <a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+        <img class="icon" src="img/down.png">
+    </a>
+    <a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+        <img class="icon" src="img/left.png">
+    </a>
+    <a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+        <img class="icon" src="img/right.png">
+    </a>
+    <a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+        <img class="icon" src="img/plus.png">
+    </a>
+    <a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+        <img class="icon" src="img/minus.png">
+    </a>
 
-<script src="data.js"></script>
-<script src="index.js"></script>
+    <!-- Модальное окно информации о сцене -->
+    <div id="sceneInfoModal">
+        <div class="scene-info-header">
+            <div class="scene-info-icon-wrapper">
+                <img src="img/info.png" class="scene-info-icon" alt="ℹ️">
+            </div>
+            <div class="scene-info-title-wrapper">
+                <div class="scene-info-title" id="sceneInfoTitle">О сцене</div>
+            </div>
+            <div class="scene-info-close-wrapper" id="sceneInfoClose">
+                <img src="img/close.png" class="scene-info-close-icon" alt="✕">
+            </div>
+        </div>
+        <div class="scene-info-text" id="sceneInfoText">
+            Текст информации о сцене...
+        </div>
+    </div>
+
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+
+    <script src="data.js"></script>
+    <script src="index.js"></script>
 
 </body>
 </html>

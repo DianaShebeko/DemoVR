@@ -1142,6 +1142,11 @@ body.view-control-buttons .viewControlButton {
     gap: 15px; /* Расстояние между правыми иконками */
 }
 
+.toolbar-left {
+    display: flex;
+    gap: 15px;
+}
+
 .bottom-toolbar .icon.off {
     display: block;
 }
