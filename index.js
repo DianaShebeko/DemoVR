@@ -732,13 +732,14 @@ switchScene = function (scene) {
     if (audioBtn) {
         // Показываем кнопку только если у сцены есть аудио
         audioBtn.style.display = scene.data.audioGuide ? 'flex' : 'none';
-        // Сбрасываем иконку на "Play" (CSS переключит картинку)
         audioBtn.classList.remove('enabled');
+        if (audioBar) audioBar.style.display = scene.data.audioGuide ? '' : 'none';
     }
+
     if (audioSeek) audioSeek.value = 0;
     if (audioTime) audioTime.textContent = '0:00';
 
-    // 3. АУДИО: загрузка нового трека, если есть
+    // 3. АУДИО: загрузка новогоs трека, если есть
     if (scene.data.audioGuide) {
         gAudio = new Audio(scene.data.audioGuide);
         gAudio.preload = 'metadata';
