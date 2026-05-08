@@ -795,4 +795,24 @@ switchScene = function (scene) {
   showFloor('1');
 })();
 
+// === ДОМАШНЯЯ СТРАНИЦА ===
+(function initHomeButton() {
+    var homeBtn = document.getElementById('sceneHome');
+    if (!homeBtn) return;
+
+    var HOME_SCENE_ID = '0--home';
+
+    homeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Ищем сцену по ID и переключаемся
+        var homeScene = scenes.find(function (s) { return s.data.id === HOME_SCENE_ID; });
+        if (homeScene) {
+            switchScene(homeScene);
+        } else {
+            console.warn('Home scene not found:', HOME_SCENE_ID);
+        }
+    });
+})();
+
 })();
