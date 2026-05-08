@@ -800,7 +800,7 @@ switchScene = function (scene) {
     var homeBtn = document.getElementById('sceneHome');
     if (!homeBtn) return;
 
-    var HOME_SCENE_ID = '0--home';
+    var HOME_SCENE_ID = '0-image';
 
     homeBtn.addEventListener('click', function (e) {
         e.preventDefault();

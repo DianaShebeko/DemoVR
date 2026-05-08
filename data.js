@@ -1,6 +1,33 @@
 var APP_DATA = {
   "scenes": [
     {
+        "id": "0-image",
+        "name": "image",
+        "levels": [
+            {
+                "tileSize": 256,
+                "size": 256,
+                "fallbackOnly": true
+            },
+            {
+                "tileSize": 512,
+                "size": 512
+            },
+            {
+                "tileSize": 512,
+                "size": 1024
+            }
+        ],
+        "faceSize": 1024,
+        "initialViewParameters": {
+            "yaw": -2.1163153196731663,
+            "pitch": -0.025189127392902577,
+            "fov": 1.391813623840451
+        },
+        "linkHotspots": [],
+        "infoHotspots": []
+    },
+        {
       "id": "0--",
       "name": "Главная лестница",
 	  "sceneInfo": {                 
