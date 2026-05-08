@@ -2,7 +2,11 @@ var APP_DATA = {
   "scenes": [
     {
         "id": "0-image",
-        "name": "image",
+        "name": "Пролог",
+        "sceneInfo": {
+            "title": "Главная лестница",
+          },
+        "audioGuide": "audio/Главная_лестница.mp3",
         "levels": [
             {
                 "tileSize": 256,
