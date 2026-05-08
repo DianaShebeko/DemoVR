@@ -6,7 +6,7 @@ var APP_DATA = {
         "sceneInfo": {
             "title": "Главная лестница",
           },
-        "audioGuide": "audio/Главная_лестница.mp3",
+        "audioGuide": "audio/prolog.mp3",
         "levels": [
             {
                 "tileSize": 256,
