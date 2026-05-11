@@ -688,41 +688,6 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 	}
 
 // === ПЕРЕОПРЕДЕЛЕНИЕ switchScene (аудио + инфо) ===
-/*var originalSwitchScene = switchScene;
-switchScene = function (scene) {
-    // 1. Оригинальная логика
-    originalSwitchScene(scene);
-
-    // 2. АУДИО: сброс и загрузка нового трека
-    if (gAudio) { gAudio.pause(); gAudio = null; }
-    if (audioBar) audioBar.classList.remove('visible');
-    if (audioBtn) {
-        // Показываем кнопку, только если у сцены есть аудио
-        audioBtn.style.display = scene.data.audioGuide ? 'flex' : 'none';
-        // Сбрасываем иконку на "Play" через класс (CSS сам переключит картинку)
-        audioBtn.classList.remove('enabled');
-    }
-    // Загружаем новый трек, если есть
-    if (scene.data.audioGuide) {
-        gAudio = new Audio(scene.data.audioGuide);
-        gAudio.preload = 'metadata';
-        gAudio.ontimeupdate = updateTime;
-        gAudio.onended = function () {
-            if (audioBtn) audioBtn.classList.remove('enabled');
-            if (audioSeek) audioSeek.value = 0;
-            if (audioTime) audioTime.textContent = '0:00';
-        };
-    }
-
-    // 3. ИНФО-КНОПКА: показать/скрыть
-    if (sceneInfoToggle) {
-        var hasInfo = scene.data.sceneInfo && scene.data.sceneInfo.content;
-        sceneInfoToggle.style.display = hasInfo ? 'block' : 'none';
-        document.body.classList.toggle('scene-info-enabled', hasInfo);
-    }
-};
-*/
-// === ПЕРЕОПРЕДЕЛЕНИЕ switchScene (аудио + инфо) ===
 var originalSwitchScene = switchScene;
 switchScene = function (scene) {
     // 1. Сначала вызываем оригинальную логику Marzipano

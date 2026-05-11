@@ -4,7 +4,13 @@ var APP_DATA = {
         "id": "0-image",
         "name": "Пролог",
         "sceneInfo": {
-            "title": "Главная лестница",
+            "title": "Информация о виртуальном туре",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Инструкция для пользователя"
+                },
+            ]
           },
         "audioGuide": "audio/prolog.mp3",
         "levels": [
@@ -28,7 +34,14 @@ var APP_DATA = {
             "pitch": -0.025189127392902577,
             "fov": 1.391813623840451
         },
-        "linkHotspots": [],
+          "linkHotspots": [
+              {
+                  "yaw": -2.767721364083174,
+                  "pitch": 0.11827129524185054,
+                  "rotation": 12.566370614359176,
+                  "target": "0--"
+              },
+          ],
         "infoHotspots": []
     },
         {
