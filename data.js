@@ -4,7 +4,7 @@ var APP_DATA = {
         "id": "0-image",
         "name": "Пролог",
         "audioGuide": "audio/prolog.mp3",
-          "txtContent": "texts/test.txt",
+        "txtContent": "texts/prologue.txt",
         "levels": [
             {
                 "tileSize": 256,

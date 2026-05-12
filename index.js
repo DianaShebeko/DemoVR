@@ -310,12 +310,11 @@
         prologueOverlay.classList.add('visible');
     }
 
-    function hidePrologue() {
-        prologueOverlay.classList.remove('visible');
-    }
-
     if (closePrologueBtn) {
-        closePrologueBtn.addEventListener('click', hidePrologue);
+        closePrologueBtn.addEventListener('click', function () {
+            // Переход на следующую сцену
+            var nextScene = findSceneById('0--');
+            if (nextScene) switchScene(nextScene);
     }
 
     // Показываем пролог только на стартовой сцене
