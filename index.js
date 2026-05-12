@@ -74,28 +74,6 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('sceneInfoModal');
-    const closeBtn = document.getElementById('sceneInfoClose');
-    const startBtn = document.getElementById('startTourBtn');
-
-    // Показать модалку при загрузке сцены "0-image"
-    function showPrologueModal() {
-        if (viewer.scene().id === '0-image' && modal) {
-            setTimeout(() => modal.classList.add('visible'), 400);
-        }
-    }
-
-    viewer.on('load', showPrologueModal);
-    viewer.on('sceneChange', showPrologueModal);
-
-    // Кнопка "Начать тур" → переход на следующую сцену
-    startBtn?.addEventListener('click', () => {
-        modal.classList.remove('visible');
-        viewer.switchTo('0--'); // ID вашей следующей сцены
-    });
-});
-
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
     var urlPrefix = "tiles";
@@ -814,7 +792,7 @@ switchScene = function (scene) {
   showFloor('1');
 })();
 
-// === ДОМАШНЯЯ СТРАНИЦА ===
+// === Кнопка "ДОМАШНЯЯ СТРАНИЦА"" ===
 (function initHomeButton() {
     var homeBtn = document.getElementById('sceneHome');
     if (!homeBtn) return;
@@ -833,5 +811,21 @@ switchScene = function (scene) {
         }
     });
 })();
+
+    // Пролог - простой блок
+    var prologue = document.getElementById('prologue');
+    var startBtn = document.getElementById('startTour');
+
+    viewer.on('sceneChange', function () {
+        var isPrologueScene = viewer.scene().id === '0-image';
+        prologue.classList.toggle('visible', isPrologueScene);
+    });
+
+    startBtn.addEventListener('click', function () {
+        prologue.classList.remove('visible');
+        viewer.switchTo('0--'); // ID следующей сцены
+    });
+
+
 
 })();
