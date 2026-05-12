@@ -1007,44 +1007,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   font-size: 14px;
 }
 
-/* === ИНФОРМАЦИОННОЕ ОКНО ПРОЛОГА === */
-#prologue {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 20000;
-    display: none;
-}
-
-#prologue.visible {
-    display: block;
-}
-
-.prologue-inner {
-    width: 90%;
-    max-width: 900px;
-    max-height: 80vh;
-    overflow-y: auto;
-    background: rgba(35,35,38,0.95);
-    padding: 30px;
-    border-radius: 10px;
-}
-
-#prologueContent p {
-    margin-bottom: 18px;
-    line-height: 1.6;
-}
-
-#closePrologue {
-    margin-top: 20px;
-    padding: 12px 24px;
-    cursor: pointer;
-}
-
-#pano {
-    pointer-events: auto;
-}
 
 /* View control buttons */
 

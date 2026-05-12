@@ -4,7 +4,15 @@ var APP_DATA = {
         "id": "0-image",
         "name": "Пролог",
         "audioGuide": "audio/prolog.mp3",
-        "txtContent": "texts/prologue.txt",
+          "sceneInfo": {
+              "title": "Виртуальная экскурсия по Чесменскому дворцу",
+              "content": [
+                  {
+                      "type": "txt",
+                      "text": "texts/prologue.txt"
+                  },
+              ]
+          },
         "levels": [
             {
                 "tileSize": 256,
@@ -26,7 +34,14 @@ var APP_DATA = {
             "pitch": -0.025189127392902577,
             "fov": 1.391813623840451
         },
-        "linkHotspots": [],
+          "linkHotspots": [
+              {
+                  "yaw": -2.767721364083174,
+                  "pitch": 0.11827129524185054,
+                  "rotation": 12.566370614359176,
+                  "target": "0--"
+              }
+          ],
         "infoHotspots": []
     },
         {

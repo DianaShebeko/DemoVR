@@ -82,7 +82,7 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 120*Math.PI/180);
+      var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180, {maxPitch: Math.PI/2});
     var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
 
     var scene = viewer.createScene({
@@ -187,6 +187,26 @@
   function sanitize(s) {
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
   }
+    // === АВТОМАТИЧЕСКОЕ ОТКРЫТИЕ ИНФО НА ПЕРВОЙ СЦЕНЕ ===
+    function autoOpenSceneInfo() {
+        // Проверяем, что первая сцена - пролог и у неё есть sceneInfo
+        if (scenes[0] && scenes[0].data.id === '0-image' && scenes[0].data.sceneInfo) {
+            currentSceneWrapper = scenes[0];
+
+            // Заполняем контент
+            if (sceneInfoTitle) {
+                sceneInfoTitle.textContent = scenes[0].data.sceneInfo.title || 'Добро пожаловать';
+            }
+
+            renderSceneInfoContent();
+
+            // Показываем модальное окно
+            sceneInfoModal.classList.add('visible');
+        }
+    }
+
+    // Открываем автоматически при загрузке
+    setTimeout(autoOpenSceneInfo, 500);
 
     function switchScene(scene) {
     stopAutorotate();
@@ -296,31 +316,6 @@
             containerElement.innerHTML = '<p>Не удалось загрузить текст</p>';
             return false;
         }
-    }
-
-
-    // === ПРОЛОГ (использует txtContent) ===
-    var prologueOverlay = document.getElementById('prologue');
-    var prologueContent = document.getElementById('prologueContent');
-    var closePrologueBtn = document.getElementById('closePrologue');
-
-    function showPrologue(scene) {
-        if (!scene || !scene.data.txtContent) return;
-        loadTxtContent(scene.data.txtContent, prologueContent);
-        prologueOverlay.classList.add('visible');
-    }
-
-    if (closePrologueBtn) {
-        closePrologueBtn.addEventListener('click', function () {
-            // Переход на следующую сцену
-            var nextScene = findSceneById('0--');
-            if (nextScene) switchScene(nextScene);
-        });
-    }
-
-    // Показываем пролог только на стартовой сцене
-    if (scenes[0] && scenes[0].data.id === '0-image') {
-        showPrologue(scenes[0]);
     }
 
 
@@ -720,30 +715,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
         }
 
         else if (item.type === 'txt') {
-            fetch(item.src)
-                .then(response => response.text())
-                .then(text => {
-
-                    const paragraphs = text.split(/\n\s*\n/);
-
-                    paragraphs.forEach(paragraph => {
-
-                        if (!paragraph.trim()) return;
-
-                        const p = document.createElement('p');
-
-                        p.className = 'scene-info-paragraph';
-
-                        p.textContent = paragraph.trim();
-
-                        container.appendChild(p);
-
-                    });
-
-                })
-                .catch(error => {
-                    console.error('Ошибка загрузки txt:', error);
-                });
+            loadTxtContent(item.text, container);
         }
 		
 		// === КАРТИНКА ===
@@ -890,10 +862,6 @@ switchScene = function (scene) {
         switchScene(homeScene);
     });
 })();
-
-    if (viewer.scene().id === '0-image') {
-        showPrologue(scenes[0]); 
-    }
 
 
 })();
