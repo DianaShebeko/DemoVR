@@ -3,15 +3,6 @@ var APP_DATA = {
     {
         "id": "0-image",
         "name": "Пролог",
-        "sceneInfo": {
-            "title": "Информация о виртуальном туре",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Инструкция для пользователя"
-                },
-            ]
-          },
         "audioGuide": "audio/prolog.mp3",
         "levels": [
             {

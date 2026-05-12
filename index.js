@@ -74,6 +74,28 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('sceneInfoModal');
+    const closeBtn = document.getElementById('sceneInfoClose');
+    const startBtn = document.getElementById('startTourBtn');
+
+    // Показать модалку при загрузке сцены "0-image"
+    function showPrologueModal() {
+        if (viewer.scene().id === '0-image' && modal) {
+            setTimeout(() => modal.classList.add('visible'), 400);
+        }
+    }
+
+    viewer.on('load', showPrologueModal);
+    viewer.on('sceneChange', showPrologueModal);
+
+    // Кнопка "Начать тур" → переход на следующую сцену
+    startBtn?.addEventListener('click', () => {
+        modal.classList.remove('visible');
+        viewer.switchTo('0--'); // ID вашей следующей сцены
+    });
+});
+
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
     var urlPrefix = "tiles";
@@ -686,6 +708,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 		}
 	  });
 	}
+
 
 // === ПЕРЕОПРЕДЕЛЕНИЕ switchScene (аудио + инфо) ===
 var originalSwitchScene = switchScene;
