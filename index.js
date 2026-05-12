@@ -808,20 +808,9 @@ switchScene = function (scene) {
     });
 })();
 
-    // Пролог - простой блок
-    var prologue = document.getElementById('prologue');
-    var startBtn = document.getElementById('startTour');
-
-    viewer.on('sceneChange', function () {
-        var isPrologueScene = viewer.scene().id === '0-image';
-        prologue.classList.toggle('visible', isPrologueScene);
-    });
-
-    startBtn.addEventListener('click', function () {
-        prologue.classList.remove('visible');
-        viewer.switchTo('0--'); // ID следующей сцены
-    });
-
+    if (viewer.scene().id === '0-image') {
+        document.getElementById('prologue').classList.add('visible');
+    }
 
 
 })();
