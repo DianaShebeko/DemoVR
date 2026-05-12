@@ -145,10 +145,10 @@
   sceneListToggleElement.addEventListener('click', toggleSceneList);
 
   // Start with the scene list open on desktop.
-  if (!document.body.classList.contains('mobile')) {
+  /*if (!document.body.classList.contains('mobile')) {
     showSceneList();
   }
-
+ */
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
       var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
