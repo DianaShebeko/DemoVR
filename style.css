@@ -1063,6 +1063,14 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   font-size: 14px;
 }
 
+#prologue {
+    display: none !important;
+}
+
+#prologue.visible {
+    display: block !important;
+}
+
 /* === ИНФОРМАЦИОННОЕ ОКНО ПРОЛОГА === */
 .prologue-simple {
     position: fixed;

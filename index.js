@@ -804,11 +804,7 @@ switchScene = function (scene) {
 
         // Ищем сцену по ID и переключаемся
         var homeScene = scenes.find(function (s) { return s.data.id === HOME_SCENE_ID; });
-        if (homeScene) {
-            switchScene(homeScene);
-        } else {
-            console.warn('Home scene not found:', HOME_SCENE_ID);
-        }
+        switchScene(homeScene);
     });
 })();
 
