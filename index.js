@@ -268,6 +268,50 @@
     }
   }
 
+
+    // === УНИВЕРСАЛЬНАЯ ЗАГРУЗКА ТЕКСТА ИЗ TXT ===
+    async function loadTxtContent(url, containerElement) {
+        if (!containerElement) return;
+
+        try {
+            var response = await fetch(url);
+            var text = await response.text();
+
+            // Очищаем контейнер
+            containerElement.innerHTML = '';
+
+            // Разбиваем на параграфы по пустым строкам
+            var paragraphs = text.split(/\n\s*\n/);
+            paragraphs.forEach(function (paragraph) {
+                if (paragraph.trim()) {
+                    var p = document.createElement('p');
+                    p.textContent = paragraph.trim();
+                    containerElement.appendChild(p);
+                }
+            });
+
+            return true;
+        } catch (error) {
+            console.error('Ошибка загрузки:', url, error);
+            containerElement.innerHTML = '<p>Не удалось загрузить текст</p>';
+            return false;
+        }
+
+        // === ПРОЛОГ (использует txtContent) ===
+        function showPrologue() {
+            var currentScene = scenes.find(function (s) {
+                return s.data.id === viewer.scene().id;
+            });
+
+            if (currentScene && currentScene.data.txtContent) {
+                prologueOverlay.classList.add('visible');
+                loadTxtContent(currentScene.data.txtContent, prologueContent);
+            } else {
+                prologueOverlay.classList.remove('visible');
+            }
+        }
+    }
+
   function createLinkHotspotElement(hotspot) {
 
     // Create wrapper element to hold icon and tooltip.
@@ -353,7 +397,7 @@
     text.classList.add('info-hotspot-text');
     if (hotspot.text) {
 		text.innerHTML = hotspot.text;
-	}
+    }
 
 	  // === ГИБКИЙ КОНТЕНТ ===
 	  if (hotspot.content && hotspot.content.length > 0) {
