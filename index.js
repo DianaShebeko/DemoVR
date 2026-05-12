@@ -808,10 +808,10 @@ switchScene = function (scene) {
     // 1. Сначала вызываем оригинальную логику Marzipano
     originalSwitchScene(scene);
 
-    hideInfoOverlay();
+    hidePrologue();
 
     if (scene.data.lockedInfo) {
-        showInfoOverlay(scene);
+        showPrologue(scene);
     }
 
     // 2. АУДИО: сброс старого трека
