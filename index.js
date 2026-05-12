@@ -298,27 +298,16 @@
         }
     }
 
-        // === ПРОЛОГ (использует txtContent) ===
+
+    // === ПРОЛОГ (использует txtContent) ===
     var prologueOverlay = document.getElementById('prologue');
     var prologueContent = document.getElementById('prologueContent');
     var closePrologueBtn = document.getElementById('closePrologue');
 
     function showPrologue(scene) {
-
         if (!scene || !scene.data.txtContent) return;
-
-        loadTxtContent(
-            scene.data.txtContent,
-            infoContent
-        );
-
-        infoOverlay.classList.add('visible');
-
-        if (scene.data.lockedInfo) {
-            closeInfoBtn.style.display = 'none';
-        } else {
-            closeInfoBtn.style.display = 'block';
-        }
+        loadTxtContent(scene.data.txtContent, prologueContent);
+        prologueOverlay.classList.add('visible');
     }
 
     function hidePrologue() {
@@ -328,6 +317,12 @@
     if (closePrologueBtn) {
         closePrologueBtn.addEventListener('click', hidePrologue);
     }
+
+    // Показываем пролог только на стартовой сцене
+    if (scenes[0] && scenes[0].data.id === '0-image') {
+        showPrologue(scenes[0]);
+    }
+
 
   function createLinkHotspotElement(hotspot) {
 
@@ -808,12 +803,6 @@ switchScene = function (scene) {
     // 1. Сначала вызываем оригинальную логику Marzipano
     originalSwitchScene(scene);
 
-    hidePrologue();
-
-    if (scene.data.lockedInfo) {
-        showPrologue(scene);
-    }
-
     // 2. АУДИО: сброс старого трека
     if (gAudio) { gAudio.pause(); gAudio = null; }
     if (audioBar) audioBar.classList.remove('visible');
@@ -903,7 +892,7 @@ switchScene = function (scene) {
 })();
 
     if (viewer.scene().id === '0-image') {
-        document.getElementById('prologue').classList.add('visible');
+        showPrologue(scenes[0]); 
     }
 
 
