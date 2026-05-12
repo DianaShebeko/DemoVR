@@ -722,7 +722,34 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 		  p.className = 'scene-info-paragraph';
 		  p.textContent = item.text;
 		  container.appendChild(p);
-		}
+        }
+
+        else if (item.type === 'txt') {
+            fetch(item.src)
+                .then(response => response.text())
+                .then(text => {
+
+                    const paragraphs = text.split(/\n\s*\n/);
+
+                    paragraphs.forEach(paragraph => {
+
+                        if (!paragraph.trim()) return;
+
+                        const p = document.createElement('p');
+
+                        p.className = 'scene-info-paragraph';
+
+                        p.textContent = paragraph.trim();
+
+                        container.appendChild(p);
+
+                    });
+
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки txt:', error);
+                });
+        }
 		
 		// === КАРТИНКА ===
 		else if (item.type === 'image') {
