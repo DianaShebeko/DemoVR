@@ -601,6 +601,7 @@ var audioBtn = document.getElementById('audioBtn');
 var audioBar = document.getElementById('audioBar');
 var audioSeek = document.getElementById('audioSeek');
 var audioTime = document.getElementById('audioTime');
+var isMuted = false; 
 
 function updateTime() {
   if (gAudio && gAudio.duration && audioSeek && audioTime) {
@@ -608,6 +609,31 @@ function updateTime() {
     var m = Math.floor(gAudio.currentTime/60), s = Math.floor(gAudio.currentTime%60);
     audioTime.textContent = m + ':' + (s<10?'0':'') + s;
   }
+}
+
+// Функция для применения muted состояния к текущему аудио
+function applyMutedState() {
+    if (gAudio) {
+        gAudio.muted = isMuted;
+    }
+    // Обновляем визуальное состояние кнопки
+    if (audioOnOffBtn) {
+        if (isMuted) {
+            audioOnOffBtn.classList.add('enabled');
+        } else {
+            audioOnOffBtn.classList.remove('enabled');
+        }
+    }
+}
+
+// Обработчик кнопки глобального mute (в меню)
+if (audioOnOffBtn) {
+    audioOnOffBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        isMuted = !isMuted;  // Переключаем глобальный флаг
+        applyMutedState();    // Применяем к текущему аудио
+    });
 }
 
 if (audioBtn) {
@@ -734,8 +760,9 @@ switchScene = function (scene) {
         gAudio = new Audio(scene.data.audioGuide);
         gAudio.preload = 'metadata';
         gAudio.ontimeupdate = updateTime;
-        gAudio.play();
+        gAudio.muted = isMuted;
 
+        gAudio.play();
         gAudio.onended = function () {
             if (audioBtn) audioBtn.classList.remove('enabled');
             if (audioSeek) audioSeek.value = 0;
