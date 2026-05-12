@@ -82,7 +82,7 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = new Marzipano.RectilinearView.Limit(
+    var limiter = new Marzipano.RectilinearView.limit(
         data.faceSize,
         0.1,                     // минимальный зум
         120 * Math.PI / 180,     // максимальный зум
