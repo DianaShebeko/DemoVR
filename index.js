@@ -315,6 +315,7 @@
             // Переход на следующую сцену
             var nextScene = findSceneById('0--');
             if (nextScene) switchScene(nextScene);
+        });
     }
 
     // Показываем пролог только на стартовой сцене
