@@ -1065,27 +1065,37 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* === ИНФОРМАЦИОННОЕ ОКНО ПРОЛОГА === */
 #prologue {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: black;
-    color: white;
-    padding: 20px;
+    position: absolute;
+    inset: 0;
+    z-index: 20000;
     display: none;
-    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.75);
 }
 
-#prologue.visible {
-        display: block;
+    #prologue.visible {
+        display: flex;
+    }
+
+.prologue-inner {
+    width: 90%;
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(35,35,38,0.95);
+    padding: 30px;
+    border-radius: 10px;
 }
-#prologue.button {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
-    margin-top: 10px;
+
+#prologueContent p {
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+#closePrologue {
+    margin-top: 20px;
+    padding: 12px 24px;
     cursor: pointer;
 }
 

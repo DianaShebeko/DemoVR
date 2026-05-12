@@ -5,6 +5,7 @@ var APP_DATA = {
         "name": "Пролог",
         "audioGuide": "audio/prolog.mp3",
         "txtContent": "texts/test.txt",
+        lockedInfo: true,
         "levels": [
             {
                 "tileSize": 256,
