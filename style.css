@@ -869,8 +869,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 11000 !important;
-  background-color: rgba(35, 35, 38, 0.6);
+  z-index: 11000 ;
   
   display: none;
   flex-direction: column;
@@ -912,7 +911,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   grid-template-columns: 30px 1fr 30px;
   align-items: center;
   
-  flex-shrink: 0;  /* ← Не сжимается */
+  flex-shrink: 0;
 
 }
 
