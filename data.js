@@ -10,7 +10,7 @@ var APP_DATA = {
                   {
                       "type": "txt",
                       "text": "texts/prologue.txt"
-                  },
+                  }
               ]
           },
         "levels": [
@@ -47,6 +47,24 @@ var APP_DATA = {
         {
             "id": "0--",
             "name": "Исторический вход",
+            "audioGuide": "audio/IstorikVhod.mp3",
+            "sceneInfo": {
+                "title": "Исторический вход",
+                "content": [
+                    {
+                        "type": "txt",
+                        "text": "texts/istiricheskiyVhod.txt"
+                    },
+                    {
+                        "type": "image",
+                        "src": "texts/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -85,6 +103,7 @@ var APP_DATA = {
         {
             "id": "1--",
             "name": "Главный вход",
+            "audioGuide": "audio/GlavniyVhod.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -199,7 +218,16 @@ var APP_DATA = {
                     "yaw": -2.7890039565628335,
                     "pitch": -0.101153581700963,
                     "title": "Чесменский дворец",
-                    "text": "Text"
+                    "content": [
+                        {
+                            "type": "txt",
+                            "value": "texts/infoHotspots/3-----2-.txt"
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/noteIhfo11.jpg", "content/noteIhfo12.jpg"],
+                        }
+                    ]
                 }
             ]
         },

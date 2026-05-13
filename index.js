@@ -421,7 +421,11 @@
 			textBlock.classList.add('content-block', 'content-text');
 			textBlock.innerHTML = block.value;
 			text.appendChild(textBlock);
-		  }
+          }
+
+          else if (item.type === 'txt') {
+              loadTxtContent(item.text, container);
+          }
 		  
 		  else if (block.type == 'note')  {
 			var noteBlock = document.createElement('div');
