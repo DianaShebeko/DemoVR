@@ -424,7 +424,7 @@
           }
 
           else if (block.type === 'txt') {
-              loadTxtContent(item.text, container);
+              loadTxtContent(block.text, container);
           }
 		  
 		  else if (block.type == 'note')  {
