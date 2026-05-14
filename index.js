@@ -244,16 +244,16 @@
     sceneNameElement.innerHTML = sanitize(scene.data.name);
   }
   
-  function updateSceneList(scene) {
-    for (var i = 0; i < sceneElements.length; i++) {
-      var el = sceneElements[i];
-      if (el.getAttribute('data-id') === scene.data.id) {
-        el.classList.add('current');
-      } else {
-        el.classList.remove('current');
-      }
+    function updateSceneList(scene) {
+        for (var i = 0; i < sceneElements.length; i++) {
+            var el = sceneElements[i];
+            if (el.getAttribute('data-id') === scene.data.id) {
+                el.classList.add('current');
+            } else {
+                el.classList.remove('current');
+            }
+        }
     }
-  }
 
   function showSceneList() {
     sceneListElement.classList.add('enabled');
@@ -384,114 +384,114 @@ function createInfoHotspotElement(hotspot) {
 	  // === ГИБКИЙ КОНТЕНТ ===
 	  if (hotspot.content && hotspot.content.length > 0) {
           for (const block of hotspot.content) {
-			
-			// === ТЕКСТ ===
-		  if (block.type === 'text') {
-			var textBlock = document.createElement('div');
-			textBlock.classList.add('content-block', 'content-text');
-			textBlock.innerHTML = block.text;
-			text.appendChild(textBlock);
-          }
-		  
-		  else if (block.type == 'note')  {
-			var noteBlock = document.createElement('div');
-			noteBlock.classList.add('content-block', 'content-note');
-			noteBlock.innerHTML = block.value;
-			text.appendChild(noteBlock);			  
-		  }
-		  
-		  // === ОДИНОЧНОЕ ИЗОБРАЖЕНИЕ ===
-		  else if (block.type === 'image') {
-	      if (!block.images || block.images.length <= 1) {		  
-			var imgBlock = document.createElement('div');
-			imgBlock.classList.add('content-block', 'content-image');
-			
-			var img = document.createElement('img');
-			img.src = block.images[0];
-			img.alt = block.alt || '';
 
-            imgBlock.appendChild(img);
-			text.appendChild(imgBlock);
-		  }
-		      // Если несколько изображений — создаём слайдер
-          else  {
-              var slider = document.createElement('div');
-              slider.className = 'info-hotspot-slider';
-
-              var slides = document.createElement('div');
-              slides.className = 'slides';
-
-              block.images.forEach(function (src) {
-                  var slide = document.createElement('div');
-                  slide.className = 'slide';
-                  var img = document.createElement('img');
-                  img.src = src;
-                  slide.appendChild(img);
-                  slides.appendChild(slide);
-              });
-
-              var prev = document.createElement('button');
-              prev.className = 'slider-btn prev';
-              prev.innerHTML = '&#8592;';
-
-              var next = document.createElement('button');
-              next.className = 'slider-btn next';
-              next.innerHTML = '&#8594;';
-
-              slider.appendChild(slides);
-              slider.appendChild(prev);
-              slider.appendChild(next);
-              text.appendChild(slider);
-
-              // Логика
-              var count = block.images.length, cur = 0;
-              function go(i) {
-                  if (i < 0) i = count - 1;
-                  else if (i >= count) i = 0;
-                  cur = i;
-                  slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+              // === ТЕКСТ ===
+              if (block.type === 'text') {
+                  var textBlock = document.createElement('div');
+                  textBlock.classList.add('content-block', 'content-text');
+                  textBlock.innerHTML = block.text;
+                  text.appendChild(textBlock);
               }
-              prev.onclick = e => { e.stopPropagation(); go(cur - 1); };
-              next.onclick = e => { e.stopPropagation(); go(cur + 1); };
-              go(0);
+
+              else if (block.type === 'note') {
+                  var noteBlock = document.createElement('div');
+                  noteBlock.classList.add('content-block', 'content-note');
+                  noteBlock.innerHTML = block.value;
+                  text.appendChild(noteBlock);
+              }
+
+              // === ОДИНОЧНОЕ ИЗОБРАЖЕНИЕ ===
+              else if (block.type === 'image') {
+                  if (!block.images || block.images.length <= 1) {
+                      var imgBlock = document.createElement('div');
+                      imgBlock.classList.add('content-block', 'content-image');
+
+                      var img = document.createElement('img');
+                      img.src = block.images[0];
+                      img.alt = block.alt || '';
+
+                      imgBlock.appendChild(img);
+                      text.appendChild(imgBlock);
+                  }
+                  // Если несколько изображений — создаём слайдер
+                  else {
+                      var slider = document.createElement('div');
+                      slider.className = 'info-hotspot-slider';
+
+                      var slides = document.createElement('div');
+                      slides.className = 'slides';
+
+                      block.images.forEach(function (src) {
+                          var slide = document.createElement('div');
+                          slide.className = 'slide';
+                          var img = document.createElement('img');
+                          img.src = src;
+                          slide.appendChild(img);
+                          slides.appendChild(slide);
+                      });
+
+                      var prev = document.createElement('button');
+                      prev.className = 'slider-btn prev';
+                      prev.innerHTML = '&#8592;';
+
+                      var next = document.createElement('button');
+                      next.className = 'slider-btn next';
+                      next.innerHTML = '&#8594;';
+
+                      slider.appendChild(slides);
+                      slider.appendChild(prev);
+                      slider.appendChild(next);
+                      text.appendChild(slider);
+
+                      // Логика
+                      var count = block.images.length, cur = 0;
+                      function go(i) {
+                          if (i < 0) i = count - 1;
+                          else if (i >= count) i = 0;
+                          cur = i;
+                          slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+                      }
+                      prev.onclick = e => { e.stopPropagation(); go(cur - 1); };
+                      next.onclick = e => { e.stopPropagation(); go(cur + 1); };
+                      go(0);
+                  }
+              }
+
+              else if (block.type === 'video') {
+                  var videoBlock = document.createElement('div');
+                  videoBlock.classList.add('content-block', 'content-video');
+
+                  // === ЕСЛИ ЭТО EMBED (rutube/youtube) ===
+                  if (block.src.includes('rutube.ru') || block.src.includes('youtube.com') || block.src.includes('youtu.be')) {
+
+                      var iframe = document.createElement('iframe');
+                      iframe.src = block.src;
+                      iframe.style.width = '100%';
+                      iframe.style.height = '400px';
+                      iframe.style.border = 'none';
+                      iframe.allowFullscreen = true;
+
+                      videoBlock.appendChild(iframe);
+
+                  }
+                  // === ЕСЛИ ЭТО ОБЫЧНЫЙ MP4 ===
+                  else {
+                      var video = document.createElement('video');
+                      video.src = block.src;
+                      if (block.poster) video.poster = block.poster;
+                      video.controls = true;
+                      video.style.maxWidth = '100%';
+                      video.style.height = 'auto';
+                      video.style.maxHeight = '400px';
+                      video.style.margin = '10px auto';
+                      video.style.display = 'block';
+
+                      videoBlock.appendChild(video);
+                  }
+
+                  text.appendChild(videoBlock);
               }
           }
-
-		  else if (block.type === 'video') {
-			  var videoBlock = document.createElement('div');
-			  videoBlock.classList.add('content-block', 'content-video');
-
-			  // === ЕСЛИ ЭТО EMBED (rutube/youtube) ===
-			  if (block.src.includes('rutube.ru') || block.src.includes('youtube.com') || block.src.includes('youtu.be')) {
-				
-				var iframe = document.createElement('iframe');
-				iframe.src = block.src;
-				iframe.style.width = '100%';
-				iframe.style.height = '400px';
-				iframe.style.border = 'none';
-				iframe.allowFullscreen = true;
-				
-				videoBlock.appendChild(iframe);
-
-			  } 
-			  // === ЕСЛИ ЭТО ОБЫЧНЫЙ MP4 ===
-			  else {
-				var video = document.createElement('video');
-				video.src = block.src;
-				if (block.poster) video.poster = block.poster;
-				video.controls = true;
-				video.style.maxWidth = '100%';
-				video.style.height = 'auto';
-				video.style.maxHeight = '400px';
-				video.style.margin = '10px auto';
-				video.style.display = 'block';
-
-				videoBlock.appendChild(video);
-			  }
-
-			  text.appendChild(videoBlock);
-			}
-		});
 	  }
 	  
     // Place header and text into wrapper element.
