@@ -863,7 +863,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* === МОДАЛЬНОЕ ОКНО ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoModal {
-    top: 40px;
+    top: 0px;
     left: 0;
     position: absolute;
     width: 100%;
