@@ -1473,8 +1473,7 @@ body.view-control-buttons .viewControlButton {
     max-height: 400px;
     margin: 15px auto;
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .info-hotspot-text model-viewer {
@@ -1482,13 +1481,6 @@ body.view-control-buttons .viewControlButton {
     height: 400px;
     display: block;
     --poster-color: transparent;
-}
-
-/* Адаптив для мобильных */
-@media (max-width: 768px) {
-    .info-hotspot-text model-viewer {
-        height: 300px;
-    }
 }
 
 /* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
