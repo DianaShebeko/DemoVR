@@ -415,67 +415,67 @@ function createInfoHotspotElement(hotspot) {
                   }
                   // Если несколько изображений — создаём слайдер
                   else {
-                      var currentIndex = 0;
-                      var totalImages = block.images.length;
+                  //    var currentIndex = 0;
+                  //    var totalImages = block.images.length;
 
-                      function updateSlider() {
-                          slides.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-                      }
-
-                      prev.onclick = function (e) {
-                          e.stopPropagation();
-                          currentIndex--;
-                          if (currentIndex < 0) currentIndex = totalImages - 1;
-                          updateSlider();
-                      };
-
-                      next.onclick = function (e) {
-                          e.stopPropagation();
-                          currentIndex++;
-                          if (currentIndex >= totalImages) currentIndex = 0;
-                          updateSlider();
-                      };
-
-                      updateSlider();
-                  //    var slider = document.createElement('div');
-                  //    slider.className = 'info-hotspot-slider';
-
-                  //    var slides = document.createElement('div');
-                  //    slides.className = 'slides';
-
-                  //    block.images.forEach(function (src) {
-                  //        var slide = document.createElement('div');
-                  //        slide.className = 'slide';
-                  //        var img = document.createElement('img');
-                  //        img.src = src;
-                  //        slide.appendChild(img);
-                  //        slides.appendChild(slide);
-                  //    });
-
-                  //    var prev = document.createElement('button');
-                  //    prev.className = 'slider-btn prev';
-                  //    prev.innerHTML = '&#8592;';
-
-                  //    var next = document.createElement('button');
-                  //    next.className = 'slider-btn next';
-                  //    next.innerHTML = '&#8594;';
-
-                  //    slider.appendChild(slides);
-                  //    slider.appendChild(prev);
-                  //    slider.appendChild(next);
-                  //    text.appendChild(slider);
-
-                  //    // Логика
-                  //    var count = block.images.length, cur = 0;
-                  //    function go(i) {
-                  //        if (i < 0) i = count - 1;
-                  //        else if (i >= count) i = 0;
-                  //        cur = i;
-                  //        slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+                  //    function updateSlider() {
+                  //        slides.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
                   //    }
-                  //    prev.onclick = e => { e.stopPropagation(); go(cur - 1); };
-                  //    next.onclick = e => { e.stopPropagation(); go(cur + 1); };
-                  //    go(0);
+
+                  //    prev.onclick = function (e) {
+                  //        e.stopPropagation();
+                  //        currentIndex--;
+                  //        if (currentIndex < 0) currentIndex = totalImages - 1;
+                  //        updateSlider();
+                  //    };
+
+                  //    next.onclick = function (e) {
+                  //        e.stopPropagation();
+                  //        currentIndex++;
+                  //        if (currentIndex >= totalImages) currentIndex = 0;
+                  //        updateSlider();
+                  //    };
+
+                  //    updateSlider();
+                      var slider = document.createElement('div');
+                      slider.className = 'info-hotspot-slider';
+
+                      var slides = document.createElement('div');
+                      slides.className = 'slides';
+
+                      block.images.forEach(function (src) {
+                          var slide = document.createElement('div');
+                          slide.className = 'slide';
+                          var img = document.createElement('img');
+                          img.src = src;
+                          slide.appendChild(img);
+                          slides.appendChild(slide);
+                      });
+
+                      var prev = document.createElement('button');
+                      prev.className = 'slider-btn prev';
+                      prev.innerHTML = '&#8592;';
+
+                      var next = document.createElement('button');
+                      next.className = 'slider-btn next';
+                      next.innerHTML = '&#8594;';
+
+                      slider.appendChild(slides);
+                      slider.appendChild(prev);
+                      slider.appendChild(next);
+                      text.appendChild(slider);
+
+                      // Логика
+                      var count = block.images.length, cur = 0;
+                      function go(i) {
+                          if (i < 0) i = count - 1;
+                          else if (i >= count) i = 0;
+                          cur = i;
+                          slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+                      }
+                      prev.onclick = e => { e.stopPropagation(); go(cur - 1); };
+                      next.onclick = e => { e.stopPropagation(); go(cur + 1); };
+                      go(0);
                   }
               }
 
