@@ -220,12 +220,12 @@ var APP_DATA = {
                     "title": "Чесменский дворец",
                     "content": [
                         {
-                            "type": "txt",
-                            "value": "texts/infoHotspots/3-----2-.txt"
+                            "type": "text",
+                            "value": TXTI.LESTNICA2
                         },
                         {
                             "type": "image",
-                            "images": ["content/noteIhfo11.jpg", "content/noteIhfo12.jpg"],
+                            "images": ["content/3-----2-/noteIhfo11.jpg", "content/3-----2-/noteIhfo12.jpg"],
                         }
                     ]
                 }
