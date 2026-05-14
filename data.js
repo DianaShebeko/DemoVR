@@ -57,7 +57,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "texts/Kulibin_I_P.jpg"
+                        "src": "content/0--/Kulibin_I_P.jpg"
                     },
                     {
                         "type": "note",
