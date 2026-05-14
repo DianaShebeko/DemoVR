@@ -49,7 +49,6 @@ var APP_DATA = {
             "name": "Исторический вход",
             "audioGuide": "audio/IstorikVhod.mp3",
             "sceneInfo": {
-                "title": "Исторический вход",
                 "content": [
                     {
                         "type": "text",
@@ -221,7 +220,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "text",
-                            "value": TXTI.LESTNICA2
+                            "text": TXTI.LESTNICA2
                         },
                         {
                             "type": "image",
