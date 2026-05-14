@@ -295,32 +295,47 @@
 
 
     // === УНИВЕРСАЛЬНАЯ ЗАГРУЗКА ТЕКСТА ИЗ TXT ===
+    //async function loadTxtContent(url, containerElement) {
+    //    if (!containerElement) return;
+
+    //    try {
+    //        var response = await fetch(url);
+    //        var text = await response.text();
+
+    //        // Разбиваем на параграфы по пустым строкам
+    //        var paragraphs = text.split(/\n\s*\n/);
+    //        paragraphs.forEach(function (paragraph) {
+    //            if (paragraph.trim()) {
+    //                var p = document.createElement('p');
+    //                p.textContent = paragraph.trim();
+    //                containerElement.appendChild(p);
+    //            }
+    //        });
+
+    //        return true;
+    //    }
+    //}
+
+    // === ЗАГРУЗКА ТЕКСТА ИЗ TXT (добавляет, не очищая) ===
     async function loadTxtContent(url, containerElement) {
         if (!containerElement) return;
 
         try {
-            var response = await fetch(url);
-            var text = await response.text();
-
-            // Очищаем контейнер
-            containerElement.innerHTML = '';
+            const response = await fetch(url);
+            const fileText = await response.text();
 
             // Разбиваем на параграфы по пустым строкам
-            var paragraphs = text.split(/\n\s*\n/);
+            const paragraphs = fileText.split(/\n\s*\n/);
             paragraphs.forEach(function (paragraph) {
                 if (paragraph.trim()) {
-                    var p = document.createElement('p');
+                    const p = document.createElement('p');
+                    p.className = 'content-text'; // Ваш CSS-класс
                     p.textContent = paragraph.trim();
-                    containerElement.appendChild(p);
+                    containerElement.appendChild(p); // Добавляем, не очищая
                 }
             });
-
             return true;
-        } catch (error) {
-            console.error('Ошибка загрузки:', url, error);
-            containerElement.innerHTML = '<p>Не удалось загрузить текст</p>';
-            return false;
-        }
+        } 
     }
 
 
@@ -424,7 +439,7 @@
           }
 
           else if (block.type === 'txt') {
-              loadTxtContent(block.text, container);
+              loadTxtContent(block.text, text);
           }
 		  
 		  else if (block.type == 'note')  {
