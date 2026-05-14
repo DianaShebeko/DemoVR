@@ -504,34 +504,17 @@ function createInfoHotspotElement(hotspot) {
               else if (block.type === 'model') {
 
                   const modelBlock = document.createElement('div');
-                  modelBlock.classList.add('content-block', 'content-model');
+                  modelBlock.className = 'content-block content-model';
 
-                  const viewer = document.createElement('model-viewer');
+                  modelBlock.innerHTML = `
+                        <model-viewer
+                            src="${block.src}"
+                            camera-controls
+                            auto-rotate
+                            style="width:100%; height:400px;">
+                        </model-viewer>
+                    `;
 
-                  viewer.src = block.src;
-                  viewer.alt = block.alt || '3D model';
-
-                  // Размеры
-                  viewer.style.width = '100%';
-                  viewer.style.height = '400px';
-                  viewer.style.background = '#f5f5f5';
-
-                  // Атрибуты model-viewer
-                  if (block["camera-controls"] !== false) {
-                      viewer.setAttribute('camera-controls', '');
-                  }
-
-                  if (block["auto-rotate"] === true) {
-                      viewer.setAttribute('auto-rotate', '');
-                  }
-
-                  viewer.setAttribute('shadow-intensity', block["shadow-intensity"] || '1');
-
-                  // Дополнительно полезно
-                  viewer.setAttribute('touch-action', 'pan-y');
-                  viewer.setAttribute('loading', 'eager');
-
-                  modelBlock.appendChild(viewer);
                   text.appendChild(modelBlock);
               }
 
@@ -600,7 +583,7 @@ function createInfoHotspotElement(hotspot) {
         // Создаём НОВЫЙ model-viewer
         var newViewer = document.createElement('model-viewer');
 
-        newViewer.src = src;
+        newViewer.setAttribute('src', src);
 
         newViewer.style.width = '100%';
         newViewer.style.height = '400px';
