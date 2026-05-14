@@ -526,9 +526,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "src": "content/8--/a.jpg",
-                            "camera-controls": true,
-                            "auto-rotate": true
+                            "images": ["content/8--/a.jpg"]
                         }
 
                     ]
