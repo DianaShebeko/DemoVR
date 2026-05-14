@@ -293,50 +293,6 @@
     }
   }
 
-
-    // === УНИВЕРСАЛЬНАЯ ЗАГРУЗКА ТЕКСТА ИЗ TXT ===
-    //async function loadTxtContent(url, containerElement) {
-    //    if (!containerElement) return;
-
-    //    try {
-    //        var response = await fetch(url);
-    //        var text = await response.text();
-
-    //        // Разбиваем на параграфы по пустым строкам
-    //        var paragraphs = text.split(/\n\s*\n/);
-    //        paragraphs.forEach(function (paragraph) {
-    //            if (paragraph.trim()) {
-    //                var p = document.createElement('p');
-    //                p.textContent = paragraph.trim();
-    //                containerElement.appendChild(p);
-    //            }
-    //        });
-
-    //        return true;
-    //    }
-    //}
-
-    // === УНИВЕРСАЛЬНАЯ ЗАГРУЗКА ТЕКСТА ИЗ .TXT ===
-    function loadTxtContent(url, container) {
-        return fetch(url)
-            .then(res => {
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                return res.text();
-            })
-            .then(text => {
-                text.split(/\n\s*\n/).forEach(par => {
-                    const clean = par.trim();
-                    if (clean) {
-                        const p = document.createElement('p');
-                        p.className = 'content-text';
-                        p.textContent = clean;
-                        container.appendChild(p);
-                    }
-                });
-            })
-            .catch(err => console.warn('Ошибка txt:', url, err));
-    }
-
 /*  ===  ХОТ-СПОТ  ===  */
   function createLinkHotspotElement(hotspot) {
 
@@ -378,7 +334,7 @@
     return wrapper;
   }
 
-  function createInfoHotspotElement(hotspot) {
+function createInfoHotspotElement(hotspot) {
 
     // Create wrapper element to hold icon and tooltip.
     var wrapper = document.createElement('div');
@@ -427,18 +383,14 @@
 
 	  // === ГИБКИЙ КОНТЕНТ ===
 	  if (hotspot.content && hotspot.content.length > 0) {
-		hotspot.content.forEach(function(block) {
+          for (const block of hotspot.content) {
 			
 			// === ТЕКСТ ===
 		  if (block.type === 'text') {
 			var textBlock = document.createElement('div');
 			textBlock.classList.add('content-block', 'content-text');
-			textBlock.innerHTML = block.value;
+			textBlock.innerHTML = block.text;
 			text.appendChild(textBlock);
-          }
-
-          else if (block.type === 'txt') {
-              await loadTxtContent(block.text, text);
           }
 		  
 		  else if (block.type == 'note')  {
@@ -717,8 +669,7 @@ var sceneInfoModal = document.getElementById('sceneInfoModal');
 var sceneInfoTitle = document.getElementById('sceneInfoTitle');
 var sceneInfoText = document.getElementById('sceneInfoText');
 var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
-
-	async function renderSceneInfoContent() {
+	function renderSceneInfoContent() {
 	  const container = document.getElementById('sceneInfoText');
 	  if (!container) return;
 	  
@@ -727,7 +678,6 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 	  const content = currentSceneWrapper.data.sceneInfo.content;
 	  if (!content) return;
 	  
-
 	  content.forEach(item => {
 		
 		// === ТЕКСТ ===
@@ -736,10 +686,6 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 		  p.className = 'scene-info-paragraph';
 		  p.textContent = item.text;
 		  container.appendChild(p);
-        }
-
-        else if (item.type === 'txt') {
-            await loadTxtContent(item.text, document.getElementById('sceneInfoText'));
         }
 		
 		// === КАРТИНКА ===

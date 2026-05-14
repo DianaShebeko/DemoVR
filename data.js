@@ -8,8 +8,8 @@ var APP_DATA = {
               "title": "Виртуальная экскурсия по Чесменскому дворцу",
               "content": [
                   {
-                      "type": "txt",
-                      "text": "texts/prologue.txt"
+                      "type": "text",
+                      "text": TXTS.prolog
                   }
               ]
           },
@@ -52,8 +52,8 @@ var APP_DATA = {
                 "title": "Исторический вход",
                 "content": [
                     {
-                        "type": "txt",
-                        "text": "texts/istiricheskiyVhod.txt"
+                        "type": "text",
+                        "text": TXTS.istiricheskiyVhod
                     },
                     {
                         "type": "image",
