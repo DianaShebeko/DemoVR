@@ -699,11 +699,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;*/
-top: 40px;
+top: 30px;
 left: 0;
 position: absolute;
 width: 100%;
-height: calc(100% - 40px); 
+height: calc(100% - 50px); 
 overflow: hidden;
 z-index: 11000;
 display: none;
@@ -1474,7 +1474,7 @@ body.view-control-buttons .viewControlButton {
   position: relative;
 }
 
-info-hotspot-slider .slides {
+.info-hotspot-slider .slides {
     display: flex;
     transition: transform 0.3s ease-in-out;
     width: 100%;
