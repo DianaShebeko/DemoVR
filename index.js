@@ -577,8 +577,10 @@ function createInfoHotspotElement(hotspot) {
     wrapper.appendChild(text);
 	
     // Create a modal for the hotspot content to appear on mobile mode.
-    var modal = document.createElement('div');
-    modal.innerHTML = wrapper.innerHTML;
+    //var modal = document.createElement('div');
+    //modal.innerHTML = wrapper.innerHTML;
+    //modal.classList.add('info-hotspot-modal');
+    var modal = wrapper.cloneNode(true);
     modal.classList.add('info-hotspot-modal');
     document.body.appendChild(modal);
 
