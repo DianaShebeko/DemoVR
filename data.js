@@ -224,7 +224,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteIhfo11.jpg", "content/3-----2-/noteIhfo12.jpg"],
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
                         }
                     ]
                 }

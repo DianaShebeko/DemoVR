@@ -712,7 +712,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 		e.stopPropagation();
 		
 		if (currentSceneWrapper && currentSceneWrapper.data.sceneInfo) {
-		  if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title || 'О сцене';
+		  if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title || '';
 		  
 		  // Вызываем рендеринг без параметров
 		  renderSceneInfoContent();

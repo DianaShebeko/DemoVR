@@ -863,28 +863,21 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* === МОДАЛЬНОЕ ОКНО ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoModal {
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 11000 ;
-  
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity 0.3s ease-in-out 0.5s,
-                      visibility 0s 0.7s;
-  transition: opacity 0.3s ease-in-out 0.5s,
-              visibility 0s 0.7s;
-
-
-
+    top: 40px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    overflow: hidden;
+    z-index: 11000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s ease-in-out 0.5s, visibility 0s 0.7s;
+    transition: opacity 0.3s ease-in-out 0.5s, visibility 0s 0.7s;
 }
 
 #sceneInfoModal.visible {
@@ -963,25 +956,23 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 /* Текст содержимого */
-#sceneInfoModal .scene-info-text {
-  position: relative;
-  width: 90%;
-  max-width: 1024px;
-  max-height: 100vh;
-  overflow-y: auto;
-  
-  padding: 20px;
-  background-color: rgba(35, 35, 38, 0.9);
-  border-radius: 0 0 5px 5px;
-  color: #f7f8fc;
-  text-align: justify;
-  text-indent: 2em;
-  line-height: 1.6em;
-  box-sizing: border-box;
- 
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out 0.4s;
-}
+    #sceneInfoModal .scene-info-text {
+        position: relative;
+        width: 90%;
+        max-width: 1024px;
+        max-height: 100vh;
+        overflow-y: auto;
+        padding: 20px;
+        background-color: rgba(35, 35, 38, 0.9);
+        border-radius: 0 0 5px 5px;
+        color: #f7f8fc;
+        text-align: justify;
+        text-indent: 2em;
+        line-height: 1.6em;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out 0.4s;
+    }
 
 #sceneInfoModal.visible .scene-info-text {
   opacity: 1;
