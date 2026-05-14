@@ -317,35 +317,27 @@
     //}
 
     // === УНИВЕРСАЛЬНАЯ ЗАГРУЗКА ТЕКСТА ИЗ .TXT ===
-    // Добавляет параграфы в любой контейнер, не очищая его
-    async function loadTxtContent(url, container) {
-        if (!url || !container) return false;
-
-        try {
-            const response = await fetch(url);
-            const fileText = await response.text();
-
-            // Разбиваем текст на параграфы по пустым строкам
-            const paragraphs = fileText.split(/\n\s*\n/);
-
-            paragraphs.forEach(paragraph => {
-                const clean = paragraph.trim();
-                if (!clean) return;
-
-                const p = document.createElement('p');
-                p.className = 'content-text'; // Ваш CSS-класс из style.css
-                p.textContent = clean;
-                container.appendChild(p);
-            });
-
-            return true;
-        } catch (error) { 
-            console.error('Ошибка загрузки текста:', url, error);
-            return false;
-        }
+    function loadTxtContent(url, container) {
+        return fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return res.text();
+            })
+            .then(text => {
+                text.split(/\n\s*\n/).forEach(par => {
+                    const clean = par.trim();
+                    if (clean) {
+                        const p = document.createElement('p');
+                        p.className = 'content-text';
+                        p.textContent = clean;
+                        container.appendChild(p);
+                    }
+                });
+            })
+            .catch(err => console.warn('Ошибка txt:', url, err));
     }
 
-
+/*  ===  ХОТ-СПОТ  ===  */
   function createLinkHotspotElement(hotspot) {
 
     // Create wrapper element to hold icon and tooltip.
@@ -446,7 +438,7 @@
           }
 
           else if (block.type === 'txt') {
-              loadTxtContent(block.text, text);
+              await loadTxtContent(block.text, text);
           }
 		  
 		  else if (block.type == 'note')  {
@@ -726,7 +718,7 @@ var sceneInfoTitle = document.getElementById('sceneInfoTitle');
 var sceneInfoText = document.getElementById('sceneInfoText');
 var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
 
-	function renderSceneInfoContent() {
+	async function renderSceneInfoContent() {
 	  const container = document.getElementById('sceneInfoText');
 	  if (!container) return;
 	  
@@ -735,6 +727,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 	  const content = currentSceneWrapper.data.sceneInfo.content;
 	  if (!content) return;
 	  
+
 	  content.forEach(item => {
 		
 		// === ТЕКСТ ===
@@ -746,7 +739,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
         }
 
         else if (item.type === 'txt') {
-            loadTxtContent(item.text, document.getElementById('sceneInfoText'));
+            await loadTxtContent(item.text, document.getElementById('sceneInfoText'));
         }
 		
 		// === КАРТИНКА ===

@@ -989,11 +989,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* === КАРТИНКА — по центру === */
 .scene-info-image {
-  display: block;
-  margin: 20px auto;  /* auto по горизонтали = центрирование */
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+    max-height: 400px;
+    max-width: auto;
+    border-radius: 8px;
 }
 
 /* === ЗАМЕТКА — по центру курсивом === */
