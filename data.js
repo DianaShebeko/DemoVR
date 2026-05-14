@@ -522,8 +522,16 @@ var APP_DATA = {
                 {
                     "yaw": -2.990210518800705,
                     "pitch": -0.09826286315023225,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Лягушка-хранительница Чесменского дворца",
+                    "content": [
+                        {
+                            "type": "model",
+                            "src": "content/8--/frog.glb",
+                            "camera-controls": true,
+                            "auto-rotate": true,
+                        }
+
+                    ]
                 },
                 {
                     "yaw": 1.2048977732143058,

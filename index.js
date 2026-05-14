@@ -500,6 +500,27 @@ function createInfoHotspotElement(hotspot) {
                       };
                   }
               }
+              // === 3D МОДЕЛЬ (GLB) ===
+              else if (block.type === 'model') {
+                  const modelBlock = document.createElement('div');
+                  modelBlock.classList.add('content-block', 'content-model');
+
+                  const viewer = document.createElement('model-viewer');
+                  viewer.src = block.src;
+                  viewer.alt = block.alt || '3D-модель';
+                  viewer.cameraControls = block['camera-controls'] !== false;
+                  viewer.autoRotate = block['auto-rotate'] === true;
+                  viewer.shadowIntensity = block['shadow-intensity'] || 0;
+                  viewer.style.width = '100%';
+                  viewer.style.height = '400px';
+
+                  // Атрибуты для доступности и прогресс-бара
+                  viewer.setAttribute('aria-label', block.alt);
+                  viewer.setAttribute('loading', 'eager');
+
+                  modelBlock.appendChild(viewer);
+                  container.appendChild(modelBlock);
+              }
 
               else if (block.type === 'video') {
                   var videoBlock = document.createElement('div');
