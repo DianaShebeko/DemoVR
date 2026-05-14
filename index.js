@@ -440,16 +440,24 @@ function createInfoHotspotElement(hotspot) {
                       var slider = document.createElement('div');
                       slider.className = 'info-hotspot-slider';
 
-                      var slides = document.createElement('div');
-                      slides.className = 'slides';
+                      var slides = [];
 
-                      block.images.forEach(function (src) {
+                      block.images.forEach(function (src, index) {
+
                           var slide = document.createElement('div');
                           slide.className = 'slide';
+
+                          if (index !== 0) {
+                              slide.style.display = 'none';
+                          }
+
                           var img = document.createElement('img');
                           img.src = src;
+
                           slide.appendChild(img);
-                          slides.appendChild(slide);
+                          slider.appendChild(slide);
+
+                          slides.push(slide);
                       });
 
                       var prev = document.createElement('button');
@@ -460,22 +468,36 @@ function createInfoHotspotElement(hotspot) {
                       next.className = 'slider-btn next';
                       next.innerHTML = '&#8594;';
 
-                      slider.appendChild(slides);
                       slider.appendChild(prev);
                       slider.appendChild(next);
+
                       text.appendChild(slider);
 
                       // Логика
-                      var count = block.images.length, cur = 0;
-                      function go(i) {
-                          if (i < 0) i = count - 1;
-                          else if (i >= count) i = 0;
-                          cur = i;
-                          slides.style.transform = 'translateX(' + (-i * 100) + '%)';
+                      var cur = 0;
+                      var count = slides.length;
+
+                      function showSlide(index) {
+
+                          if (index < 0) index = count - 1;
+                          if (index >= count) index = 0;
+
+                          slides[cur].style.display = 'none';
+
+                          cur = index;
+
+                          slides[cur].style.display = 'block';
                       }
-                      prev.onclick = e => { e.stopPropagation(); go(cur - 1); };
-                      next.onclick = e => { e.stopPropagation(); go(cur + 1); };
-                      go(0);
+
+                      prev.onclick = function (e) {
+                          e.stopPropagation();
+                          showSlide(cur - 1);
+                      };
+
+                      next.onclick = function (e) {
+                          e.stopPropagation();
+                          showSlide(cur + 1);
+                      };
                   }
               }
 

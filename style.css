@@ -1469,32 +1469,13 @@ body.view-control-buttons .viewControlButton {
 
 /* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
 .info-hotspot-slider {
-  max-height: 400px;
-  overflow: hidden;
-  position: relative;
-}
-
-.info-hotspot-slider .slides {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-    height: 100%; /* ← добавить */
-}
-
-.info-hotspot-slider .slide {
-    min-width: 100%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    text-align: center;
 }
 
 .info-hotspot-slider img {
     max-width: 100%;
-    max-height: 400px; 
-    width: auto; 
-    height: auto; 
-    display: block;
-    object-fit: contain; 
+    max-height: 400px;
 }
 
 /* Кнопки слайдера */
@@ -1522,8 +1503,4 @@ body.view-control-buttons .viewControlButton {
 .info-hotspot-modal .info-hotspot-text {
   overflow-y: auto;        /* Прокрутка контента */
   max-height: 90vh;        /* Ограничение высоты */
-}
-
-.info-hotspot-slider {
-  overflow: hidden !important;  /* НЕТ прокрутки у слайдера */
 }
