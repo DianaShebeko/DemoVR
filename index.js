@@ -684,8 +684,8 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 		if (item.type === 'text') {
 		  const p = document.createElement('p');
 		  p.className = 'scene-info-paragraph';
-		  p.textContent = item.text;
-		  container.appendChild(p);
+            p.innerHTML = item.text;
+            container.appendChild(p);
         }
 		
 		// === КАРТИНКА ===
