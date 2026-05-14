@@ -522,10 +522,10 @@ var APP_DATA = {
                 {
                     "yaw": -2.990210518800705,
                     "pitch": -0.09826286315023225,
-                    "title": "Лягушка-хранительница Чесменского дворца",
+                    "title": "Портрет адмирала Г.А. Спиридова",
                     "content": [
                         {
-                            "type": "model",
+                            "type": "image",
                             "src": "content/8--/frog.glb",
                             "camera-controls": true,
                             "auto-rotate": true
@@ -536,73 +536,73 @@ var APP_DATA = {
                 {
                     "yaw": 1.2048977732143058,
                     "pitch": -0.09347896497178354,
-                    "title": "Title",
+                    "title": "1",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.3036003496455102,
                     "pitch": -0.14173745989768882,
-                    "title": "Title",
+                    "title": "2",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.3946202895268627,
                     "pitch": -0.15173112282149326,
-                    "title": "Title",
+                    "title": "3",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.6343412883796447,
                     "pitch": -1.377791228689233,
-                    "title": "Title",
+                    "title": "4",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.3836025650576396,
                     "pitch": -0.6487272127044896,
-                    "title": "Title",
+                    "title": "5",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.9332545710799955,
                     "pitch": -0.5406062446092506,
-                    "title": "Title",
+                    "title": "6",
                     "text": "Text"
                 },
                 {
                     "yaw": -2.466692783413979,
                     "pitch": -0.6464131469303087,
-                    "title": "Title",
+                    "title": "7",
                     "text": "Text"
                 },
                 {
                     "yaw": -3.018341000898676,
                     "pitch": -0.514501799211148,
-                    "title": "Title",
+                    "title": "8",
                     "text": "Text"
                 },
                 {
                     "yaw": 2.743665765448469,
                     "pitch": -0.5587350999155873,
-                    "title": "Title",
+                    "title": "9",
                     "text": "Text"
                 },
                 {
                     "yaw": 2.2058696366921087,
                     "pitch": -0.7440173939879351,
-                    "title": "Title",
+                    "title": "10",
                     "text": "Text"
                 },
                 {
                     "yaw": 1.6842194719094623,
                     "pitch": -0.562007505528566,
-                    "title": "Title",
+                    "title": "11",
                     "text": "Text"
                 },
                 {
                     "yaw": 1.190600284078947,
                     "pitch": -0.7207715342309537,
-                    "title": "Title",
+                    "title": "12",
                     "text": "Text"
                 },
                 {
@@ -614,13 +614,13 @@ var APP_DATA = {
                 {
                     "yaw": 0.19848828106690597,
                     "pitch": -0.7298532713334787,
-                    "title": "Title",
+                    "title": "13",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.31481710352123216,
                     "pitch": -0.5689502086645248,
-                    "title": "Title",
+                    "title": "14",
                     "text": "Text"
                 }
             ]
@@ -671,8 +671,16 @@ var APP_DATA = {
                 {
                     "yaw": 0.10845732514621176,
                     "pitch": -0.5240902477629081,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Лягушка-хранительница Чесменского дворца",
+                    "content": [
+                        {
+                            "type": "model",
+                            "src": "content/8--/frog.glb",
+                            "camera-controls": true,
+                            "auto-rotate": true
+                        }
+
+                    ]
                 }
             ]
         },
