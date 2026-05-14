@@ -423,7 +423,7 @@
 			text.appendChild(textBlock);
           }
 
-          else if (item.type === 'txt') {
+          else if (block.type === 'txt') {
               loadTxtContent(item.text, container);
           }
 		  
