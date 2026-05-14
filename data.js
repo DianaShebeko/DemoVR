@@ -526,7 +526,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "src": "content/8--/frog.glb",
+                            "src": "content/8--/a.glb",
                             "camera-controls": true,
                             "auto-rotate": true
                         }
