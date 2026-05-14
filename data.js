@@ -528,7 +528,7 @@ var APP_DATA = {
                             "type": "model",
                             "src": "content/8--/frog.glb",
                             "camera-controls": true,
-                            "auto-rotate": true,
+                            "auto-rotate": true
                         }
 
                     ]

@@ -502,20 +502,33 @@ function createInfoHotspotElement(hotspot) {
               }
               // === 3D МОДЕЛЬ (GLB) ===
               else if (block.type === 'model') {
+
                   const modelBlock = document.createElement('div');
                   modelBlock.classList.add('content-block', 'content-model');
 
                   const viewer = document.createElement('model-viewer');
+
                   viewer.src = block.src;
-                  viewer.alt = block.alt || '3D-модель';
-                  viewer.cameraControls = block['camera-controls'] !== false;
-                  viewer.autoRotate = block['auto-rotate'] === true;
-                  viewer.shadowIntensity = block['shadow-intensity'] || 0;
+                  viewer.alt = block.alt || '3D model';
+
+                  // Размеры
                   viewer.style.width = '100%';
                   viewer.style.height = '400px';
+                  viewer.style.background = '#f5f5f5';
 
-                  // Атрибуты для доступности и прогресс-бара
-                  viewer.setAttribute('aria-label', block.alt);
+                  // Атрибуты model-viewer
+                  if (block["camera-controls"] !== false) {
+                      viewer.setAttribute('camera-controls', '');
+                  }
+
+                  if (block["auto-rotate"] === true) {
+                      viewer.setAttribute('auto-rotate', '');
+                  }
+
+                  viewer.setAttribute('shadow-intensity', block["shadow-intensity"] || '1');
+
+                  // Дополнительно полезно
+                  viewer.setAttribute('touch-action', 'pan-y');
                   viewer.setAttribute('loading', 'eager');
 
                   modelBlock.appendChild(viewer);
