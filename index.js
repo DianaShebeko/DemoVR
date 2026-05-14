@@ -548,6 +548,52 @@ function createInfoHotspotElement(hotspot) {
     modal.classList.add('info-hotspot-modal');
     document.body.appendChild(modal);
 
+    /*стрелки*/
+    // === ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА В МОДАЛКЕ ===
+    var modalSlides = modal.querySelectorAll('.slide');
+
+    if (modalSlides.length > 0) {
+
+        var modalPrev = modal.querySelector('.prev');
+        var modalNext = modal.querySelector('.next');
+
+        var modalCur = 0;
+
+        // скрываем все кроме первой
+        modalSlides.forEach(function (slide, index) {
+            if (index !== 0) {
+                slide.style.display = 'none';
+            }
+        });
+
+        function modalShowSlide(index) {
+
+            if (index < 0) index = modalSlides.length - 1;
+            if (index >= modalSlides.length) index = 0;
+
+            modalSlides[modalCur].style.display = 'none';
+
+            modalCur = index;
+
+            modalSlides[modalCur].style.display = 'block';
+        }
+
+        if (modalPrev) {
+            modalPrev.onclick = function (e) {
+                e.stopPropagation();
+                modalShowSlide(modalCur - 1);
+            };
+        }
+
+        if (modalNext) {
+            modalNext.onclick = function (e) {
+                e.stopPropagation();
+                modalShowSlide(modalCur + 1);
+            };
+        }
+    }
+    /*стрелки*/
+
     var toggle = function() {
       wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
