@@ -519,7 +519,7 @@ function createInfoHotspotElement(hotspot) {
                   viewer.setAttribute('loading', 'eager');
 
                   modelBlock.appendChild(viewer);
-                  container.appendChild(modelBlock);
+                  text.appendChild(modelBlock);
               }
 
               else if (block.type === 'video') {
