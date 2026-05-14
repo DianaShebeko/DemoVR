@@ -577,12 +577,55 @@ function createInfoHotspotElement(hotspot) {
     wrapper.appendChild(text);
 	
     // Create a modal for the hotspot content to appear on mobile mode.
-    //var modal = document.createElement('div');
-    //modal.innerHTML = wrapper.innerHTML;
-    //modal.classList.add('info-hotspot-modal');
-    var modal = wrapper.cloneNode(true);
+    var modal = document.createElement('div');
+    modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('info-hotspot-modal');
+    //var modal = wrapper.cloneNode(true);
+    //modal.classList.add('info-hotspot-modal');
     document.body.appendChild(modal);
+
+    // === ЛЯГУШКА ===
+    var modalModels = modal.querySelectorAll('.content-model');
+
+    modalModels.forEach(function (modelBlock, index) {
+
+        // Ищем старый model-viewer
+        var oldViewer = modelBlock.querySelector('model-viewer');
+
+        if (!oldViewer) return;
+
+        // Берём src
+        var src = oldViewer.getAttribute('src');
+
+        // Создаём НОВЫЙ model-viewer
+        var newViewer = document.createElement('model-viewer');
+
+        newViewer.src = src;
+
+        newViewer.style.width = '100%';
+        newViewer.style.height = '400px';
+        newViewer.style.display = 'block';
+        newViewer.style.background = '#ddd';
+
+        newViewer.setAttribute('camera-controls', '');
+        newViewer.setAttribute('touch-action', 'pan-y');
+        newViewer.setAttribute('shadow-intensity', '1');
+
+        if (oldViewer.hasAttribute('auto-rotate')) {
+            newViewer.setAttribute('auto-rotate', '');
+        }
+
+        // очищаем старый
+        modelBlock.innerHTML = '';
+
+        // вставляем новый
+        modelBlock.appendChild(newViewer);
+
+        // форсим resize
+        setTimeout(function () {
+            window.dispatchEvent(new Event('resize'));
+        }, 100);
+    });
 
     /*стрелки*/
     // === ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА В МОДАЛКЕ ===
