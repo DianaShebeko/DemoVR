@@ -1023,17 +1023,37 @@ switchScene = function (scene) {
 
     function startGyroscope() {
 
-        var controls = viewer.controls();
+        window.addEventListener('deviceorientation', handleOrientation);
 
-        var deviceOrientation =
-            new Marzipano.DeviceOrientationControlMethod();
+        console.log('Custom gyro enabled');
 
-        controls.registerMethod(
-            'deviceOrientation',
-            deviceOrientation,
-            true
+    }
+
+    function handleOrientation(event) {
+
+        if (!event.alpha && !event.beta && !event.gamma) {
+            return;
+        }
+
+        var yaw = (event.alpha || 0) * Math.PI / 180;
+
+        var pitch = (event.beta || 0) * Math.PI / 180;
+
+        // ограничение pitch
+        pitch = Math.max(
+            -Math.PI / 3,
+            Math.min(Math.PI / 3, pitch)
         );
 
+        var scene = viewer.scene();
+
+        if (!scene) return;
+
+        var view = scene.view();
+
+        view.setYaw(yaw);
+
+        view.setPitch(pitch * 0.5);
     }
     function enterVRMode() {
 
