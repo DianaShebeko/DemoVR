@@ -1023,22 +1023,21 @@ switchScene = function (scene) {
 
     function startGyroscope() {
 
-        viewer.controls().registerMethod(
+        var controls = viewer.controls();
+
+        var deviceOrientation =
+            new Marzipano.DeviceOrientationControlMethod();
+
+        controls.registerMethod(
             'deviceOrientation',
-            new Marzipano.DeviceOrientationControlMethod()
+            deviceOrientation,
+            true
         );
 
-        console.log('Gyroscope enabled');
     }
-
     function enterVRMode() {
 
         document.body.classList.add('vr-mode');
-
-        // fullscreen
-        if (screenfull && screenfull.enabled) {
-            screenfull.request();
-        }
 
         vrEnabled = true;
     }
@@ -1047,9 +1046,6 @@ switchScene = function (scene) {
 
         document.body.classList.remove('vr-mode');
 
-        if (screenfull && screenfull.enabled) {
-            screenfull.exit();
-        }
 
         vrEnabled = false;
     }
