@@ -703,7 +703,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "images": ["content/8--/Kartina1.jpg"]
+                            "images": ["content/9-_1/Ekaterina.jpg"]
                         },
                         {
                             "type": "note",
@@ -719,7 +719,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "model",
-                            "src": "content/8--/frog.glb",
+                            "src": "content/9-_1/frog.glb",
                         }
 
                     ]
