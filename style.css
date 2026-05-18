@@ -1273,6 +1273,25 @@ body.vr-mode #pano {
         left: 50%;
     }
 
+#vrCursor {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    margin-top: -6px;
+    border: 2px solid white;
+    border-radius: 50%;
+    z-index: 99999;
+    pointer-events: none;
+    display: none;
+}
+
+body.vr-mode #vrCursor {
+    display: block;
+}
+
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {

@@ -992,69 +992,32 @@ switchScene = function (scene) {
 
     async function enableIOSGyro() {
 
-        // iPhone permission
         if (
             typeof DeviceOrientationEvent !== "undefined" &&
             typeof DeviceOrientationEvent.requestPermission === "function"
         ) {
-
             try {
-
                 const permission =
                     await DeviceOrientationEvent.requestPermission();
 
-                if (permission === "granted") {
-
-                    startGyroscope();
-
-                }
+                if (permission !== "granted") return;
 
             } catch (e) {
                 console.error(e);
+                return;
             }
-
-        } else {
-
-            // Android
-            startGyroscope();
-
-        }
-    }
-
-    function startGyroscope() {
-
-        window.addEventListener('deviceorientation', handleOrientation);
-
-        console.log('Custom gyro enabled');
-
-    }
-
-    function handleOrientation(event) {
-
-        if (!event.alpha && !event.beta && !event.gamma) {
-            return;
         }
 
-        var yaw = (event.alpha || 0) * Math.PI / 180;
+        deviceOrientationControlMethod =
+            new DeviceOrientationControlMethod();
 
-        var pitch = (event.beta || 0) * Math.PI / 180;
-
-        // ограничение pitch
-        pitch = Math.max(
-            -Math.PI / 3,
-            Math.min(Math.PI / 3, pitch)
+        viewer.controls().registerMethod(
+            'deviceOrientation',
+            deviceOrientationControlMethod,
+            true
         );
-
-        var scene = viewer.scene();
-
-        if (!scene) return;
-
-        var view = scene.view();
-
-        view.setYaw(yaw);
-
-        view.setPitch(pitch * 0.5);
     }
+
     function enterVRMode() {
 
         document.body.classList.add('vr-mode');
@@ -1087,5 +1050,63 @@ switchScene = function (scene) {
         });
 
     }
+    var vrLookTimers = new Map();
+
+    function initVRGaze() {
+
+        setInterval(function () {
+
+            if (!vrEnabled) return;
+
+            var hotspots =
+                document.querySelectorAll('.link-hotspot');
+
+            hotspots.forEach(function (hotspot) {
+
+                var rect =
+                    hotspot.getBoundingClientRect();
+
+                var centerX =
+                    window.innerWidth / 2;
+
+                var centerY =
+                    window.innerHeight / 2;
+
+                var hotspotX =
+                    rect.left + rect.width / 2;
+
+                var hotspotY =
+                    rect.top + rect.height / 2;
+
+                var dx =
+                    Math.abs(centerX - hotspotX);
+
+                var dy =
+                    Math.abs(centerY - hotspotY);
+
+                // hotspot почти в центре
+                if (!vrLookTimers.has(hotspot)) {
+
+                    vrLookTimers.set(hotspot,
+                        setTimeout(function () {
+
+                            hotspot.click();
+                            vrLookTimers.delete(hotspot);
+
+                        }, 1200)
+                    );
+                } else {
+
+                    clearTimeout(vrLookTimers.get(hotspot));
+                    vrLookTimers.delete(hotspot);
+                }
+
+            });
+
+        }, 100);
+
+    }
+
+    initVRGaze();
 
 })();

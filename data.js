@@ -874,8 +874,13 @@ var APP_DATA = {
                 {
                     "yaw": -0.4817133899788111,
                     "pitch": -0.6278107261022328,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "Чесменская военная богадельня императора Николая I (1831 - 1919 гг.)",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": ["content/12---2/Krizhanovskiy.jpg"]
+                        }
+                        ]
                 }
             ]
         },
