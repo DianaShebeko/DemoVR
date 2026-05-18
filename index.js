@@ -396,7 +396,7 @@ function createInfoHotspotElement(hotspot) {
               else if (block.type === 'note') {
                   var noteBlock = document.createElement('div');
                   noteBlock.classList.add('content-block', 'content-note');
-                  noteBlock.innerHTML = block.value;
+                  noteBlock.innerHTML = block.text;
                   text.appendChild(noteBlock);
               }
 
