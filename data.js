@@ -11,6 +11,7 @@ var APP_DATA = {
                       "type": "text",
                       "text": TXTS.prolog
                   }
+
               ]
           },
         "levels": [
@@ -270,25 +271,25 @@ var APP_DATA = {
                 {
                     "yaw": -0.6202129262496836,
                     "pitch": -0.2433396083283519,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.22570344675832033,
                     "pitch": -0.28677371736958435,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.1713061630095858,
                     "pitch": -0.22795474632023982,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 },
                 {
                     "yaw": 2.6915515524187654,
                     "pitch": -0.30895803830891033,
-                    "title": "Title",
+                    "title": "Title4",
                     "text": "Text"
                 }
             ]
@@ -333,19 +334,19 @@ var APP_DATA = {
                 {
                     "yaw": 2.75592941636235,
                     "pitch": -0.29458192783864057,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": 0.2662901611038322,
                     "pitch": -0.2563321796969369,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": 0.8643229251522584,
                     "pitch": -0.19300853476285873,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 }
             ]
@@ -526,7 +527,11 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "images": ["content/8--/a.jpg"]
+                            "images": ["content/8--/Spiridov.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Портрет адмирала Григория Андреевича Спиридова. Художник А.Г.  2013"
                         }
 
                     ]
@@ -534,20 +539,51 @@ var APP_DATA = {
                 {
                     "yaw": 1.2048977732143058,
                     "pitch": -0.09347896497178354,
-                    "title": "1",
-                    "text": "Text"
+                    "title": "Портрет графа А.Г. Орлова-Чесменского",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": ["content/8--/Orlov.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Портрет графа А.Г. Орлова-Чесменского. Художник А.Г. Николаева-Берг. 2013"
+                        }
+
+                    ]
+
                 },
                 {
                     "yaw": -0.3036003496455102,
                     "pitch": -0.14173745989768882,
-                    "title": "2",
-                    "text": "Text"
+                    "title": "Екатерина на троне",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": ["content/8--/Kartina2.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": " "
+                        }
+
+                    ]
                 },
                 {
                     "yaw": -1.3946202895268627,
                     "pitch": -0.15173112282149326,
-                    "title": "3",
-                    "text": "Text"
+                    "title": "Екатерина принимает указ",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": ["content/8--/Kartina1.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": " "
+                        }
+
+                    ]
                 },
                 {
                     "yaw": -0.6343412883796447,
@@ -663,8 +699,18 @@ var APP_DATA = {
                 {
                     "yaw": -0.148785027916281,
                     "pitch": 0.12631851532482763,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Портрет императрицы Екатерины II",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": ["content/8--/Kartina1.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": " "
+                        }
+
+                    ]
                 },
                 {
                     "yaw": 0.10845732514621176,
@@ -803,19 +849,19 @@ var APP_DATA = {
                 {
                     "yaw": 0.03856982766612482,
                     "pitch": 0.5083329493056983,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.4983054176954251,
                     "pitch": -0.2558775641315414,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.4817133899788111,
                     "pitch": -0.6278107261022328,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 }
             ]

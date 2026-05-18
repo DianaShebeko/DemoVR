@@ -146,8 +146,8 @@ body.fullscreen-enabled #fullscreenToggle {
   top: 10px;
   right: 10px;
 }
-
-#fullscreenToggle .icon.on {
+*/
+/*#fullscreenToggle .icon.on {
   display: none;
 }
 
@@ -162,7 +162,7 @@ body.fullscreen-enabled #fullscreenToggle {
 #fullscreenToggle.enabled .icon.off {
   display: none;
 }
-*/
+    */
 /*
 #autorotateToggle {
   display: block;
@@ -1252,6 +1252,26 @@ body.view-control-buttons .viewControlButton {
     opacity: 0.7;
     transition: opacity 0.2s;
 }
+
+/* ========== КНОПКА VR =============*/
+body.vr-mode #pano {
+    position: relative;
+}
+
+    body.vr-mode #pano::before,
+    body.vr-mode #pano::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: rgba(255,255,255,0.3);
+        z-index: 9999;
+    }
+
+    body.vr-mode #pano::before {
+        left: 50%;
+    }
 
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */

@@ -985,5 +985,91 @@ switchScene = function (scene) {
     });
 })();
 
+    // === VR MODE ===
+
+    var vrBtn = document.getElementById('vrBtn');
+    var vrEnabled = false;
+
+    async function enableIOSGyro() {
+
+        // iPhone permission
+        if (
+            typeof DeviceOrientationEvent !== "undefined" &&
+            typeof DeviceOrientationEvent.requestPermission === "function"
+        ) {
+
+            try {
+
+                const permission =
+                    await DeviceOrientationEvent.requestPermission();
+
+                if (permission === "granted") {
+
+                    startGyroscope();
+
+                }
+
+            } catch (e) {
+                console.error(e);
+            }
+
+        } else {
+
+            // Android
+            startGyroscope();
+
+        }
+    }
+
+    function startGyroscope() {
+
+        viewer.controls().registerMethod(
+            'deviceOrientation',
+            new Marzipano.DeviceOrientationControlMethod()
+        );
+
+        console.log('Gyroscope enabled');
+    }
+
+    function enterVRMode() {
+
+        document.body.classList.add('vr-mode');
+
+        // fullscreen
+        if (screenfull && screenfull.enabled) {
+            screenfull.request();
+        }
+
+        vrEnabled = true;
+    }
+
+    function exitVRMode() {
+
+        document.body.classList.remove('vr-mode');
+
+        if (screenfull && screenfull.enabled) {
+            screenfull.exit();
+        }
+
+        vrEnabled = false;
+    }
+
+    if (vrBtn) {
+
+        vrBtn.addEventListener('click', async function (e) {
+
+            e.preventDefault();
+
+            await enableIOSGyro();
+
+            if (!vrEnabled) {
+                enterVRMode();
+            } else {
+                exitVRMode();
+            }
+
+        });
+
+    }
 
 })();
