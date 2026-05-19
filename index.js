@@ -988,20 +988,21 @@ switchScene = function (scene) {
     // === VR MODE ===
 
     var vrBtn = document.getElementById('vrBtn');
-    var vrEnabled = false;
     var deviceOrientationControlMethod = null;
+    var vrEnabled = false;
 
-    async function enableIOSGyro() {
+    async function enableVR() {
 
+        // iOS permission
         if (
             typeof DeviceOrientationEvent !== "undefined" &&
             typeof DeviceOrientationEvent.requestPermission === "function"
         ) {
             try {
-                const permission =
+                const response =
                     await DeviceOrientationEvent.requestPermission();
 
-                if (permission !== "granted") return;
+                if (response !== "granted") return;
 
             } catch (e) {
                 console.error(e);
@@ -1009,47 +1010,33 @@ switchScene = function (scene) {
             }
         }
 
+        // создаём контроллер
         deviceOrientationControlMethod =
             new DeviceOrientationControlMethod();
 
-        viewer.controls().registerMethod(
-            'deviceOrientation',
-            deviceOrientationControlMethod,
-            true  
-        );
-    }
-    function enterVRMode() {
+        var controls = viewer.controls();
 
-        document.body.classList.add('vr-mode');
+        controls.registerMethod(
+            'deviceOrientation',
+            deviceOrientationControlMethod
+        );
+
+        // 🔥 ВОТ ЭТО ТЫ ПРОПУСТИЛА
+        controls.enableMethod('deviceOrientation');
 
         vrEnabled = true;
-    }
 
-    function exitVRMode() {
-
-        document.body.classList.remove('vr-mode');
-
-
-        vrEnabled = false;
+        console.log("VR ENABLED");
     }
 
     if (vrBtn) {
-
         vrBtn.addEventListener('click', async function (e) {
-
             e.preventDefault();
-
-            await enableIOSGyro();
-
-            if (!vrEnabled) {
-                enterVRMode();
-            } else {
-                exitVRMode();
-            }
-
+            await enableVR();
         });
-
     }
+
+    /* ============ курсор ================*/
     var vrLookTimers = new Map();
 
     function initVRGaze() {
@@ -1063,50 +1050,45 @@ switchScene = function (scene) {
 
             hotspots.forEach(function (hotspot) {
 
-                var rect =
-                    hotspot.getBoundingClientRect();
+                var rect = hotspot.getBoundingClientRect();
 
-                var centerX =
-                    window.innerWidth / 2;
+                var centerX = window.innerWidth / 2;
+                var centerY = window.innerHeight / 2;
 
-                var centerY =
-                    window.innerHeight / 2;
+                var hotspotX = rect.left + rect.width / 2;
+                var hotspotY = rect.top + rect.height / 2;
 
-                var hotspotX =
-                    rect.left + rect.width / 2;
+                var dx = Math.abs(centerX - hotspotX);
+                var dy = Math.abs(centerY - hotspotY);
 
-                var hotspotY =
-                    rect.top + rect.height / 2;
+                var isCentered = (dx < 40 && dy < 40);
 
-                var dx =
-                    Math.abs(centerX - hotspotX);
+                if (isCentered) {
 
-                var dy =
-                    Math.abs(centerY - hotspotY);
+                    // если ещё нет таймера — создаём
+                    if (!vrLookTimers.has(hotspot)) {
 
-                // hotspot почти в центре
-                if (!vrLookTimers.has(hotspot)) {
-
-                    vrLookTimers.set(hotspot,
-                        setTimeout(function () {
-
+                        var timer = setTimeout(function () {
                             hotspot.click();
                             vrLookTimers.delete(hotspot);
+                        }, 1200);
 
-                        }, 1200)
-                    );
+                        vrLookTimers.set(hotspot, timer);
+                    }
+
                 } else {
 
-                    clearTimeout(vrLookTimers.get(hotspot));
-                    vrLookTimers.delete(hotspot);
+                    // если ушли из центра — отменяем
+                    if (vrLookTimers.has(hotspot)) {
+                        clearTimeout(vrLookTimers.get(hotspot));
+                        vrLookTimers.delete(hotspot);
+                    }
                 }
 
             });
 
         }, 100);
-
     }
 
     initVRGaze();
-
 })();
