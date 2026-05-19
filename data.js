@@ -878,7 +878,14 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "images": ["content/12---2/Krizhanovskiy.jpg"]
+                            "images": ["content/12---2/259300378_457245804.jpg",
+                                "content/12---2/259300378_457245805.jpg",
+                                "content/12---2/259300378_457245806.jpg",
+                                "content/12---2/259300378_457245807.jpg",
+                                "content/12---2/259300378_457245808.jpg",
+                                "content/12---2/259300378_457245809.jpg",
+                                "content/12---2/259300378_457245810.jpg"
+                            ]
                         }
                         ]
                 }

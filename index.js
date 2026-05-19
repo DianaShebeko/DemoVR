@@ -989,6 +989,7 @@ switchScene = function (scene) {
 
     var vrBtn = document.getElementById('vrBtn');
     var vrEnabled = false;
+    var deviceOrientationControlMethod = null;
 
     async function enableIOSGyro() {
 
@@ -1014,10 +1015,9 @@ switchScene = function (scene) {
         viewer.controls().registerMethod(
             'deviceOrientation',
             deviceOrientationControlMethod,
-            true
+            true  
         );
     }
-
     function enterVRMode() {
 
         document.body.classList.add('vr-mode');
