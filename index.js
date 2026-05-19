@@ -217,6 +217,9 @@
     stopAutorotate();
     scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
+
+    scene.view.setParameters(scene.data.initialViewParameters);
+
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
@@ -238,7 +241,6 @@
 
 	currentSceneWrapper = scene;
   }
-
 
   function updateSceneName(scene) {
     sceneNameElement.innerHTML = sanitize(scene.data.name);
@@ -1021,7 +1023,6 @@ switchScene = function (scene) {
             deviceOrientationControlMethod
         );
 
-        // 🔥 ВОТ ЭТО ТЫ ПРОПУСТИЛА
         controls.enableMethod('deviceOrientation');
 
         vrEnabled = true;
