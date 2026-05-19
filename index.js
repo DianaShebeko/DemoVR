@@ -899,6 +899,8 @@ switchScene = function (scene) {
     // 1. Сначала вызываем оригинальную логику Marzipano
     originalSwitchScene(scene);
 
+    scene.view.setParameters(scene.data.initialViewParameters);
+
     // 2. АУДИО: сброс старого трека
     if (gAudio) { gAudio.pause(); gAudio = null; }
     if (audioBar) audioBar.classList.remove('visible');
