@@ -104,6 +104,22 @@ var APP_DATA = {
             "id": "1--",
             "name": "Главный вход",
             "audioGuide": "audio/GlavniyVhod.mp3",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.glavniyVhod
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -142,6 +158,22 @@ var APP_DATA = {
         {
             "id": "2--",
             "name": "Главная лестница",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.lestnica
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -234,6 +266,23 @@ var APP_DATA = {
         {
             "id": "4---1",
             "name": "Читальный зал (1)",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.ChitZ
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
+
             "levels": [
                 {
                     "tileSize": 256,
@@ -516,6 +565,22 @@ var APP_DATA = {
         {
             "id": "7-",
             "name": "Холл",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.VostB
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -630,6 +695,22 @@ var APP_DATA = {
         {
             "id": "8--",
             "name": "Георгиевский зал",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.ChitZ
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -745,7 +826,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "note",
-                            "text": "Портрет графа А.Г. Орлова-Чесменского. Художник А.Г. Николаева-Берг. 2013"
+                            "text": "Люстра в форме Георгиевского креста. Работа мастеров Санкт- Петербургской художественно - промышленной академии имени А.Л.Штиглица.Символ доблести и высокое художественное мастерство в одном произведении."
                         }
 
                     ]
@@ -998,6 +1079,22 @@ var APP_DATA = {
         {
             "id": "10--",
             "name": "Выставочный зал",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.VistZ
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -1222,19 +1319,19 @@ var APP_DATA = {
                 {
                     "yaw": 0.011188211282943783,
                     "pitch": 0.6211873441471933,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.18811817977407586,
                     "pitch": -0.4888514866061584,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.0873948974437546,
                     "pitch": -0.3134041043394653,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 }
             ]
@@ -1279,8 +1376,21 @@ var APP_DATA = {
                 {
                     "yaw": -0.2532334882127394,
                     "pitch": -0.20898492325655127,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Чесменский дворец - учебный корпус ЛИАП (послевоенные годы)",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/14---4/259300378_457245804.jpg",
+                                "content/14---4/259300378_457245805.jpg",
+                                "content/14---4/259300378_457245806.jpg",
+                                "content/14---4/259300378_457245807.jpg",
+                                "content/14---4/259300378_457245808.jpg",
+                                "content/14---4/259300378_457245809.jpg",
+                                "content/14---4/259300378_457245810.jpg"
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1324,8 +1434,18 @@ var APP_DATA = {
                 {
                     "yaw": 0.1203881425565072,
                     "pitch": -0.11948879068973284,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Чесменский дворец - учебный корпус ЛИАП (1950 - 1970 гг.)",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/15---5/259300378_457245804.jpg",
+                                "content/15---5/259300378_457245805.jpg",
+                                "content/15---5/259300378_457245806.jpg",
+                                "content/15---5/259300378_457245807.jpg",
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1369,8 +1489,18 @@ var APP_DATA = {
                 {
                     "yaw": 0.1025423212848402,
                     "pitch": -0.28370161779188763,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Чесма. XXI век",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/16---6/259300378_457245804.jpg",
+                                "content/16---6/259300378_457245805.jpg",
+                                "content/16---6/259300378_457245806.jpg",
+                                "content/16---6/259300378_457245807.jpg",
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1414,13 +1544,13 @@ var APP_DATA = {
                 {
                     "yaw": 0.007543826530234554,
                     "pitch": 0.4156855276781286,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.1869831788577372,
                     "pitch": -0.11166018542737177,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 }
             ]
@@ -1428,6 +1558,22 @@ var APP_DATA = {
         {
             "id": "18--",
             "name": "Екатерининский зал",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.EkatZ
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -1611,6 +1757,22 @@ var APP_DATA = {
         {
             "id": "22--",
             "name": "Обеденный зал",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.Stolov
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/0--/Kulibin_I_P.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
