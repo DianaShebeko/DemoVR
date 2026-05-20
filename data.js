@@ -573,11 +573,11 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
+                        "src": "content/7--/IMG_E2507.jpg"
                     },
                     {
                         "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                        "text": "Екатерина II в образе богини мудрости Минервы. Ск. М.И. Козловский. 1785 г. Государственный Русский музей"
                     }
                 ]
             },
@@ -1381,7 +1381,7 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/14---4/IMG_E2344.jpg",
+                                "content/14---4/IMG_E2344.JPG",
                                 "content/14---4/IMG_E2345.jpg",
                                 "content/14---4/IMG_E2347.jpg",
                                 "content/14---4/IMG_E2348.jpg",
