@@ -391,25 +391,25 @@ var APP_DATA = {
                 {
                     "yaw": -2.8230326855011434,
                     "pitch": -0.2624448451095418,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": 2.0576057385071955,
                     "pitch": -0.24920156657447912,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": -0.08262489196043354,
                     "pitch": -0.3234316399584074,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 },
                 {
                     "yaw": 0.7783918508995011,
                     "pitch": -0.25172246268246035,
-                    "title": "Title",
+                    "title": "Title4",
                     "text": "Text"
                 }
             ]
@@ -454,31 +454,31 @@ var APP_DATA = {
                 {
                     "yaw": -0.832139260413765,
                     "pitch": -0.23893132195425437,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": 0.34827327237748484,
                     "pitch": -0.21233828262869459,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": 1.3022132495444279,
                     "pitch": -0.2136684905032311,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 },
                 {
                     "yaw": -3.1072497004235533,
                     "pitch": -0.21667627191147076,
-                    "title": "Title",
+                    "title": "Title4",
                     "text": "Text"
                 },
                 {
                     "yaw": -2.0639343398552903,
                     "pitch": -0.2563546122645448,
-                    "title": "Title",
+                    "title": "Title5",
                     "text": "Text"
                 }
             ]
@@ -556,7 +556,7 @@ var APP_DATA = {
                 {
                     "yaw": -0.3036003496455102,
                     "pitch": -0.14173745989768882,
-                    "title": "Екатерина на троне",
+                    "title": "Церемония награждения 'Орденом Георгия Победоносца'",
                     "content": [
                         {
                             "type": "image",
@@ -564,7 +564,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "note",
-                            "text": " "
+                            "text": "Церемония награждения 'Орденом Георгия Победоносца' в Георгиевском зале"
                         }
 
                     ]
@@ -572,15 +572,20 @@ var APP_DATA = {
                 {
                     "yaw": -1.3946202895268627,
                     "pitch": -0.15173112282149326,
-                    "title": "Екатерина принимает указ",
+                    "title": "Весть о победе России в Чесменской боталии",
                     "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.GeorgZPoslanie
+                        },
+
                         {
                             "type": "image",
                             "images": ["content/8--/Kartina1.jpg"]
                         },
                         {
                             "type": "note",
-                            "text": " "
+                            "text": "Гонец сообщает новость о победе России в Чесменской боталии"
                         }
 
                     ]
@@ -1346,7 +1351,7 @@ var APP_DATA = {
                 {
                     "yaw": -1.1678695677757407,
                     "pitch": -0.7781908243949651,
-                    "title": "Title",
+                    "title": "Коллекция главного символа Чесменского дворца",
                     "text": "Text"
                 }
             ]

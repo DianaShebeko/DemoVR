@@ -894,8 +894,11 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 
 
 // === ПЕРЕОПРЕДЕЛЕНИЕ switchScene (аудио + инфо) ===
-var originalSwitchScene = switchScene;
-switchScene = function (scene) {
+    var originalSwitchScene = switchScene;
+    var isSwitchingScene = false;
+    switchScene = function (scene) {
+
+        isSwitchingScene = true;
     // 1. Сначала вызываем оригинальную логику Marzipano
     originalSwitchScene(scene);
 
