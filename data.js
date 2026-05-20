@@ -573,7 +573,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/7--/IMG_E2507.jpg"
+                        "src": "content/7--/IMG_E2507.JPG"
                     },
                     {
                         "type": "note",
@@ -1084,14 +1084,6 @@ var APP_DATA = {
                     {
                         "type": "text",
                         "text": TXTS.VistZ
-                    },
-                    {
-                        "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
-                    },
-                    {
-                        "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
                     }
                 ]
             },
@@ -1325,14 +1317,41 @@ var APP_DATA = {
                 {
                     "yaw": -0.18811817977407586,
                     "pitch": -0.4888514866061584,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "Чесменский ансамбль в предвоенные и военные годы: ЛАДИ, ЛАИ, ЛИАП (1936-1945 гг.)",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/13---3/IMG_E2391.jpg",
+                                "content/13---3/IMG_E2392.jpg",
+                                "content/13---3/IMG_E2393.jpg",
+                                "content/13---3/IMG_E2394.jpg",
+                                "content/13---3/IMG_E2395.jpg",
+                                "content/13---3/IMG_E2396.jpg",
+                                "content/13---3/IMG_E2397.jpg",
+
+                            ]
+                        }
+                    ]
                 },
                 {
                     "yaw": -1.0873948974437546,
                     "pitch": -0.3134041043394653,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "'Чесменка' - первый в СССР лагерь принудительных работ (1919 - 1922 гг.)",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/13---3/IMG_E2383.jpg",
+                                "content/13---3/IMG_E2386.jpg",
+                                "content/13---3/IMG_E2387.jpg",
+                                "content/13---3/IMG_E2388.jpg",
+                                "content/13---3/IMG_E2389.jpg",
+                                "content/13---3/IMG_E2390.jpg",
+
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1382,11 +1401,11 @@ var APP_DATA = {
                             "type": "image",
                             "images": [
                                 "content/14---4/IMG_E2344.JPG",
-                                "content/14---4/IMG_E2345.jpg",
-                                "content/14---4/IMG_E2347.jpg",
-                                "content/14---4/IMG_E2348.jpg",
-                                "content/14---4/IMG_E2349.jpg",
-                                "content/14---4/IMG_E2350.jpg",
+                                "content/14---4/IMG_E2345.JPG",
+                                "content/14---4/IMG_E2347.JPG",
+                                "content/14---4/IMG_E2348.JPG",
+                                "content/14---4/IMG_E2349.JPG",
+                                "content/14---4/IMG_E2350.JPG",
 
                             ]
                         }
@@ -1439,10 +1458,10 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/15---5/IMG_E2351.jpg",
-                                "content/15---5/IMG_E2352.jpg",
-                                "content/15---5/IMG_E2353.jpg",
-                                "content/15---5/IMG_E2354.jpg",
+                                "content/15---5/IMG_E2351.JPG",
+                                "content/15---5/IMG_E2352.JPG",
+                                "content/15---5/IMG_E2353.JPG",
+                                "content/15---5/IMG_E2354.JPG",
                             ]
                         }
                     ]
@@ -1494,10 +1513,10 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/16---6/IMG_E2356.jpg",
-                                "content/16---6/IMG_E2357.jpg",
-                                "content/16---6/IMG_E2358.jpg",
-                                "content/16---6/IMG_E2359.jpg",
+                                "content/16---6/IMG_E2356.JPG",
+                                "content/16---6/IMG_E2357.JPG",
+                                "content/16---6/IMG_E2358.JPG",
+                                "content/16---6/IMG_E2359.JPG",
 
                             ]
                         }
@@ -1551,8 +1570,25 @@ var APP_DATA = {
                 {
                     "yaw": -0.1869831788577372,
                     "pitch": -0.11166018542737177,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "Чесменский дворец - живая история ГУАП",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/17---7/IMG_E2362.JPG",
+                                "content/17---7/IMG_E2364.JPG",
+                                "content/17---7/IMG_E2365.JPG",
+                                "content/17---7/IMG_E2366.JPG",
+                                "content/17---7/IMG_E2367.JPG",
+                                "content/17---7/IMG_E23688.jpg",
+                                "content/17---7/IMG_E2369.JPG",
+                                "content/17---7/IMG_E2370.JPG",
+                                "content/17---7/IMG_E2372.JPG",
+                                "content/17---7/IMG_E2377.JPG",
+
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1629,7 +1665,14 @@ var APP_DATA = {
                     "yaw": -0.1444841770907903,
                     "pitch": 0.03958593457256754,
                     "title": "Коллекция главного символа Чесменского дворца",
-                    "text": "Text"
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/19---2/IMG_E2356.JPG",
+                            ]
+                        }
+                    ]
                 },
                 {
                     "yaw": -1.1678695677757407,
@@ -1639,7 +1682,7 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/19---2/IMG_E2356.jpg",
+                                "content/19---2/IMG_E2356.JPG",
                             ]
                         }
                     ]
@@ -1686,13 +1729,13 @@ var APP_DATA = {
                 {
                     "yaw": 0.012474108894442892,
                     "pitch": -0.30647442094943855,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": 1.080450985073039,
                     "pitch": -0.6460536858887007,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 }
             ]
@@ -1737,19 +1780,19 @@ var APP_DATA = {
                 {
                     "yaw": 0.35435366797197787,
                     "pitch": -0.27020101658654916,
-                    "title": "Title",
+                    "title": "Title1",
                     "text": "Text"
                 },
                 {
                     "yaw": 1.1799142490448808,
                     "pitch": -0.36409003788645933,
-                    "title": "Title",
+                    "title": "Title2",
                     "text": "Text"
                 },
                 {
                     "yaw": 2.0706913941691063,
                     "pitch": -0.15741514484668606,
-                    "title": "Title",
+                    "title": "Title3",
                     "text": "Text"
                 }
             ]
