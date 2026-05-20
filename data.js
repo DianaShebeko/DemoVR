@@ -1381,13 +1381,13 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/14---4/259300378_457245804.jpg",
-                                "content/14---4/259300378_457245805.jpg",
-                                "content/14---4/259300378_457245806.jpg",
-                                "content/14---4/259300378_457245807.jpg",
-                                "content/14---4/259300378_457245808.jpg",
-                                "content/14---4/259300378_457245809.jpg",
-                                "content/14---4/259300378_457245810.jpg"
+                                "content/14---4/IMG_E2344.jpg",
+                                "content/14---4/IMG_E2345.jpg",
+                                "content/14---4/IMG_E2347.jpg",
+                                "content/14---4/IMG_E2348.jpg",
+                                "content/14---4/IMG_E2349.jpg",
+                                "content/14---4/IMG_E2350.jpg",
+
                             ]
                         }
                     ]
@@ -1439,10 +1439,10 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/15---5/259300378_457245804.jpg",
-                                "content/15---5/259300378_457245805.jpg",
-                                "content/15---5/259300378_457245806.jpg",
-                                "content/15---5/259300378_457245807.jpg",
+                                "content/15---5/IMG_E2351.jpg",
+                                "content/15---5/IMG_E2352.jpg",
+                                "content/15---5/IMG_E2353.jpg",
+                                "content/15---5/IMG_E2354.jpg",
                             ]
                         }
                     ]
@@ -1494,10 +1494,11 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/16---6/259300378_457245804.jpg",
-                                "content/16---6/259300378_457245805.jpg",
-                                "content/16---6/259300378_457245806.jpg",
-                                "content/16---6/259300378_457245807.jpg",
+                                "content/16---6/IMG_E2356.jpg",
+                                "content/16---6/IMG_E2357.jpg",
+                                "content/16---6/IMG_E2358.jpg",
+                                "content/16---6/IMG_E2359.jpg",
+
                             ]
                         }
                     ]
@@ -1563,14 +1564,6 @@ var APP_DATA = {
                     {
                         "type": "text",
                         "text": TXTS.EkatZ
-                    },
-                    {
-                        "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
-                    },
-                    {
-                        "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
                     }
                 ]
             },
@@ -1635,14 +1628,21 @@ var APP_DATA = {
                 {
                     "yaw": -0.1444841770907903,
                     "pitch": 0.03958593457256754,
-                    "title": "Title",
+                    "title": "Коллекция главного символа Чесменского дворца",
                     "text": "Text"
                 },
                 {
                     "yaw": -1.1678695677757407,
                     "pitch": -0.7781908243949651,
-                    "title": "Коллекция главного символа Чесменского дворца",
-                    "text": "Text"
+                    "title": "Ночной бой у бухты Чесма в ночь на 26 июня 1770 года",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/19---2/IMG_E2356.jpg",
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1997,7 +1997,12 @@ var APP_DATA = {
             },
             "linkHotspots": [],
             "infoHotspots": [
-
+                {
+                    "yaw": -2.3,
+                    "pitch": 0.11827129524185054,
+                    "title": "Title",
+                    "text": "Text"
+                }
             ]
         }
   ],
