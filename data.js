@@ -271,26 +271,62 @@ var APP_DATA = {
                 {
                     "yaw": -0.6202129262496836,
                     "pitch": -0.2433396083283519,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "Чесменский ансамбль",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ1I1
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": -0.22570344675832033,
                     "pitch": -0.28677371736958435,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "Архитектор Юрий Матвеевич Фельтен",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ1I2
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": -1.1713061630095858,
                     "pitch": -0.22795474632023982,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "Императрица Екатерина II",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ1I3
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 2.6915515524187654,
                     "pitch": -0.30895803830891033,
-                    "title": "Title4",
-                    "text": "Text"
+                    "title": "Чесменская военная богадельня",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ1I4
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 }
             ]
         },
@@ -334,20 +370,47 @@ var APP_DATA = {
                 {
                     "yaw": 2.75592941636235,
                     "pitch": -0.29458192783864057,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "Орден Святого Георгия",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ2I1
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 0.2662901611038322,
                     "pitch": -0.2563321796969369,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "Русско-Турецкая война 1768-1774 годов",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ2I2
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 0.8643229251522584,
                     "pitch": -0.19300853476285873,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "Чесменская победа",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ2I3
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 }
             ]
         },
@@ -391,26 +454,62 @@ var APP_DATA = {
                 {
                     "yaw": -2.8230326855011434,
                     "pitch": -0.2624448451095418,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "Сервиз с зеленой лягушкой",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ3I1
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 2.0576057385071955,
                     "pitch": -0.24920156657447912,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "'Достопамятности' Чесменского дворца",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ3I2
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": -0.08262489196043354,
                     "pitch": -0.3234316399584074,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "Граф А.Г. Орлов-Чесменский",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ3I3
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 0.7783918508995011,
                     "pitch": -0.25172246268246035,
-                    "title": "Title4",
-                    "text": "Text"
+                    "title": "Герои Чесменской битвы",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.ChZ2I4
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 }
             ]
         },
@@ -454,32 +553,77 @@ var APP_DATA = {
                 {
                     "yaw": -0.832139260413765,
                     "pitch": -0.23893132195425437,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "История Чесменского дворца",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.VBashnia1
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 0.34827327237748484,
                     "pitch": -0.21233828262869459,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "История Чесменского дворца",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.VBashnia2
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": 1.3022132495444279,
                     "pitch": -0.2136684905032311,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "История Чесменского дворца",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.VBashnia3
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": -3.1072497004235533,
                     "pitch": -0.21667627191147076,
-                    "title": "Title4",
-                    "text": "Text"
+                    "title": "История Чесменской победы",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.VBashnia4
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 },
                 {
                     "yaw": -2.0639343398552903,
                     "pitch": -0.2563546122645448,
-                    "title": "Title5",
-                    "text": "Text"
+                    "title": "История Чесменской победы",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": TXTI.VBashnia5
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                        }
+                    ]
                 }
             ]
         },
