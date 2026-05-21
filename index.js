@@ -454,17 +454,18 @@ function createInfoHotspotElement(hotspot) {
 	
     // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
+    modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('info-hotspot-modal');
 
     // Копируем содержимое wrapper в модалку безопасно
-    modal.appendChild(header.cloneNode(true));
-    modal.appendChild(text.cloneNode(true));
+    //modal.appendChild(header.cloneNode(true));
+    //modal.appendChild(text.cloneNode(true));
 
-    modal.appendChild(modalHeader);
-    modal.appendChild(modalText);
+    //modal.appendChild(modalHeader);
+    //modal.appendChild(modalText);
 
-    // === ВЕШАЕМ СОБЫТИЯ ЗАНОВО (для клонированных элементов модалки) ===
-    var modalClose = modal.querySelector('.info-hotspot-close-wrapper');
+    //// === ВЕШАЕМ СОБЫТИЯ ЗАНОВО (для клонированных элементов модалки) ===
+    //var modalClose = modal.querySelector('.info-hotspot-close-wrapper');
 
     document.body.appendChild(modal);
 
