@@ -715,6 +715,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .desktop .info-hotspot-modal.visible {
     display: flex;
     opacity: 1;
+    visibility: visible;
 }
 
 .info-hotspot-modal .info-hotspot-header {
