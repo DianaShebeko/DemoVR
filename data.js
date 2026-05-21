@@ -57,6 +57,14 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
+                        "src": "content/0--/Ekaterina.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Портрет Екатерины II. Худ. И.С. Саблуков. 1770-е гг. Нижегородский художественный музей"
+                    },
+                    {
+                        "type": "image",
                         "src": "content/0--/Kulibin_I_P.jpg"
                     },
                     {
@@ -112,12 +120,29 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
+                        "src": "content/1--/IMG_3.jpg"
                     },
                     {
                         "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                        "text": "Аллея к замку в стиле английских поместий"
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/1--/IMG_2.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Эскиз Чесменского дворца. Ю.М. Фельтен"
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/1--/IMG_1.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Планы замков (слева - замок Лонгфорд, справа - Чесменский дворец)"
                     }
+
                 ]
             },
             "levels": [
@@ -274,15 +299,14 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
+                        "src": "content/4---1/IMG_E2507.JPG"
                     },
                     {
                         "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
+                        "text": "Портреты английского королевского дома: короля Георга, королевы Софии-Шарлотты, Георга, принца Уэльского, и его брата Федерика. Худ. Н. Данс. 1774-1777 гг. Государственный эрмитаж"
                     }
                 ]
             },
-
             "levels": [
                 {
                     "tileSize": 256,
@@ -328,8 +352,12 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
-                        }
+                            "images": ["content/4---1/Ansambl.jpg", "content/4---1/Ansambl_2.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "1 - Чесменский дворец. 2 - Чесменская церковь"
+                        },
                     ]
                 },
                 {
@@ -343,7 +371,11 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": ["content/4---1/Felten.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Ю.М. Фельтен. Худ. К.Л. Христинек. 1765 г. Государственный Русский музей"
                         }
                     ]
                 },
@@ -358,8 +390,21 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": ["content/4---1/Ekaterina2.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Выезд Екатерины II на соколиную охоту. Худ. В.А. Серов."
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/4---1/Ekaterina1.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Автограф Екатерины II"
                         }
+
                     ]
                 },
                 {
@@ -373,7 +418,11 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": ["content/4---1/Bogadelnya_12.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "План реконструкции Чесменского дворца. Арх. А.Е. Штауберт"
                         }
                     ]
                 }
@@ -427,7 +476,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": ["content/3-----2-/noteInfo11.jpg"],
                         }
                     ]
                 },
@@ -442,7 +491,27 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": ["content/5---2/IMG_E2546.JPG"]
+                        },
+                        {
+                            "type": "note",
+                            "images": "Карта Европы 1770 г."
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/5---2/IMG_E2548.JPG"]
+                        },
+                        {
+                            "type": "note",
+                            "images": "Итоги Первой русско-турецкой войны"
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/5---2/IMG_E2547.JPG"]
+                        },
+                        {
+                            "type": "note",
+                            "images": "Маршрут Первой Архипелагской экспедиции"
                         }
                     ]
                 },
@@ -457,8 +526,54 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
-                        }
+                            "images": [
+                                "content/5---2/IMG_E2550.JPG"
+                            ],
+                        },
+                        {
+                            "type": "note",
+                            "text": "Гюйс"
+                        },
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/5---2/IMG_E2552.JPG"
+                            ],
+                        },
+                        {
+                            "type": "note",
+                            "text": "Экспозиция музея Чесменской битвы"
+                        },
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/5---2/IMG_E2553.JPG"
+                            ],
+                        },
+                        {
+                            "type": "note",
+                            "text": "Чесменский зал. Большой Петергофский дворец"
+                        },
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/5---2/IMG_E2554.JPG"
+                            ],
+                        },
+                        {
+                            "type": "note",
+                            "text": "Памятная настольная медаль с планом Чесменского сражения"
+                        },
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/5---2/IMG_E2555.JPG"
+                            ],
+                        },
+                        {
+                            "type": "note",
+                            "text": "План сражения в Чесменской бухте"
+                        },
                     ]
                 }
             ]
@@ -511,7 +626,11 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": [
+                                "content/6---3/Serviz_1.jpg",
+                                "content/6---3/Serviz_2.jpg",
+                                "content/6---3/Serviz_3.jpg",
+                                "content/6---3/Serviz_4.jpg"                            ],
                         }
                     ]
                 },
@@ -541,8 +660,35 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": [
+                                "content/6---3/Orlov.jpg"
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Портрет графа А.Г. Орлова-Чесменского. Неизвестный художник. 1787 г. Государственный эрмитаж"
+                        },
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/6---3/Orlov_77.jpg"
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "А.Г. Орлов-Чесменский на Свирепом орловской верховой породы. Худ. П.Д. Невзоров"
+                        },
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/6---3/Orlov_8.jpg"
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Порода кур орловская-ситцевая"
                         }
+
                     ]
                 },
                 {
@@ -1311,8 +1457,15 @@ var APP_DATA = {
                 {
                     "yaw": 0.011188211282943783,
                     "pitch": 0.6211873441471933,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "ГУАП: история и современность",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/13---3/Table.jpg",
+                            ]
+                        }
+                    ]
                 },
                 {
                     "yaw": -0.18811817977407586,
@@ -1322,13 +1475,13 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/13---3/IMG_E2391.jpg",
-                                "content/13---3/IMG_E2392.jpg",
-                                "content/13---3/IMG_E2393.jpg",
-                                "content/13---3/IMG_E2394.jpg",
-                                "content/13---3/IMG_E2395.jpg",
-                                "content/13---3/IMG_E2396.jpg",
-                                "content/13---3/IMG_E2397.jpg",
+                                "content/13---3/IMG_E2391.JPG",
+                                "content/13---3/IMG_E2392.JPG",
+                                "content/13---3/IMG_E2393.JPG",
+                                "content/13---3/IMG_E2394.JPG",
+                                "content/13---3/IMG_E2395.JPG",
+                                "content/13---3/IMG_E2396.JPG",
+                                "content/13---3/IMG_E2397.JPG",
 
                             ]
                         }
@@ -1342,12 +1495,12 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/13---3/IMG_E2383.jpg",
-                                "content/13---3/IMG_E2386.jpg",
-                                "content/13---3/IMG_E2387.jpg",
-                                "content/13---3/IMG_E2388.jpg",
-                                "content/13---3/IMG_E2389.jpg",
-                                "content/13---3/IMG_E2390.jpg",
+                                "content/13---3/IMG_E2383.JPG",
+                                "content/13---3/IMG_E2386.JPG",
+                                "content/13---3/IMG_E2387.JPG",
+                                "content/13---3/IMG_E2388.JPG",
+                                "content/13---3/IMG_E2389.JPG",
+                                "content/13---3/IMG_E2390.JPG",
 
                             ]
                         }
@@ -1564,8 +1717,15 @@ var APP_DATA = {
                 {
                     "yaw": 0.007543826530234554,
                     "pitch": 0.4156855276781286,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "Чесменский дворец в книгах и документах",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/17---7/Table.jpg",
+                            ]
+                        }
+                    ]
                 },
                 {
                     "yaw": -0.1869831788577372,
@@ -1659,7 +1819,14 @@ var APP_DATA = {
                 "pitch": 0.12537463703230856,
                 "fov": 1.391813623840451
             },
-            "linkHotspots": [],
+            "linkHotspots": [
+                {
+                    "yaw": 1.84578564662828,
+                    "pitch": 0.23814451557367988,
+                    "rotation": 0,
+                    "target": "20---3"
+                }
+            ],
             "infoHotspots": [
                 {
                     "yaw": -0.1444841770907903,
@@ -1669,7 +1836,7 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/19---2/IMG_E2356.JPG",
+                                "content/19---2/IMG_E2356.JPG"
                             ]
                         }
                     ]
@@ -1682,7 +1849,7 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/19---2/IMG_E2356.JPG",
+                                "content/19---2/IMG_E2356.JPG"
                             ]
                         }
                     ]
@@ -1729,14 +1896,37 @@ var APP_DATA = {
                 {
                     "yaw": 0.012474108894442892,
                     "pitch": -0.30647442094943855,
-                    "title": "Title1",
-                    "text": "Text"
+                    "title": "Сервиз с зеленой лягушкой. Копия",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/20---3/IMG_E2340.JPG", 
+                                "content/20---3/IMG_E2340.JPG", 
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Копия 'Сервиза с зеленой лягушкой' Веджвуда"
+                        },
+                    ]
                 },
                 {
                     "yaw": 1.080450985073039,
                     "pitch": -0.6460536858887007,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "Чесменский бой. Начало боя в Хиосском проливе 24 июня 1770 года",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/20---3/IMG_E2336.JPG"
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Чесменский бой. Начало боя в Хиосском проливе 24 июня 1770 года. Художник Я.Ф. Хаккерт. 1772"
+                        }
+                    ]
                 }
             ]
         },
@@ -1778,22 +1968,38 @@ var APP_DATA = {
             ],
             "infoHotspots": [
                 {
-                    "yaw": 0.35435366797197787,
-                    "pitch": -0.27020101658654916,
-                    "title": "Title1",
-                    "text": "Text"
-                },
-                {
                     "yaw": 1.1799142490448808,
                     "pitch": -0.36409003788645933,
-                    "title": "Title2",
-                    "text": "Text"
+                    "title": "Гибель русского корабля 'Святой Естафии'",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/21---4/IMG_E2335.JPG"
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Гибель русского корабля 'Святой Естафии'. Художник Я.Ф. Хаккерт. 1771"
+                        }
+                    ]
                 },
                 {
                     "yaw": 2.0706913941691063,
                     "pitch": -0.15741514484668606,
-                    "title": "Title3",
-                    "text": "Text"
+                    "title": "Сожжение турецкого флота в бухте Чесма",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/21---4/IMG_E2334.JPG"
+                            ]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Сожжение турецкого флота в бухте Чесма. Художник Я.Ф. Хаккерт. 1772"
+                        }
+                    ]
                 }
             ]
         },
@@ -1805,14 +2011,6 @@ var APP_DATA = {
                     {
                         "type": "text",
                         "text": TXTS.Stolov
-                    },
-                    {
-                        "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
-                    },
-                    {
-                        "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
                     }
                 ]
             },
@@ -1853,8 +2051,17 @@ var APP_DATA = {
                 {
                     "yaw": 0.020011379869188772,
                     "pitch": -0.2672491934989889,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "Обед инвалидов в столовой зале Чесменской военной богадельни",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": ["content/22--/ObedVeteranov.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Обед инвалидов в столовой зале Чесменской военной богадельни. Г.И. Бортневский, 1859, ГРМ"
+                        }
+                    ]
                 }
             ]
         },
@@ -2043,8 +2250,13 @@ var APP_DATA = {
                 {
                     "yaw": -2.3,
                     "pitch": 0.11827129524185054,
-                    "title": "Title",
-                    "text": "Text"
+                    "title": "ГУАП! Учись, изобретай, живи!",
+                    "content": [
+                        {
+                            "type": "video",
+                            "src": "content/27--/Промо_ГУАП_2025.mp4"
+                        }
+                    ]
                 }
             ]
         }
