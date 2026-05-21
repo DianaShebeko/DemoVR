@@ -804,11 +804,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     var originalSwitchScene = switchScene;
     var isSwitchingScene = false;
     switchScene = function (scene) {
-        // Очистка старых модалок при смене сцены
-        var oldModals = document.querySelectorAll('.info-hotspot-modal');
-        for (var k = 0; k < oldModals.length; k++) {
-            oldModals[k].remove();
-        }
+
         isSwitchingScene = true;
     // 1. Сначала вызываем оригинальную логику Marzipano
     originalSwitchScene(scene);
