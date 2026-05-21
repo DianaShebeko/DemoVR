@@ -336,6 +336,9 @@
     return wrapper;
   }
 
+
+
+  /*
 function createInfoHotspotElement(hotspot) {
 
     // Create wrapper element to hold icon and tooltip.
@@ -454,19 +457,11 @@ function createInfoHotspotElement(hotspot) {
 	
     // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
-    modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('info-hotspot-modal');
 
-    // Копируем содержимое wrapper в модалку безопасно
-    //modal.appendChild(header.cloneNode(true));
-    //modal.appendChild(text.cloneNode(true));
-
-    //modal.appendChild(modalHeader);
-    //modal.appendChild(modalText);
-
-    //// === ВЕШАЕМ СОБЫТИЯ ЗАНОВО (для клонированных элементов модалки) ===
-    //var modalClose = modal.querySelector('.info-hotspot-close-wrapper');
-
+    // Безопасно копируем структуру (без потери связей DOM)
+    modal.appendChild(header.cloneNode(true));
+    modal.appendChild(text.cloneNode(true));
     document.body.appendChild(modal);
 
     // === ЛЯГУШКА ===
@@ -521,7 +516,135 @@ function createInfoHotspotElement(hotspot) {
 
     return wrapper;
   }
+  */
 
+    function createInfoHotspotElement(hotspot) {
+        // Вспомогательная функция для создания элементов контента (текст, слайдер, модель)
+        // Мы будем вызывать её дважды: один раз для хотспота, второй — для модалки
+        function createContentNodes(isModal) {
+            var textContainer = document.createElement('div');
+            textContainer.classList.add('info-hotspot-text');
+
+            if (hotspot.content && hotspot.content.length > 0) {
+                for (var i = 0; i < hotspot.content.length; i++) {
+                    var block = hotspot.content[i];
+
+                    if (block.type === 'text') {
+                        var textBlock = document.createElement('div');
+                        textBlock.classList.add('content-block', 'content-text');
+                        textBlock.innerHTML = block.text;
+                        textContainer.appendChild(textBlock);
+                    }
+                    else if (block.type === 'note') {
+                        var noteBlock = document.createElement('div');
+                        noteBlock.classList.add('content-block', 'content-note');
+                        noteBlock.innerHTML = block.text;
+                        textContainer.appendChild(noteBlock);
+                    }
+                    else if (block.type === 'image') {
+                        if (!block.images || block.images.length <= 1) {
+                            var imgBlock = document.createElement('div');
+                            imgBlock.classList.add('content-block', 'content-image');
+                            var img = document.createElement('img');
+                            img.src = block.images ? block.images[0] : block.src;
+                            imgBlock.appendChild(img);
+                            textContainer.appendChild(imgBlock);
+                        } else {
+                            // Создаем слайдер — теперь у каждого будет свой набор событий
+                            var slider = createSlider(block.images);
+                            textContainer.appendChild(slider);
+                        }
+                    }
+                    else if (block.type === 'model') {
+                        var modelBlock = document.createElement('div');
+                        modelBlock.classList.add('content-block', 'content-model');
+                        var modelViewer = document.createElement('model-viewer');
+                        modelViewer.setAttribute('src', block.src);
+                        modelViewer.setAttribute('camera-controls', '');
+                        modelViewer.setAttribute('auto-rotate', '');
+                        modelViewer.setAttribute('touch-action', 'pan-y');
+                        modelBlock.appendChild(modelViewer);
+                        textContainer.appendChild(modelBlock);
+                    }
+                    else if (block.type === 'video') {
+                        var videoBlock = document.createElement('div');
+                        videoBlock.classList.add('content-block', 'content-video');
+                        var video = document.createElement('video');
+                        video.src = block.src;
+                        if (block.poster) video.poster = block.poster;
+                        video.controls = true;
+                        videoBlock.appendChild(video);
+                        textContainer.appendChild(videoBlock);
+                    }
+                }
+            }
+            return textContainer;
+        }
+
+        // Вспомогательная функция для создания шапки
+        function createHeaderNode(isModal) {
+            var header = document.createElement('div');
+            header.classList.add('info-hotspot-header');
+
+            var iconWrapper = document.createElement('div');
+            iconWrapper.classList.add('info-hotspot-icon-wrapper');
+            var icon = document.createElement('img');
+            icon.src = 'img/info.png';
+            icon.classList.add('info-hotspot-icon');
+            iconWrapper.appendChild(icon);
+
+            var titleWrapper = document.createElement('div');
+            titleWrapper.classList.add('info-hotspot-title-wrapper');
+            var title = document.createElement('div');
+            title.classList.add('info-hotspot-title');
+            title.innerHTML = hotspot.title;
+            titleWrapper.appendChild(title);
+
+            var closeWrapper = document.createElement('div');
+            closeWrapper.classList.add('info-hotspot-close-wrapper');
+            var closeIcon = document.createElement('img');
+            closeIcon.src = 'img/close.png';
+            closeIcon.classList.add('info-hotspot-close-icon');
+            closeWrapper.appendChild(closeIcon);
+
+            header.appendChild(iconWrapper);
+            header.appendChild(titleWrapper);
+            header.appendChild(closeWrapper);
+            return header;
+        }
+
+        // 1. Создаем основной хотспот (для десктопа/наведения)
+        var wrapper = document.createElement('div');
+        wrapper.classList.add('hotspot', 'info-hotspot');
+        var desktopHeader = createHeaderNode(false);
+        var desktopText = createContentNodes(false);
+        wrapper.appendChild(desktopHeader);
+        wrapper.appendChild(desktopText);
+
+        // 2. Создаем модальное окно (для мобилок/кликов)
+        var modal = document.createElement('div');
+        modal.classList.add('info-hotspot-modal');
+        var modalHeader = createHeaderNode(true);
+        var modalText = createContentNodes(true);
+        modal.appendChild(modalHeader);
+        modal.appendChild(modalText);
+        document.body.appendChild(modal);
+
+        // Функция переключения
+        var toggle = function () {
+            wrapper.classList.toggle('visible');
+            modal.classList.toggle('visible');
+        };
+
+        // Вешаем события на шапки обоих элементов
+        desktopHeader.addEventListener('click', toggle);
+        modalHeader.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
+
+        stopTouchAndScrollEventPropagation(wrapper);
+        stopTouchAndScrollEventPropagation(modal);
+
+        return wrapper;
+    }
     // Слайдер
     function createSlider(images) {
         var slider = document.createElement('div');
