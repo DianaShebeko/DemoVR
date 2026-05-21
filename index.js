@@ -376,6 +376,10 @@ function createInfoHotspotElement(hotspot) {
     header.appendChild(titleWrapper);
     header.appendChild(closeWrapper);
 
+    //Создание контейнера контента
+    var text = document.createElement('div');
+    text.classList.add('info-hotspot-text');
+
     // Гибкий контент
     if (hotspot.content && hotspot.content.length > 0) {
         for (var i = 0; i < hotspot.content.length; i++) {
