@@ -608,10 +608,15 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.desktop .info-hotspot.visible .info-hotspot-title-wrapper,
+/*.desktop .info-hotspot.visible .info-hotspot-title-wrapper,
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
   opacity: 1;
   visibility: visible;
+}*/
+.info-hotspot.visible .info-hotspot-title-wrapper,
+.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
+    opacity: 1;
+    visibility: visible;
 }
 
 .info-hotspot .info-hotspot-title-wrapper:before {
@@ -660,7 +665,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   display: none;
 }
 
-.desktop .info-hotspot.visible .info-hotspot-text {
+.info-hotspot.visible .info-hotspot-text {
     display: none;
     visibility: hidden;
     opacity: 0;
@@ -670,9 +675,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* Info hotspot modal */
 
-.desktop .info-hotspot-modal {
+/*.desktop .info-hotspot-modal {
   display: none;
-}
+}*/
 
 .info-hotspot-modal {
     /*top: 0;
@@ -707,16 +712,18 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     visibility: hidden;
 }
 
-.info-hotspot-modal.visible {
-  display: flex;
+    .info-hotspot-modal.visible {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
 
-}
-
-.desktop .info-hotspot-modal.visible {
+/*.desktop .info-hotspot-modal.visible {
     display: flex;
     opacity: 1;
     visibility: visible;
 }
+*/
 
 .info-hotspot-modal .info-hotspot-header {
         /*  position: absolute;
