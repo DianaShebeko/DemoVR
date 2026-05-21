@@ -698,7 +698,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     width: 100%;
     height: calc(100% - 50px);
     overflow: hidden;
-    z-index: 11000;
+    z-index: 11000 !important;
     display: none;
     flex-direction: column;
     align-items: center;
