@@ -496,36 +496,29 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot {
   line-height: 1.2em;
   opacity: 0.9;
-  -webkit-transition: opacity 0.2s 0.2s;
   transition: opacity 0.2s 0.2s;
 }
 
-.no-touch .info-hotspot:hover {
+/*.no-touch .info-hotspot:hover {
   opacity: 1;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
-}
+}*/
 
-.info-hotspot.visible {
+/*.info-hotspot.visible {
   opacity: 1;
-}
+}*/
 
 .info-hotspot .info-hotspot-header {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: rgba(18, 18, 18, 0.6);
-
   border: 2px solid rgba(200, 200, 200, 0.9);
-
   cursor: pointer;
   display: flex;
-  align-items: center;      /* Центр по вертикали */
-  justify-content: center;  /* Центр по горизонтали */
-  -webkit-transition: width 0.3s ease-in-out 0.5s,
-                      border-radius 0.3s ease-in-out 0.5s;
-  transition: width 0.3s ease-in-out 0.5s,
-              border-radius 0.3s ease-in-out 0.5s;
+  align-items: center;     
+  justify-content: center;  
 }
 
 .mobile .info-hotspot .info-hotspot-header {
@@ -534,40 +527,18 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 25px;
 }
 
-.desktop.no-touch .info-hotspot .info-hotspot-header:hover {
-  /*width: 260px;
-  border-radius: 5px;*/
-  -webkit-transition: width 0.3s ease-in-out,
-                      border-radius 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out,
-              border-radius 0.3s ease-in-out;
-}
-
-/*.desktop .info-hotspot.visible .info-hotspot-header,
-.desktop.no-touch .info-hotspot.visible .info-hotspot-header:hover {
-  width: 260px;
-  border-radius: 5px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  -webkit-transition: width 0.3s ease-in-out,
-                      border-radius 0.3s ease-in-out;
-  transition: width 0.3s ease-in-out,
-              border-radius 0.3s ease-in-out;
-}
-*/
-.info-hotspot .info-hotspot-icon-wrapper {
+/*.info-hotspot .info-hotspot-icon-wrapper {
   width: 30px;
   height: 30px;
 
-  align-items: center;      /* Центр по вертикали */
-  justify-content: center;  /* Центр по горизонтали */
-}
+  align-items: center;*/      /* Центр по вертикали */
+  /*justify-content: center;*/  /* Центр по горизонтали */
+/*}*/
 
-.mobile .info-hotspot .info-hotspot-icon-wrapper {
+/*.mobile .info-hotspot .info-hotspot-icon-wrapper {
   width: 50px;
   height: 50px;
-}
+}*/
 
 .info-hotspot .info-hotspot-icon {
   width: 70%;       
@@ -575,58 +546,51 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   margin: 15%;
 }
 
-/*настройка заголовка*/
+/* Подсказка при наведении */
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
   left: 50%;
-  top: 38px; /* Под иконкой */
-  
-  /* Центрирование блока относительно иконки */
+  top: 40px;
   transform: translateX(-50%);
-  
   /* Ширина сразу по контенту */
-  width: auto;
-  height: auto;
-  
-  /* Отступы внутри черного прямоугольника */
+/*  width: auto;
+  height: auto;*/
   padding: 6px 12px;
-  
-  /* Скрываем через прозрачность */
   opacity: 0;
   visibility: hidden;
   
   /* Текст в одну строку */
   white-space: nowrap;
-  overflow: hidden;
-  
+/*  overflow: hidden;
+*/  
   /* Стиль черного прямоугольника */
   background-color: rgba(35, 35, 38, 0.7);
   border-radius: 4px;
-  text-align: center;
-  
+/*  text-align: center;
+*/  
   /* Плавное появление */
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  transition: opacity 0.3s;
 }
 
-/*.desktop .info-hotspot.visible .info-hotspot-title-wrapper,
-.desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
-  opacity: 1;
-  visibility: visible;
-}*/
-.info-hotspot.visible .info-hotspot-title-wrapper,
-.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
+.no-touch .info-hotspot:hover .info-hotspot-title-wrapper {
     opacity: 1;
     visibility: visible;
 }
 
-.info-hotspot .info-hotspot-title-wrapper:before {
+/*.info-hotspot.visible .info-hotspot-title-wrapper,
+.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
+    opacity: 1;
+    visibility: visible;
+}*/
+
+/*.info-hotspot .info-hotspot-title-wrapper:before {
   content: '';
   display: inline-block;
   vertical-align: middle;
   height: 100%;
 }
-
-.info-hotspot .info-hotspot-title {
+*/
+/*.info-hotspot .info-hotspot-title {
   display: inline-block;
   vertical-align: middle;
 
@@ -635,12 +599,12 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   -ms-user-select: text;
   user-select: text;
 }
-
-.info-hotspot .info-hotspot-close-wrapper {
+*/
+/*.info-hotspot .info-hotspot-close-wrapper {
   display: none
-}
+}*/
 
-.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
+/*.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
   visibility: visible;
   -ms-transform: perspective(200px) rotateY(0deg);
   -webkit-transform: perspective(200px) rotateY(0deg);
@@ -653,7 +617,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               -webkit-transform 0.3s,
               transform 0.3s,
               visibility 0s 0s;
-}
+}*/
 
 .info-hotspot .info-hotspot-close-icon {
   width: 90%;
@@ -675,28 +639,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 /* Info hotspot modal */
 
-/*.desktop .info-hotspot-modal {
-  display: none;
-}*/
-
 .info-hotspot-modal {
-    /*top: 0;
-  left: 0;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 11000 !important;
-  background-color: rgba(0,0,0, 0.6);
-
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;*/
     top: 30px;
     left: 0;
     position: absolute;
@@ -712,55 +655,27 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     visibility: hidden;
 }
 
-    .info-hotspot-modal.visible {
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-    }
-
-/*.desktop .info-hotspot-modal.visible {
+.info-hotspot-modal.visible {
     display: flex;
-    opacity: 1;
-    visibility: visible;
 }
-*/
 
+/* Шапка модального окна */
 .info-hotspot-modal .info-hotspot-header {
-        /*  position: absolute;
-  top: 60px;
-  left: 10px;
-  right: 10px;
-  width: auto;
-  height: 50px;
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
-  transition: opacity 0.3s ease-in-out 0.2s;
-  */
-    position: relative; /* Меняем с absolute на relative */
-    width: 90%; /* Адаптивная ширина для мобильных */
-    max-width: 1024px; /* ОГРАНИЧЕНИЕ */
+    position: relative; 
+    width: 90%; 
+    max-width: 1024px; 
     height: 50px;
     min-height: 60px;
     background-color: rgba(29, 29, 31, 0.9);
-    margin: 20px auto 0px auto; /* Центрируем и отступ снизу */
+    margin: 20px auto 0px auto;
     padding: 0 15px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-shrink: 0;
-    opacity: 1;
 }
 
-/*.info-hotspot-modal.visible .info-hotspot-header {
-  opacity: 1;
- -webkit-transition: opacity 0.3s ease-in-out 0.2s;
-  transition: opacity 0.3s ease-in-out 0.2s;
-}*/
-
-.info-hotspot-modal .info-hotspot-icon-wrapper {
+/*.info-hotspot-modal .info-hotspot-icon-wrapper {
   width: 25px;
   height:25px;
 }
@@ -768,27 +683,10 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot-modal .info-hotspot-icon {
   width: 90%;
   height: 90%;
-}
+}*/
 
 /*Центрированный заголовок*/
-.info-hotspot-modal .info-hotspot-title-wrapper {
-        /*  position: absolute;
-  top: 0;
-  left: 50px;
-  right: 50px;
-  width: auto;
-  height: 50px;
-  padding: 0 10px;*/
-        /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  max-width: 80%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-      */
+/*.info-hotspot-modal .info-hotspot-title-wrapper {
 position: static;
 transform: none;
 text-align: center;
@@ -800,33 +698,20 @@ color: #f7f8fc;
 font-size: 16px;
 font-weight: bold;
 padding: 0 10px;
-    }
+    }*/
 
-.info-hotspot-modal .info-hotspot-title-wrapper:before {
-    /*  content: '';
-display: inline-block;
-vertical-align: middle;
-height: 100%;*/
-    display: none;
-}
 
 .info-hotspot-modal .info-hotspot-title {
-    /*  display: inline-block;
-vertical-align: middle;
-
--moz-user-select: text;
--webkit-user-select: text;
--ms-user-select: text;
-user-select: text;*/
-    display: inline-block;
-    color: #f7f8fc;
-    font-size: 16px;
-    font-weight: bold;
-}
+        flex: 1;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        color: #f7f8fc;
+    }
 
 .info-hotspot-modal .info-hotspot-close-wrapper {
-    position: absolute;
-    top: 10px; /* Чуть ниже от края */
+/*    position: absolute;
+*/    top: 10px; /* Чуть ниже от края */
     right: 10px; /* Чуть левее от края */
     width: 40px; /* ← УВЕЛИЧИЛИ с 25px до 40px */
     height: 40px; /* ← УВЕЛИЧИЛИ с 25px до 40px */
@@ -842,28 +727,101 @@ user-select: text;*/
   margin: 15%;
 }
 
+/* Расположение контента */
 .info-hotspot-modal .info-hotspot-text {
 position: relative;
 width: 90%;
 max-width: 1024px;
 max-height: calc(100vh - 140px);
 overflow-y: auto;
-margin: 0 auto 20px auto;
-padding: 20px;
+/*margin: 0 auto 20px auto;
+*/
+padding: 25px;
 background-color: rgba(35, 35, 38, 0.9);
 border-radius: 0 0 5px 5px;
 color: #f7f8fc;
-text-align: justify;
+/*text-align: justify;
 text-indent: 2em;
-line-height: 1.6em;
-box-sizing: border-box;
+*/line-height: 1.6em;
+/*box-sizing: border-box;
+*/}
+
+/* === БЛОКИ КОНТЕНТА === */
+.info-hotspot-text .content-block {
+    margin-bottom: 20px;
 }
 
-/*.info-hotspot-modal.visible .info-hotspot-text {
-  opacity: 1;
-  -webkit-transition: opacity 0.3s ease-in-out 0.4s;
-  transition: opacity 0.3s ease-in-out 0.4s;
+.info-hotspot-text .content-text {
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+.info-hotspot-text img,
+.info-hotspot-text video {
+    display: block;
+    margin: 15px auto;
+    max-height: 400px;
+    max-width: auto;
+    border-radius: 8px;
+}
+
+/* Заметка — по центру курсивом */
+.info-hotspot-text .content-note {
+    /*  display: block;
+*/ margin: 10px auto 20px;
+    text-align: center;
+    font-style: italic;
+    color: #ccc; /* чуть светлее основного текста */
+    font-size: 14px;
+}
+
+/* 3D-модель */
+.info-hotspot-text .content-model,
+.info-hotspot-text model-viewer {
+    width: 100%;
+    max-height: 400px;
+    margin: 15px auto;
+    /*    background: rgba(35, 35, 35, 0.2);
+    overflow: hidden;*/
+}
+
+/* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
+.info-hotspot-slider {
+    position: relative;
+    margin: 15px 0;
+}
+
+/*.info-hotspot-slider img {
+    max-width: 100%;
+    max-height: 400px;
 }*/
+
+/* Кнопки слайдера */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+    .slider-btn.next {
+        right: 10px;
+    }
+
+    .slider-btn.prev {
+        left: 10px;
+    }
+
+
+
+
 
 /* === МОДАЛЬНОЕ ОКНО ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoModal {
@@ -1447,85 +1405,10 @@ body.vr-mode #vrCursor {
 }
 */
 
-/* === БЛОКИ КОНТЕНТА === */
-.info-hotspot-text .content-block {
-  margin-bottom: 15px;
-}
-
-.info-hotspot-text .content-text {
-  line-height: 1.6em;
-  color: #f7f8fc;
-}
-
-.info-hotspot-text .content-image img,
-.info-hotspot-text .content-video video {
-    display: block;
-    margin: 20px auto;
-    max-height: 400px;
-    max-width: auto;
-    border-radius: 8px;
-}
-
-/* === ЗАМЕТКА — по центру курсивом === */
-.info-hotspot-text .content-note {
-  display: block;
-  margin: 10px auto 20px;
-  text-align: center;
-  font-style: italic;
-  color: #ccc;  /* чуть светлее основного текста */
-  font-size: 14px;
-}
-
-/* === 3D МОДЕЛЬ ТОЛЬКО ДЛЯ ИНФО-ХОТСПОТОВ === */
-.info-hotspot-text .content-model {
-    width: 100%;
-    max-height: 400px;
-    margin: 15px auto;
-    background: rgba(35, 35, 35, 0.2);
-    overflow: hidden;
-}
-
-.info-hotspot-text model-viewer {
-    width: 100%;
-    height: 400px;
-    display: block;
-    --poster-color: transparent;
-}
-
-/* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
-.info-hotspot-slider {
-    position: relative;
-    text-align: center;
-}
-
-.info-hotspot-slider img {
-    max-width: 100%;
-    max-height: 400px;
-}
-
-/* Кнопки слайдера */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  z-index: 2;
-  }
-
-.slider-btn.next { right: 5px; }
-.slider-btn.prev { left: 5px; }
-
 
 
 /* === МОДАЛЬНОЕ ОКНО: ПРОКРУТКА === */
-.info-hotspot-modal .info-hotspot-text {
-  overflow-y: auto;        /* Прокрутка контента */
-  max-height: 90vh;        /* Ограничение высоты */
-}
+/*.info-hotspot-modal .info-hotspot-text {
+  overflow-y: auto;*/        /* Прокрутка контента */
+  /*max-height: 90vh;*/        /* Ограничение высоты */
+/*}*/
