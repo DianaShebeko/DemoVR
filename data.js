@@ -2254,7 +2254,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "video",
-                            "src": "content/27--/Промо_ГУАП_2025.mp4"
+                            "src": "content/27--/PromoGUAP2025.mp4"
                         }
                     ]
                 }
