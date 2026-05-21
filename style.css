@@ -661,18 +661,13 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .desktop .info-hotspot.visible .info-hotspot-text {
-  visibility: visible;
-  -ms-transform: perspective(200px) rotateX(0deg);
-  -webkit-transform: perspective(200px) rotateX(0deg);
-  transform: perspective(200px) rotateX(0deg);
-  -webkit-transition: -ms-transform 0.3s 0.3s,
-                      -webkit-transform 0.3s 0.3s,
-                      transform 0.3s 0.3s,
-                      visibility 0s 0s;
-  transition: -ms-transform 0.3s 0.3s,
-              -webkit-transform 0.3s 0.3s,
-              transform 0.3s 0.3s,
-              visibility 0s 0s;
+    display: block;
+    visibility: visible;
+    -ms-transform: perspective(200px) rotateX(0deg);
+    -webkit-transform: perspective(200px) rotateX(0deg);
+    transform: perspective(200px) rotateX(0deg);
+    -webkit-transition: -ms-transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s, transform 0.3s 0.3s, visibility 0s 0s;
+    transition: -ms-transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s, transform 0.3s 0.3s, visibility 0s 0s;
 }
 
 /* Info hotspot modal */
