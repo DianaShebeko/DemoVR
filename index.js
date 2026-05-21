@@ -376,18 +376,12 @@ function createInfoHotspotElement(hotspot) {
     header.appendChild(titleWrapper);
     header.appendChild(closeWrapper);
 
-    // Create text element.
-    var text = document.createElement('div');
-    text.classList.add('info-hotspot-text');
-    if (hotspot.text) {
-		text.innerHTML = hotspot.text;
-    }
+    // Гибкий контент
+    if (hotspot.content && hotspot.content.length > 0) {
+        for (var i = 0; i < hotspot.content.length; i++) {
+            var block = hotspot.content[i];
 
-	  // === ГИБКИЙ КОНТЕНТ ===
-	  if (hotspot.content && hotspot.content.length > 0) {
-          for (const block of hotspot.content) {
-
-              // === ТЕКСТ ===
+              //Текст
               if (block.type === 'text') {
                   var textBlock = document.createElement('div');
                   textBlock.classList.add('content-block', 'content-text');
@@ -395,6 +389,7 @@ function createInfoHotspotElement(hotspot) {
                   text.appendChild(textBlock);
               }
 
+              //Подпись к фото
               else if (block.type === 'note') {
                   var noteBlock = document.createElement('div');
                   noteBlock.classList.add('content-block', 'content-note');
@@ -402,157 +397,49 @@ function createInfoHotspotElement(hotspot) {
                   text.appendChild(noteBlock);
               }
 
-              // === ОДИНОЧНОЕ ИЗОБРАЖЕНИЕ ===
+              //Изображение
               else if (block.type === 'image') {
+                  //Одиночное изображение
                   if (!block.images || block.images.length <= 1) {
                       var imgBlock = document.createElement('div');
                       imgBlock.classList.add('content-block', 'content-image');
 
                       var img = document.createElement('img');
                       img.src = block.images[0];
-                      img.alt = block.alt || '';
 
                       imgBlock.appendChild(img);
                       text.appendChild(imgBlock);
                   }
-                  // Если несколько изображений — создаём слайдер
+                  // Несколько изображений — создаём слайдер
                   else {
-                  //    var currentIndex = 0;
-                  //    var totalImages = block.images.length;
-
-                  //    function updateSlider() {
-                  //        slides.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-                  //    }
-
-                  //    prev.onclick = function (e) {
-                  //        e.stopPropagation();
-                  //        currentIndex--;
-                  //        if (currentIndex < 0) currentIndex = totalImages - 1;
-                  //        updateSlider();
-                  //    };
-
-                  //    next.onclick = function (e) {
-                  //        e.stopPropagation();
-                  //        currentIndex++;
-                  //        if (currentIndex >= totalImages) currentIndex = 0;
-                  //        updateSlider();
-                  //    };
-
-                  //    updateSlider();
-                      var slider = document.createElement('div');
-                      slider.className = 'info-hotspot-slider';
-
-                      var slides = [];
-
-                      block.images.forEach(function (src, index) {
-
-                          var slide = document.createElement('div');
-                          slide.className = 'slide';
-
-                          if (index !== 0) {
-                              slide.style.display = 'none';
-                          }
-
-                          var img = document.createElement('img');
-                          img.src = src;
-
-                          slide.appendChild(img);
-                          slider.appendChild(slide);
-
-                          slides.push(slide);
-                      });
-
-                      var prev = document.createElement('button');
-                      prev.className = 'slider-btn prev';
-                      prev.innerHTML = '&#8592;';
-
-                      var next = document.createElement('button');
-                      next.className = 'slider-btn next';
-                      next.innerHTML = '&#8594;';
-
-                      slider.appendChild(prev);
-                      slider.appendChild(next);
-
+                      var slider = createSlider(block.images);
                       text.appendChild(slider);
-
-                      // Логика
-                      var cur = 0;
-                      var count = slides.length;
-
-                      function showSlide(index) {
-
-                          if (index < 0) index = count - 1;
-                          if (index >= count) index = 0;
-
-                          slides[cur].style.display = 'none';
-
-                          cur = index;
-
-                          slides[cur].style.display = 'block';
-                      }
-
-                      prev.onclick = function (e) {
-                          e.stopPropagation();
-                          showSlide(cur - 1);
-                      };
-
-                      next.onclick = function (e) {
-                          e.stopPropagation();
-                          showSlide(cur + 1);
-                      };
                   }
               }
-              // === 3D МОДЕЛЬ (GLB) ===
+              //3D-модель (GLB)
               else if (block.type === 'model') {
+                  var modelBlock = document.createElement('div');
+                  modelBlock.classList.add('content-block', 'content-model');
 
-                  const modelBlock = document.createElement('div');
-                  modelBlock.className = 'content-block content-model';
+                  var modelViewer = document.createElement('model-viewer');
+                  modelViewer.setAttribute('src', block.src);
+                  modelViewer.setAttribute('camera-controls', '');
+                  modelViewer.setAttribute('auto-rotate', '');
+                  modelViewer.setAttribute('touch-action', 'pan-y');
 
-                  modelBlock.innerHTML = `
-                        <model-viewer
-                            src="${block.src}"
-                            camera-controls
-                            auto-rotate
-                            style="width:100%; height:400px;">
-                        </model-viewer>
-                    `;
-
+                  modelBlock.appendChild(modelViewer);
                   text.appendChild(modelBlock);
               }
-
+              //Видео
               else if (block.type === 'video') {
                   var videoBlock = document.createElement('div');
                   videoBlock.classList.add('content-block', 'content-video');
-
-                  // === ЕСЛИ ЭТО EMBED (rutube/youtube) ===
-                  if (block.src.includes('rutube.ru') || block.src.includes('youtube.com') || block.src.includes('youtu.be')) {
-
-                      var iframe = document.createElement('iframe');
-                      iframe.src = block.src;
-                      iframe.style.width = '100%';
-                      iframe.style.height = '400px';
-                      iframe.style.border = 'none';
-                      iframe.allowFullscreen = true;
-
-                      videoBlock.appendChild(iframe);
-
-                  }
-                  // === ЕСЛИ ЭТО ОБЫЧНЫЙ MP4 ===
-                  else {
-                      var video = document.createElement('video');
-                      video.src = block.src;
-                      if (block.poster) video.poster = block.poster;
-                      video.controls = true;
-                      video.style.maxWidth = '100%';
-                      video.style.height = 'auto';
-                      video.style.maxHeight = '400px';
-                      video.style.margin = '10px auto';
-                      video.style.display = 'block';
-
-                      videoBlock.appendChild(video);
-                  }
-
-                  text.appendChild(videoBlock);
+                var video = document.createElement('video');
+                video.src = block.src;
+                if (block.poster) video.poster = block.poster;
+                video.controls = true;
+                videoBlock.appendChild(video);
+                 text.appendChild(videoBlock);
               }
           }
 	  }
@@ -562,101 +449,47 @@ function createInfoHotspotElement(hotspot) {
     wrapper.appendChild(text);
 	
     // Create a modal for the hotspot content to appear on mobile mode.
-    var modal = document.createElement('div');
+    /*var modal = document.createElement('div');
     modal.innerHTML = wrapper.innerHTML;
+    modal.classList.add('info-hotspot-modal');*/
+    var modal = wrapper.cloneNode(true);
     modal.classList.add('info-hotspot-modal');
-    //var modal = wrapper.cloneNode(true);
-    //modal.classList.add('info-hotspot-modal');
     document.body.appendChild(modal);
 
     // === ЛЯГУШКА ===
-    var modalModels = modal.querySelectorAll('.content-model');
+    var modalModelBlocks = modal.querySelectorAll('.content-model');
 
-    modalModels.forEach(function (modelBlock, index) {
-
-        // Ищем старый model-viewer
+    for (var j = 0; j < modalModelBlocks.length; j++) {
+        var modelBlock = modalModelBlocks[j];
         var oldViewer = modelBlock.querySelector('model-viewer');
 
-        if (!oldViewer) return;
+        if (!oldViewer) {
+            continue;
+        }
 
-        // Берём src
+        // Get attributes from old viewer
         var src = oldViewer.getAttribute('src');
+        var autoRotate = oldViewer.hasAttribute('auto-rotate');
 
-        // Создаём НОВЫЙ model-viewer
+        // Create new model-viewer
         var newViewer = document.createElement('model-viewer');
-
         newViewer.setAttribute('src', src);
-
-        newViewer.style.width = '100%';
-        newViewer.style.height = '400px';
-        newViewer.style.display = 'block';
-        newViewer.style.background = '#ddd';
-
         newViewer.setAttribute('camera-controls', '');
         newViewer.setAttribute('touch-action', 'pan-y');
         newViewer.setAttribute('shadow-intensity', '1');
 
-        if (oldViewer.hasAttribute('auto-rotate')) {
+        if (autoRotate) {
             newViewer.setAttribute('auto-rotate', '');
         }
-
-        // очищаем старый
+        // Replace old with new
         modelBlock.innerHTML = '';
-
-        // вставляем новый
         modelBlock.appendChild(newViewer);
-
-        // форсим resize
-        setTimeout(function () {
-            window.dispatchEvent(new Event('resize'));
-        }, 100);
-    });
-
-    /*стрелки*/
-    // === ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА В МОДАЛКЕ ===
-    var modalSlides = modal.querySelectorAll('.slide');
-
-    if (modalSlides.length > 0) {
-
-        var modalPrev = modal.querySelector('.prev');
-        var modalNext = modal.querySelector('.next');
-
-        var modalCur = 0;
-
-        // скрываем все кроме первой
-        modalSlides.forEach(function (slide, index) {
-            if (index !== 0) {
-                slide.style.display = 'none';
-            }
-        });
-
-        function modalShowSlide(index) {
-
-            if (index < 0) index = modalSlides.length - 1;
-            if (index >= modalSlides.length) index = 0;
-
-            modalSlides[modalCur].style.display = 'none';
-
-            modalCur = index;
-
-            modalSlides[modalCur].style.display = 'block';
-        }
-
-        if (modalPrev) {
-            modalPrev.onclick = function (e) {
-                e.stopPropagation();
-                modalShowSlide(modalCur - 1);
-            };
-        }
-
-        if (modalNext) {
-            modalNext.onclick = function (e) {
-                e.stopPropagation();
-                modalShowSlide(modalCur + 1);
-            };
-        }
     }
-    /*стрелки*/
+
+    // Force resize event to trigger model-viewer re-render
+    setTimeout(function () {
+        window.dispatchEvent(new Event('resize'));
+    }, 100);
 
     var toggle = function() {
       wrapper.classList.toggle('visible');
@@ -675,6 +508,67 @@ function createInfoHotspotElement(hotspot) {
 
     return wrapper;
   }
+
+    // Слайдер
+    function createSlider(images) {
+        var slider = document.createElement('div');
+        slider.classList.add('info-hotspot-slider');
+
+        var slides = [];
+        var currentIndex = 0;
+
+        for (var i = 0; i < images.length; i++) {
+            var slide = document.createElement('div');
+            slide.classList.add('slide');
+
+            if (i !== 0) {
+                slide.style.display = 'none';
+            }
+
+            var img = document.createElement('img');
+            img.src = images[i];
+
+            slide.appendChild(img);
+            slider.appendChild(slide);
+            slides.push(slide);
+        }
+
+        var prevBtn = document.createElement('button');
+        prevBtn.classList.add('slider-btn', 'prev');
+        prevBtn.innerHTML = '&#8592;';
+
+        var nextBtn = document.createElement('button');
+        nextBtn.classList.add('slider-btn', 'next');
+        nextBtn.innerHTML = '&#8594;';
+
+        slider.appendChild(prevBtn);
+        slider.appendChild(nextBtn);
+
+        function showSlide(index) {
+            if (index < 0) {
+                index = slides.length - 1;
+            }
+            if (index >= slides.length) {
+                index = 0;
+            }
+
+            slides[currentIndex].style.display = 'none';
+            currentIndex = index;
+            slides[currentIndex].style.display = 'block';
+        }
+
+        prevBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            showSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            showSlide(currentIndex + 1);
+        });
+
+        return slider;
+    }
 
   // Prevent touch and scroll events from reaching the parent element.
   function stopTouchAndScrollEventPropagation(element, eventList) {
@@ -897,7 +791,11 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     var originalSwitchScene = switchScene;
     var isSwitchingScene = false;
     switchScene = function (scene) {
-
+        // Очистка старых модалок при смене сцены
+        var oldModals = document.querySelectorAll('.info-hotspot-modal');
+        for (var k = 0; k < oldModals.length; k++) {
+            oldModals[k].remove();
+        }
         isSwitchingScene = true;
     // 1. Сначала вызываем оригинальную логику Marzipano
     originalSwitchScene(scene);
