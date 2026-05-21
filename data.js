@@ -2248,7 +2248,7 @@ var APP_DATA = {
             "linkHotspots": [],
             "infoHotspots": [
                 {
-                    "yaw": -2.3,
+                    "yaw": 0.3,
                     "pitch": 0.11827129524185054,
                     "title": "ГУАП! Учись, изобретай, живи!",
                     "content": [
