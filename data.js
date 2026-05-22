@@ -37,7 +37,7 @@ var APP_DATA = {
         },
           "linkHotspots": [
               {
-                  "yaw": -1.0,
+                  "yaw": -2.0,
                   "pitch": 0.11827129524185054,
                   "rotation": 12.566370614359176,
                   "target": "0--"
