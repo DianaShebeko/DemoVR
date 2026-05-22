@@ -1836,7 +1836,7 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/19---2/IMG_E2356.JPG"
+                                "content/19---2/IMG_E2336.JPG"
                             ]
                         }
                     ]
