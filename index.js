@@ -581,7 +581,7 @@ function createInfoHotspotElement(hotspot) {
                         videoBlock.classList.add('content-block', 'content-video');
 
                         var video = document.createElement('video');
-
+                        video.src = encodeURI(block.src); 
                         video.controls = true;
                         video.preload = 'metadata'; // Загружаем только инфо о видео, чтобы не тормозило
                         video.setAttribute('playsinline', ''); // Нужно для мобильных
