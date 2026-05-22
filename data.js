@@ -476,7 +476,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg"],
+                            "images": ["content/5---2/noteInfo11.jpg"],
                         }
                     ]
                 },
@@ -495,7 +495,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "note",
-                            "images": "Карта Европы 1770 г."
+                            "text": "Карта Европы 1770 г."
                         },
                         {
                             "type": "image",
@@ -503,7 +503,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "note",
-                            "images": "Итоги Первой русско-турецкой войны"
+                            "text": "Итоги Первой русско-турецкой войны"
                         },
                         {
                             "type": "image",
@@ -511,7 +511,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "note",
-                            "images": "Маршрут Первой Архипелагской экспедиции"
+                            "text": "Маршрут Первой Архипелагской экспедиции"
                         }
                     ]
                 },
@@ -698,7 +698,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "text",
-                            "text": TXTI.ChZ2I4
+                            "text": TXTI.ChZ3I4
                         },
                         {
                             "type": "image",
@@ -719,7 +719,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/7--/IMG_E2507.JPG"
+                        "src": "content/7-/IMG_E2498.JPG"
                     },
                     {
                         "type": "note",
@@ -845,16 +845,32 @@ var APP_DATA = {
                 "content": [
                     {
                         "type": "text",
-                        "text": TXTS.ChitZ
+                        "text": TXTS.GeorgZ
                     },
                     {
                         "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
+                        "src": "content/8--/IMG_E2500.jpg"
                     },
                     {
                         "type": "note",
-                        "text": "Павел Веденецкий. Портрет Ивана Петровича Кулибина. 1818. Государственный Эрмитаж"
-                    }
+                        "text": "Тронный зал Большого Петергофского дворца"
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/8--/IMG_E25000.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Рисунок паркета в Тронном зале Петергофского дворца"
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/8--/IMG_3.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Чесменская чернильница. Государственный Эрмитаж"
+                    },
                 ]
             },
             "levels": [
@@ -1200,6 +1216,10 @@ var APP_DATA = {
                         {
                             "type": "model",
                             "src": "content/9-_1/frog.glb",
+                        },
+                        {
+                            "type": "text",
+                            "text": TXTI.Frog,
                         }
 
                     ]
@@ -2248,8 +2268,8 @@ var APP_DATA = {
             "linkHotspots": [],
             "infoHotspots": [
                 {
-                    "yaw": -0.5,
-                    "pitch": 0.11827129524185054,
+                    "yaw": 0.0,
+                    "pitch": 0.71827129524185054,
                     "title": "ГУАП! Учись, изобретай, живи!",
                     "content": [
                         {
