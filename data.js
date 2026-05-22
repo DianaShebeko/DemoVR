@@ -172,7 +172,7 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": 0.10654018072955829,
+                    "yaw": 0.20654018072955829,
                     "pitch": 0.08941640565605624,
                     "rotation": 0,
                     "target": "2--"
@@ -2248,7 +2248,7 @@ var APP_DATA = {
             "linkHotspots": [],
             "infoHotspots": [
                 {
-                    "yaw": 0.3,
+                    "yaw": -0.5,
                     "pitch": 0.11827129524185054,
                     "title": "ГУАП! Учись, изобретай, живи!",
                     "content": [
