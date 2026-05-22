@@ -566,13 +566,38 @@ function createInfoHotspotElement(hotspot) {
                         modelBlock.appendChild(modelViewer);
                         textContainer.appendChild(modelBlock);
                     }
+                    //else if (block.type === 'video') {
+                    //    var videoBlock = document.createElement('div');
+                    //    videoBlock.classList.add('content-block', 'content-video');
+                    //    var video = document.createElement('video');
+                    //    video.src = block.src;
+                    //    if (block.poster) video.poster = block.poster;
+                    //    video.controls = true;
+                    //    videoBlock.appendChild(video);
+                    //    textContainer.appendChild(videoBlock);
+                    //}
                     else if (block.type === 'video') {
                         var videoBlock = document.createElement('div');
                         videoBlock.classList.add('content-block', 'content-video');
+
                         var video = document.createElement('video');
-                        video.src = block.src;
-                        if (block.poster) video.poster = block.poster;
+
                         video.controls = true;
+                        video.preload = 'metadata'; // Загружаем только инфо о видео, чтобы не тормозило
+                        video.setAttribute('playsinline', ''); // Нужно для мобильных
+                        video.style.width = '100%';
+                        video.style.display = 'block';
+
+                        // Отладка
+                        video.onloadedmetadata = function () {
+                            console.log('✅ Видео найдено и готово:', block.src);
+                        };
+
+                        video.onerror = function () {
+                            console.error('❌ Ошибка загрузки видео. Проверьте путь:', encodeURI(block.src));
+                            console.error('Код ошибки:', video.error.code); // 4 = файл не найден, 3 = ошибка декодирования
+                        };
+
                         videoBlock.appendChild(video);
                         textContainer.appendChild(videoBlock);
                     }
@@ -746,17 +771,16 @@ floorPoints.forEach(function(point) {
 
     if (scene) {
       switchScene(scene);
-      hideSceneList(); // закрываем панель после перехода
+      hideSceneList(); // закрытие панель после перехода
     }
   });
 });
 
-/*========= НИЖНЕЕ МЕНЮ ==========*/
+/* Нижнее меню */
 var menuBtn = document.getElementById('btnMenuHidden');
 var hiddenMenu = document.getElementById('hiddenMenu');
-var audioOnOffBtn = document.getElementById('audioOnOff');
 
-// 4. Скрытое меню (Открыть/Закрыть)
+//  Скрытое меню (Открыть/Закрыть)
 if (menuBtn && hiddenMenu) {
     menuBtn.addEventListener('click', function (e) {
         e.preventDefault();
@@ -774,24 +798,16 @@ if (menuBtn && hiddenMenu) {
     });
 }
 
-// 5. Глобальный вкл/выкл звука (в меню)
-if (audioOnOffBtn) {
-    audioOnOffBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (gAudio) { gAudio.muted = !gAudio.muted; }
-        this.classList.toggle('enabled');
-    });
-}
-
-    // === АУДИОГИД ===
-var gAudio = null;
+//Аудиогид и звук
+var gAudio = null; //объект текущего аудио
+var isMuted = false;  //глобальное состояние звука
 var audioBtn = document.getElementById('audioBtn');
 var audioBar = document.getElementById('audioBar');
 var audioSeek = document.getElementById('audioSeek');
 var audioTime = document.getElementById('audioTime');
-var isMuted = false; 
+var audioOnOffBtn = document.getElementById('audioOnOff');
 
+//Обновление прогресс-бара и текстового таймера
 function updateTime() {
   if (gAudio && gAudio.duration && audioSeek && audioTime) {
     audioSeek.value = (gAudio.currentTime / gAudio.duration) * 100;
@@ -800,31 +816,24 @@ function updateTime() {
   }
 }
 
-// Функция для применения muted состояния к текущему аудио
+// Функция для применения глобального выключения(muted)  звука
 function applyMutedState() {
-    if (gAudio) {
-        gAudio.muted = isMuted;
-    }
-    // Обновляем визуальное состояние кнопки
+    if (gAudio) { gAudio.muted = isMuted; }
     if (audioOnOffBtn) {
-        if (isMuted) {
-            audioOnOffBtn.classList.add('enabled');
-        } else {
-            audioOnOffBtn.classList.remove('enabled');
-        }
+        audioOnOffBtn.classList.toggle('enabled', isMuted);
     }
 }
-
-// Обработчик кнопки глобального mute (в меню)
+   
+    // Обработчик кнопки глобального выключения звука (в меню)
 if (audioOnOffBtn) {
     audioOnOffBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        isMuted = !isMuted;  // Переключаем глобальный флаг
-        applyMutedState();    // Применяем к текущему аудио
+        isMuted = !isMuted;  // Переключение глобального флага
+        applyMutedState();    // Применение к текущему аудио
     });
 }
-
+    //Управление воспроизведением (Play/Pause)
 if (audioBtn) {
     audioBtn.addEventListener('click', function (e) {
         e.preventDefault();
@@ -838,7 +847,7 @@ if (audioBtn) {
     });
 }
 
-// Перемотка
+// Перемотка аужио через ползунок
 if (audioSeek) {
   audioSeek.oninput = function() {
     if (gAudio && gAudio.duration) {
@@ -897,7 +906,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 		e.stopPropagation();
 		
 		if (currentSceneWrapper && currentSceneWrapper.data.sceneInfo) {
-		  if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title || '';
+		  if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title;
 		  
 		  // Вызываем рендеринг без параметров
 		  renderSceneInfoContent();
