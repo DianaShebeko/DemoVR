@@ -681,7 +681,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     justify-content: space-between;
 }
 
-/*.info-hotspot-modal .info-hotspot-icon-wrapper {
+.info-hotspot-modal .info-hotspot-icon-wrapper {
   width: 25px;
   height:25px;
 }
@@ -689,7 +689,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot-modal .info-hotspot-icon {
   width: 90%;
   height: 90%;
-}*/
+}
 
 /*Центрированный заголовок*/
 /*.info-hotspot-modal .info-hotspot-title-wrapper {
@@ -738,7 +738,7 @@ padding: 0 10px;
 position: relative;
 width: 90%;
 max-width: 1024px;
-max-height: calc(100vh - 140px);
+max-height: 70vh;
 overflow-y: auto;
 /*margin: 0 auto 20px auto;
 */
@@ -797,11 +797,6 @@ text-indent: 2em;
     margin: 15px 0;
 }
 
-/*.info-hotspot-slider img {
-    max-width: 100%;
-    max-height: 400px;
-}*/
-
 /* Кнопки слайдера */
 .slider-btn {
     position: absolute;
@@ -817,16 +812,13 @@ text-indent: 2em;
     z-index: 2;
 }
 
-    .slider-btn.next {
-        right: 10px;
-    }
+.slider-btn.next {
+    right: 10px;
+}
 
-    .slider-btn.prev {
-        left: 10px;
-    }
-
-
-
+.slider-btn.prev {
+    left: 10px;
+}
 
 
 /* === МОДАЛЬНОЕ ОКНО ИНФОРМАЦИИ О СЦЕНЕ === */
