@@ -546,6 +546,21 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   margin: 15%;
 }
 
+.info-hotspot .info-hotspot-close-wrapper {
+  display: none
+}
+
+.info-hotspot .info-hotspot-close-icon {
+    width: 90%;
+    height: 90%;
+    margin: 15%;
+}
+
+.info-hotspot .info-hotspot-text {
+    display: none;
+}
+
+
 /* Подсказка при наведении */
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
@@ -600,9 +615,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   user-select: text;
 }
 */
-/*.info-hotspot .info-hotspot-close-wrapper {
-  display: none
-}*/
 
 /*.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
   visibility: visible;
@@ -619,15 +631,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               visibility 0s 0s;
 }*/
 
-.info-hotspot .info-hotspot-close-icon {
-  width: 90%;
-  height: 90%;
-  margin: 15%;
-}
 
-.info-hotspot .info-hotspot-text {
-  display: none;
-}
 
 .info-hotspot.visible .info-hotspot-text {
     display: none;
@@ -657,6 +661,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
 .info-hotspot-modal.visible {
     display: flex;
+    opacity: 1 ;
+    visibility: visible ;
 }
 
 /* Шапка модального окна */
