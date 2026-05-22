@@ -566,13 +566,34 @@ function createInfoHotspotElement(hotspot) {
                         modelBlock.appendChild(modelViewer);
                         textContainer.appendChild(modelBlock);
                     }
+                    //else if (block.type === 'video') {
+                    //    var videoBlock = document.createElement('div');
+                    //    videoBlock.classList.add('content-block', 'content-video');
+                    //    var video = document.createElement('video');
+                    //    video.src = block.src;
+                    //    if (block.poster) video.poster = block.poster;
+                    //    video.controls = true;
+                    //    videoBlock.appendChild(video);
+                    //    textContainer.appendChild(videoBlock);
+                    //}
                     else if (block.type === 'video') {
+                        console.log('Creating video with src:', block.src);  // ← Проверка пути
+
                         var videoBlock = document.createElement('div');
                         videoBlock.classList.add('content-block', 'content-video');
+
                         var video = document.createElement('video');
                         video.src = block.src;
-                        if (block.poster) video.poster = block.poster;
                         video.controls = true;
+                        video.preload = 'auto';
+
+                        video.onloadeddata = function () {
+                            console.log('✅ Video loaded successfully');
+                        };
+                        video.onerror = function (e) {
+                            console.error('❌ Video error:', video.error);  // ← Код ошибки в консоли
+                        };
+
                         videoBlock.appendChild(video);
                         textContainer.appendChild(videoBlock);
                     }
