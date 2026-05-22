@@ -37,7 +37,7 @@ var APP_DATA = {
         },
           "linkHotspots": [
               {
-                  "yaw": -1.8,
+                  "yaw": -1.0,
                   "pitch": 0.11827129524185054,
                   "rotation": 12.566370614359176,
                   "target": "0--"
@@ -2254,7 +2254,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "video",
-                            "src": "content/27--/PromoGUAP2025.mp4"
+                            "src": "content/27--/Beauty.mp4"
                         }
                     ]
                 }

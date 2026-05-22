@@ -691,22 +691,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 90%;
 }
 
-/*Центрированный заголовок*/
-/*.info-hotspot-modal .info-hotspot-title-wrapper {
-position: static;
-transform: none;
-text-align: center;
-flex: 1;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-color: #f7f8fc;
-font-size: 16px;
-font-weight: bold;
-padding: 0 10px;
-    }*/
-
-
 .info-hotspot-modal .info-hotspot-title {
         flex: 1;
         text-align: center;
@@ -716,8 +700,7 @@ padding: 0 10px;
     }
 
 .info-hotspot-modal .info-hotspot-close-wrapper {
-/*    position: absolute;
-*/    top: 10px; /* Чуть ниже от края */
+   top: 10px; /* Чуть ниже от края */
     right: 10px; /* Чуть левее от края */
     width: 40px; /* ← УВЕЛИЧИЛИ с 25px до 40px */
     height: 40px; /* ← УВЕЛИЧИЛИ с 25px до 40px */
@@ -738,7 +721,7 @@ padding: 0 10px;
 position: relative;
 width: 90%;
 max-width: 1024px;
-max-height: 70vh;
+max-height: 80vh;
 overflow-y: auto;
 /*margin: 0 auto 20px auto;
 */
@@ -968,8 +951,6 @@ text-indent: 2em;
   width: 40px;
   height: 40px;
   padding: 5px;
-  /*background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);*/
 }
 
 body.view-control-buttons .viewControlButton {
