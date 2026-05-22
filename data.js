@@ -2274,7 +2274,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "video",
-                            "src": "content/27--/promo.mp4"
+                            "src": "content/video27/promo.mp4"
                         }
                     ]
                 }
