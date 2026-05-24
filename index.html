@@ -278,13 +278,26 @@
         </div>
     </div>
 
-    <div id="vrCursor"></div>
+    <!--<div id="vrCursor"></div>-->
+
+    <div id="vr-container" style="display: none;">
+        <a-scene webxr="optionalFeatures: squeezedetect, hit-test">
+            <a-sky id="vr-sky" src="tiles/0-image/preview.jpg" rotation="0 -90 0"></a-sky>
+            <a-entity camera look-controls>
+                <a-cursor fuse="true" fuse-timeout="1200"></a-cursor>
+            </a-entity>
+        </a-scene>
+    </div>
+    <a-entity camera look-controls>
+        <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
+    </a-entity>
 
     <script src="vendor/screenfull.min.js"></script>
     <script src="vendor/bowser.min.js"></script>
     <script src="vendor/marzipano.js"></script>
 
-    <script src="vendor/DeviceOrientationControlMethod.js"></script>
+    <!--<script src="vendor/DeviceOrientationControlMethod.js"></script>-->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="texts.js"></script>
     <script src="data.js"></script>
     <script src="index.js"></script>

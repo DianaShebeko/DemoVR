@@ -907,50 +907,42 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 	  });
 	}
 
-
-// === ПЕРЕОПРЕДЕЛЕНИЕ switchScene (аудио + инфо) ===
+    // Декоратор switchScene()
     var originalSwitchScene = switchScene; //оригинальная логика switchScene
-    var isSwitchingScene = false;
     switchScene = function (scene) { 
-
-    isSwitchingScene = true;
     originalSwitchScene(scene); //вызов оригинальной логики
-    scene.view.setParameters(scene.data.initialViewParameters);
     // Аудио: сброс старого трека
     if (gAudio) { gAudio.pause(); gAudio = null; }
     if (audioBar) audioBar.classList.remove('visible');
     if (audioBtn) {
-        // Показ кнопки только если у сцены есть аудио
-        audioBtn.style.display = scene.data.audioGuide ? 'flex' : 'none';
-        audioBtn.classList.add('enabled');
-        if (audioBar) audioBar.style.display = scene.data.audioGuide ? '' : 'none';
+    // Показ кнопки только если у сцены есть аудио
+    audioBtn.style.display = scene.data.audioGuide ? 'flex' : 'none';
+    audioBtn.classList.add('enabled');
+    if (audioBar) audioBar.style.display = scene.data.audioGuide ? '' : 'none';
     }
-
     if (audioSeek) audioSeek.value = 0;
     if (audioTime) audioTime.textContent = '0:00';
 
-    // 3. АУДИО: загрузка новогоs трека, если есть
+    // Аудио: загрузка нового трека, если есть
     if (scene.data.audioGuide) {
         gAudio = new Audio(scene.data.audioGuide);
         gAudio.preload = 'metadata';
         gAudio.ontimeupdate = updateTime;
         gAudio.muted = isMuted;
-
         gAudio.play();
-        gAudio.onended = function () {
+        gAudio.onended = function () { //конец трека - обнуление параметров
             if (audioBtn) audioBtn.classList.remove('enabled');
             if (audioSeek) audioSeek.value = 0;
             if (audioTime) audioTime.textContent = '0:00';
         };
     }
-
-    // 4. ИНФО-КНОПКА: показать/скрыть
+    // Информация о сцене: показать/скрыть
     if (sceneInfoToggle) {
         var hasInfo = scene.data.sceneInfo && scene.data.sceneInfo.content;
         sceneInfoToggle.style.display = hasInfo ? 'block' : 'none';
         document.body.classList.toggle('scene-info-enabled', hasInfo);
     }
-};
+    };
 
   // Display the initial scene.
   switchScene(scenes[0]);
@@ -1007,44 +999,60 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     // === VR MODE ===
 
     var vrBtn = document.getElementById('vrBtn');
-    var deviceOrientationControlMethod = null;
-    var vrEnabled = false;
+    //var deviceOrientationControlMethod = null;
+    //var vrEnabled = false;
+
+    //async function enableVR() {
+
+    //    // iOS permission
+    //    if (
+    //        typeof DeviceOrientationEvent !== "undefined" &&
+    //        typeof DeviceOrientationEvent.requestPermission === "function"
+    //    ) {
+    //        try {
+    //            const response =
+    //                await DeviceOrientationEvent.requestPermission();
+
+    //            if (response !== "granted") return;
+
+    //        } catch (e) {
+    //            console.error(e);
+    //            return;
+    //        }
+    //    }
+
+    //    // создаём контроллер
+    //    deviceOrientationControlMethod =
+    //        new DeviceOrientationControlMethod();
+
+    //    var controls = viewer.controls();
+
+    //    controls.registerMethod(
+    //        'deviceOrientation',
+    //        deviceOrientationControlMethod
+    //    );
+
+    //    controls.enableMethod('deviceOrientation');
+
+    //    vrEnabled = true;
+
+    //    console.log("VR ENABLED");
+    //}
 
     async function enableVR() {
+        // 1. Прячем обычный плеер Marzipano
+        document.getElementById('pano').style.display = 'none';
 
-        // iOS permission
-        if (
-            typeof DeviceOrientationEvent !== "undefined" &&
-            typeof DeviceOrientationEvent.requestPermission === "function"
-        ) {
-            try {
-                const response =
-                    await DeviceOrientationEvent.requestPermission();
+        // 2. Показываем контейнер WebXR
+        var vrContainer = document.getElementById('vr-container');
+        vrContainer.style.display = 'block';
 
-                if (response !== "granted") return;
-
-            } catch (e) {
-                console.error(e);
-                return;
-            }
+        // 3. Подставляем картинку текущей сцены
+        var vrSky = document.getElementById('vr-sky');
+        if (currentSceneWrapper) {
+            // Берем путь к фону текущей сцены
+            vrSky.setAttribute('src', 'tiles/' + currentSceneWrapper.data.id + '/preview.jpg');
         }
-
-        // создаём контроллер
-        deviceOrientationControlMethod =
-            new DeviceOrientationControlMethod();
-
-        var controls = viewer.controls();
-
-        controls.registerMethod(
-            'deviceOrientation',
-            deviceOrientationControlMethod
-        );
-
-        controls.enableMethod('deviceOrientation');
-
-        vrEnabled = true;
-
-        console.log("VR ENABLED");
     }
 
     if (vrBtn) {
@@ -1054,59 +1062,61 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
         });
     }
 
+
+
     /* ============ курсор ================*/
-    var vrLookTimers = new Map();
+    //var vrLookTimers = new Map();
 
-    function initVRGaze() {
+//    function initVRGaze() {
 
-        setInterval(function () {
+//        setInterval(function () {
 
-            if (!vrEnabled) return;
+//            if (!vrEnabled) return;
 
-            var hotspots =
-                document.querySelectorAll('.link-hotspot');
+//            var hotspots =
+//                document.querySelectorAll('.link-hotspot');
 
-            hotspots.forEach(function (hotspot) {
+//            hotspots.forEach(function (hotspot) {
 
-                var rect = hotspot.getBoundingClientRect();
+//                var rect = hotspot.getBoundingClientRect();
 
-                var centerX = window.innerWidth / 2;
-                var centerY = window.innerHeight / 2;
+//                var centerX = window.innerWidth / 2;
+//                var centerY = window.innerHeight / 2;
 
-                var hotspotX = rect.left + rect.width / 2;
-                var hotspotY = rect.top + rect.height / 2;
+//                var hotspotX = rect.left + rect.width / 2;
+//                var hotspotY = rect.top + rect.height / 2;
 
-                var dx = Math.abs(centerX - hotspotX);
-                var dy = Math.abs(centerY - hotspotY);
+//                var dx = Math.abs(centerX - hotspotX);
+//                var dy = Math.abs(centerY - hotspotY);
 
-                var isCentered = (dx < 40 && dy < 40);
+//                var isCentered = (dx < 40 && dy < 40);
 
-                if (isCentered) {
+//                if (isCentered) {
 
-                    // если ещё нет таймера — создаём
-                    if (!vrLookTimers.has(hotspot)) {
+//                    // если ещё нет таймера — создаём
+//                    if (!vrLookTimers.has(hotspot)) {
 
-                        var timer = setTimeout(function () {
-                            hotspot.click();
-                            vrLookTimers.delete(hotspot);
-                        }, 1200);
+//                        var timer = setTimeout(function () {
+//                            hotspot.click();
+//                            vrLookTimers.delete(hotspot);
+//                        }, 1200);
 
-                        vrLookTimers.set(hotspot, timer);
-                    }
+//                        vrLookTimers.set(hotspot, timer);
+//                    }
 
-                } else {
+//                } else {
 
-                    // если ушли из центра — отменяем
-                    if (vrLookTimers.has(hotspot)) {
-                        clearTimeout(vrLookTimers.get(hotspot));
-                        vrLookTimers.delete(hotspot);
-                    }
-                }
+//                    // если ушли из центра — отменяем
+//                    if (vrLookTimers.has(hotspot)) {
+//                        clearTimeout(vrLookTimers.get(hotspot));
+//                        vrLookTimers.delete(hotspot);
+//                    }
+//                }
 
-            });
+//            });
 
-        }, 100);
-    }
+//        }, 100);
+//    }
 
-    initVRGaze();
+//    initVRGaze();
 })();
