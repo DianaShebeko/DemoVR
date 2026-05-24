@@ -518,94 +518,67 @@ function createInfoHotspotElement(hotspot) {
   }
   */
 
-    function createInfoHotspotElement(hotspot) {
-        // Вспомогательная функция для создания элементов контента (текст, слайдер, модель)
-        // Мы будем вызывать её дважды: один раз для хотспота, второй — для модалки
-        function createContentNodes(isModal) {
-            var textContainer = document.createElement('div');
-            textContainer.classList.add('info-hotspot-text');
+function createInfoHotspotElement(hotspot) {
+// Функция для создания элементов контента (текст, слайдер, видео, 3д-модель)
+function createContentNodes(isModal) {
+var textContainer = document.createElement('div');
+textContainer.classList.add('info-hotspot-text');
 
-            if (hotspot.content && hotspot.content.length > 0) {
-                for (var i = 0; i < hotspot.content.length; i++) {
-                    var block = hotspot.content[i];
+if (hotspot.content && hotspot.content.length > 0) {
+for (var i = 0; i < hotspot.content.length; i++) {
+var block = hotspot.content[i];
 
-                    if (block.type === 'text') {
-                        var textBlock = document.createElement('div');
-                        textBlock.classList.add('content-block', 'content-text');
-                        textBlock.innerHTML = block.text;
-                        textContainer.appendChild(textBlock);
-                    }
-                    else if (block.type === 'note') {
-                        var noteBlock = document.createElement('div');
-                        noteBlock.classList.add('content-block', 'content-note');
-                        noteBlock.innerHTML = block.text;
-                        textContainer.appendChild(noteBlock);
-                    }
-                    else if (block.type === 'image') {
-                        if (!block.images || block.images.length <= 1) {
-                            var imgBlock = document.createElement('div');
-                            imgBlock.classList.add('content-block', 'content-image');
-                            var img = document.createElement('img');
-                            img.src = block.images ? block.images[0] : block.src;
-                            imgBlock.appendChild(img);
-                            textContainer.appendChild(imgBlock);
-                        } else {
-                            // Создаем слайдер — теперь у каждого будет свой набор событий
-                            var slider = createSlider(block.images);
-                            textContainer.appendChild(slider);
-                        }
-                    }
-                    else if (block.type === 'model') {
-                        var modelBlock = document.createElement('div');
-                        modelBlock.classList.add('content-block', 'content-model');
-                        var modelViewer = document.createElement('model-viewer');
-                        modelViewer.setAttribute('src', block.src);
-                        modelViewer.setAttribute('camera-controls', '');
-                        modelViewer.setAttribute('auto-rotate', '');
-                        modelViewer.setAttribute('touch-action', 'pan-y');
-                        modelBlock.appendChild(modelViewer);
-                        textContainer.appendChild(modelBlock);
-                    }
-                    //else if (block.type === 'video') {
-                    //    var videoBlock = document.createElement('div');
-                    //    videoBlock.classList.add('content-block', 'content-video');
-                    //    var video = document.createElement('video');
-                    //    video.src = block.src;
-                    //    if (block.poster) video.poster = block.poster;
-                    //    video.controls = true;
-                    //    videoBlock.appendChild(video);
-                    //    textContainer.appendChild(videoBlock);
-                    //}
-                    else if (block.type === 'video') {
-                        var videoBlock = document.createElement('div');
-                        videoBlock.classList.add('content-block', 'content-video');
+if (block.type === 'text') {
+var textBlock = document.createElement('div');
+textBlock.classList.add('content-block', 'content-text');
+textBlock.innerHTML = block.text;
+textContainer.appendChild(textBlock);
+}
+else if (block.type === 'note') {
+var noteBlock = document.createElement('div');
+noteBlock.classList.add('content-block', 'content-note');
+noteBlock.innerHTML = block.text;
+textContainer.appendChild(noteBlock);
+}
+else if (block.type === 'image') {
+if (!block.images || block.images.length <= 1) {
+    var imgBlock = document.createElement('div');
+    imgBlock.classList.add('content-block', 'content-image');
+    var img = document.createElement('img');
+    img.src = block.images ? block.images[0] : block.src;
+    imgBlock.appendChild(img);
+    textContainer.appendChild(imgBlock);
+} else {
+    var slider = createSlider(block.images);
+    textContainer.appendChild(slider);
+}
+}
+else if (block.type === 'model') {
+var modelBlock = document.createElement('div');
+modelBlock.classList.add('content-block', 'content-model');
+var modelViewer = document.createElement('model-viewer');
+modelViewer.setAttribute('src', block.src);
+modelViewer.setAttribute('camera-controls', '');
+modelViewer.setAttribute('auto-rotate', '');
+modelViewer.setAttribute('touch-action', 'pan-y');
+modelBlock.appendChild(modelViewer);
+textContainer.appendChild(modelBlock);
+}
+else if (block.type === 'video') {
+var videoBlock = document.createElement('div');
+videoBlock.classList.add('content-block', 'content-video');
+var video = document.createElement('video');
+video.src = block.src;
+if (block.poster) video.poster = block.poster;
+video.controls = true;
+videoBlock.appendChild(video);
+textContainer.appendChild(videoBlock);
+}
 
-                        var video = document.createElement('video');
-                        video.src = encodeURI(block.src); 
-                        video.controls = true;
-                        video.preload = 'metadata'; // Загружаем только инфо о видео, чтобы не тормозило
-                        video.setAttribute('playsinline', ''); // Нужно для мобильных
-                        video.style.width = '100%';
-                        video.style.display = 'block';
-
-                        // Отладка
-                        video.onloadedmetadata = function () {
-                            console.log('✅ Видео найдено и готово:', block.src);
-                        };
-
-                        video.onerror = function () {
-                            console.error('❌ Ошибка загрузки видео. Проверьте путь:', encodeURI(block.src));
-                            console.error('Код ошибки:', video.error.code); // 4 = файл не найден, 3 = ошибка декодирования
-                        };
-
-                        videoBlock.appendChild(video);
-                        textContainer.appendChild(videoBlock);
-                    }
-
-                }
-            }
-            return textContainer;
-        }
+}
+}
+return textContainer;
+}
 
         // Вспомогательная функция для создания шапки
         function createHeaderNode(isModal) {
@@ -673,17 +646,18 @@ function createInfoHotspotElement(hotspot) {
     }
     // Слайдер
     function createSlider(images) {
+        //инициализация корневого слайдера
         var slider = document.createElement('div');
         slider.classList.add('info-hotspot-slider');
-
+        //массив для хранения ссылок на 
         var slides = [];
-        var currentIndex = 0;
+        var currentIndex = 0; //индекс текущего отображаемого слайда
 
         for (var i = 0; i < images.length; i++) {
             var slide = document.createElement('div');
             slide.classList.add('slide');
 
-            if (i !== 0) {
+            if (i !== 0) { //скрытие всех слайдов кроме первого
                 slide.style.display = 'none';
             }
 
@@ -694,11 +668,12 @@ function createInfoHotspotElement(hotspot) {
             slider.appendChild(slide);
             slides.push(slide);
         }
-
-        var prevBtn = document.createElement('button');
+        //создание элементов навигации (кнопки переключения)
+        //кнопка "Назад"
+        var prevBtn = document.createElement('button'); 
         prevBtn.classList.add('slider-btn', 'prev');
         prevBtn.innerHTML = '&#8592;';
-
+        //кнопка "Вперед"
         var nextBtn = document.createElement('button');
         nextBtn.classList.add('slider-btn', 'next');
         nextBtn.innerHTML = '&#8594;';
@@ -706,6 +681,7 @@ function createInfoHotspotElement(hotspot) {
         slider.appendChild(prevBtn);
         slider.appendChild(nextBtn);
 
+        //Внутренняя функция переключения отображаемого слайжа
         function showSlide(index) {
             if (index < 0) {
                 index = slides.length - 1;
@@ -714,9 +690,9 @@ function createInfoHotspotElement(hotspot) {
                 index = 0;
             }
 
-            slides[currentIndex].style.display = 'none';
+            slides[currentIndex].style.display = 'none'; //скрытие активного слайда
             currentIndex = index;
-            slides[currentIndex].style.display = 'block';
+            slides[currentIndex].style.display = 'block'; //отображение цслайда
         }
 
         prevBtn.addEventListener('click', function (e) {

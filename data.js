@@ -183,6 +183,7 @@ var APP_DATA = {
         {
             "id": "2--",
             "name": "Главная лестница",
+            "audioGuide": "audio/2--.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -237,6 +238,7 @@ var APP_DATA = {
         {
             "id": "3-----2-",
             "name": "Главная лестница - 2 этаж",
+            "audioGuide": "audio/3-----2-.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -291,6 +293,7 @@ var APP_DATA = {
         {
             "id": "4---1",
             "name": "Читальный зал (1)",
+            "audioGuide": "audio/4---1.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -431,6 +434,7 @@ var APP_DATA = {
         {
             "id": "5---2",
             "name": "Читальный зал (2)",
+            "audioGuide": "audio/5---2.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -581,6 +585,7 @@ var APP_DATA = {
         {
             "id": "6---3",
             "name": "Читальный зал (3)",
+            "audioGuide": "audio/6---3.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -711,6 +716,7 @@ var APP_DATA = {
         {
             "id": "7-",
             "name": "Холл",
+            "audioGuide": "audio/7-.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -841,6 +847,7 @@ var APP_DATA = {
         {
             "id": "8--",
             "name": "Георгиевский зал",
+            "audioGuide": "audio/8--0.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -1174,6 +1181,7 @@ var APP_DATA = {
         {
             "id": "9-_1",
             "name": "Георгиевскийзал_1",
+            "audioGuide": "audio/9-_1.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1245,6 +1253,7 @@ var APP_DATA = {
         {
             "id": "10--",
             "name": "Выставочный зал",
+            "audioGuide": "audio/10--.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -1349,6 +1358,7 @@ var APP_DATA = {
         {
             "id": "12---2",
             "name": "Выставочный зал (2)",
+            "audioGuide": "audio/12---2.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1440,6 +1450,7 @@ var APP_DATA = {
         {
             "id": "13---3",
             "name": "Выставочный зал (3)",
+            "audioGuide": "audio/13---3.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1531,6 +1542,7 @@ var APP_DATA = {
         {
             "id": "14---4",
             "name": "Выставочный зал (4)",
+            "audioGuide": "audio/14---4.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1589,6 +1601,7 @@ var APP_DATA = {
         {
             "id": "15---5",
             "name": "Выставочный зал (5)",
+            "audioGuide": "audio/15---5.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1644,6 +1657,7 @@ var APP_DATA = {
         {
             "id": "16---6",
             "name": "Выставочный зал (6)",
+            "audioGuide": "audio/16---6.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1700,6 +1714,7 @@ var APP_DATA = {
         {
             "id": "17---7",
             "name": "Выставочный зал (7)",
+            "audioGuide": "audio/17---7.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1775,6 +1790,7 @@ var APP_DATA = {
         {
             "id": "18--",
             "name": "Екатерининский зал",
+            "audioGuide": "audio/18--.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -1814,6 +1830,7 @@ var APP_DATA = {
         {
             "id": "19---2",
             "name": "Екатерининский зал (2)",
+            "audioGuide": "audio/19---2.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1879,6 +1896,7 @@ var APP_DATA = {
         {
             "id": "20---3",
             "name": "Екатерининский зал (3)",
+            "audioGuide": "audio/20---3.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1953,6 +1971,7 @@ var APP_DATA = {
         {
             "id": "21---4",
             "name": "Екатерининский зал (4)",
+            "audioGuide": "audio/21---4.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -2026,6 +2045,7 @@ var APP_DATA = {
         {
             "id": "22--",
             "name": "Обеденный зал",
+            "audioGuide": "audio/22--.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -2088,6 +2108,7 @@ var APP_DATA = {
         {
             "id": "23--",
             "name": "Лестничный пролет",
+            "audioGuide": "audio/23--.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -2126,6 +2147,7 @@ var APP_DATA = {
         {
             "id": "24-----2",
             "name": "Коридор - корпус 2",
+            "audioGuide": "audio/24-----2.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -2164,6 +2186,7 @@ var APP_DATA = {
         {
             "id": "25-----1",
             "name": "Коридор - Корпус 1",
+            "audioGuide": "audio/25-----1.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -2202,6 +2225,7 @@ var APP_DATA = {
         {
             "id": "26-----3",
             "name": "Коридор - Корпус 3",
+            "audioGuide": "audio/26-----3.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -2240,6 +2264,7 @@ var APP_DATA = {
         {
             "id": "27--",
             "name": "Учебный класс",
+            "audioGuide": "audio/27--.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -2275,7 +2300,11 @@ var APP_DATA = {
                         {
                             "type": "video",
                             "src": "content/video27/promo.mp4"
-                        }
+                        },
+                        {
+                            "type": "note",
+                            "text": "ГУАП|SUAI (https://rutube.ru/video/2afbb55502eed128c9fa4c3b59ac9aa5/?r=wd)"
+                        },
                     ]
                 }
             ]
