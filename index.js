@@ -192,24 +192,23 @@
   function sanitize(s) {
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
   }
-    // === АВТОМАТИЧЕСКОЕ ОТКРЫТИЕ ИНФО НА ПЕРВОЙ СЦЕНЕ ===
-    function autoOpenSceneInfo() {
-        // Проверяем, что первая сцена - пролог и у неё есть sceneInfo
-        if (scenes[0] && scenes[0].data.id === '0-image' && scenes[0].data.sceneInfo) {
-            currentSceneWrapper = scenes[0];
+// === АВТОМАТИЧЕСКОЕ ОТКРЫТИЕ ИНФО НА ПЕРВОЙ СЦЕНЕ ===
+function autoOpenSceneInfo() {
+    // Проверяем, что первая сцена - пролог и у неё есть sceneInfo
+    if (scenes[0] && scenes[0].data.id === '0-image' && scenes[0].data.sceneInfo) {
+        currentSceneWrapper = scenes[0];
 
-            // Заполняем контент
-            if (sceneInfoTitle) {
-                sceneInfoTitle.textContent = scenes[0].data.sceneInfo.title || 'Добро пожаловать';
-            }
-
-            renderSceneInfoContent();
-
-            // Показываем модальное окно
-            sceneInfoModal.classList.add('visible');
+        // Заполняем контент
+        if (sceneInfoTitle) {
+            sceneInfoTitle.textContent = scenes[0].data.sceneInfo.title || 'Добро пожаловать';
         }
-    }
 
+        renderSceneInfoContent();
+
+        // Показываем модальное окно
+        sceneInfoModal.classList.add('visible');
+    }
+}
     // Открываем автоматически при загрузке
     setTimeout(autoOpenSceneInfo, 500);
 
@@ -218,26 +217,26 @@
     scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
 
-    scene.view.setParameters(scene.data.initialViewParameters);
+/*    scene.view.setParameters(scene.data.initialViewParameters);*/
 
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
 
-    if (gAudio) {
-        gAudio.pause();
-        gAudio = null;
-    }
-    if (audioBtn) { audioBtn.classList.remove('enabled'); }
-    if (audioBar) { audioBar.classList.remove('visible'); }
-    if (audioSeek) audioSeek.value = 0;
-    if (audioTime) audioTime.textContent = '0:00';
+    //if (gAudio) {
+    //    gAudio.pause();
+    //    gAudio = null;
+    //}
+    //if (audioBtn) { audioBtn.classList.remove('enabled'); }
+    //if (audioBar) { audioBar.classList.remove('visible'); }
+    //if (audioSeek) audioSeek.value = 0;
+    //if (audioTime) audioTime.textContent = '0:00';
 
-    if (scene.data.audioGuide) {
-        gAudio = new Audio(scene.data.audioGuide);
-        gAudio.preload = 'metadata';
-        gAudio.ontimeupdate = updateTime;
-    }
+    //if (scene.data.audioGuide) {
+    //    gAudio = new Audio(scene.data.audioGuide);
+    //    gAudio.preload = 'metadata';
+    //    gAudio.ontimeupdate = updateTime;
+    //}
 
 	currentSceneWrapper = scene;
   }
@@ -910,21 +909,18 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 
 
 // === ПЕРЕОПРЕДЕЛЕНИЕ switchScene (аудио + инфо) ===
-    var originalSwitchScene = switchScene;
+    var originalSwitchScene = switchScene; //оригинальная логика switchScene
     var isSwitchingScene = false;
-    switchScene = function (scene) {
+    switchScene = function (scene) { 
 
-        isSwitchingScene = true;
-    // 1. Сначала вызываем оригинальную логику Marzipano
-    originalSwitchScene(scene);
-
+    isSwitchingScene = true;
+    originalSwitchScene(scene); //вызов оригинальной логики
     scene.view.setParameters(scene.data.initialViewParameters);
-
-    // 2. АУДИО: сброс старого трека
+    // Аудио: сброс старого трека
     if (gAudio) { gAudio.pause(); gAudio = null; }
     if (audioBar) audioBar.classList.remove('visible');
     if (audioBtn) {
-        // Показываем кнопку только если у сцены есть аудио
+        // Показ кнопки только если у сцены есть аудио
         audioBtn.style.display = scene.data.audioGuide ? 'flex' : 'none';
         audioBtn.classList.add('enabled');
         if (audioBar) audioBar.style.display = scene.data.audioGuide ? '' : 'none';

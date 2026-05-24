@@ -48,7 +48,7 @@ var APP_DATA = {
         {
             "id": "0--",
             "name": "Исторический вход",
-            "audioGuide": "audio/IstorikVhod.mp3",
+            "audioGuide": "audio/0--.mp3",
             "sceneInfo": {
                 "content": [
                     {
@@ -111,7 +111,7 @@ var APP_DATA = {
         {
             "id": "1--",
             "name": "Главный вход",
-            "audioGuide": "audio/GlavniyVhod.mp3",
+            "audioGuide": "audio/1--.mp3",
             "sceneInfo": {
                 "content": [
                     {
