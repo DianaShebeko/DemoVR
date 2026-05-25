@@ -53,7 +53,7 @@ a, a:hover, a:active, a:visited {
 
 .mobile #titleBar {
   height: 50px;
-  right: 50px;
+  right: 0px;
 }
 
 /* If there is a fullscreen button the title bar must make space for it */
@@ -62,7 +62,7 @@ body.fullscreen-enabled #titleBar {
 }
 
 body.fullscreen-enabled.mobile #titleBar {
-  right: 100px;
+  right: 0px;
 }
 
 /* If there are multiple scenes the title bar must make space for the scene list toggle */
@@ -319,8 +319,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .mobile .link-hotspot {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
 }
 
 .link-hotspot-icon {
@@ -429,9 +429,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .mobile .info-hotspot .info-hotspot-header {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 }
 
 /*.info-hotspot .info-hotspot-icon-wrapper {
