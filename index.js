@@ -829,10 +829,9 @@ if (panoEl) panoEl.style.display = 'none'; //скрыть оригиналььн
 var vrContainer = document.getElementById('vr-container');
 if (vrContainer) {
 vrContainer.style.display = 'block';
-    vrContainer.innerHTML = `
-<button id="close-vr-btn" style="
-position: absolute; top: 20px; left: 20px; z-index: 9999999;
-color: #fff; font-size: 14px; cursor: pointer;">Выйти из VR</button>
+
+vrContainer.innerHTML = `
+<span id="close-vr-btn">Выйти из VR</span> 
 
 <a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
 <a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
