@@ -172,7 +172,7 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": 0.20654018072955829,
+                    "yaw": 0.30654018072955829,
                     "pitch": 0.08941640565605624,
                     "rotation": 0,
                     "target": "2--"
@@ -493,10 +493,6 @@ var APP_DATA = {
                         {
                             "type": "text",
                             "text": TXTI.ChZ2I1
-                        },
-                        {
-                            "type": "image",
-                            "images": ["content/5---2/noteInfo11.jpg"],
                         }
                     ]
                 },
@@ -667,7 +663,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/6---3/scale_1200.jpg", "content/6---3/scale_1200.jpg", "content/6---3/scale_1201.jpg", "content/6---3/scale_1202.jpg", "content/6---3/scale_1203.jpg", "content/6---3/scale_1204.jpg"]
+                            "images": ["content/6---3/scale_1200.jpg", "content/6---3/scale_1201.jpg", "content/6---3/scale_1205.jpg", "content/6---3/scale_1202.jpg", "content/6---3/scale_1203.jpg", "content/6---3/scale_1204.jpg"]
                         },
                         {
                             "type": "note",
@@ -745,7 +741,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/Greig.jpg"]
+                            "images": ["content/6---3/Greig.jpg"]
                         },
                         {
                             "type": "note",
@@ -753,7 +749,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/Gannibal.jpg"]
+                            "images": ["content/6---3/Gannibal.jpg"]
                         },
                         {
                             "type": "note",
@@ -761,7 +757,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/Ribas.jpg"]
+                            "images": ["content/6---3/Ribas.jpg"]
                         },
                         {
                             "type": "note",
