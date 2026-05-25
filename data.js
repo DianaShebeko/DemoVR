@@ -239,6 +239,22 @@ var APP_DATA = {
             "id": "3-----2-",
             "name": "Главная лестница - 2 этаж",
             "audioGuide": "audio/3-----2-.mp3",
+            "sceneInfo": {
+                "content": [
+                    {
+                        "type": "text",
+                        "text": TXTS.lestnica2
+                    },
+                    {
+                        "type": "image",
+                        "src": "content/3-----2-/IMG_2.jpg"
+                    },
+                    {
+                        "type": "note",
+                        "text": "Окно угловой башни"
+                    }
+                ]
+            },
             "levels": [
                 {
                     "tileSize": 256,
@@ -635,7 +651,8 @@ var APP_DATA = {
                                 "content/6---3/Serviz_1.jpg",
                                 "content/6---3/Serviz_2.jpg",
                                 "content/6---3/Serviz_3.jpg",
-                                "content/6---3/Serviz_4.jpg"                            ],
+                                "content/6---3/Serviz_4.jpg"
+                            ],
                         }
                     ]
                 },
@@ -650,8 +667,29 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
-                        }
+                            "images": ["content/6---3/scale_1200.jpg", "content/6---3/scale_1200.jpg", "content/6---3/scale_1201.jpg", "content/6---3/scale_1202.jpg", "content/6---3/scale_1203.jpg", "content/6---3/scale_1204.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Мраморные медальоны с изображениями великих русских князей. Ф.И. Шубин. (Музеи московского кремля: https://dzen.ru/a/Ywh4_unDbjRkJcRp)"
+                        },
+                        {
+                            "type": "image",
+                            "images": ["i400.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Икона Великомученник Феодор Стратилат и святая великомученица Ирина 1952, ГРМ"
+                        },
+                        {
+                            "type": "image",
+                            "images": ["dans_nataniyel_portret_sofii-sharlotty.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Шарлотта, королева английская. Н. Данс. 1777, ГЭ."
+                        },
+
                     ]
                 },
                 {
@@ -707,7 +745,27 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
+                            "images": ["content/3-----2-/Greig.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text":"Адмирал С.К. Грейг. Неизв. худ. (друг Л.К. Левицкого). После 1788 г.",
+                        },
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/Gannibal.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Портрет И.А. Ганнибала. Неизв. худ. Конец XVIII в.",
+                        }
+                        {
+                            "type": "image",
+                            "images": ["content/3-----2-/Ribas.jpg"]
+                        },
+                        {
+                            "type": "note",
+                            "text": "Портрет адмирала О.М. де Рибаса. Худ. Ж.Б. Лампи. 1796 г.",
                         }
                     ]
                 }
@@ -775,10 +833,6 @@ var APP_DATA = {
                         {
                             "type": "text",
                             "text": TXTI.VBashnia1
-                        },
-                        {
-                            "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
                         }
                     ]
                 },
@@ -790,10 +844,6 @@ var APP_DATA = {
                         {
                             "type": "text",
                             "text": TXTI.VBashnia2
-                        },
-                        {
-                            "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
                         }
                     ]
                 },
@@ -805,10 +855,6 @@ var APP_DATA = {
                         {
                             "type": "text",
                             "text": TXTI.VBashnia3
-                        },
-                        {
-                            "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
                         }
                     ]
                 },
@@ -820,10 +866,6 @@ var APP_DATA = {
                         {
                             "type": "text",
                             "text": TXTI.VBashnia4
-                        },
-                        {
-                            "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
                         }
                     ]
                 },
@@ -835,10 +877,6 @@ var APP_DATA = {
                         {
                             "type": "text",
                             "text": TXTI.VBashnia5
-                        },
-                        {
-                            "type": "image",
-                            "images": ["content/3-----2-/noteInfo11.jpg", "content/3-----2-/noteInfo12.jpg"],
                         }
                     ]
                 }
@@ -856,7 +894,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/8--/IMG_E2500.jpg"
+                        "src": "content/8--/IMG_E2500.JPG"
                     },
                     {
                         "type": "note",
@@ -864,7 +902,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/8--/IMG_E25000.jpg"
+                        "src": "content/8--/img_2.jpg"
                     },
                     {
                         "type": "note",
@@ -990,14 +1028,17 @@ var APP_DATA = {
                     "title": "Люстра Георгиевского зала",
                     "content": [
                         {
+                            "type": "text",
+                            "text": TXTI.GeorLampa
+                        },
+                        {
                             "type": "image",
-                            "images": ["content/8--/Orlov.jpg"]
+                            "images": ["content/8--/georg2.jpg"]
                         },
                         {
                             "type": "note",
-                            "text": "Люстра в форме Георгиевского креста. Работа мастеров Санкт- Петербургской художественно - промышленной академии имени А.Л.Штиглица.Символ доблести и высокое художественное мастерство в одном произведении."
+                            "text": "Чудо Георгия о змие. Новгородская икона нач. XV в."
                         }
-
                     ]
                 },
                 {
@@ -1180,7 +1221,7 @@ var APP_DATA = {
         },
         {
             "id": "9-_1",
-            "name": "Георгиевскийзал_1",
+            "name": "Георгиевский зал (2)",
             "audioGuide": "audio/9-_1.mp3",
             "levels": [
                 {
@@ -1300,6 +1341,7 @@ var APP_DATA = {
         {
             "id": "11---1",
             "name": "Выставочный зал (1)",
+            "audioGuide": "audio/11---1.mp3",
             "levels": [
                 {
                     "tileSize": 256,
@@ -1405,11 +1447,7 @@ var APP_DATA = {
                         {
                             "type": "note",
                             "text": "Экспонаты «Зелёного лягушачьего сервиза» Wedgwood (1773–1774), созданного для Екатерины II. Тарелки с видами Чесменского дворца, фарфоровые изделия и исторические материалы."
-                        },
-                        {
-                            "type": "text",
-                            "text": TXTI.LESTNICA2
-                        },
+                        }
                     ]
                 },
                 {
@@ -1444,6 +1482,25 @@ var APP_DATA = {
                             ]
                         }
                         ]
+                },
+                {
+                    "yaw": -0.0817133899788111,
+                    "pitch": -0.6278107261022328,
+                    "title": "'Чесменка' - первый в СССР лагерь принудительных работ (1919 - 1922 гг.)",
+                    "content": [
+                        {
+                            "type": "image",
+                            "images": [
+                                "content/12---2/IMG_E2383.JPG",
+                                "content/12---2/IMG_E2386.JPG",
+                                "content/12---2/IMG_E2387.JPG",
+                                "content/12---2/IMG_E2388.JPG",
+                                "content/12---2/IMG_E2389.JPG",
+                                "content/12---2/IMG_E2390.JPG",
+
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -1513,25 +1570,6 @@ var APP_DATA = {
                                 "content/13---3/IMG_E2395.JPG",
                                 "content/13---3/IMG_E2396.JPG",
                                 "content/13---3/IMG_E2397.JPG",
-
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "yaw": -1.0873948974437546,
-                    "pitch": -0.3134041043394653,
-                    "title": "'Чесменка' - первый в СССР лагерь принудительных работ (1919 - 1922 гг.)",
-                    "content": [
-                        {
-                            "type": "image",
-                            "images": [
-                                "content/13---3/IMG_E2383.JPG",
-                                "content/13---3/IMG_E2386.JPG",
-                                "content/13---3/IMG_E2387.JPG",
-                                "content/13---3/IMG_E2388.JPG",
-                                "content/13---3/IMG_E2389.JPG",
-                                "content/13---3/IMG_E2390.JPG",
 
                             ]
                         }
@@ -1824,7 +1862,14 @@ var APP_DATA = {
                 "pitch": 0.08631863011735419,
                 "fov": 1.391813623840451
             },
-            "linkHotspots": [],
+            "linkHotspots": [
+                {
+                    "yaw": 1.961129312638846,
+                    "pitch": 0.22616676554251391,
+                    "rotation": 0,
+                    "target": "19---2"
+                }
+            ],
             "infoHotspots": []
         },
         {
@@ -1866,14 +1911,14 @@ var APP_DATA = {
             ],
             "infoHotspots": [
                 {
-                    "yaw": -0.1444841770907903,
+                    "yaw": -0.2444841770907903,
                     "pitch": 0.03958593457256754,
                     "title": "Коллекция главного символа Чесменского дворца",
                     "content": [
                         {
                             "type": "image",
                             "images": [
-                                "content/19---2/IMG_E2336.JPG"
+                                "content/19---2/frog.jpg"
                             ]
                         }
                     ]
@@ -1886,7 +1931,7 @@ var APP_DATA = {
                         {
                             "type": "image",
                             "images": [
-                                "content/19---2/IMG_E2356.JPG"
+                                "content/19---2/IMG_E2336.JPG"
                             ]
                         }
                     ]
@@ -1938,10 +1983,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "images": [
-                                "content/20---3/IMG_E2340.JPG", 
-                                "content/20---3/IMG_E2340.JPG", 
-                            ]
+                            "images": ["content/20---3/IMG_E23401.JPG", "content/20---3/IMG_E23401.JPG"]
                         },
                         {
                             "type": "note",
@@ -2099,7 +2141,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "note",
-                            "text": "Обед инвалидов в столовой зале Чесменской военной богадельни. Г.И. Бортневский, 1859, ГРМ"
+                            "text": "Обед инвалидов в столовом зале Чесменской военной богадельни. Г.И. Бортневский, 1859, ГРМ"
                         }
                     ]
                 }
@@ -2146,7 +2188,7 @@ var APP_DATA = {
         },
         {
             "id": "24-----2",
-            "name": "Коридор - корпус 2",
+            "name": "Коридор - корпус 1",
             "audioGuide": "audio/24-----2.mp3",
             "levels": [
                 {
@@ -2175,8 +2217,8 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": 2.7220887090985517,
-                    "pitch": -0.01312561340385443,
+                    "yaw": 2.8220887090985517,
+                    "pitch": -0.11312561340385443,
                     "rotation": 0,
                     "target": "25-----1"
                 }
@@ -2185,7 +2227,7 @@ var APP_DATA = {
         },
         {
             "id": "25-----1",
-            "name": "Коридор - Корпус 1",
+            "name": "Коридор - Корпус 2",
             "audioGuide": "audio/25-----1.mp3",
             "levels": [
                 {

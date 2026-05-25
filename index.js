@@ -1118,5 +1118,13 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 //        }, 100);
 //    }
 
-//    initVRGaze();
+    //    initVRGaze();
+    //Ожидание загрузки всех компонентов
+    window.onload = function () {
+        setTimeout(function () {
+            var loader = document.getElementById("preloader_malc");
+            if (loader) { loader.style.display = "none"; }
+        }, 400);
+    };
+
 })();

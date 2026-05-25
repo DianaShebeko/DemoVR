@@ -768,10 +768,10 @@ text-indent: 2em;
 .info-hotspot-text .content-model,
 .info-hotspot-text model-viewer {
     width: 100%;
-    max-height: 400px;
+    height: 800px;
     margin: 15px auto;
-    /*    background: rgba(35, 35, 35, 0.2);
-    overflow: hidden;*/
+    background: rgba(35, 35, 35, 0.2);
+/*    overflow: hidden;*/
 }
 
 /* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
@@ -1353,6 +1353,35 @@ body.vr-mode #vrCursor {
 
 .control-button.enabled .icon.on {
   display: block;
+}
+
+/*Загрузочный экран*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .6);
+    z-index: 9999;
+}
+
+#preloader div {
+    background: #fff;
+    width: 500px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #111;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 
