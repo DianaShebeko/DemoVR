@@ -48,7 +48,7 @@ var APP_DATA = {
         {
             "id": "0--",
             "name": "Исторический вход",
-            "audioGuide": "audio/0--.mp3",
+            "audioGuide": "audio/0.mp3",
             "sceneInfo": {
                 "content": [
                     {
