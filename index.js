@@ -910,7 +910,13 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     // Декоратор switchScene()
     var originalSwitchScene = switchScene; //оригинальная логика switchScene
     switchScene = function (scene) { 
-    originalSwitchScene(scene); //вызов оригинальной логики
+        originalSwitchScene(scene); //вызов оригинальной логики
+        document.querySelectorAll('video').forEach(function (video) { video.pause(); });
+
+
+        // ЗАКРЫТИЕ ОКОН: заодно закроем окна инфо-хотспотов, чтобы они не висели на новой сцене
+        document.querySelectorAll('.info-hotspot-modal.visible').forEach(function (m) {m.classList.remove('visible'); });
+
     // Аудио: сброс старого трека
     if (gAudio) { gAudio.pause(); gAudio = null; }
     if (audioBar) audioBar.classList.remove('visible');

@@ -902,7 +902,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/8--/img_2.jpg"
+                        "src": "content/8--/IMG_2.jpg"
                     },
                     {
                         "type": "note",
