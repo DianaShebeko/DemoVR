@@ -671,7 +671,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["i400.jpg"]
+                            "images": ["content/6---3/i400.jpg"]
                         },
                         {
                             "type": "note",
@@ -679,7 +679,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": ["dans_nataniyel_portret_sofii-sharlotty.jpg"]
+                            "images": ["content/6---3/dans_nataniyel_portret_sofii-sharlotty.jpg"]
                         },
                         {
                             "type": "note",
@@ -719,9 +719,7 @@ var APP_DATA = {
                         },
                         {
                             "type": "image",
-                            "images": [
-                                "content/6---3/Orlov_8.jpg"
-                            ]
+                            "images": ["content/6---3/Orlov_8.jpg"]
                         },
                         {
                             "type": "note",
@@ -1899,7 +1897,7 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": 1.44578564662828,
+                    "yaw": 0.44578564662828,
                     "pitch": 0.23814451557367988,
                     "rotation": 0,
                     "target": "20---3"

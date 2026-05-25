@@ -820,46 +820,6 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     // === VR MODE ===
 
     var vrBtn = document.getElementById('vrBtn');
-    //var deviceOrientationControlMethod = null;
-    //var vrEnabled = false;
-
-    //async function enableVR() {
-
-    //    // iOS permission
-    //    if (
-    //        typeof DeviceOrientationEvent !== "undefined" &&
-    //        typeof DeviceOrientationEvent.requestPermission === "function"
-    //    ) {
-    //        try {
-    //            const response =
-    //                await DeviceOrientationEvent.requestPermission();
-
-    //            if (response !== "granted") return;
-
-    //        } catch (e) {
-    //            console.error(e);
-    //            return;
-    //        }
-    //    }
-
-    //    // создаём контроллер
-    //    deviceOrientationControlMethod =
-    //        new DeviceOrientationControlMethod();
-
-    //    var controls = viewer.controls();
-
-    //    controls.registerMethod(
-    //        'deviceOrientation',
-    //        deviceOrientationControlMethod
-    //    );
-
-    //    controls.enableMethod('deviceOrientation');
-
-    //    vrEnabled = true;
-
-    //    console.log("VR ENABLED");
-    //}
-
     async function enableVR() {
         // 1. Прячем обычный плеер Marzipano
         document.getElementById('pano').style.display = 'none';
@@ -872,7 +832,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
         var vrSky = document.getElementById('vr-sky');
         if (currentSceneWrapper) {
             // Берем путь к фону текущей сцены
-            vrSky.setAttribute('src', 'tiles/' + currentSceneWrapper.data.id + '/preview.jpg');
+            vrSky.setAttribute('src', 'VRimg/' + currentSceneWrapper.data.id + '.jpg');
         }
     }
 
