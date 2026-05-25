@@ -819,17 +819,14 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
 
     // === VR MODE (WEBXR API ИНИЦИАЛИЗАЦИЯ) ===
     var vrBtn = document.getElementById('vrBtn');
-
     async function enableVR() {
         var sceneId = null;
-
         // 1. Определяем ID текущей сцены
         if (currentSceneWrapper && currentSceneWrapper.data && currentSceneWrapper.data.id) {
             sceneId = currentSceneWrapper.data.id;
         } else if (window.APP_DATA && window.APP_DATA.scenes && window.APP_DATA.scenes[0]) {
             sceneId = window.APP_DATA.scenes[0].id;
         }
-
         if (!sceneId) return; // Страховка: если сцену не нашли, просто выходим
 
         // 2. Формируем путь к цельной панораме из папки VRimg
@@ -844,19 +841,35 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
         if (vrContainer) {
             vrContainer.style.display = 'block';
 
-            vrContainer.innerHTML = `
-              <a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
-                <a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
-                <a-entity camera look-controls>
-                  <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
-                </a-entity>
-              </a-scene>
-            `;
+        vrContainer.innerHTML = `
+            <a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
+            <a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
+            <a-entity camera look-controls>
+                <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
+            </a-entity>
+            </a-scene>
+        `;
 
-            console.log("VR-режим успешно запущен для панорамы: " + sceneId);
+            // Логика кнопки выхода
+            var closeBtn = document.getElementById('close-vr-btn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Очищаем и скрываем VR-сцену
+                    vrContainer.innerHTML = '';
+                    vrContainer.style.display = 'none';
+
+                    // Возвращаем Marzipano
+                    if (panoEl) {
+                        panoEl.style.display = 'block';
+                    }
+                });
+            }
+
         }
     }
-
     if (vrBtn) {
         vrBtn.addEventListener('click', async function (e) {
             e.preventDefault();
