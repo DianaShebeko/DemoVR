@@ -817,136 +817,52 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     });
 })();
 
-    // === VR MODE (WEBXR API ИНИЦИАЛИЗАЦИЯ) ===
-    var vrBtn = document.getElementById('vrBtn');
-    async function enableVR() {
-        var sceneId = null;
-        // 1. Определяем ID текущей сцены
-        if (currentSceneWrapper && currentSceneWrapper.data && currentSceneWrapper.data.id) {
-            sceneId = currentSceneWrapper.data.id;
-        } else if (window.APP_DATA && window.APP_DATA.scenes && window.APP_DATA.scenes[0]) {
-            sceneId = window.APP_DATA.scenes[0].id;
-        }
-        if (!sceneId) return; // Страховка: если сцену не нашли, просто выходим
+// VR включение - выключение
+var vrBtn = document.getElementById('vrBtn');
+async function enableVR() {
+var sceneId = null;
+sceneId = currentSceneWrapper.data.id; //Определение ID сцены
+var currentImgSrc = 'VRimg/' + sceneId + '.jpg';  //Путь к панораме
+var panoEl = document.getElementById('pano');
+if (panoEl) panoEl.style.display = 'none'; //скрыть оригиналььное окно Marzipano
+// В VR-контейнер собирается сцена с нужной картинкой
+var vrContainer = document.getElementById('vr-container');
+if (vrContainer) {
+vrContainer.style.display = 'block';
+vrContainer.innerHTML = `
+<a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
+<a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
+<a-entity camera look-controls>
+<a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
+</a-entity>
+</a-scene>
+`;
+// Логика кнопки выхода
+var closeBtn = document.getElementById('close-vr-btn');
+if (closeBtn) {
+closeBtn.addEventListener('click', function (e) {
+e.preventDefault();
+e.stopPropagation();
+vrContainer.innerHTML = ''; //очистить VR-сцену
+vrContainer.style.display = 'none'; //скрыть VR-сцену
+if (panoEl) { // Возврат Marzipano
+panoEl.style.display = 'block';
+}}); } } }
+//Кнопка включения VR сцены
+if (vrBtn) {
+vrBtn.addEventListener('click', async function (e) {
+e.preventDefault();
+e.stopPropagation();
+await enableVR();
+});
+}
 
-        // 2. Формируем путь к цельной панораме из папки VRimg
-        var currentImgSrc = 'VRimg/' + sceneId + '.jpg';
-
-        // 3. Прячем стандартное окно Marzipano
-        var panoEl = document.getElementById('pano');
-        if (panoEl) panoEl.style.display = 'none';
-
-        // 4. Показываем VR-контейнер и сразу собираем в нём сцену с нужной картинкой
-        var vrContainer = document.getElementById('vr-container');
-        if (vrContainer) {
-            vrContainer.style.display = 'block';
-
-        vrContainer.innerHTML = `
-            <a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
-            <a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
-            <a-entity camera look-controls>
-                <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
-            </a-entity>
-            </a-scene>
-        `;
-
-            // Логика кнопки выхода
-            var closeBtn = document.getElementById('close-vr-btn');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    // Очищаем и скрываем VR-сцену
-                    vrContainer.innerHTML = '';
-                    vrContainer.style.display = 'none';
-
-                    // Возвращаем Marzipano
-                    if (panoEl) {
-                        panoEl.style.display = 'block';
-                    }
-                });
-            }
-
-        }
-    }
-    if (vrBtn) {
-        vrBtn.addEventListener('click', async function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            await enableVR();
-        });
-    }
-    //if (vrBtn) {
-    //    vrBtn.addEventListener('click', async function (e) {
-    //        e.preventDefault();
-    //        await enableVR();
-    //    });
-    //}
-
-
-
-    /* ============ курсор ================*/
-    //var vrLookTimers = new Map();
-
-//    function initVRGaze() {
-
-//        setInterval(function () {
-
-//            if (!vrEnabled) return;
-
-//            var hotspots =
-//                document.querySelectorAll('.link-hotspot');
-
-//            hotspots.forEach(function (hotspot) {
-
-//                var rect = hotspot.getBoundingClientRect();
-
-//                var centerX = window.innerWidth / 2;
-//                var centerY = window.innerHeight / 2;
-
-//                var hotspotX = rect.left + rect.width / 2;
-//                var hotspotY = rect.top + rect.height / 2;
-
-//                var dx = Math.abs(centerX - hotspotX);
-//                var dy = Math.abs(centerY - hotspotY);
-
-//                var isCentered = (dx < 40 && dy < 40);
-
-//                if (isCentered) {
-
-//                    // если ещё нет таймера — создаём
-//                    if (!vrLookTimers.has(hotspot)) {
-
-//                        var timer = setTimeout(function () {
-//                            hotspot.click();
-//                            vrLookTimers.delete(hotspot);
-//                        }, 1200);
-
-//                        vrLookTimers.set(hotspot, timer);
-//                    }
-
-//                } else {
-
-//                    // если ушли из центра — отменяем
-//                    if (vrLookTimers.has(hotspot)) {
-//                        clearTimeout(vrLookTimers.get(hotspot));
-//                        vrLookTimers.delete(hotspot);
-//                    }
-//                }
-
-//            });
-
-//        }, 100);
-//    }
-
-    //    initVRGaze();
-    //Ожидание загрузки всех компонентов
-    window.onload = function () {
-        setTimeout(function () {
-            var loader = document.getElementById("preloader");
-            if (loader) { loader.style.display = "none"; }
-        }, 400);
-    };
+//Ожидание загрузки всех компонентов (Preloader-сцена)
+window.onload = function () {
+    setTimeout(function () {
+        var loader = document.getElementById("preloader");
+        if (loader) { loader.style.display = "none"; }
+    }, 400);
+};
 
 })();
