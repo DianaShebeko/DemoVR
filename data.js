@@ -172,7 +172,7 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": 0.30654018072955829,
+                    "yaw": 0.60654018072955829,
                     "pitch": 0.08941640565605624,
                     "rotation": 0,
                     "target": "2--"
@@ -354,7 +354,7 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 1.332427687653004,
-                    "pitch": 0.2605667619947454,
+                    "pitch": 0.4605667619947454,
                     "rotation": 0,
                     "target": "5---2"
                 }
@@ -1858,7 +1858,7 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": -0.961129312638846,
+                    "yaw": -1.261129312638846,
                     "pitch": 0.22616676554251391,
                     "rotation": 0,
                     "target": "19---2"
@@ -1897,7 +1897,7 @@ var APP_DATA = {
             },
             "linkHotspots": [
                 {
-                    "yaw": 0.44578564662828,
+                    "yaw": 0.84578564662828,
                     "pitch": 0.23814451557367988,
                     "rotation": 0,
                     "target": "20---3"
@@ -1977,7 +1977,7 @@ var APP_DATA = {
                     "content": [
                         {
                             "type": "image",
-                            "images": ["content/20---3/IMG_E23401.JPG", "content/20---3/IMG_E23401.JPG"]
+                            "images": ["content/20---3/IMG_E23401.JPG", "content/20---3/IMG_E23411.JPG"]
                         },
                         {
                             "type": "note",
@@ -2212,7 +2212,7 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 2.6220887090985517,
-                    "pitch": -0.51312561340385443,
+                    "pitch": 0.51312561340385443,
                     "rotation": 0,
                     "target": "25-----1"
                 }
