@@ -285,17 +285,7 @@
 
     <!--<div id="vrCursor"></div>-->
 
-    <div id="vr-container" style="display: none;">
-        <a-scene webxr="optionalFeatures: squeezedetect, hit-test">
-            <a-sky id="vr-sky" src="VRimg/0-image.jpg" rotation="0 -90 0"></a-sky>
-            <a-entity camera look-controls>
-                <a-cursor fuse="true" fuse-timeout="1200"></a-cursor>
-            </a-entity>
-        </a-scene>
-    </div>
-    <!--<a-entity camera look-controls>
-        <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
-    </a-entity>-->
+    <div id="vr-container" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999999;"></div>
 
     <script src="vendor/screenfull.min.js"></script>
     <script src="vendor/bowser.min.js"></script>
