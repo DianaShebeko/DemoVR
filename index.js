@@ -817,31 +817,59 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     });
 })();
 
-    // === VR MODE ===
-
+    // === VR MODE (WEBXR API ИНИЦИАЛИЗАЦИЯ) ===
     var vrBtn = document.getElementById('vrBtn');
+
     async function enableVR() {
-        // 1. Прячем обычный плеер Marzipano
-        document.getElementById('pano').style.display = 'none';
+        var sceneId = null;
 
-        // 2. Показываем контейнер WebXR
+        // 1. Определяем ID текущей сцены
+        if (currentSceneWrapper && currentSceneWrapper.data && currentSceneWrapper.data.id) {
+            sceneId = currentSceneWrapper.data.id;
+        } else if (window.APP_DATA && window.APP_DATA.scenes && window.APP_DATA.scenes[0]) {
+            sceneId = window.APP_DATA.scenes[0].id;
+        }
+
+        if (!sceneId) return; // Страховка: если сцену не нашли, просто выходим
+
+        // 2. Формируем путь к цельной панораме из папки VRimg
+        var currentImgSrc = 'VRimg/' + sceneId + '.jpg';
+
+        // 3. Прячем стандартное окно Marzipano
+        var panoEl = document.getElementById('pano');
+        if (panoEl) panoEl.style.display = 'none';
+
+        // 4. Показываем VR-контейнер и сразу собираем в нём сцену с нужной картинкой
         var vrContainer = document.getElementById('vr-container');
-        vrContainer.style.display = 'block';
+        if (vrContainer) {
+            vrContainer.style.display = 'block';
 
-        // 3. Подставляем картинку текущей сцены
-        var vrSky = document.getElementById('vr-sky');
-        if (currentSceneWrapper) {
-            // Берем путь к фону текущей сцены
-            vrSky.setAttribute('src', 'VRimg/' + currentSceneWrapper.data.id + '.jpg');
+            vrContainer.innerHTML = `
+              <a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
+                <a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
+                <a-entity camera look-controls>
+                  <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
+                </a-entity>
+              </a-scene>
+            `;
+
+            console.log("VR-режим успешно запущен для панорамы: " + sceneId);
         }
     }
 
     if (vrBtn) {
         vrBtn.addEventListener('click', async function (e) {
             e.preventDefault();
+            e.stopPropagation();
             await enableVR();
         });
     }
+    //if (vrBtn) {
+    //    vrBtn.addEventListener('click', async function (e) {
+    //        e.preventDefault();
+    //        await enableVR();
+    //    });
+    //}
 
 
 
