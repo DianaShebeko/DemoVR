@@ -1122,7 +1122,7 @@ var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-w
     //Ожидание загрузки всех компонентов
     window.onload = function () {
         setTimeout(function () {
-            var loader = document.getElementById("preloader_malc");
+            var loader = document.getElementById("preloader");
             if (loader) { loader.style.display = "none"; }
         }, 400);
     };
