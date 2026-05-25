@@ -758,7 +758,7 @@ var APP_DATA = {
                         {
                             "type": "note",
                             "text": "Портрет И.А. Ганнибала. Неизв. худ. Конец XVIII в.",
-                        }
+                        },
                         {
                             "type": "image",
                             "images": ["content/3-----2-/Ribas.jpg"]
