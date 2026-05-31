@@ -978,9 +978,7 @@ body.vr-mode #vrCursor {display: block;}
     z-index: 10;
     display: none;
 }
-.floor-point.visible {
-    display: block;
-}
+.floor-point.visible {display: block;}
 /* === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ === */
 .floor-toggle {
     margin-top: 15px;
@@ -1055,7 +1053,7 @@ body.vr-mode #vrCursor {display: block;}
 #preloader div {
     background: #fff;
     width: 85%;
-    max-width: 500px;
+    max-width: 1000px;
     padding: 12px 15px;
     border-radius: 6px;
     font-size: 15px;
@@ -1116,9 +1114,7 @@ body.vr-mode #vrCursor {display: block;}
         width: 22px !important;
         height: 22px !important;
     }
-    .toolbar-left, .toolbar-right {
-        gap: 10px;
-    }
+    .toolbar-left, .toolbar-right {gap: 10px;}
     /* ХОТСПОРТЫ: Скрываем старые десктопные стрелки шагового управления */
     .viewControlButton,
     body.view-control-buttons .viewControlButton {
