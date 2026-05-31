@@ -1,4 +1,4 @@
-* {
+* { /*Глобальные стили и сброс */
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -42,7 +42,7 @@ a, a:hover, a:active, a:visited {
   overflow: hidden;
 }
 
-#titleBar {
+#titleBar { /*ВЕРХНЯЯ ПАНЕЛЬ*/
  position: absolute;
   top: 0;
   left: 0;
@@ -51,58 +51,56 @@ a, a:hover, a:active, a:visited {
   text-align: center;
  }
 
-.mobile #titleBar {
-  height: 50px;
-  right: 0px;
-}
+/*.mobile #titleBar {
+    height: 30px;
+    right: 0px;
+    background: transparent;
+}*/
 
 /* If there is a fullscreen button the title bar must make space for it */
-body.fullscreen-enabled #titleBar {
+/*body.fullscreen-enabled #titleBar {
   right: 80px;
 }
 
 body.fullscreen-enabled.mobile #titleBar {
   right: 0px;
-}
+}*/
 
 /* If there are multiple scenes the title bar must make space for the scene list toggle */
-body.multiple-scenes #titleBar {
+/*body.multiple-scenes #titleBar {
   left: 0px;
 }
 
 body.multiple-scenes.mobile #titleBar {
   left: 0px;
-}
+}*/
 
 #titleBar .sceneName {
   width: 100%;
   height: 100%;
   line-height: 30px;
   padding: 5px;
-  background-color: rgb(58,68,84);
   background-color: rgba(58,68,84,0.8);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
   -moz-user-select: text;
   -webkit-user-select: text;
   -ms-user-select: text;
   user-select: text;
 }
-
+/*
 .mobile #titleBar .sceneName {
-  line-height: 40px;
-}
+  line-height: 30px;
+}*/
 
 #titleBar .title-logo {
     position: absolute;
     left: 15px;
     top: 50%;
-    transform: translateY(-50%); /* Центрирование по вертикали */
+    transform: translateY(-50%);
     display: block;
 }
-
 #titleBar .title-logo img {
     height: 30px; 
     width: auto;
@@ -110,8 +108,6 @@ body.multiple-scenes.mobile #titleBar {
     opacity: 0.9;
     transition: opacity 0.2s;
 }
-
-
 #autorotateToggle .icon.on {
   display: none;
 }
@@ -127,9 +123,6 @@ body.multiple-scenes.mobile #titleBar {
 #autorotateToggle.enabled .icon.off {
   display: none;
 }
-
-
-
 /* === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoToggle {
   display: block;
@@ -141,11 +134,9 @@ body.multiple-scenes.mobile #titleBar {
   padding: 5px;
   cursor: pointer;
 }
-
 body.scene-info-enabled #sceneInfoToggle {
-  display: block;		/* Показываем, если есть инфо */
+  display: block;		
 }
-
 #sceneInfoToggle .icon {
   position: absolute;
   top: 5px;
@@ -160,68 +151,11 @@ body.scene-info-enabled #sceneInfoToggle {
   justify-content: center;
   transition: all 0.2s;
 }
-
 #sceneInfoToggle .icon img {
   width: 60%;
   height: 60%;
   opacity: 0.9;
 }
-
-/* === КНОПКА ИНФОРМАЦИИ СПИСКА СЦЕН === */
-/*
-#sceneListToggle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  background-color: rgba(103,115,131,0.8);
-}
-
-.mobile #sceneListToggle {
-  width: 50px;
-  height: 50px;
-}
-
-#sceneListToggle .text {
-  position: absolute;
-  top: 5px;
-  left: 15px;
-  width: 100%;
-  line-height: 30px;
-}
-
-#sceneListToggle .icon {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 30px;
-  height: 30px;
-}
-
-.mobile #sceneListToggle .icon {
-  top: 10px;
-  right: 10px;
-}
-
-#sceneListToggle .icon.on {
-  display: none;
-}
-
-#sceneListToggle .icon.off {
-  display: block;
-}
-
-#sceneListToggle.enabled .icon.on {
-  display: block;
-}
-
-#sceneListToggle.enabled .icon.off {
-  display: none;
-}
-*/
-
 #sceneList {
   position: absolute;
   top: 0;
@@ -235,44 +169,35 @@ body.scene-info-enabled #sceneInfoToggle {
   -webkit-transition: margin-left 0.5s ease-in-out;
   transition: margin-left 0.5s ease-in-out;
 }
-
-.mobile #sceneList {
+/*.mobile #sceneList {
   padding-top: 50px;
-}
-
+}*/
 #sceneList .scenes {
   width: 100%;
   background-color: rgba(35,35,38,0.8);
 }
-
-.mobile #sceneList {
+/*.mobile #sceneList {
   width: 100%;
   height: 100%;
   left: -100%;
-}
-
-.mobile #sceneList.enabled {
+}*/
+/*.mobile #sceneList.enabled {
   margin-left: 100%;
-}
-
-.mobile #sceneList .scenes {
+}*/
+/*.mobile #sceneList .scenes {
   height: 100%;
-}
-
+}*/
 #sceneList.enabled {
   margin-left: 220px;
 }
-
 #sceneList .scene {
   display: block;
   width: 100%;
   height: 30px;
 }
-
-.mobile #sceneList .scene {
+/*.mobile #sceneList .scene {
   height: 40px;
-}
-
+}*/
 #sceneList .scene .text {
   width: 100%;
   height: 100%;
@@ -282,28 +207,22 @@ body.scene-info-enabled #sceneInfoToggle {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.mobile #sceneList .scene .text {
+/*.mobile #sceneList .scene .text {
   line-height: 40px;
-}
-
+}*/
 .no-touch #sceneList .scene:hover {
   background-color: rgb(103,115,131);
   background-color: rgba(103,115,131,0.8);
 }
-
 #sceneList .scene.current {
   background-color: rgb(103,115,131);
   background-color: rgba(103,115,131,0.8);
 }
-
 /* Hide scene list when only a single scene exists */
 body.single-scene #sceneList, body.single-scene #sceneListToggle {
   display: none;
 }
-
 /* Link hotspot */
-
 .link-hotspot {
   width: 20px;
   height: 20px;
@@ -313,50 +232,35 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-
 .no-touch .link-hotspot:hover {
   opacity: 1;
 }
-
-.mobile .link-hotspot {
+/*.mobile .link-hotspot {
   width: 40px;
   height: 40px;
-}
-
+}*/
 .link-hotspot-icon {
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-
 .link-hotspot-tooltip {
   position: absolute;
   left: 100%;
-  top: 14px; /* ( 60 - (16 + 2*8) ) / 2 */
-
+  top: 14px; 
   margin-left: 3px;
-
   font-size: 16px;
-
   max-width: 300px;
-
   padding: 8px 10px;
-
   border-radius: 5px;
-
   background-color: rgb(58,68,84);
   background-color: rgba(58,68,84,0.8);
-
   color: #fff;
-
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-
   cursor: pointer;
-
   opacity: 0;
-
   -ms-transform: translateX(-8px);
   -webkit-transform: translateX(-8px);
   transform: translateX(-8px);
@@ -371,9 +275,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               opacity 0.3s;
 }
 
-.mobile .link-hotspot {
+/*.mobile .link-hotspot {
   top: 19px; 
-}
+}*/
 
 .no-touch .link-hotspot:hover .link-hotspot-tooltip {
   opacity: 1;
@@ -399,23 +303,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 /* Info hotspot */
-
 .info-hotspot {
   line-height: 1.2em;
   opacity: 0.9;
   transition: opacity 0.2s 0.2s;
 }
-
-/*.no-touch .info-hotspot:hover {
-  opacity: 1;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}*/
-
-/*.info-hotspot.visible {
-  opacity: 1;
-}*/
-
 .info-hotspot .info-hotspot-header {
   width: 30px;
   height: 30px;
@@ -427,70 +319,39 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   align-items: center;     
   justify-content: center;  
 }
-
-.mobile .info-hotspot .info-hotspot-header {
+/*.mobile .info-hotspot .info-hotspot-header {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-}
-
-/*.info-hotspot .info-hotspot-icon-wrapper {
-  width: 30px;
-  height: 30px;
-
-  align-items: center;*/      /* Центр по вертикали */
-  /*justify-content: center;*/  /* Центр по горизонтали */
-/*}*/
-
-/*.mobile .info-hotspot .info-hotspot-icon-wrapper {
-  width: 50px;
-  height: 50px;
 }*/
-
 .info-hotspot .info-hotspot-icon {
   width: 70%;       
   height: 70%;
   margin: 15%;
 }
-
 .info-hotspot .info-hotspot-close-wrapper {
   display: none
 }
-
 .info-hotspot .info-hotspot-close-icon {
     width: 90%;
     height: 90%;
     margin: 15%;
 }
-
 .info-hotspot .info-hotspot-text {
     display: none;
 }
-
-
 /* Подсказка при наведении */
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
   left: 50%;
   top: 40px;
   transform: translateX(-50%);
-  /* Ширина сразу по контенту */
-/*  width: auto;
-  height: auto;*/
   padding: 6px 12px;
   opacity: 0;
   visibility: hidden;
-  
-  /* Текст в одну строку */
   white-space: nowrap;
-/*  overflow: hidden;
-*/  
-  /* Стиль черного прямоугольника */
   background-color: rgba(35, 35, 38, 0.7);
   border-radius: 4px;
-/*  text-align: center;
-*/  
-  /* Плавное появление */
   transition: opacity 0.3s;
 }
 
@@ -499,57 +360,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     visibility: visible;
 }
 
-/*.info-hotspot.visible .info-hotspot-title-wrapper,
-.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
-    opacity: 1;
-    visibility: visible;
-}*/
-
-/*.info-hotspot .info-hotspot-title-wrapper:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-}
-*/
-/*.info-hotspot .info-hotspot-title {
-  display: inline-block;
-  vertical-align: middle;
-
-  -moz-user-select: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
-*/
-
-/*.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
-  visibility: visible;
-  -ms-transform: perspective(200px) rotateY(0deg);
-  -webkit-transform: perspective(200px) rotateY(0deg);
-  transform: perspective(200px) rotateY(0deg);
-  -webkit-transition: -ms-transform 0.3s,
-                      -webkit-transform 0.3s,
-                      transform 0.3s,
-                      visibility 0s 0s;
-  transition: -ms-transform 0.3s,
-              -webkit-transform 0.3s,
-              transform 0.3s,
-              visibility 0s 0s;
-}*/
-
-
-
-.info-hotspot.visible .info-hotspot-text {
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-    transform: none;
-    transition: none;
-}
-
 /* Info hotspot modal */
-
 .info-hotspot-modal {
     top: 30px;
     left: 0;
@@ -565,13 +376,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     opacity: 0;
     visibility: hidden;
 }
-
 .info-hotspot-modal.visible {
     display: flex;
     opacity: 1 ;
     visibility: visible ;
 }
-
 /* Шапка модального окна */
 .info-hotspot-modal .info-hotspot-header {
     position: relative; 
@@ -597,7 +406,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 90%;
   height: 90%;
 }
-
 .info-hotspot-modal .info-hotspot-title {
         flex: 1;
         text-align: center;
@@ -605,7 +413,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
         font-size: 18px;
         color: #f7f8fc;
     }
-
 .info-hotspot-modal .info-hotspot-close-wrapper {
    top: 10px; /* Чуть ниже от края */
     right: 10px; /* Чуть левее от края */
@@ -616,13 +423,11 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
     align-items: center;
     justify-content: center;
 }
-
 .info-hotspot-modal .info-hotspot-close-icon {
   width: 50%;
   height: 50%;
   margin: 15%;
 }
-
 /* Расположение контента */
 .info-hotspot-modal .info-hotspot-text {
 position: relative;
@@ -630,28 +435,19 @@ width: 90%;
 max-width: 1024px;
 max-height: 80vh;
 overflow-y: auto;
-/*margin: 0 auto 20px auto;
-*/
 padding: 25px;
 background-color: rgba(35, 35, 38, 0.9);
 border-radius: 0 0 5px 5px;
 color: #f7f8fc;
-/*text-align: justify;
-text-indent: 2em;
-*/line-height: 1.6em;
-/*box-sizing: border-box;
-*/}
-
+}
 /* === БЛОКИ КОНТЕНТА === */
 .info-hotspot-text .content-block {
     margin-bottom: 20px;
 }
-
 .info-hotspot-text .content-text {
     text-align: justify;
     text-indent: 1.5em;
 }
-
 .info-hotspot-text img,
 .info-hotspot-text video {
     display: block;
@@ -660,17 +456,14 @@ text-indent: 2em;
     max-width: 1000px;
     border-radius: 8px;
 }
-
 /* Заметка — по центру курсивом */
 .info-hotspot-text .content-note {
-    /*  display: block;
-*/ margin: 10px auto 20px;
+margin: 10px auto 20px;
     text-align: center;
     font-style: italic;
-    color: #ccc; /* чуть светлее основного текста */
+    color: #ccc;
     font-size: 14px;
 }
-
 /* 3D-модель */
 .info-hotspot-text .content-model,
 .info-hotspot-text model-viewer {
@@ -678,15 +471,13 @@ text-indent: 2em;
     height: 800px;
     margin: 15px auto;
     background: rgba(35, 35, 35, 0.2);
-/*    overflow: hidden;*/
-}
 
+}
 /* === СЛАЙДЕР ИЗОБРАЖЕНИЙ === */
 .info-hotspot-slider {
     position: relative;
     margin: 15px 0;
 }
-
 /* Кнопки слайдера */
 .slider-btn {
     position: absolute;
@@ -701,16 +492,12 @@ text-indent: 2em;
     cursor: pointer;
     z-index: 2;
 }
-
 .slider-btn.next {
     right: 10px;
 }
-
 .slider-btn.prev {
     left: 10px;
 }
-
-
 /* === МОДАЛЬНОЕ ОКНО ИНФОРМАЦИИ О СЦЕНЕ === */
 #sceneInfoModal {
     top: 0px;
@@ -729,14 +516,12 @@ text-indent: 2em;
     -webkit-transition: opacity 0.3s ease-in-out 0.5s, visibility 0s 0.7s;
     transition: opacity 0.3s ease-in-out 0.5s, visibility 0s 0.7s;
 }
-
 #sceneInfoModal.visible {
   display: flex;
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease-in-out, visibility 0s 0s;
 }
-
 /* Шапка модального окна */
 #sceneInfoModal .scene-info-header {
   position: relative;
@@ -744,24 +529,18 @@ text-indent: 2em;
   max-width: 1024px;
   height: auto;
   min-height: 40px;
-  
   background-color: rgba(29, 29, 31, 0.9);
   margin: 60px auto 0px auto;
   padding: 0 20px;
   box-sizing: border-box;
-  
   display: grid;
   grid-template-columns: 30px 1fr 30px;
   align-items: center;
-  
   flex-shrink: 0;
-
 }
-
 #sceneInfoModal.visible .scene-info-header {
   opacity: 1;
 }
-
 /* Иконка слева */
 #sceneInfoModal .scene-info-icon-wrapper {
   width: 35px;
@@ -770,12 +549,10 @@ text-indent: 2em;
   align-items: center;
   justify-content: center;
 }
-
 #sceneInfoModal .scene-info-icon {
   width: 60%;
   height: 60%;
 }
-
 /* Заголовок по центру */
 #sceneInfoModal .scene-info-title-wrapper {
   justify-self: center;
@@ -787,7 +564,6 @@ text-indent: 2em;
   font-size: 18px;
   font-weight: bold;
 }
-
 /* Крестик справа */
 #sceneInfoModal .scene-info-close-wrapper {
   width: 30px;
@@ -799,12 +575,10 @@ text-indent: 2em;
   align-items: center;
   justify-content: center;
 }
-
 #sceneInfoModal .scene-info-close-icon {
   width: 70%;
   height: 70%;
 }
-
 /* Текст содержимого */
 #sceneInfoModal .scene-info-text {
     position: relative;
@@ -823,11 +597,9 @@ text-indent: 2em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out 0.4s;
 }
-
 #sceneInfoModal.visible .scene-info-text {
   opacity: 1;
 }
-
 /* === КАРТИНКА — по центру === */
 .scene-info-image {
     display: block;
@@ -836,7 +608,6 @@ text-indent: 2em;
     max-width: 1000;
     border-radius: 8px;
 }
-
 /* === ЗАМЕТКА — по центру курсивом === */
 .scene-info-note {
   display: block;
@@ -846,10 +617,7 @@ text-indent: 2em;
   color: #ccc;  /* чуть светлее основного текста */
   font-size: 14px;
 }
-
-
-/* View control buttons */
-
+/*View control buttons */
 .viewControlButton {
   /*display: none;*/
   position: absolute;
@@ -859,18 +627,15 @@ text-indent: 2em;
   height: 40px;
   padding: 5px;
 }
-
 body.view-control-buttons .viewControlButton {
   display: block;
 }
-
 /* Hide controls when width is too small */
 @media (max-width: 600px) {
   body.view-control-buttons .viewControlButton {
     display: none;
   }
 }
-
 .viewControlButton .icon {
   position: absolute;
   top: 5px;
@@ -878,7 +643,6 @@ body.view-control-buttons .viewControlButton {
   width: 30px;
   height: 30px;
 }
-
 /* Center is at margin-left: -20px */
 .viewControlButton-1 {
   margin-left: -145px;
@@ -898,7 +662,6 @@ body.view-control-buttons .viewControlButton {
 .viewControlButton-6 {
   margin-left: 105px;
 }
-
 /* НИЖНЕЕ МЕНЮ */
 .bottom-toolbar {
     position: absolute;
@@ -912,61 +675,50 @@ body.view-control-buttons .viewControlButton {
     background: rgba(0, 0, 0, 0.4);
     padding: 6px 6px;
 }
-
 .bottom-toolbar img {
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
-
 .toolbar-right {
     display: flex;
-    gap: 15px; /* Расстояние между правыми иконками */
+    gap: 15px;
 }
-
 .toolbar-left {
     display: flex;
     gap: 15px;
 }
-
 .bottom-toolbar .icon.off {
     display: block;
 }
-
 .bottom-toolbar .icon.on {
     display: none;
 }
-
 .bottom-toolbar a.enabled .icon.off {
     display: none;
 }
-
 .bottom-toolbar a.enabled .icon.on {
     display: block;
 }
-
 .menu-wrapper {
     position: relative;
 }
-
 .hidden-menu {
     position: absolute;
-    bottom: calc(100% + 10px); /* Появляется строго НАД кнопкой */
+    bottom: calc(100% + 10px);
     right: 0;
     display: flex;
-    flex-direction: column; /* Столбиком */
+    flex-direction: column; 
     gap: 8px;
     padding: 8px;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     z-index: 101;
-    display: none; /* Скрыто по умолчанию */
+    display: none;
 }
-
 .hidden-menu.open {
-    display: flex; /* Появляется только с классом .open */
+    display: flex;
 }
-
 .hidden-menu a {
     width: 30px;
     height: 30px;
@@ -976,34 +728,27 @@ body.view-control-buttons .viewControlButton {
     cursor: pointer;
     transition: background 0.15s;
 }
-
 .hidden-menu img, .hidden-menu .icon {
     width: 30px;
     height: 30px;
 }
-
 /* AudioBtn */
 #audioBtn .icon.off {
     display: block;
 }
-
 #audioBtn .icon.on {
     display: none;
 }
-
 #audioBtn.enabled .icon.off {
     display: none;
 }
-
 #audioBtn.enabled .icon.on {
     display: block;
 }
-
 /* Обёртка плеера */
 .audio-wrapper {
     position: relative;
 }
-
 /* Панель управления (прогресс + время) */
 #audioBar {
     position: absolute;
@@ -1015,16 +760,13 @@ body.view-control-buttons .viewControlButton {
     gap: 6px;
     width: 150px;
 }
-
 .audio-wrapper.enabled:hover #audioBar {
     display: flex;
 }
-
-/* Панель появляется при наведении на ВЕСЬ нижний тулбар */
+/* Панель появляется при наведении на весь нижний тулбар */
 .bottom-toolbar:hover #audioBar {
     display: flex;
 }
-
 /* Ползунок перемотки */
 #audioSeek {
     width: 100%;
@@ -1034,7 +776,6 @@ body.view-control-buttons .viewControlButton {
     border-radius: 2px;
     cursor: pointer;
 }
-
 #audioSeek::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 12px;
@@ -1043,14 +784,12 @@ body.view-control-buttons .viewControlButton {
     border-radius: 50%;
     cursor: pointer;
 }
-
 /* Время */
 #audioTime {
     font-size: 11px;
     color: #ccc;
     text-align: center;
 }
-
 /* Кнопка "Домой"*/
 #sceneHome .icon.on {
     display: none;
@@ -1070,7 +809,6 @@ body.view-control-buttons .viewControlButton {
 body.vr-mode #pano {
     position: relative;
 }
-
 body.vr-mode #pano::before,
 body.vr-mode #pano::after {
     content: "";
@@ -1081,11 +819,9 @@ body.vr-mode #pano::after {
     background: rgba(255,255,255,0.3);
     z-index: 9999;
 }
-
 body.vr-mode #pano::before {
     left: 50%;
 }
-
 #vrCursor {
     position: fixed;
     left: 50%;
@@ -1100,11 +836,9 @@ body.vr-mode #pano::before {
     pointer-events: none;
     display: none;
 }
-
 body.vr-mode #vrCursor {
     display: block;
 }
-
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
@@ -1120,18 +854,15 @@ body.vr-mode #vrCursor {
     margin-left: -700px; /* Скрыт за левым краем */
     transition: margin-left 0.5s ease-in-out;
 }
-
 #sceneList.enabled {
     margin-left: 0;
 }
-
 .sceneList-inner {
   display: flex;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
-
 /* Список слева — фиксированная ширина */
 #sceneList .scenes {
   width: 250px;
@@ -1140,7 +871,6 @@ body.vr-mode #vrCursor {
   background-color: rgba(35, 35, 38, 0.8);
   flex-shrink: 0;
 }
-
 /* Правая колонка: карта сверху, кнопки снизу */
 .floorplan-right {
     display: flex;
@@ -1150,7 +880,6 @@ body.vr-mode #vrCursor {
     padding: 20px;
     overflow: hidden;
 }
-
 /* Карта справа — всё оставшееся место */
 .floorplan {
     position: relative;
@@ -1160,12 +889,10 @@ body.vr-mode #vrCursor {
     align-items: center;
     justify-content: left;
 }
-
 .map-wrapper {
     position: relative; 
     display: inline-block;
 }
-
 /* Картинка плана */
 .floorplan-image {
     width: 440px;
@@ -1174,7 +901,6 @@ body.vr-mode #vrCursor {
     object-fit: contain;
     display: block;
 }
-
 /* Точки на карте */
 .floor-point {
     position: absolute;
@@ -1188,11 +914,9 @@ body.vr-mode #vrCursor {
     z-index: 10;
     display: none;
 }
-
 .floor-point.visible {
     display: block;
 }
-  
 /* === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ === */
 .floor-toggle {
     margin-top: 15px;
@@ -1201,14 +925,12 @@ body.vr-mode #vrCursor {
     align-items: center;
     gap: 10px;
 }
-
 .floor-label {
     font-size: 25px;
     color: #aaa; 
     font-weight: normal;
     pointer-events: none;
 }
-
 .floor-btn {
     width: 40px; /* ← фиксированная ширина */
     height: 40px; /* ← фиксированная высота */
@@ -1222,13 +944,11 @@ body.vr-mode #vrCursor {
     border: none;
     transition: background 0.2s, color 0.2s;
 }
-
 .floor-btn.active {
     background: rgba(103, 115, 131, 0.9);
     color: #fff;
     font-weight: bold;
 }
-  
 .control-button {
   position: absolute;
   bottom: 20px;
@@ -1243,17 +963,14 @@ body.vr-mode #vrCursor {
   cursor: pointer;
   z-index: 100;
 }
-
 .control-button .icon {
   width: 28px;
   height: 28px;
   display: none;
 }
-
 .control-button .icon.off {
   display: block;
 }
-
 .control-button.enabled .icon.off {
   display: none;
 }
@@ -1261,7 +978,6 @@ body.vr-mode #vrCursor {
 .control-button.enabled .icon.on {
   display: block;
 }
-
 /*Загрузочный экран*/
 #preloader {
     position: fixed;
@@ -1272,7 +988,6 @@ body.vr-mode #vrCursor {
     background: rgba(0, 0, 0, .6);
     z-index: 11999;
 }
-
 #preloader div {
     background: #fff;
     width: 800px;
@@ -1289,7 +1004,6 @@ body.vr-mode #vrCursor {
     bottom: 0;
     margin: auto;
 }
-
 /* Стиль текстовой кнопки выхода из VR */
 #close-vr-btn {
     position: absolute !important;
@@ -1300,6 +1014,103 @@ body.vr-mode #vrCursor {
     font-weight: bold !important;
     cursor: pointer !important;
     text-decoration: underline !important;
-/*    background: none !important;
-    border: none !important;*/
+}
+
+
+@media (max-width: 768px) {
+
+    /* Убираем серый фон верхней плашки, оставляем чистый полупрозрачный текст над панорамой */
+    #titleBar .sceneName {
+        background-color: transparent !important;
+        font-size: 14px;
+        line-height: 30px;
+        padding: 0;
+    }
+    /* Скрываем логотип в мобильной версии, чтобы освободить место для текста */
+    #titleBar .title-logo {
+        display: none !important;
+    }
+    /* Пропорционально уменьшаем размеры всех иконок нижнего меню */
+    .bottom-toolbar {
+        padding: 6px 10px;
+        gap: 10px;
+    }
+    .bottom-toolbar img {
+        width: 22px !important;
+        height: 22px !important;
+    }
+    .toolbar-left, .toolbar-right {
+        gap: 10px;
+    }
+    /* ХОТСПОРТЫ: Скрываем старые десктопные стрелки шагового управления */
+    .viewControlButton,
+    body.view-control-buttons .viewControlButton {
+        display: none !important;
+    }
+    /* Увеличиваем кликабельную зону точек переходов (link-hotspots) под тач-пальцы */
+    .link-hotspot {
+        width: 32px;
+        height: 32px;
+        margin-left: -16px;
+        margin-top: -16px;
+    }
+    /* МОБИЛЬНАЯ ТИПОГРАФИКА: Оптимизация вывода текстовых блоков */
+    .info-hotspot-modal .info-hotspot-text,
+    #sceneInfoModal .scene-info-text {
+        width: 95%;
+        padding: 16px; /* Меньше внутренние отступы — больше полезной площади */
+        font-size: 14px; /* Оптимальный размер шрифта для чтения со смартфона */
+        line-height: 1.5em;
+        text-indent: 1em;
+        max-height: 70vh;
+    }
+    .info-hotspot-modal .info-hotspot-header,
+    #sceneInfoModal .scene-info-header {
+        width: 95%;
+        min-height: 45px;
+        margin: 15px auto 0 auto;
+    }
+    .info-hotspot-modal .info-hotspot-title,
+    #sceneInfoModal .scene-info-title-wrapper {
+        font-size: 15px;
+    }
+    .info-hotspot-text img,
+    .info-hotspot-text video,
+    .scene-info-image {
+        max-height: 220px; /* Масштабируем медиавложения под экраны телефонов */
+        margin: 10px auto;
+    }
+    .info-hotspot-text .content-model,
+    .info-hotspot-text model-viewer {
+        height: 300px; /* Сужаем высоту холста 3D-модели для мобильных */
+    }
+    /* Перевод адаптивного Floor Plan в мобильный интерфейс */
+    #sceneList {
+        width: 100%;
+        margin-left: -100%;
+    }
+    #sceneList.enabled {
+        margin-left: 0;
+    }
+
+    .sceneList-inner {
+        flex-direction: column; /* В одну колонку на мобильных устройствах */
+    }
+
+    #sceneList .scenes {
+        width: 100%;
+        height: 40%;
+        min-height: 150px;
+    }
+
+    .floorplan-right {
+        width: 100%;
+        height: 60%;
+        padding: 10px;
+    }
+
+    .floorplan-image {
+        width: 100%;
+        max-height: 200px;
+    }
 }
