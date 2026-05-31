@@ -1062,16 +1062,20 @@ body.vr-mode #vrCursor {display: block;}
         text-align: center;
         box-sizing: border-box;
         /* === ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ДЛЯ СМАРТФОНОВ И ПК === */
-        position: absolute; /* Меняем fixed на absolute относительно родительского #preloader */
         top: 50%; /* Сдвигаем верхний край блока ровно на центр экрана */
-        left: 50%; /* Сдвигаем левый край блока ровно на центр экрана */
-/*        position: fixed;
+        position: absolute;
+        left: 0; /* Растягиваем рамки позиционирования */
+        right: 0; /* от левого до правого края экрана */
+        margin-left: auto; /* Автоматические маргины сами выровняют */
+        margin-right: auto; /* блок ровно по центру горизонтали */
+        /*        position: fixed;
         top: 20px;
         left: 0;
         right: 0;
         bottom: 0;
         margin: auto;
-*/    }
+*/
+    }
 /* Стиль текстовой кнопки выхода из VR */
 #close-vr-btn {
     position: absolute !important;
