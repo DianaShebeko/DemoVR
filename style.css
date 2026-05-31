@@ -782,8 +782,7 @@ body.vr-mode #vrCursor {display: block;}
     cursor: pointer !important;
     text-decoration: underline !important;
 }
-
-
+/* Интерфейс для мобильной версии */
 @media (max-width: 768px) {
     /* Убираем серый фон верхней плашки, оставляем чистый полупрозрачный текст над панорамой */
     #titleBar .sceneName {
