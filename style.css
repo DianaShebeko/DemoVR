@@ -604,6 +604,14 @@ margin: 10px auto 20px;
         text-align: center;
     }
 
+    .info-hotspot-modal .info-hotspot-icon-wrapper, #sceneInfoModal .scene-info-icon-wrapper {
+        width: 32px; /* или любой другой базовый размер, они будут сжиматься */
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     /* УНИВЕРСАЛЬНЫЙ КРЕСТИК ЗАКРЫТИЯ (Идеален и для ПК, и для телефона) */
     .info-hotspot-modal .info-hotspot-close-wrapper, #sceneInfoModal .scene-info-close-wrapper {
         position: absolute;
@@ -1067,7 +1075,6 @@ body.vr-mode #vrCursor {display: block;}
 
 
 @media (max-width: 768px) {
-
     /* Убираем серый фон верхней плашки, оставляем чистый полупрозрачный текст над панорамой */
     #titleBar .sceneName {
         background-color: transparent !important;
