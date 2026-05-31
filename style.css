@@ -1140,7 +1140,7 @@ body.vr-mode #vrCursor {display: block;}
     #sceneInfoModal .scene-info-header {
         width: 95%;
         min-height: 45px;
-        margin: 8% auto 0 auto;
+        margin: 10% auto 0 auto;
     }
     .info-hotspot-modal .info-hotspot-title,
     #sceneInfoModal .scene-info-title-wrapper {
