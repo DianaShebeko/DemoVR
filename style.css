@@ -84,7 +84,7 @@ a, a:hover, a:active, a:visited {
   display: block;
   position: absolute;
   top: 0;
-  right: 8%;
+  right: 440px;
   width: 40px;
   height: 40px;
   padding: 5px;
@@ -1052,29 +1052,23 @@ body.vr-mode #vrCursor {display: block;}
     background: rgba(0, 0, 0, .6);
     z-index: 11999;
 }
-    #preloader div {
-        background: #fff;
-        width: 85%;
-        max-height: 80px;
-        border-radius: 6px;
-        font-size: 15px;
-        color: #111;
-        text-align: center;
-        box-sizing: border-box;
-        /* === ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ДЛЯ СМАРТФОНОВ И ПК === */
-        top: 50%; /* Сдвигаем верхний край блока ровно на центр экрана */
-        position: absolute;
-        left: 0; /* Растягиваем рамки позиционирования */
-        right: 0; /* от левого до правого края экрана */
-        margin-left: auto; /* Автоматические маргины сами выровняют */
-        margin-right: auto; /* блок ровно по центру горизонтали */
-        /*        position: fixed;
-        top: 20px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-*/
+#preloader div {
+    background: #fff;
+    width: 85%;
+    max-width: 500px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #111;
+    text-align: center;
+    box-sizing: border-box;
+    /* === ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ДЛЯ СМАРТФОНОВ И ПК === */
+    top: 50%; /* Сдвигаем верхний край блока ровно на центр экрана */
+    position: absolute;
+    left: 0; /* Растягиваем рамки позиционирования */
+    right: 0; /* от левого до правого края экрана */
+    margin-left: auto; /* Автоматические маргины сами выровняют */
+    margin-right: auto; /* блок ровно по центру горизонтали */
     }
 /* Стиль текстовой кнопки выхода из VR */
 #close-vr-btn {
@@ -1101,6 +1095,17 @@ body.vr-mode #vrCursor {display: block;}
     /* Скрываем логотип в мобильной версии, чтобы освободить место для текста */
     #titleBar .title-logo {
         display: none !important;
+    }
+
+    #sceneInfoToggle {
+        right: 12%; /* На телефоне наплевать на 440px, кнопка встанет аккуратно в угол */
+        top: 10px ; /* Чуть корректируем высоту под мобильную шапку */
+        width: 25px ; /* Делаем её чуть компактнее для экрана смартфона */
+        height: 25px ;
+    }
+    #sceneInfoToggle .icon {
+        border: 1px solid #ffffff; /* Чисто белый цвет, толщина 1 пиксель */
+        background-color: rgba(255, 255, 255, 0.1); /* Легкий прозрачный белый фон */
     }
     /* Пропорционально уменьшаем размеры всех иконок нижнего меню */
     .bottom-toolbar {
