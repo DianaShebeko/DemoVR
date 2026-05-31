@@ -1056,7 +1056,6 @@ body.vr-mode #vrCursor {display: block;}
         background: #fff;
         width: 85%;
         max-height: 80px;
-        line-height: 40px;
         border-radius: 6px;
         font-size: 15px;
         color: #111;
