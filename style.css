@@ -525,8 +525,7 @@ body.view-control-buttons .viewControlButton {
 .bottom-toolbar:hover #audioBar {
     display: flex;
 }
-/* Ползунок перемотки */
-#audioSeek {
+#audioSeek { /* Ползунок перемотки */
     width: 100%;
     height: 4px;
     -webkit-appearance: none;
@@ -542,21 +541,20 @@ body.view-control-buttons .viewControlButton {
     border-radius: 50%;
     cursor: pointer;
 }
-/* Время */
-#audioTime {
+#audioTime { /* Время */
     font-size: 11px;
     color: #ccc;
     text-align: center;
 }
 /* Кнопка "Домой"*/
-#sceneHome .icon.on {display: none;}
+/*#sceneHome .icon.on {display: none;}*/
 /* Скрываем дубль */
-#sceneHome .icon.off {display: block;}
+/*#sceneHome .icon.off {display: block;}*/
 /* Опционально: эффект при наведении */
-#sceneHome:hover .icon.off {
+/*#sceneHome:hover .icon.off {
     opacity: 0.7;
     transition: opacity 0.2s;
-}
+}*/
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
@@ -697,8 +695,7 @@ body.view-control-buttons .viewControlButton {
 .control-button .icon.off {display: block;}
 .control-button.enabled .icon.off {display: none;}
 .control-button.enabled .icon.on {display: block;}
-/*Загрузочный экран*/
-#preloader {
+#preloader { /*Загрузочный экран*/
     position: fixed;
     top: 0;
     left: 0;
@@ -717,13 +714,12 @@ body.view-control-buttons .viewControlButton {
     color: #111;
     text-align: center;
     box-sizing: border-box;
-    /* === ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ДЛЯ СМАРТФОНОВ И ПК === */
-    top: 50%; /* Сдвигаем верхний край блока ровно на центр экрана */
+    top: 50%; 
     position: absolute;
-    left: 0; /* Растягиваем рамки позиционирования */
-    right: 0; /* от левого до правого края экрана */
-    margin-left: auto; /* Автоматические маргины сами выровняют */
-    margin-right: auto; /* блок ровно по центру горизонтали */
+    left: 0;
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
     }
 /* Стиль текстовой кнопки выхода из VR */
 #close-vr-btn {
@@ -736,7 +732,7 @@ body.view-control-buttons .viewControlButton {
     cursor: pointer !important;
     text-decoration: underline !important;
 }
-/* Интерфейс для мобильной версии */
+/* Отображение элементов для мобильной версии */
 @media (max-width: 768px) {
 #titleBar .sceneName {
     background-color: transparent !important;
@@ -745,21 +741,15 @@ body.view-control-buttons .viewControlButton {
     padding: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
-/* Скрываем логотип в мобильной версии, чтобы освободить место для текста */
-#titleBar .title-logo {
-    display: none !important;
-}
-
+#titleBar .title-logo {display: none !important;}
 #sceneInfoToggle {
-    right: 12%; /* На телефоне наплевать на 440px, кнопка встанет аккуратно в угол */
-    top: 0px; /* Чуть корректируем высоту под мобильную шапку */
-    width: 14px; /* Делаем её чуть компактнее для экрана смартфона */
+    right: 12%; 
+    top: 0px; 
+    width: 14px;
     height: 14px;
     z-index: 10;
 }
-#sceneInfoToggle .icon {
-    border: 1px solid #ffffff !important; /* Чисто белый цвет, толщина 1 пиксель */
-}
+#sceneInfoToggle .icon {border: 1px solid #ffffff !important;}
 /* Пропорционально уменьшаем размеры всех иконок нижнего меню */
 .bottom-toolbar {
     padding: 6px 10px;
@@ -770,8 +760,7 @@ body.view-control-buttons .viewControlButton {
     height: 22px !important;
 }
 .toolbar-left, .toolbar-right {gap: 10px;}
-/* ХОТСПОРТЫ: Скрываем старые десктопные стрелки шагового управления */
-.viewControlButton,
+.viewControlButton, /*Скрыть стрелки поворота панорамы*/
 body.view-control-buttons .viewControlButton {
     display: none !important;
 }
@@ -812,29 +801,24 @@ body.view-control-buttons .viewControlButton {
 }
 .info-hotspot-text .content-model,
 .info-hotspot-text model-viewer {
-    height: 300px; /* Сужаем высоту холста 3D-модели для мобильных */
+    height: 300px; /* Высота окна 3D-модели */
 }
-/* Перевод адаптивного Floor Plan в мобильный интерфейс */
 #sceneList {
     width: 100%;
     margin-left: -100%;
 }
 #sceneList.enabled {margin-left: 0;}
-
 .sceneList-inner {flex-direction: column;}
-
 #sceneList .scenes {
     width: 100%;
     height: 40%;
     min-height: 150px;
 }
-
 .floorplan-right {
     width: 100%;
     height: 60%;
     padding: 10px;
 }
-
 .floorplan-image {
     width: 100%;
     max-height: 200px;
