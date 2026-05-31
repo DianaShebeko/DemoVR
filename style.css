@@ -305,22 +305,23 @@ body.scene-info-enabled #sceneInfoToggle {
         padding: 0 50px 0 20px; /* Отступ справа больше, чтобы текст не налезал на крестик */
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         border-radius: 5px 5px 0 0;
     }
 
     /* Индивидуальная сетка Grid ТОЛЬКО для окна информации о сцене */
-    #sceneInfoModal .scene-info-header {
+    .info-hotspot-modal .info-hotspot-header, #sceneInfoModal .scene-info-header {
         display: grid;
         grid-template-columns: 30px 1fr; /* Иконка + Заголовок, крестик позиционируется абсолютно */
+        gap: 12px;
     }
 
     .info-hotspot-modal .info-hotspot-title, #sceneInfoModal .scene-info-title-wrapper {
         font-weight: bold;
         font-size: 18px;
         color: #f7f8fc;
-        flex: 1;
-        text-align: center;
+/*        flex: 1;
+*/        text-align: center;
         line-height: 1.2em;
         margin: 0;
     }
