@@ -287,7 +287,7 @@ body.scene-info-enabled #sceneInfoToggle {
     transition: opacity 0.3s, visibility 0.3s;
 }
 #sceneInfoModal {top: 0;}
-.info-hotspot-modal {top: 50px;}
+.info-hotspot-modal {top: 25px;}
 
     .info-hotspot-modal.visible, #sceneInfoModal.visible {
         display: flex;
