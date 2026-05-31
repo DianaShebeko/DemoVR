@@ -484,9 +484,7 @@ body.view-control-buttons .viewControlButton {
     z-index: 101;
     display: none;
 }
-.hidden-menu.open {
-    display: flex;
-}
+.hidden-menu.open {display: flex;}
 .hidden-menu a {
     width: 30px;
     height: 30px;
@@ -554,14 +552,9 @@ body.view-control-buttons .viewControlButton {
     text-align: center;
 }
 /* Кнопка "Домой"*/
-#sceneHome .icon.on {
-    display: none;
-}
+#sceneHome .icon.on {display: none;}
 /* Скрываем дубль */
-#sceneHome .icon.off {
-    display: block;
-}
-
+#sceneHome .icon.off {display: block;}
 /* Опционально: эффект при наведении */
 #sceneHome:hover .icon.off {
     opacity: 0.7;
@@ -784,109 +777,104 @@ body.vr-mode #vrCursor {display: block;}
 }
 /* Интерфейс для мобильной версии */
 @media (max-width: 768px) {
-    /* Убираем серый фон верхней плашки, оставляем чистый полупрозрачный текст над панорамой */
-    #titleBar .sceneName {
-        background-color: transparent !important;
-        font-size: 14px;
-        line-height: 30px;
-        padding: 0;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
-    }
-    /* Скрываем логотип в мобильной версии, чтобы освободить место для текста */
-    #titleBar .title-logo {
-        display: none !important;
-    }
+#titleBar .sceneName {
+    background-color: transparent !important;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+/* Скрываем логотип в мобильной версии, чтобы освободить место для текста */
+#titleBar .title-logo {
+    display: none !important;
+}
 
-    #sceneInfoToggle {
-        right: 12%; /* На телефоне наплевать на 440px, кнопка встанет аккуратно в угол */
-        top: 1px; /* Чуть корректируем высоту под мобильную шапку */
-        width: 18px; /* Делаем её чуть компактнее для экрана смартфона */
-        height: 18px;
-        z-index: 10;
-    }
-    #sceneInfoToggle .icon {
-        border: 1px solid #ffffff !important; /* Чисто белый цвет, толщина 1 пиксель */
-    }
-    /* Пропорционально уменьшаем размеры всех иконок нижнего меню */
-    .bottom-toolbar {
-        padding: 6px 10px;
-        gap: 10px;
-    }
-    .bottom-toolbar img {
-        width: 22px !important;
-        height: 22px !important;
-    }
-    .toolbar-left, .toolbar-right {gap: 10px;}
-    /* ХОТСПОРТЫ: Скрываем старые десктопные стрелки шагового управления */
-    .viewControlButton,
-    body.view-control-buttons .viewControlButton {
-        display: none !important;
-    }
-    /* Увеличиваем кликабельную зону точек переходов (link-hotspots) под тач-пальцы */
-    .link-hotspot {
-        width: 32px;
-        height: 32px;
-        margin-left: -16px;
-        margin-top: -16px;
-    }
-    /* МОБИЛЬНАЯ ТИПОГРАФИКА: Оптимизация вывода текстовых блоков */
-    .info-hotspot-modal .info-hotspot-text,
-    #sceneInfoModal .scene-info-text {
-        width: 95%;
-        padding: 16px; /* Меньше внутренние отступы — больше полезной площади */
-        font-size: 14px; /* Оптимальный размер шрифта для чтения со смартфона */
-        line-height: 1.5em;
-        text-indent: 1em;
-        max-height: 70vh;
-    }
-    .info-hotspot-modal .info-hotspot-header,
-    #sceneInfoModal .scene-info-header {
-        width: 95%;
-        min-height: 45px;
-        margin: 10% auto 0 auto;
-    }
-    .info-hotspot-modal .info-hotspot-title,
-    #sceneInfoModal .scene-info-title-wrapper {
-        font-size: 15px;
-    }
-    .info-hotspot-text img,
-    .info-hotspot-text video,
-    .scene-info-image {
-        max-height: 220px;
-        max-width: 100%;
-        margin: 10px auto;
-    }
-    .info-hotspot-text .content-model,
-    .info-hotspot-text model-viewer {
-        height: 300px; /* Сужаем высоту холста 3D-модели для мобильных */
-    }
-    /* Перевод адаптивного Floor Plan в мобильный интерфейс */
-    #sceneList {
-        width: 100%;
-        margin-left: -100%;
-    }
-    #sceneList.enabled {
-        margin-left: 0;
-    }
+#sceneInfoToggle {
+    right: 12%; /* На телефоне наплевать на 440px, кнопка встанет аккуратно в угол */
+    top: 0px; /* Чуть корректируем высоту под мобильную шапку */
+    width: 14px; /* Делаем её чуть компактнее для экрана смартфона */
+    height: 14px;
+    z-index: 10;
+}
+#sceneInfoToggle .icon {
+    border: 1px solid #ffffff !important; /* Чисто белый цвет, толщина 1 пиксель */
+}
+/* Пропорционально уменьшаем размеры всех иконок нижнего меню */
+.bottom-toolbar {
+    padding: 6px 10px;
+    gap: 10px;
+}
+.bottom-toolbar img {
+    width: 22px !important;
+    height: 22px !important;
+}
+.toolbar-left, .toolbar-right {gap: 10px;}
+/* ХОТСПОРТЫ: Скрываем старые десктопные стрелки шагового управления */
+.viewControlButton,
+body.view-control-buttons .viewControlButton {
+    display: none !important;
+}
+/* Увеличиваем кликабельную зону точек переходов (link-hotspots) под тач-пальцы */
+.link-hotspot {
+    width: 32px;
+    height: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
+}
+/* МОБИЛЬНАЯ ТИПОГРАФИКА: Оптимизация вывода текстовых блоков */
+.info-hotspot-modal .info-hotspot-text,
+#sceneInfoModal .scene-info-text {
+    width: 95%;
+    padding: 16px; /* Меньше внутренние отступы — больше полезной площади */
+    font-size: 14px; /* Оптимальный размер шрифта для чтения со смартфона */
+    line-height: 1.5em;
+    text-indent: 1em;
+    max-height: 70vh;
+}
+.info-hotspot-modal .info-hotspot-header,
+#sceneInfoModal .scene-info-header {
+    width: 95%;
+    min-height: 45px;
+    margin: 10% auto 0 auto;
+}
+.info-hotspot-modal .info-hotspot-title,
+#sceneInfoModal .scene-info-title-wrapper {
+    font-size: 15px;
+}
+.info-hotspot-text img,
+.info-hotspot-text video,
+.scene-info-image {
+    max-height: 220px;
+    max-width: 100%;
+    margin: 10px auto;
+}
+.info-hotspot-text .content-model,
+.info-hotspot-text model-viewer {
+    height: 300px; /* Сужаем высоту холста 3D-модели для мобильных */
+}
+/* Перевод адаптивного Floor Plan в мобильный интерфейс */
+#sceneList {
+    width: 100%;
+    margin-left: -100%;
+}
+#sceneList.enabled {margin-left: 0;}
 
-    .sceneList-inner {
-        flex-direction: column;
-    }
+.sceneList-inner {flex-direction: column;}
 
-    #sceneList .scenes {
-        width: 100%;
-        height: 40%;
-        min-height: 150px;
-    }
+#sceneList .scenes {
+    width: 100%;
+    height: 40%;
+    min-height: 150px;
+}
 
-    .floorplan-right {
-        width: 100%;
-        height: 60%;
-        padding: 10px;
-    }
+.floorplan-right {
+    width: 100%;
+    height: 60%;
+    padding: 10px;
+}
 
-    .floorplan-image {
-        width: 100%;
-        max-height: 200px;
-    }
+.floorplan-image {
+    width: 100%;
+    max-height: 200px;
+}
 }
