@@ -384,13 +384,9 @@ body.scene-info-enabled #sceneInfoToggle {
     }
 
 /* Стилизация контента внутри окон */
-.info-hotspot-text .content-block {
-    margin-bottom: 25px;
-}
+.info-hotspot-text .content-block {margin-bottom: 25px;}
 
-.info-hotspot-text .content-text {
-    text-align: justify;
-}
+.info-hotspot-text .content-text {text-align: justify;}
 
 .info-hotspot-text img, .info-hotspot-text video, .scene-info-image {
     display: block;
