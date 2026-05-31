@@ -612,6 +612,14 @@ margin: 10px auto 20px;
         justify-content: center;
     }
 
+    /* САМА КАРТИНКА ИКОНКИ ВНУТРИ ОБЕРТКИ (Уменьшаем масштаб до уровня крестика) */
+    .info-hotspot-modal .info-hotspot-icon, #sceneInfoModal .scene-info-icon {
+        width: 60%; /* Точно так же, как у крестика */
+        height: 60%; /* Точно так же, как у крестика */
+        margin: 0;
+        object-fit: contain;
+    }
+
     /* УНИВЕРСАЛЬНЫЙ КРЕСТИК ЗАКРЫТИЯ (Идеален и для ПК, и для телефона) */
     .info-hotspot-modal .info-hotspot-close-wrapper, #sceneInfoModal .scene-info-close-wrapper {
         position: absolute;
