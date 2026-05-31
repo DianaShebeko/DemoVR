@@ -51,30 +51,6 @@ a, a:hover, a:active, a:visited {
   text-align: center;
  }
 
-/*.mobile #titleBar {
-    height: 30px;
-    right: 0px;
-    background: transparent;
-}*/
-
-/* If there is a fullscreen button the title bar must make space for it */
-/*body.fullscreen-enabled #titleBar {
-  right: 80px;
-}
-
-body.fullscreen-enabled.mobile #titleBar {
-  right: 0px;
-}*/
-
-/* If there are multiple scenes the title bar must make space for the scene list toggle */
-/*body.multiple-scenes #titleBar {
-  left: 0px;
-}
-
-body.multiple-scenes.mobile #titleBar {
-  left: 0px;
-}*/
-
 #titleBar .sceneName {
   width: 100%;
   height: 100%;
@@ -128,7 +104,7 @@ body.multiple-scenes.mobile #titleBar {
   display: block;
   position: absolute;
   top: 0;
-  right: 440px;
+  right: 8%;
   width: 40px;
   height: 40px;
   padding: 5px;
@@ -413,21 +389,32 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
         font-size: 18px;
         color: #f7f8fc;
     }
-.info-hotspot-modal .info-hotspot-close-wrapper {
-   top: 10px; /* Чуть ниже от края */
-    right: 10px; /* Чуть левее от края */
-    width: 40px; /* ← УВЕЛИЧИЛИ с 25px до 40px */
-    height: 40px; /* ← УВЕЛИЧИЛИ с 25px до 40px */
+
+.info-hotspot-modal .info-hotspot-close-wrapper,
+#sceneInfoModal .scene-info-close-wrapper {
+    position: absolute;
+    top: 50%; /* Центрируем крестик ровно по вертикали внутри шапки */
+    transform: translateY(-50%); /* Идеальное выравнивание по центру оси Y */
+    right: 15px; /* Фиксированный аккуратный отступ от правого края шапки */
+    width: 32px; /* Универсальный размер: достаточно крупный для пальца и аккуратный для ПК */
+    height: 32px;
+    min-width: 32px; /* Жесткий предохранитель: не дает экрану смартфона сплющить крестик */
+    min-height: 32px;
+    flex-shrink: 0; /* Запрещает браузеру сжимать кнопку */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.info-hotspot-modal .info-hotspot-close-icon {
-  width: 50%;
-  height: 50%;
-  margin: 15%;
+
+.info-hotspot-modal .info-hotspot-close-icon,
+#sceneInfoModal .scene-info-close-icon {
+    width: 60%; /* Крестик займет 60% от размера круглой/квадратной кнопки */
+    height: 60%;
+    margin: 0; /* Убираем кривые десктопные маргины в 15%, из-за которых всё ехало */
+    object-fit: contain; /* Сохраняет пропорции иконки идеальными */
 }
+
 /* Расположение контента */
 .info-hotspot-modal .info-hotspot-text {
 position: relative;
@@ -1025,6 +1012,7 @@ body.vr-mode #vrCursor {
         font-size: 14px;
         line-height: 30px;
         padding: 0;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
     }
     /* Скрываем логотип в мобильной версии, чтобы освободить место для текста */
     #titleBar .title-logo {
@@ -1077,7 +1065,8 @@ body.vr-mode #vrCursor {
     .info-hotspot-text img,
     .info-hotspot-text video,
     .scene-info-image {
-        max-height: 220px; /* Масштабируем медиавложения под экраны телефонов */
+        max-height: 220px;
+        max-width: 100%;
         margin: 10px auto;
     }
     .info-hotspot-text .content-model,
@@ -1094,7 +1083,7 @@ body.vr-mode #vrCursor {
     }
 
     .sceneList-inner {
-        flex-direction: column; /* В одну колонку на мобильных устройствах */
+        flex-direction: column;
     }
 
     #sceneList .scenes {
