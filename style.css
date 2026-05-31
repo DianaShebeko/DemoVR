@@ -695,7 +695,6 @@ margin: 10px auto 20px;
 
 /*View control buttons */
 .viewControlButton {
-  /*display: none;*/
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -1055,8 +1054,8 @@ body.vr-mode #vrCursor {display: block;}
 }
 #preloader div {
     background: #fff;
-    width: 800px;
-    height: 40px;
+    width: 85%;
+    min-height: 40px;
     line-height: 40px;
     border-radius: 6px;
     font-size: 15px;
