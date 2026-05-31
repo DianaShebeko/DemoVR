@@ -1097,14 +1097,13 @@ body.vr-mode #vrCursor {display: block;}
 
     #sceneInfoToggle {
         right: 12%; /* На телефоне наплевать на 440px, кнопка встанет аккуратно в угол */
-        top: 10px ; /* Чуть корректируем высоту под мобильную шапку */
-        width: 25px ; /* Делаем её чуть компактнее для экрана смартфона */
-        height: 25px ;
+        top: 1px ; /* Чуть корректируем высоту под мобильную шапку */
+        width: 21px ; /* Делаем её чуть компактнее для экрана смартфона */
+        height: 21px ;
     }
-        #sceneInfoToggle .icon {
-            border: 1px solid #ffffff !important; /* Чисто белый цвет, толщина 1 пиксель */
-            background-color: rgba(255, 255, 255, 0.1); /* Легкий прозрачный белый фон */
-        }
+    #sceneInfoToggle .icon {
+        border: 1px solid #ffffff !important; /* Чисто белый цвет, толщина 1 пиксель */
+    }
     /* Пропорционально уменьшаем размеры всех иконок нижнего меню */
     .bottom-toolbar {
         padding: 6px 10px;
