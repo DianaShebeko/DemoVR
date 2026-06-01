@@ -106,53 +106,6 @@ body.scene-info-enabled #sceneInfoToggle {
   height: 60%;
   opacity: 0.9;
 }
-/* Кнопка "Карта" */
-/*#sceneList {
-  position: absolute;
-  top: 0;
-  left: -220px;
-  padding-top: 40px;
-  width: 220px;
-  max-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin-left: 0;
-  -webkit-transition: margin-left 0.5s ease-in-out;
-  transition: margin-left 0.5s ease-in-out;
-}
-#sceneList .scenes {
-  width: 100%;
-  background-color: rgba(35,35,38,0.8);
-}
-#sceneList.enabled {
-  margin-left: 220px;
-}
-#sceneList .scene {
-  display: block;
-  width: 100%;
-  height: 30px;
-}
-#sceneList .scene .text {
-  width: 100%;
-  height: 100%;
-  padding: 0 15px;
-  line-height: 30px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.no-touch #sceneList .scene:hover {
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
-}
-#sceneList .scene.current {
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
-}*/
-/* Hide scene list when only a single scene exists */
-/*body.single-scene #sceneList, body.single-scene #sceneListToggle {
-  display: none;
-}*/
 /* Link hotspot */
 .link-hotspot {
   width: 20px;
@@ -208,7 +161,6 @@ body.scene-info-enabled #sceneInfoToggle {
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
-
 /* Prevent tooltip from triggering */
 .link-hotspot-tooltip {pointer-events: none;}
 .no-touch .link-hotspot:hover .link-hotspot-tooltip {
@@ -221,7 +173,6 @@ body.scene-info-enabled #sceneInfoToggle {
 .no-touch .tooltip-fallback .link-hotspot:hover .link-hotspot-tooltip {
   display: block;
 }
-
 /* Info hotspot */
 .info-hotspot {
   line-height: 1.2em;
@@ -320,8 +271,7 @@ body.scene-info-enabled #sceneInfoToggle {
         font-weight: bold;
         font-size: 18px;
         color: #f7f8fc;
-/*        flex: 1;
-*/        text-align: center;
+        text-align: center;
         line-height: 1.2em;
         margin: 0;
     }
@@ -513,7 +463,7 @@ body.view-control-buttons .viewControlButton {
     bottom: 0;
     right: 40px;
     z-index: 100;
-    display: none; /* скрыто по умолчанию, показывается при hover */
+    display: none; 
     flex-direction: column;
     gap: 6px;
     width: 150px;
@@ -546,15 +496,6 @@ body.view-control-buttons .viewControlButton {
     color: #ccc;
     text-align: center;
 }
-/* Кнопка "Домой"*/
-/*#sceneHome .icon.on {display: none;}*/
-/* Скрываем дубль */
-/*#sceneHome .icon.off {display: block;}*/
-/* Опционально: эффект при наведении */
-/*#sceneHome:hover .icon.off {
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}*/
 /* ===== FLOOR PLAN ===== */
 /* Оригинальное поведение - скрыт слева */
 #sceneList {
