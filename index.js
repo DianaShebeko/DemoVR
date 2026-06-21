@@ -47,21 +47,29 @@ var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 var scenes = data.scenes.map(function (data) {
 
     if (data.id === '0-image') {
-        source = Marzipano.ImageUrlSource.fromString("content/0-image/0-image.png");
-        geometry = new Marzipano.FlatGeometry([{ width: 2272, height: 1278 }]);
-    }
+        var source = Marzipano.ImageUrlSource.fromString("content/0-image/0-image.png");
+        var geometry = new Marzipano.FlatGeometry([{ width: 2272, height: 1278 }]);
 
-    var urlPrefix = "tiles";
-    var source = Marzipano.ImageUrlSource.fromString(
-    urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
-    { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
-    var geometry = new Marzipano.CubeGeometry(data.levels);
-    var baseLimiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
-    var limiter = Marzipano.util.compose(
-    baseLimiter,
-    Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 6) 
-    );
-    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+        var imageSize = { width: 2272, height: 1278 };
+        var flatLimiter = Marzipano.FlatView.limit.visibleDimension(imageSize, {
+            minZoom: 0.5,
+            maxZoom: 2
+        });
+        view = new Marzipano.FlatView(data.initialViewParameters, flatLimiter);
+    } else {
+
+        var urlPrefix = "tiles";
+        var source = Marzipano.ImageUrlSource.fromString(
+            urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
+            { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
+        var geometry = new Marzipano.CubeGeometry(data.levels);
+        var baseLimiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
+        var limiter = Marzipano.util.compose(
+            baseLimiter,
+            Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 6)
+        );
+        var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+    }
     var scene = viewer.createScene({
     source: source,
     geometry: geometry,

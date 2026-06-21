@@ -711,7 +711,7 @@ body.is-start-screen #viewDown, /* Стрелка вниз */
 body.is-start-screen #viewLeft, /* Стрелка влево */
 body.is-start-screen #viewRight, /* Стрелка вправо */
 body.is-start-screen #viewIn, /* Зум + */
-body.is-start-screen #viewOut, /* Зум - */
+body.is-start-screen #viewOut /* Зум - */
 { 
     display: none !important;
 }
