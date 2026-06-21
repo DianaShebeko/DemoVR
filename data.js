@@ -3,7 +3,6 @@ var APP_DATA = {
     {
         "id": "0-image",
         "name": "Пролог",
-        "audioGuide": "audio/prolog.mp3",
           "sceneInfo": {
               "title": "Виртуальная экскурсия по Чесменскому дворцу",
               "content": [

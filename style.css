@@ -106,7 +106,7 @@ body.scene-info-enabled #sceneInfoToggle {
   height: 60%;
   opacity: 0.9;
 }
-/* Link hotspot */
+/* Маркер перемещения */
 .link-hotspot {
   width: 20px;
   height: 20px;
@@ -116,10 +116,7 @@ body.scene-info-enabled #sceneInfoToggle {
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-.no-touch .link-hotspot:hover {
-  opacity: 1;
-}
-
+.no-touch .link-hotspot:hover {opacity: 1;}
 .link-hotspot-icon {
   width: 100%;
   height: 100%;
@@ -167,13 +164,11 @@ body.scene-info-enabled #sceneInfoToggle {
   pointer-events: all;
 }
 /* Fallback mode without pointer-events (IE8-10) */
-.tooltip-fallback .link-hotspot-tooltip {
-  display: none;
-}
+.tooltip-fallback .link-hotspot-tooltip {display: none;}
 .no-touch .tooltip-fallback .link-hotspot:hover .link-hotspot-tooltip {
   display: block;
 }
-/* Info hotspot */
+/* Маркер (хотспот) */
 .info-hotspot {
   line-height: 1.2em;
   opacity: 0.9;
@@ -195,16 +190,14 @@ body.scene-info-enabled #sceneInfoToggle {
   height: 70%;
   margin: 15%;
 }
-.info-hotspot .info-hotspot-close-wrapper {
-  display: none
-}
+.info-hotspot .info-hotspot-close-wrapper { display: none}
 .info-hotspot .info-hotspot-close-icon {
     width: 90%;
     height: 90%;
     margin: 15%;
 }
 .info-hotspot .info-hotspot-text {display: none;}
-/* Подсказка при наведении */
+/* Подсказка при наведении на маркер */
 .info-hotspot .info-hotspot-title-wrapper {
   position: absolute;
   left: 50%;
@@ -239,105 +232,93 @@ body.scene-info-enabled #sceneInfoToggle {
 }
 #sceneInfoModal {top: 0;}
 .info-hotspot-modal {top: 25px;}
-
-    .info-hotspot-modal.visible, #sceneInfoModal.visible {
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Базовая шапка для обоих окон */
-    .info-hotspot-modal .info-hotspot-header, #sceneInfoModal .scene-info-header {
-        position: relative; /* Чтобы крестик позиционировался относительно шапки */
-        width: 90%;
-        max-width: 1024px;
-        min-height: 50px;
-        background-color: rgba(29, 29, 31, 0.95);
-        margin: 40px auto 0 auto;
-        padding: 0 50px 0 20px; /* Отступ справа больше, чтобы текст не налезал на крестик */
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        border-radius: 5px 5px 0 0;
-    }
-
-    .info-hotspot-modal .info-hotspot-header, #sceneInfoModal .scene-info-header {
-        display: grid;
-        grid-template-columns: 30px 1fr; /* Иконка + Заголовок, крестик позиционируется абсолютно */
-        gap: 12px;
-    }
-
-    .info-hotspot-modal .info-hotspot-title, #sceneInfoModal .scene-info-title-wrapper {
-        font-weight: bold;
-        font-size: 18px;
-        color: #f7f8fc;
-        text-align: center;
-        line-height: 1.2em;
-        margin: 0;
-    }
-
-    .info-hotspot-modal .info-hotspot-icon-wrapper, #sceneInfoModal .scene-info-icon-wrapper {
-        width: 32px; /* или любой другой базовый размер, они будут сжиматься */
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* САМА КАРТИНКА ИКОНКИ ВНУТРИ ОБЕРТКИ (Уменьшаем масштаб до уровня крестика) */
-    .info-hotspot-modal .info-hotspot-icon, #sceneInfoModal .scene-info-icon {
-        width: 60%; /* Точно так же, как у крестика */
-        height: 60%; /* Точно так же, как у крестика */
-        margin: 0;
-        object-fit: contain;
-    }
-
-    /* УНИВЕРСАЛЬНЫЙ КРЕСТИК ЗАКРЫТИЯ (Идеален и для ПК, и для телефона) */
-    .info-hotspot-modal .info-hotspot-close-wrapper, #sceneInfoModal .scene-info-close-wrapper {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 15px;
-        width: 32px;
-        height: 32px;
-        min-width: 32px; /* Не даст мобилке сплющить крестик */
-        min-height: 32px;
-        flex-shrink: 0; /* Запрещает сжатие во Flexbox/Grid */
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Сама иконка-картинка внутри крестика */
-    .info-hotspot-modal .info-hotspot-close-icon, #sceneInfoModal .scene-info-close-icon {
-        width: 60%;
-        height: 60%;
-        margin: 0;
-        object-fit: contain;
-    }
-
-    /* Текстовые поля модальных окон */
-    .info-hotspot-modal .info-hotspot-text, #sceneInfoModal .scene-info-text {
-        width: 90%;
-        max-width: 1024px;
-        max-height: 75vh;
-        overflow-y: auto;
-        padding: 30px;
-        background-color: rgba(35, 35, 38, 0.95);
-        border-radius: 0 0 5px 5px;
-        color: #f7f8fc;
-        text-align: justify;
-        text-indent: 1.5em;
-        line-height: 1.6em;
-        box-sizing: border-box;
-    }
-
+.info-hotspot-modal.visible, #sceneInfoModal.visible {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+/*  Шапка информационного окна*/
+.info-hotspot-modal .info-hotspot-header, #sceneInfoModal .scene-info-header {
+    position: relative;
+    width: 90%;
+    max-width: 1024px;
+    min-height: 50px;
+    background-color: rgba(29, 29, 31, 0.95);
+    margin: 40px auto 0 auto;
+    padding: 0 50px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5px 5px 0 0;
+}
+/*Шапка информационного окна (иконка "i", заголовок, кионка "x"*/
+.info-hotspot-modal .info-hotspot-header, #sceneInfoModal .scene-info-header {
+    display: grid;
+    grid-template-columns: 30px 1fr; 
+    gap: 12px;
+}
+.info-hotspot-modal .info-hotspot-title, #sceneInfoModal .scene-info-title-wrapper {
+    font-weight: bold;
+    font-size: 18px;
+    color: #f7f8fc;
+    text-align: center;
+    line-height: 1.2em;
+    margin: 0;
+}
+.info-hotspot-modal .info-hotspot-icon-wrapper, #sceneInfoModal .scene-info-icon-wrapper {
+    width: 32px; 
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-hotspot-modal .info-hotspot-icon, #sceneInfoModal .scene-info-icon {
+    width: 60%; 
+    height: 60%; 
+    margin: 0;
+    object-fit: contain;
+}
+/* Иконка закрытия окна (крестик) */
+.info-hotspot-modal .info-hotspot-close-wrapper, #sceneInfoModal .scene-info-close-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px; 
+    min-height: 32px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* иконка-картинка внутри крестика */
+.info-hotspot-modal .info-hotspot-close-icon, #sceneInfoModal .scene-info-close-icon {
+    width: 60%;
+    height: 60%;
+    margin: 0;
+    object-fit: contain;
+}
+/* Текстовые поля модальных окон */
+.info-hotspot-modal .info-hotspot-text, #sceneInfoModal .scene-info-text {
+    width: 90%;
+    max-width: 1024px;
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 30px;
+    background-color: rgba(35, 35, 38, 0.95);
+    border-radius: 0 0 5px 5px;
+    color: #f7f8fc;
+    text-align: justify;
+    text-indent: 1.5em;
+    line-height: 1.6em;
+    box-sizing: border-box;
+}
 /* Стилизация контента внутри окон */
 .info-hotspot-text .content-block {margin-bottom: 25px;}
-
 .info-hotspot-text .content-text {text-align: justify;}
-
 .info-hotspot-text img, .info-hotspot-text video, .scene-info-image {
     display: block;
     margin: 20px auto;
@@ -345,7 +326,6 @@ body.scene-info-enabled #sceneInfoToggle {
     max-width: 100%;
     border-radius: 8px;
 }
-
 .info-hotspot-text .content-note, .scene-info-note {
     margin: 10px auto 20px;
     text-align: center;
@@ -353,16 +333,14 @@ body.scene-info-enabled #sceneInfoToggle {
     color: #ccc;
     font-size: 14px;
 }
-
 .info-hotspot-text .content-model, .info-hotspot-text model-viewer {
     width: 100%;
     height: 500px;
     margin: 15px auto;
     background: rgba(35, 35, 35, 0.2);
 }
-
-/*View control buttons */
-.viewControlButton {
+/*кнопки управления углом обзора*/
+.viewControlButton { 
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -370,15 +348,7 @@ body.scene-info-enabled #sceneInfoToggle {
   height: 40px;
   padding: 5px;
 }
-body.view-control-buttons .viewControlButton {
-  display: block;
-}
-/* Hide controls when width is too small */
-@media (max-width: 600px) {
-  body.view-control-buttons .viewControlButton {
-    display: none;
-  }
-}
+body.view-control-buttons .viewControlButton { display: block;}
 .viewControlButton .icon {
   position: absolute;
   top: 5px;
@@ -386,14 +356,13 @@ body.view-control-buttons .viewControlButton {
   width: 30px;
   height: 30px;
 }
-/* Center is at margin-left: -20px */
 .viewControlButton-1 {margin-left: -145px;}
 .viewControlButton-2 {margin-left: -95px;}
 .viewControlButton-3 {margin-left: -45px;}
 .viewControlButton-4 {margin-left: 5px;}
 .viewControlButton-5 {margin-left: 55px;}
 .viewControlButton-6 {margin-left: 105px;}
-/* НИЖНЕЕ МЕНЮ */
+/* Нижнее меню */
 .bottom-toolbar {
     position: absolute;
     bottom: 0px;
@@ -406,11 +375,7 @@ body.view-control-buttons .viewControlButton {
     background: rgba(0, 0, 0, 0.4);
     padding: 6px 6px;
 }
-.bottom-toolbar img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
+.bottom-toolbar img { width: 30px; height: 30px; cursor: pointer;}
 .toolbar-right {display: flex;gap: 15px;}
 .toolbar-left {display: flex;gap: 15px;}
 .bottom-toolbar .icon.off {display: block;}
@@ -418,7 +383,7 @@ body.view-control-buttons .viewControlButton {
 .bottom-toolbar a.enabled .icon.off {display: none;}
 .bottom-toolbar a.enabled .icon.on {display: block;}
 .menu-wrapper {position: relative;}
-.hidden-menu {
+.hidden-menu { /*скрытое меню*/
     position: absolute;
     bottom: calc(100% + 10px);
     right: 0;
@@ -441,10 +406,7 @@ body.view-control-buttons .viewControlButton {
     cursor: pointer;
     transition: background 0.15s;
 }
-.hidden-menu img, .hidden-menu .icon {
-    width: 30px;
-    height: 30px;
-}
+.hidden-menu img, .hidden-menu .icon {width: 30px; height: 30px;}
 /*Кнопка автоматического поворота*/
 #autorotateToggle .icon.on {display: none;}
 #autorotateToggle .icon.off {display: block;}
@@ -468,9 +430,7 @@ body.view-control-buttons .viewControlButton {
     gap: 6px;
     width: 150px;
 }
-.audio-wrapper.enabled:hover #audioBar {
-    display: flex;
-}
+.audio-wrapper.enabled:hover #audioBar { display: flex;}
 /* Панель появляется при наведении на весь нижний тулбар */
 .bottom-toolbar:hover #audioBar {
     display: flex;
@@ -496,13 +456,12 @@ body.view-control-buttons .viewControlButton {
     color: #ccc;
     text-align: center;
 }
-/* ===== FLOOR PLAN ===== */
-/* Оригинальное поведение - скрыт слева */
-#sceneList {
+/* Окно навигации */
+#sceneList { 
     position: absolute;
     top: 0;
     left: 0;
-    width: 700px; /* Исходная ширина списка */
+    width: 700px;
     height: 100%;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -525,11 +484,7 @@ body.view-control-buttons .viewControlButton {
     background-color: rgba(35, 35, 38, 0.8);
     flex-shrink: 0;
 }
-#sceneList .scene {
-   display: block;
-    width: 100%;
-    height: 30px;
-}
+#sceneList .scene {display: block; width: 100%; height: 30px;}
 #sceneList .scene .text {
     width: 100%;
     height: 100%;
@@ -539,7 +494,6 @@ body.view-control-buttons .viewControlButton {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
 .no-touch #sceneList .scene:hover, #sceneList .scene.current {
     background-color: rgba(103, 115, 131, 0.8);
 }
@@ -628,11 +582,7 @@ body.view-control-buttons .viewControlButton {
   cursor: pointer;
   z-index: 100;
 }
-.control-button .icon {
-  width: 28px;
-  height: 28px;
-  display: none;
-}
+.control-button .icon {width: 28px; height: 28px; display: none;}
 .control-button .icon.off {display: block;}
 .control-button.enabled .icon.off {display: none;}
 .control-button.enabled .icon.on {display: block;}
@@ -705,20 +655,18 @@ body.view-control-buttons .viewControlButton {
 body.view-control-buttons .viewControlButton {
     display: none !important;
 }
-/* Увеличиваем кликабельную зону точек переходов (link-hotspots) под тач-пальцы */
-.link-hotspot {
+.link-hotspot { /*точки переходов*/
     width: 32px;
     height: 32px;
     margin-left: -16px;
     margin-top: -16px;
 }
-
 /* МОБИЛЬНАЯ ТИПОГРАФИКА: Оптимизация вывода текстовых блоков */
 .info-hotspot-modal .info-hotspot-text,
 #sceneInfoModal .scene-info-text {
     width: 95%;
-    padding: 16px; /* Меньше внутренние отступы — больше полезной площади */
-    font-size: 14px; /* Оптимальный размер шрифта для чтения со смартфона */
+    padding: 16px; 
+    font-size: 14px;
     line-height: 1.5em;
     text-indent: 1em;
     max-height: 70vh;
@@ -744,10 +692,7 @@ body.view-control-buttons .viewControlButton {
 .info-hotspot-text model-viewer {
     height: 300px; /* Высота окна 3D-модели */
 }
-#sceneList {
-    width: 100%;
-    margin-left: -100%;
-}
+#sceneList {width: 100%; margin-left: -100%;}
 #sceneList.enabled {margin-left: 0;}
 .sceneList-inner {flex-direction: column;}
 #sceneList .scenes {
@@ -755,13 +700,18 @@ body.view-control-buttons .viewControlButton {
     height: 40%;
     min-height: 150px;
 }
-.floorplan-right {
-    width: 100%;
-    height: 60%;
-    padding: 10px;
+.floorplan-right { width: 100%; height: 60%; padding: 10px;}
+.floorplan-image {width: 100%; max-height: 200px;}
 }
-.floorplan-image {
-    width: 100%;
-    max-height: 200px;
-}
+
+/* Когда открыта стартовая сцена - скрываются кнопки */
+body.is-start-screen #bottom-toolbar, /* Нижее меню */
+body.is-start-screen #viewUp, /* Стрелка вверх */
+body.is-start-screen #viewDown, /* Стрелка вниз */
+body.is-start-screen #viewLeft, /* Стрелка влево */
+body.is-start-screen #viewRight, /* Стрелка вправо */
+body.is-start-screen #viewIn, /* Зум + */
+body.is-start-screen #viewOut, /* Зум - */
+{ 
+    display: none !important;
 }

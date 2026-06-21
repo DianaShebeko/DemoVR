@@ -20,8 +20,7 @@ var Marzipano = window.Marzipano;
 var bowser = window.bowser;
 var screenfull = window.screenfull;
 var data = window.APP_DATA;
-
-// Grab elements from DOM.
+// Список элементов из DOM.
 var panoElement = document.querySelector('#pano');
 var sceneNameElement = document.querySelector('#titleBar .sceneName');
 var sceneListElement = document.querySelector('#sceneList');
@@ -29,94 +28,63 @@ var sceneElements = document.querySelectorAll('#sceneList .scene');
 var sceneListToggleElement = document.querySelector('#sceneListToggle');
 var autorotateToggleElement = document.querySelector('#autorotateToggle');
 var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
-var sceneInfoToggleElement = document.querySelector('#sceneInfoToggle');
-    
-var guideAudio = null;     // аудио для гида
-var currentSceneWrapper = null;
-  
-// Detect desktop or mobile mode.
-if (window.matchMedia) {
-var setMode = function() {
-if (mql.matches) {
-document.body.classList.remove('desktop');
-document.body.classList.add('mobile');
-} else {
-document.body.classList.remove('mobile');
-document.body.classList.add('desktop');
-}
-};
-var mql = matchMedia("(max-width: 500px), (max-height: 500px)");
-setMode();
-mql.addListener(setMode);
-} else {
-document.body.classList.add('desktop');
-}
 
-// Detect whether we are on a touch device.
+var currentSceneWrapper = null;
+// Определение тач-устройств
 document.body.classList.add('no-touch');
 window.addEventListener('touchstart', function() {
 document.body.classList.remove('no-touch');
 document.body.classList.add('touch');
 });
-
-// Use tooltip fallback mode on IE < 11.
-if (bowser.msie && parseFloat(bowser.version) < 11) {
-document.body.classList.add('tooltip-fallback');
-}
-
-// Viewer options.
+// Инициализация Marzipano
 var viewerOpts = {
 controls: {
 mouseViewMode: data.settings.mouseViewMode
-}
-};
-
-// Initialize viewer.
+}};
+// Создание просмотрщика
 var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+// Инициализация сцен и загрузка панорам
+var scenes = data.scenes.map(function (data) {
 
-// Create scenes.
-var scenes = data.scenes.map(function(data) {
-var urlPrefix = "tiles";
-var source = Marzipano.ImageUrlSource.fromString(
-urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
-{ cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
-var geometry = new Marzipano.CubeGeometry(data.levels);
+    if (data.id === '0-image') {
+        source = Marzipano.ImageUrlSource.fromString("content/0-image/0-image.png");
+        geometry = new Marzipano.FlatGeometry([{ width: 2272, height: 1278 }]);
+    }
 
-var baseLimiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
-
-var limiter = Marzipano.util.compose(
-baseLimiter,
-Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 6) 
-);
-var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
-
-var scene = viewer.createScene({
-source: source,
-geometry: geometry,
-view: view,
-pinFirstLevel: true
+    var urlPrefix = "tiles";
+    var source = Marzipano.ImageUrlSource.fromString(
+    urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
+    { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
+    var geometry = new Marzipano.CubeGeometry(data.levels);
+    var baseLimiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
+    var limiter = Marzipano.util.compose(
+    baseLimiter,
+    Marzipano.RectilinearView.limit.pitch(-Math.PI / 2, Math.PI / 6) 
+    );
+    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+    var scene = viewer.createScene({
+    source: source,
+    geometry: geometry,
+    view: view,
+    pinFirstLevel: true
 });
-
-// Create link hotspots.
+// Генерация стрелок переходов
 data.linkHotspots.forEach(function(hotspot) {
 var element = createLinkHotspotElement(hotspot);
 scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
 });
-
-// Create info hotspots.
+// Генрация иформационных точек
 data.infoHotspots.forEach(function(hotspot) {
 var element = createInfoHotspotElement(hotspot);
 scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
 });
-
 return {
 data: data,
 scene: scene,
 view: view
 };
 });
-
-// Set up autorotate, if enabled.
+// Параметры автоповорота
 var autorotate = Marzipano.autorotate({
 yawSpeed: 0.03,
 targetPitch: 0,
@@ -125,36 +93,13 @@ targetFov: Math.PI/2
 if (data.settings.autorotateEnabled) {
 autorotateToggleElement.classList.add('enabled');
 }
-
-// Set handler for autorotate toggle.
+// Привязка события к кнопке автоповорота
 autorotateToggleElement.addEventListener('click', toggleAutorotate);
 
-// Set up fullscreen mode, if supported.
-if (screenfull.enabled && data.settings.fullscreenButton) {
-document.body.classList.add('fullscreen-enabled');
-fullscreenToggleElement.addEventListener('click', function() {
-screenfull.toggle();
-});
-screenfull.on('change', function() {
-if (screenfull.isFullscreen) {
-fullscreenToggleElement.classList.add('enabled');
-} else {
-fullscreenToggleElement.classList.remove('enabled');
-}
-});
-} else {
-document.body.classList.add('fullscreen-disabled');
-}
-
-// Set handler for scene list toggle.
+// Привязка события к кнопке открытия навигации
 sceneListToggleElement.addEventListener('click', toggleSceneList);
 
-// Start with the scene list open on desktop.
-/*if (!document.body.classList.contains('mobile')) {
-showSceneList();
-}
-*/
-// Set handler for scene switch.
+// Выбор локации из списка залов
 scenes.forEach(function(scene) {
 var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
 if (el) {
@@ -163,12 +108,9 @@ switchScene(scene);
 // On mobile, hide scene list after selecting a scene.
 if (document.body.classList.contains('mobile')) {
 hideSceneList();
-}
-});
-}
-});
+}});}});
 
-// DOM elements for view controls.
+//  Элементы управлением обзора панорам
 var viewUpElement = document.querySelector('#viewUp');
 var viewDownElement = document.querySelector('#viewDown');
 var viewLeftElement = document.querySelector('#viewLeft');
@@ -176,11 +118,10 @@ var viewRightElement = document.querySelector('#viewRight');
 var viewInElement = document.querySelector('#viewIn');
 var viewOutElement = document.querySelector('#viewOut');
 
-// Dynamic parameters for controls.
 var velocity = 0.7;
 var friction = 3;
 
-// Associate view controls with elements.
+// Методы управления для элементов управления обзором панорам
 var controls = viewer.controls();
 controls.registerMethod('upElement',    new Marzipano.ElementPressControlMethod(viewUpElement,     'y', -velocity, friction), true);
 controls.registerMethod('downElement',  new Marzipano.ElementPressControlMethod(viewDownElement,   'y',  velocity, friction), true);
@@ -189,125 +130,89 @@ controls.registerMethod('rightElement', new Marzipano.ElementPressControlMethod(
 controls.registerMethod('inElement',    new Marzipano.ElementPressControlMethod(viewInElement,  'zoom', -velocity, friction), true);
 controls.registerMethod('outElement',   new Marzipano.ElementPressControlMethod(viewOutElement, 'zoom',  velocity, friction), true);
 
-function sanitize(s) {
-return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
-}
-// === АВТОМАТИЧЕСКОЕ ОТКРЫТИЕ ИНФО НА ПЕРВОЙ СЦЕНЕ ===
+// Автоматическое открытие информационного окна в стартовой сцене
 function autoOpenSceneInfo() {
-// Проверяем, что первая сцена - пролог и у неё есть sceneInfo
-if (scenes[0] && scenes[0].data.id === '0-image' && scenes[0].data.sceneInfo) {
+if (scenes[0] && scenes[0].data.id === '0-image') {
 currentSceneWrapper = scenes[0];
-
-// Заполняем контент
 if (sceneInfoTitle) {
-sceneInfoTitle.textContent = scenes[0].data.sceneInfo.title || 'Добро пожаловать';
+sceneInfoTitle.textContent = scenes[0].data.sceneInfo.title;
 }
-
 renderSceneInfoContent();
-
-// Показываем модальное окно
 sceneInfoModal.classList.add('visible');
-}
-}
-// Открываем автоматически при загрузке
-setTimeout(autoOpenSceneInfo, 500);
+}}
+setTimeout(autoOpenSceneInfo, 500); // Автозапуск через 500мс
 
-function switchScene(scene) {
+function switchScene(scene) {   /*Оригинальная логика переключения залов */
 stopAutorotate();
 scene.view.setParameters(scene.data.initialViewParameters);
 scene.scene.switchTo();
-
-/*    scene.view.setParameters(scene.data.initialViewParameters);*/
-
 startAutorotate();
 updateSceneName(scene);
 updateSceneList(scene);
 currentSceneWrapper = scene;
 }
 
-function updateSceneName(scene) {
+function updateSceneName(scene) { //ОБновление текстового заголовка зала
 sceneNameElement.innerHTML = sanitize(scene.data.name);
 }
   
-function updateSceneList(scene) {
+function updateSceneList(scene) { //Изменение класса сцен в боковом меню
 for (var i = 0; i < sceneElements.length; i++) {
 var el = sceneElements[i];
 if (el.getAttribute('data-id') === scene.data.id) {
 el.classList.add('current');
-} else {
-el.classList.remove('current');
-}
-}
-}
-
-function showSceneList() {
-sceneListElement.classList.add('enabled');
-sceneListToggleElement.classList.add('enabled');
-}
-
-function hideSceneList() {
+} else {el.classList.remove('current');}
+}}
+function hideSceneList() { /*Скрыть навигационное окно*/
 sceneListElement.classList.remove('enabled');
 sceneListToggleElement.classList.remove('enabled');
 }
-
-function toggleSceneList() {
+function toggleSceneList() { //Переключить состояние видимости навигационного окна
 sceneListElement.classList.toggle('enabled');
 sceneListToggleElement.classList.toggle('enabled');
 }
-
-function startAutorotate() {
-if (!autorotateToggleElement.classList.contains('enabled')) {
-return;
-}
+function startAutorotate() { //Старт автоповорота
+if (!autorotateToggleElement.classList.contains('enabled')) {return;}
 viewer.startMovement(autorotate);
 viewer.setIdleMovement(3000, autorotate);
 }
-
-function stopAutorotate() {
+function stopAutorotate() { //Остановка автоповорота
 viewer.stopMovement();
 viewer.setIdleMovement(Infinity);
 }
 
-function toggleAutorotate() {
+function toggleAutorotate() { //Переключение автоповорота по кнопке
 if (autorotateToggleElement.classList.contains('enabled')) {
 autorotateToggleElement.classList.remove('enabled');
 stopAutorotate();
 } else {
 autorotateToggleElement.classList.add('enabled');
 startAutorotate();
-}
-}
+}}
 
-/*  ===  ХОТ-СПОТ  ===  */
+/* Интерактивные маркеры переходов  */
 function createLinkHotspotElement(hotspot) {
-
-// Create wrapper element to hold icon and tooltip.
 var wrapper = document.createElement('div');
-wrapper.classList.add('hotspot');
-wrapper.classList.add('link-hotspot');
+wrapper.classList.add('hotspot', 'link-hotspot');
 
-// Create image element.
 var icon = document.createElement('img');
 icon.src = 'img/link.png';
 icon.classList.add('link-hotspot-icon');
 
-// Set rotation transform.
+// Поворот стрелки
 var transformProperties = [ '-ms-transform', '-webkit-transform', 'transform' ];
 for (var i = 0; i < transformProperties.length; i++) {
 var property = transformProperties[i];
 icon.style[property] = 'rotate(' + hotspot.rotation + 'rad)';
 }
 
-// Add click event handler.
+// Переход на длругую локацию при клике
 wrapper.addEventListener('click', function() {
 switchScene(findSceneById(hotspot.target));
 });
-
-// Prevent touch and scroll events from reaching the parent element.
-// This prevents the view control logic from interfering with the hotspot.
+//Исключение конфликта клика по маркеру и панорамы
 stopTouchAndScrollEventPropagation(wrapper);
-
-// Create tooltip element.
+// Создание всплывающего названия зала при наведении
 var tooltip = document.createElement('div');
 tooltip.classList.add('hotspot-tooltip');
 tooltip.classList.add('link-hotspot-tooltip');
@@ -317,30 +222,30 @@ wrapper.appendChild(icon);
 wrapper.appendChild(tooltip);
 
 return wrapper;
-}
+	}
+//Информационные точки 
 function createInfoHotspotElement(hotspot) {
-// Функция для создания элементов контента (текст, слайдер, видео, 3д-модель)
-function createContentNodes(isModal) {
+// Сборка элементов контента (текст, слайдер, видео, 3д-модель)
+function createContentNodes() {
 var textContainer = document.createElement('div');
 textContainer.classList.add('info-hotspot-text');
-
 if (hotspot.content && hotspot.content.length > 0) {
 for (var i = 0; i < hotspot.content.length; i++) {
 var block = hotspot.content[i];
 
-if (block.type === 'text') {
+if (block.type === 'text') { /* текст */
 var textBlock = document.createElement('div');
 textBlock.classList.add('content-block', 'content-text');
 textBlock.innerHTML = block.text;
 textContainer.appendChild(textBlock);
 }
-else if (block.type === 'note') {
+else if (block.type === 'note') { /* подпись рисунка */
 var noteBlock = document.createElement('div');
 noteBlock.classList.add('content-block', 'content-note');
 noteBlock.innerHTML = block.text;
 textContainer.appendChild(noteBlock);
 }
-else if (block.type === 'image') {
+else if (block.type === 'image') { /* изображения */
 if (!block.images || block.images.length <= 1) {
 var imgBlock = document.createElement('div');
 imgBlock.classList.add('content-block', 'content-image');
@@ -351,9 +256,8 @@ textContainer.appendChild(imgBlock);
 } else {
 var slider = createSlider(block.images);
 textContainer.appendChild(slider);
-}
-}
-else if (block.type === 'model') {
+}} 
+else if (block.type === 'model') { /* 3d-модель  */
 var modelBlock = document.createElement('div');
 modelBlock.classList.add('content-block', 'content-model');
 var modelViewer = document.createElement('model-viewer');
@@ -364,7 +268,7 @@ modelViewer.setAttribute('touch-action', 'pan-y');
 modelBlock.appendChild(modelViewer);
 textContainer.appendChild(modelBlock);
 }
-else if (block.type === 'video') {
+else if (block.type === 'video') { /* видео */
 var videoBlock = document.createElement('div');
 videoBlock.classList.add('content-block', 'content-video');
 var video = document.createElement('video');
@@ -373,15 +277,11 @@ if (block.poster) video.poster = block.poster;
 video.controls = true;
 videoBlock.appendChild(video);
 textContainer.appendChild(videoBlock);
-}
-
-}
-}
+} }}
 return textContainer;
 }
-
-// Вспомогательная функция для создания шапки
-function createHeaderNode(isModal) {
+// Сборка шапки информационного окна
+function createHeaderNode() {
 var header = document.createElement('div');
 header.classList.add('info-hotspot-header');
 
@@ -412,7 +312,7 @@ header.appendChild(closeWrapper);
 return header;
 }
 
-// 1. Создаем основной хотспот (для десктопа/наведения)
+// Модальное окно для компьютеров
 var wrapper = document.createElement('div');
 wrapper.classList.add('hotspot', 'info-hotspot');
 var desktopHeader = createHeaderNode(false);
@@ -420,7 +320,7 @@ var desktopText = createContentNodes(false);
 wrapper.appendChild(desktopHeader);
 wrapper.appendChild(desktopText);
 
-// 2. Создаем модальное окно (для мобилок/кликов)
+// Модальное окно для мобильных устройств
 var modal = document.createElement('div');
 modal.classList.add('info-hotspot-modal');
 var modalHeader = createHeaderNode(true);
@@ -429,13 +329,12 @@ modal.appendChild(modalHeader);
 modal.appendChild(modalText);
 document.body.appendChild(modal);
 
-// Функция переключения
+// Переключение видимости окна
 var toggle = function () {
 wrapper.classList.toggle('visible');
 modal.classList.toggle('visible');
 };
 
-// Вешаем события на шапки обоих элементов
 desktopHeader.addEventListener('click', toggle);
 modalHeader.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
 
@@ -444,13 +343,11 @@ stopTouchAndScrollEventPropagation(modal);
 
 return wrapper;
 }
-// Слайдер
+// Галерея (слайдер)
 function createSlider(images) {
-//инициализация корневого слайдера
 var slider = document.createElement('div');
 slider.classList.add('info-hotspot-slider');
-//массив для хранения ссылок на 
-var slides = [];
+var slides = []; //массив ссылок изображенний
 var currentIndex = 0; //индекс текущего отображаемого слайда
 
 for (var i = 0; i < images.length; i++) {
@@ -463,12 +360,10 @@ slide.style.display = 'none';
 
 var img = document.createElement('img');
 img.src = images[i];
-
 slide.appendChild(img);
 slider.appendChild(slide);
 slides.push(slide);
 }
-//создание элементов навигации (кнопки переключения)
 //кнопка "Назад"
 var prevBtn = document.createElement('button'); 
 prevBtn.classList.add('slider-btn', 'prev');
@@ -477,19 +372,12 @@ prevBtn.innerHTML = '&#8592;';
 var nextBtn = document.createElement('button');
 nextBtn.classList.add('slider-btn', 'next');
 nextBtn.innerHTML = '&#8594;';
-
 slider.appendChild(prevBtn);
 slider.appendChild(nextBtn);
 
-//Внутренняя функция переключения отображаемого слайжа
-function showSlide(index) {
-if (index < 0) {
-index = slides.length - 1;
-}
-if (index >= slides.length) {
-index = 0;
-}
-
+function showSlide(index) { //Функция переключения слайда
+if (index < 0) {index = slides.length - 1;}
+if (index >= slides.length) {index = 0;}
 slides[currentIndex].style.display = 'none'; //скрытие активного слайда
 currentIndex = index;
 slides[currentIndex].style.display = 'block'; //отображение цслайда
@@ -504,76 +392,52 @@ nextBtn.addEventListener('click', function (e) {
 e.stopPropagation();
 showSlide(currentIndex + 1);
 });
-
 return slider;
 }
 
-// Prevent touch and scroll events from reaching the parent element.
+// Ограничение кликов вне зоны окна при открытом модальном окне
 function stopTouchAndScrollEventPropagation(element, eventList) {
 var eventList = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
 'wheel', 'mousewheel' ];
 for (var i = 0; i < eventList.length; i++) {
 element.addEventListener(eventList[i], function(event) {
 event.stopPropagation();
-});
-}
-}
-
-function findSceneById(id) {
+}); } }
+function findSceneById(id) { //Поиск сцены по строковому ID
 for (var i = 0; i < scenes.length; i++) {
 if (scenes[i].data.id === id) {
-return scenes[i];
-}
-}
-return null;
-}
-
-function findSceneDataById(id) {
+return scenes[i]; } }
+return null; }
+function findSceneDataById(id) {  //Поиск данных из data.js
 for (var i = 0; i < data.scenes.length; i++) {
 if (data.scenes[i].id === id) {
 return data.scenes[i];
+}} 
+	return null;
 }
-}
-return null;
-}
-  
-//* ===== FLOORMAP ======= *
-var floorPoints = document.querySelectorAll('.floor-point');
 
+//* Навигационная карта - обрработка точек на карте *
+var floorPoints = document.querySelectorAll('.floor-point');
 floorPoints.forEach(function(point) {
 point.addEventListener('click', function() {
 var sceneId = point.getAttribute('data-scene');
 var scene = findSceneById(sceneId);
-
 if (scene) {
 switchScene(scene);
-hideSceneList(); // закрытие панель после перехода
+hideSceneList(); // закрытие панели после перехода
 }
-});
-});
-
-/* Нижнее меню */
+}); });
+/* Нижнее меню (настройки) */
 var menuBtn = document.getElementById('btnMenuHidden');
 var hiddenMenu = document.getElementById('hiddenMenu');
 
-//  Скрытое меню (Открыть/Закрыть)
-if (menuBtn && hiddenMenu) {
+if (menuBtn && hiddenMenu) { //  Скрытое меню (Открыть/Закрыть)
 menuBtn.addEventListener('click', function (e) {
 e.preventDefault();
 e.stopPropagation();
 hiddenMenu.classList.toggle('open');
 menuBtn.classList.toggle('enabled');
-});
-
-// Закрытие при клике в пустоту
-document.addEventListener('click', function (e) {
-if (!menuBtn.contains(e.target) && !hiddenMenu.contains(e.target)) {
-hiddenMenu.classList.remove('open');
-menuBtn.classList.remove('enabled');
-}
-});
-}
-
+}); }
 //Аудиогид и звук
 var gAudio = null; //объект текущего аудио
 var isMuted = false;  //глобальное состояние звука
@@ -582,129 +446,91 @@ var audioBar = document.getElementById('audioBar');
 var audioSeek = document.getElementById('audioSeek');
 var audioTime = document.getElementById('audioTime');
 var audioOnOffBtn = document.getElementById('audioOnOff');
-
 //Обновление прогресс-бара и текстового таймера
 function updateTime() {
 if (gAudio && gAudio.duration && audioSeek && audioTime) {
 audioSeek.value = (gAudio.currentTime / gAudio.duration) * 100;
 var m = Math.floor(gAudio.currentTime/60), s = Math.floor(gAudio.currentTime%60);
 audioTime.textContent = m + ':' + (s<10?'0':'') + s;
-}
-}
-
-// Функция для применения глобального выключения(muted)  звука
+}}
+// Mute звука
 function applyMutedState() {
 if (gAudio) { gAudio.muted = isMuted; }
 if (audioOnOffBtn) {
 audioOnOffBtn.classList.toggle('enabled', isMuted);
-}
-}
-   
-// Обработчик кнопки глобального выключения звука (в меню)
+} }
+// Обработчик кнопки Mute
 if (audioOnOffBtn) {
 audioOnOffBtn.addEventListener('click', function (e) {
 e.preventDefault();
 e.stopPropagation();
 isMuted = !isMuted;  // Переключение глобального флага
 applyMutedState();    // Применение к текущему аудио
-});
-}
+});}
+
 //Управление воспроизведением (Play/Pause)
 if (audioBtn) {
 audioBtn.addEventListener('click', function (e) {
 e.preventDefault();
 e.stopPropagation();
 if (!gAudio) return;
-
 if (gAudio.paused) { gAudio.play(); }
 else { gAudio.pause(); }
-
 this.classList.toggle('enabled');
-});
-}
-
+});}
 // Перемотка аужио через ползунок
 if (audioSeek) {
 audioSeek.oninput = function() {
 if (gAudio && gAudio.duration) {
 gAudio.currentTime = (audioSeek.value / 100) * gAudio.duration;
-}
-};
+		}
+	};
 }
 
-
-// === КНОПКА ИНФОРМАЦИИ О СЦЕНЕ → МОДАЛЬНОЕ ОКНО ===
-var sceneInfoToggle = document.getElementById('sceneInfoToggle');
-var sceneInfoModal = document.getElementById('sceneInfoModal');
-var sceneInfoTitle = document.getElementById('sceneInfoTitle');
-var sceneInfoText = document.getElementById('sceneInfoText');
+// Модальное окно "О сцене"
+var sceneInfoModal = document.querySelector('#sceneInfoModal');
+var sceneInfoTitle = document.querySelector('#sceneInfoTitle');
+var sceneInfoText = document.querySelector('#sceneInfoText');
 var sceneInfoClose = document.querySelector('#sceneInfoModal .scene-info-close-wrapper');
 function renderSceneInfoContent() {
-const container = document.getElementById('sceneInfoText');
+var container = document.getElementById('sceneInfoText');
 if (!container) return;
+container.innerHTML = '';
 	  
-container.innerHTML = ''; // Очищаем
-	  
-const content = currentSceneWrapper.data.sceneInfo.content;
+var content = currentSceneWrapper.data.sceneInfo.content;
 if (!content) return;
 	  
-content.forEach(item => {
-		
-// === ТЕКСТ ===
-if (item.type === 'text') {
-const p = document.createElement('p');
+content.forEach(function (item) {
+if (item.type === 'text') { //Текст
+var p = document.createElement('p');
 p.className = 'scene-info-paragraph';
 p.innerHTML = item.text;
 container.appendChild(p);
 }
-		
-// === КАРТИНКА ===
-else if (item.type === 'image') {
+else if (item.type === 'image') { //Изображение
 const img = document.createElement('img');
 img.src = item.src;
-img.className = 'scene-info-image'; // класс для CSS (отступы, размер)
-container.appendChild(img);
+img.className = 'scene-info-image';
 }		
-		
-// === ЗАМЕТКА (по центру курсивом) ===
-else if (item.type === 'note') {
+else if (item.type === 'note') { //Подпись
 const p = document.createElement('p');
 p.className = 'scene-info-note';
 p.textContent = item.text;
 container.appendChild(p);
-}
-				
-});
-}
+} });}
 
-if (sceneInfoToggle) {
+if (sceneInfoToggle) { //Отображение окна при клике на значок "i"
 sceneInfoToggle.addEventListener('click', function(e) {
 e.stopPropagation();
-		
 if (currentSceneWrapper && currentSceneWrapper.data.sceneInfo) {
-if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title;
-		  
-// Вызываем рендеринг без параметров
-renderSceneInfoContent();
-		  
+if (sceneInfoTitle) sceneInfoTitle.textContent = currentSceneWrapper.data.sceneInfo.title;  
+renderSceneInfoContent();  	  
 sceneInfoModal.classList.add('visible');
-}
-});
-}
+}}); }
 
-// Закрытие модального окна (крестик)
-if (sceneInfoClose) {
+if (sceneInfoClose) { // Закрытие модального окна (крестик)
 sceneInfoClose.addEventListener('click', function() {
 sceneInfoModal.classList.remove('visible');
-});
-}
-
-// Закрытие по клику вне контента
-if (sceneInfoModal) {
-sceneInfoModal.addEventListener('click', function(e) {
-if (e.target === sceneInfoModal) {
-sceneInfoModal.classList.remove('visible');
-}
 });
 }
 
@@ -712,9 +538,21 @@ sceneInfoModal.classList.remove('visible');
 var originalSwitchScene = switchScene; //оригинальная логика switchScene
 switchScene = function (scene) { 
 originalSwitchScene(scene); //вызов оригинальной логики
+//остановка видео-элементов из предыдущей сцены
 document.querySelectorAll('video').forEach(function (video) { video.pause(); });
 // Закрытие всех модальных окон
 document.querySelectorAll('.info-hotspot-modal.visible').forEach(function (m) {m.classList.remove('visible'); });
+
+// Стартовая сцена
+if (scene.data.id === '0-image') { 
+    //Выключаем управление мышкой/тачем, чтобы фото не крутилось
+    viewer.controls().disable();
+    //чтобы CSS скрыл все кнопки
+    document.body.classList.add('is-start-screen');
+} else {
+    viewer.controls().enable();
+    document.body.classList.remove('is-start-screen');
+}
 
 // Аудио: сброс старого трека
 if (gAudio) { gAudio.pause(); gAudio = null; }
@@ -728,7 +566,7 @@ if (audioBar) audioBar.style.display = scene.data.audioGuide ? '' : 'none';
 if (audioSeek) audioSeek.value = 0;
 if (audioTime) audioTime.textContent = '0:00';
 
-// Аудио: загрузка нового трека, если есть
+// Аудио: загрузка и старт нового трека, если есть
 if (scene.data.audioGuide) {
 gAudio = new Audio(scene.data.audioGuide);
 gAudio.preload = 'metadata';
@@ -739,20 +577,17 @@ gAudio.onended = function () { //конец трека - обнуление па
 if (audioBtn) audioBtn.classList.remove('enabled');
 if (audioSeek) audioSeek.value = 0;
 if (audioTime) audioTime.textContent = '0:00';
-};
-}
+};}
 // Информация о сцене: показать/скрыть
 if (sceneInfoToggle) {
 var hasInfo = scene.data.sceneInfo && scene.data.sceneInfo.content;
 sceneInfoToggle.style.display = hasInfo ? 'block' : 'none';
 document.body.classList.toggle('scene-info-enabled', hasInfo);
-}
-};
+} };
 
-// Display the initial scene.
-switchScene(scenes[0]);
+switchScene(scenes[0]); //запуск стартовой сцены
 
-// === ПЕРЕКЛЮЧАТЕЛЬ ЭТАЖЕЙ ===
+// Переключатель этажей карты
 (function initFloorToggle() {
 var floorBtns = document.querySelectorAll('.floor-btn');
 var floorPoints = document.querySelectorAll('.floor-point');
@@ -760,19 +595,15 @@ var currentFloor = '1';
 
 function showFloor(floor) {
 currentFloor = floor;
-    
 floorBtns.forEach(function (btn) {
 btn.classList.toggle('active', btn.dataset.floor === floor);
 });
-    
 floorPoints.forEach(function(point) {
 if (point.dataset.floor === floor) {
 point.classList.add('visible');
 } else {
 point.classList.remove('visible');
-}
-});
-}
+}}); }
 
 floorBtns.forEach(function(btn) {
 btn.addEventListener('click', function (e) {
@@ -781,21 +612,17 @@ showFloor(this.dataset.floor);
 });
 });
 
-// Инициализация — показываем 1 этаж
-showFloor('1');
+showFloor('1'); //При старте отображается 1-ый этаж
 })();
 
-// === Кнопка "ДОМАШНЯЯ СТРАНИЦА"" ===
+// Кнопка "Домашняя страница"
 (function initHomeButton() {
 var homeBtn = document.getElementById('sceneHome');
 if (!homeBtn) return;
-
-var HOME_SCENE_ID = '0-image';
-
+var HOME_SCENE_ID = '0-image'; //ID домашней страницы
 homeBtn.addEventListener('click', function (e) {
 e.preventDefault();
-
-// Ищем сцену по ID и переключаемся
+// Поиск сцены по ID и переключение
 var homeScene = scenes.find(function (s) { return s.data.id === HOME_SCENE_ID; });
 switchScene(homeScene);
 });
@@ -816,14 +643,11 @@ vrContainer.style.display = 'block';
 
 vrContainer.innerHTML = `
 <span id="close-vr-btn">Выйти из VR</span> 
-
 <a-scene webxr="optionalFeatures: squeezedetect, hit-test" embedded style="height: 100vh; width: 100vw;">
 <a-sky src="${currentImgSrc}" rotation="0 -90 0"></a-sky>
 <a-entity camera look-controls>
 <a-cursor fuse="true" fuse-timeout="1200" color="white"></a-cursor>
-</a-entity>
-</a-scene>
-`;
+</a-entity> </a-scene>`;
 // Логика кнопки выхода
 var closeBtn = document.getElementById('close-vr-btn');
 if (closeBtn) {
@@ -843,13 +667,11 @@ e.stopPropagation();
 await enableVR();
 });
 }
-
-//Срабатывается после полной загрузки компонентов.
+//Срабатывает после полной загрузки компонентов.
 window.onload = function () {
 setTimeout(function () {
 var loader = document.getElementById("preloader");
 if (loader) { loader.style.display = "none"; }
 }, 400);
 };
-
 })();

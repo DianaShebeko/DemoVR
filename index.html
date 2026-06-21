@@ -99,16 +99,13 @@ width: device-width;
 <div class="floor-point" title="Читальный зал" data-scene="5---2" data-floor="2" style="top:50%; left:67%;"></div>
 <div class="floor-point" title="Читальный зал" data-scene="6---3" data-floor="2" style="top:35%; left:60%;"></div>
 <div class="floor-point" title="Восточная башня" data-scene="7-" data-floor="2" style="top:22%; left:52%;"></div>
-</div>
-</div>
+</div></div>
 <!-- Переключатель этажей -->
 <div class="floor-toggle">
 <span class="floor-label">Этаж</span>
 <a href="javascript:void(0)" class="floor-btn active" data-floor="1">1</a>
 <a href="javascript:void(0)" class="floor-btn" data-floor="2">2</a>
-</div>
-</div>
-</div>
+</div></div></div>
 </div>
 <div id="titleBar">
 <a href="https://guap.ru/" class="title-logo"><img src="img/logo.png"></a>
@@ -116,23 +113,23 @@ width: device-width;
 </div>
 <a href="javascript:void(0)" id="sceneInfoToggle"><img class="icon" src="img/info.png"></a>
 <div class="bottom-toolbar">
-<!-- ЛЕВАЯ КНОПКА -->
+<!-- Левые кнопки нижнего меню -->
 <div class="toolbar-left">
-<a href="javascript:void(0)" id="sceneListToggle">
+<a href="javascript:void(0)" id="sceneListToggle" title="Список сцен">
 <img class="icon off" src="img/plan.png">
 <img class="icon on" src="img/planOpened.png"></a>
-<a href="javascript:void(0)" id="sceneHome">
+<a href="javascript:void(0)" id="sceneHome" title="Стартовая сцена">
 <img class="icon" src="img/home.png">
 </a>
 </div>
-<!-- ПРАВЫЕ КНОПКИ -->
+<!-- Правые кнопки нижнего меню -->
 <div class="toolbar-right">
-<!-- Обёртка для локального плеера -->
+<!-- Обёртка для плеера -->
 <div class="audio-wrapper">
-<a href="javascript:void(0)" id="audioBtn">
+<a href="javascript:void(0)" id="audioBtn" title="Аудиогид">
 <img class="icon off" src="img/audioPlay.png">
 <img class="icon on" src="img/audioPause.png"></a>
-<!-- Панель выезжает НАД кнопкой -->
+<!-- Панель выезжает над кнопкой -->
 <div id="audioBar">
 <input type="range" id="audioSeek" min="0" max="100" value="0">
 <span id="audioTime">0:00</span></div></div>
@@ -143,14 +140,14 @@ width: device-width;
 <img class="icon on" src="img/collapse.png"></a>
 <!-- Скрытое меню -->
 <div class="hidden-menu" id="hiddenMenu">
-<a href="javascript:void(0)" id="audioOnOff">
+<a href="javascript:void(0)" id="audioOnOff" title="Включить/выключить звук">
 <img class="icon off" src="img/audioOn.png">
 <img class="icon on" src="img/audioOff.png"></a>
-<a href="javascript:void(0)" id="autorotateToggle">
+<a href="javascript:void(0)" id="autorotateToggle" title="Автоповорот">
 <img class="icon off" src="img/play.png">
 <img class="icon on" src="img/pause.png"></a>
-<!-- Будущая VR кнопка -->
-<a href="javascript:void(0)" id="vrBtn" class="future-btn">
+<!-- VR- режим -->
+<a href="javascript:void(0)" id="vrBtn" class="future-btn" title="Активировать режим VR">
 <span>VR</span></a></div></div></div></div>
 <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
 <img class="icon" src="img/up.png"></a>
@@ -171,7 +168,7 @@ width: device-width;
 <img src="img/info.png" class="scene-info-icon">
 </div>
 <div class="scene-info-title-wrapper">
-<div class="scene-info-title" id="sceneInfoTitle"></div>
+<div class="scene-info-title" id="sceneInfoTitle" title="О сцене"></div>
 </div>
 <div class="scene-info-close-wrapper" id="sceneInfoClose">
 <img src="img/close.png" class="scene-info-close-icon">
