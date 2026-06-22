@@ -665,17 +665,6 @@ showFloor('1'); //При старте отображается 1-ый этаж
         if (scenes[0]) {
             switchScene(scenes[0]);
         }
-
-        if (scenes[0] && scenes[0].data.audioGuide) {
-            gAudio = new Audio(scenes[0].data.audioGuide);
-            gAudio.preload = 'metadata';
-            gAudio.ontimeupdate = updateTime;
-            gAudio.muted = isMuted;
-            gAudio.play().catch(function (e) {});
-
-            if (audioBtn) audioBtn.classList.add('enabled');
-            if (audioBar) audioBar.style.display = '';
-        }
     }
     // Показываем стартовый экран обратно
     var intro = document.getElementById('intro-screen');
