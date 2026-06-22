@@ -682,6 +682,7 @@ showFloor('1'); //При старте отображается 1-ый этаж
     if (intro) {
         intro.style.display = 'flex'; 
         intro.classList.remove('fade-out');
+        intro.addEventListener('click', startTour);
     }
 
     // VR включение - выключение

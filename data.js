@@ -10,7 +10,16 @@ var APP_DATA = {
                   {
                       "type": "text",
                       "text": TXTS.prolog
+                  },
+                  {
+                      "type": "image",
+                      "images": ["content/0-image/img1.jpg"]
+                  },
+                  {
+                      "type": "note",
+                      "text": "Лягушка - один из символов Чесменского дворца"
                   }
+
               ]
           },
         "levels": [
