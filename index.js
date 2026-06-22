@@ -654,7 +654,7 @@ showFloor('1'); //При старте отображается 1-ый этаж
         if (intro) intro.classList.add('fade-out');
 
         setTimeout(function () {
-           switchScene(scenes[1]);
+           switchScene(scenes[0]);
         }, 800);
     }
     // Находим кнопку на стартовой обложке и вешаем на нее клик
