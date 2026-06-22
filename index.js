@@ -626,16 +626,21 @@ showFloor('1'); //При старте отображается 1-ый этаж
 
     // Функция запуска тура при клике на обложку
     function startTour() {
-        // 1. Скрываем стартовый экран
         var intro = document.getElementById('intro-screen');
         if (intro) intro.classList.add('fade-out');
 
-        // 2. Запускаем первую сцену из массива (она уже панорама)
         setTimeout(function () {
-            if (scenes[0]) {
-                switchScene(scenes[0]);
-            }
+           switchScene(scenes[1]);
         }, 800);
+    }
+    // Находим кнопку на стартовой обложке и вешаем на нее клик
+    var introBtn = document.querySelector('.intro-button');
+    if (introBtn) {
+        introBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            startTour(); // Запускаем нашу функцию
+        });
     }
 
     // VR включение - выключение
