@@ -581,7 +581,7 @@ switchScene = function (scene) {
         }
 };
 
-//switchScene(scenes[0]); //запуск стартовой сцены
+switchScene(scenes[0]); //запуск стартовой сцены
 
 // Переключатель этажей карты
 (function initFloorToggle() {
@@ -615,7 +615,7 @@ showFloor('1'); //При старте отображается 1-ый этаж
     (function initHomeButton() {
         var homeBtn = document.getElementById('sceneHome');
         if (!homeBtn) return;
-        var HOME_SCENE_ID = '0--'; //ID домашней страницы
+        var HOME_SCENE_ID = '0-image'; //ID домашней страницы
         homeBtn.addEventListener('click', function (e) {
         e.preventDefault();
         // Поиск сцены по ID и переключение
