@@ -51,11 +51,11 @@ var scenes = data.scenes.map(function (data) {
         var geometry = new Marzipano.FlatGeometry([{ width: 2272, height: 1278 }]);
 
         var imageSize = { width: 2272, height: 1278 };
-        var flatLimiter = Marzipano.FlatView.limit.visibleDimension(imageSize, {
-            minZoom: 0.5,
-            maxZoom: 2
-        });
-        view = new Marzipano.FlatView(data.initialViewParameters, flatLimiter);
+        //var flatLimiter = Marzipano.FlatView.limit.visibleDimension(imageSize, {
+        //    minZoom: 0.5,
+        //    maxZoom: 2
+        //});
+        view = new Marzipano.FlatView(data.initialViewParameters);
     } else {
 
         var urlPrefix = "tiles";
