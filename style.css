@@ -221,7 +221,7 @@ body.scene-info-enabled #sceneInfoToggle {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 11000;
+    z-index: 15000;
     display: none;
     flex-direction: column;
     align-items: center;
