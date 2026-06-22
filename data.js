@@ -1,49 +1,49 @@
 var APP_DATA = {
   "scenes": [
-    //{
-    //    "id": "0-image",
-    //    "name": "Пролог",
-    //      "sceneInfo": {
-    //          "title": "Виртуальная экскурсия по Чесменскому дворцу",
-    //          "content": [
-    //              {
-    //                  "type": "text",
-    //                  "text": TXTS.prolog
-    //              }
-
-    //          ]
-    //      },
-    //    "levels": [
-    //        {
-    //            "tileSize": 256,
-    //            "size": 256,
-    //            "fallbackOnly": true
-    //        },
-    //        {
-    //            "tileSize": 512,
-    //            "size": 512
-    //        },
-    //        {
-    //            "tileSize": 512,
-    //            "size": 1024
-    //        }
-    //    ],
-    //    "faceSize": 1024,
-    //    "initialViewParameters": {
-    //        "yaw": -2.1163153196731663,
-    //        "pitch": -0.025189127392902577,
-    //        "fov": 1.391813623840451
-    //    },
-    //      "linkHotspots": [
-    //          {
-    //              "yaw": -2.0,
-    //              "pitch": 0.11827129524185054,
-    //              "rotation": 12.566370614359176,
-    //              "target": "0--"
-    //          }
-    //      ],
-    //    "infoHotspots": []
-    //},
+    {
+        "id": "0-image",
+          "name": "Пролог",
+          "audioGuide": "audio/prolog.mp3",
+          "sceneInfo": {
+              "title": "Виртуальная экскурсия по Чесменскому дворцу",
+              "content": [
+                  {
+                      "type": "text",
+                      "text": TXTS.prolog
+                  }
+              ]
+          },
+        "levels": [
+            {
+                "tileSize": 256,
+                "size": 256,
+                "fallbackOnly": true
+            },
+            {
+                "tileSize": 512,
+                "size": 512
+            },
+            {
+                "tileSize": 512,
+                "size": 1024
+            }
+        ],
+        "faceSize": 1024,
+        "initialViewParameters": {
+            "yaw": -2.1163153196731663,
+            "pitch": -0.025189127392902577,
+            "fov": 1.391813623840451
+        },
+          "linkHotspots": [
+              {
+                  "yaw": -2.0,
+                  "pitch": 0.11827129524185054,
+                  "rotation": 12.566370614359176,
+                  "target": "0--"
+              }
+          ],
+        "infoHotspots": []
+    },
         {
             "id": "0--",
             "name": "Исторический вход",
