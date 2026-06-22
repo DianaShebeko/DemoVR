@@ -50,12 +50,8 @@ var scenes = data.scenes.map(function (data) {
         var source = Marzipano.ImageUrlSource.fromString("content/0-image/0-image.png");
         var geometry = new Marzipano.FlatGeometry([{ width: 2272, height: 1278 }]);
 
-        var imageSize = { width: 2272, height: 1278 };
-        //var flatLimiter = Marzipano.FlatView.limit.visibleDimension(imageSize, {
-        //    minZoom: 0.5,
-        //    maxZoom: 2
-        //});
-        view = new Marzipano.FlatView(data.initialViewParameters);
+        var freeLimiter = Marzipano.util.compose();
+        view = new Marzipano.FlatView(data.initialViewParameters, freeLimiter);
     } else {
 
         var urlPrefix = "tiles";
