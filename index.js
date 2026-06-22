@@ -50,13 +50,15 @@ var scenes = data.scenes.map(function (data) {
         var source = Marzipano.ImageUrlSource.fromString("content/0-image/0-image.png");
         var geometry = new Marzipano.FlatGeometry([{ width: 2272, height: 1278 }]);
 
-        var aspect = 2272 / 1278;
+        // Создаем объект-заглушку, который прикидывается панорамой с нужным свойством
+        var fakeParams = {
+            mediaAspectRatio: 2272 / 1278
+        };
 
-        // Создаем законный ограничитель Marzipano, передавая ему это соотношение
-        var flatLimiter = Marzipano.FlatView.limit.letterbox(aspect);
-
-        // Передаем его вторым параметром
-        view = new Marzipano.FlatView(data.initialViewParameters, flatLimiter);    } else {
+        // Передаем этот объект в конструктор, чтобы заглушить throw Error
+        view = new Marzipano.FlatView(data.initialViewParameters, fakeParams);
+    }
+    else {
 
         var urlPrefix = "tiles";
         var source = Marzipano.ImageUrlSource.fromString(
