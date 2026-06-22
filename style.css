@@ -710,7 +710,7 @@ body.view-control-buttons .viewControlButton {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     z-index: 20000;
     background: #000;
     display: flex;
@@ -728,7 +728,7 @@ body.view-control-buttons .viewControlButton {
 
 .intro-button {
     position: absolute; /* Вырывает кнопку из потока → можно накладывать сверху */
-    top: 50%; /* Центр по вертикали */
+    top: 80%; /* Центр по вертикали */
     left: 50%; /* Центр по горизонтали */
     transform: translate(-50%, -50%); /* Точное центрирование относительно экрана */
     z-index: 20001; /* Гарантирует, что кнопка будет ВЫШЕ картинки */
