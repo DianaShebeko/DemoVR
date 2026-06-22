@@ -239,82 +239,82 @@ for (var i = 0; i < hotspot.content.length; i++) {
 var block = hotspot.content[i];
 
 if (block.type === 'text') { /* текст */
-var textBlock = document.createElement('div');
-textBlock.classList.add('content-block', 'content-text');
-textBlock.innerHTML = block.text;
-textContainer.appendChild(textBlock);
+    var textBlock = document.createElement('div');
+    textBlock.classList.add('content-block', 'content-text');
+    textBlock.innerHTML = block.text;
+    textContainer.appendChild(textBlock);
 }
 else if (block.type === 'note') { /* подпись рисунка */
-var noteBlock = document.createElement('div');
-noteBlock.classList.add('content-block', 'content-note');
-noteBlock.innerHTML = block.text;
-textContainer.appendChild(noteBlock);
+    var noteBlock = document.createElement('div');
+    noteBlock.classList.add('content-block', 'content-note');
+    noteBlock.innerHTML = block.text;
+    textContainer.appendChild(noteBlock);
 }
 else if (block.type === 'image') { /* изображения */
-if (!block.images || block.images.length <= 1) {
-var imgBlock = document.createElement('div');
-imgBlock.classList.add('content-block', 'content-image');
-var img = document.createElement('img');
-img.src = block.images ? block.images[0] : block.src;
-imgBlock.appendChild(img);
-textContainer.appendChild(imgBlock);
-} else {
-var slider = createSlider(block.images);
-textContainer.appendChild(slider);
-}} 
+    if (!block.images || block.images.length <= 1) {
+        var imgBlock = document.createElement('div');
+        imgBlock.classList.add('content-block', 'content-image');
+        var img = document.createElement('img');
+        img.src = block.images ? block.images[0] : block.src;
+        imgBlock.appendChild(img);
+        textContainer.appendChild(imgBlock);
+    } else {
+        var slider = createSlider(block.images);
+        textContainer.appendChild(slider);
+    }} 
 else if (block.type === 'model') { /* 3d-модель  */
-var modelBlock = document.createElement('div');
-modelBlock.classList.add('content-block', 'content-model');
-var modelViewer = document.createElement('model-viewer');
-modelViewer.setAttribute('src', block.src);
-modelViewer.setAttribute('camera-controls', '');
-modelViewer.setAttribute('auto-rotate', '');
-modelViewer.setAttribute('touch-action', 'pan-y');
-modelBlock.appendChild(modelViewer);
-textContainer.appendChild(modelBlock);
+    var modelBlock = document.createElement('div');
+    modelBlock.classList.add('content-block', 'content-model');
+    var modelViewer = document.createElement('model-viewer');
+    modelViewer.setAttribute('src', block.src);
+    modelViewer.setAttribute('camera-controls', '');
+    modelViewer.setAttribute('auto-rotate', '');
+    modelViewer.setAttribute('touch-action', 'pan-y');
+    modelBlock.appendChild(modelViewer);
+    textContainer.appendChild(modelBlock);
 }
 else if (block.type === 'video') { /* видео */
-var videoBlock = document.createElement('div');
-videoBlock.classList.add('content-block', 'content-video');
-var video = document.createElement('video');
-video.src = block.src;
-if (block.poster) video.poster = block.poster;
-video.controls = true;
-videoBlock.appendChild(video);
-textContainer.appendChild(videoBlock);
+    var videoBlock = document.createElement('div');
+    videoBlock.classList.add('content-block', 'content-video');
+    var video = document.createElement('video');
+    video.src = block.src;
+    if (block.poster) video.poster = block.poster;
+    video.controls = true;
+    videoBlock.appendChild(video);
+    textContainer.appendChild(videoBlock);
 } }}
 return textContainer;
 }
 // Сборка шапки информационного окна
 function createHeaderNode() {
-var header = document.createElement('div');
-header.classList.add('info-hotspot-header');
+    var header = document.createElement('div');
+    header.classList.add('info-hotspot-header');
 
-var iconWrapper = document.createElement('div');
-iconWrapper.classList.add('info-hotspot-icon-wrapper');
-var icon = document.createElement('img');
-icon.src = 'img/info.png';
-icon.classList.add('info-hotspot-icon');
-iconWrapper.appendChild(icon);
+    var iconWrapper = document.createElement('div');
+    iconWrapper.classList.add('info-hotspot-icon-wrapper');
+    var icon = document.createElement('img');
+    icon.src = 'img/info.png';
+    icon.classList.add('info-hotspot-icon');
+    iconWrapper.appendChild(icon);
 
-var titleWrapper = document.createElement('div');
-titleWrapper.classList.add('info-hotspot-title-wrapper');
-var title = document.createElement('div');
-title.classList.add('info-hotspot-title');
-title.innerHTML = hotspot.title;
-titleWrapper.appendChild(title);
+    var titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('info-hotspot-title-wrapper');
+    var title = document.createElement('div');
+    title.classList.add('info-hotspot-title');
+    title.innerHTML = hotspot.title;
+    titleWrapper.appendChild(title);
 
-var closeWrapper = document.createElement('div');
-closeWrapper.classList.add('info-hotspot-close-wrapper');
-var closeIcon = document.createElement('img');
-closeIcon.src = 'img/close.png';
-closeIcon.classList.add('info-hotspot-close-icon');
-closeWrapper.appendChild(closeIcon);
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('info-hotspot-close-wrapper');
+    var closeIcon = document.createElement('img');
+    closeIcon.src = 'img/close.png';
+    closeIcon.classList.add('info-hotspot-close-icon');
+    closeWrapper.appendChild(closeIcon);
 
-header.appendChild(iconWrapper);
-header.appendChild(titleWrapper);
-header.appendChild(closeWrapper);
-return header;
+    header.appendChild(iconWrapper);
+    header.appendChild(titleWrapper);
+    header.appendChild(closeWrapper);
+    return header;
 }
 
 // Модальное окно для компьютеров
