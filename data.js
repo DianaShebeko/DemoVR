@@ -56,7 +56,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/0--/Ekaterina.jpg"
+                        "images": ["content/0--/Ekaterina.jpg"]
                     },
                     {
                         "type": "note",
@@ -64,7 +64,7 @@ var APP_DATA = {
                     },
                     {
                         "type": "image",
-                        "src": "content/0--/Kulibin_I_P.jpg"
+                        "images": ["content/0--/Kulibin_I_P.jpg"]
                     },
                     {
                         "type": "note",

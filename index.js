@@ -658,6 +658,14 @@ showFloor('1'); //При старте отображается 1-ый этаж
         var intro = document.getElementById('intro-screen');
         if (intro) intro.classList.add('fade-out');
 
+        setTimeout(function () {
+            intro.style.display = 'none';
+        }, 800);
+
+        if (scenes[0]) {
+            switchScene(scenes[0]);
+        }
+
         if (scenes[0] && scenes[0].data.audioGuide) {
             gAudio = new Audio(scenes[0].data.audioGuide);
             gAudio.preload = 'metadata';
@@ -669,14 +677,11 @@ showFloor('1'); //При старте отображается 1-ый этаж
             if (audioBar) audioBar.style.display = '';
         }
     }
-    // Находим кнопку на стартовой обложке и вешаем на нее клик
-    var introBtn = document.querySelector('.intro-button');
-    if (introBtn) {
-        introBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            startTour(); // Запускаем нашу функцию
-        });
+    // Показываем стартовый экран обратно
+    var intro = document.getElementById('intro-screen');
+    if (intro) {
+        intro.style.display = 'flex'; 
+        intro.classList.remove('fade-out');
     }
 
     // VR включение - выключение
