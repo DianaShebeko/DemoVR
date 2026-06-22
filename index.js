@@ -664,8 +664,8 @@
     }
 
  })();
-
-    // Функция запуска тура при клике на обложку
+ /*   Стартовое окно  */
+  // Функция запуска тура при клике на обложку
     function startTour() {
         var intro = document.getElementById('intro-screen');
         if (intro) intro.classList.add('fade-out');
@@ -678,7 +678,7 @@
             switchScene(scenes[0]);
         }
     }
-    // Показываем стартовый экран обратно
+    // Возвращение стратового окна обратно
     var intro = document.getElementById('intro-screen');
     var introBtn = document.querySelector('.intro-button');
 
@@ -687,7 +687,7 @@
         intro.classList.remove('fade-out');
     }
 
-    // Вешаем событие старта строго на КНОПКУ, а не на весь экран
+    // Событие старта при нажатии на кнопку
     if (introBtn) {
         introBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -695,13 +695,8 @@
             startTour();
         });
     }
-    //if (intro) {
-    //    intro.style.display = 'flex'; 
-    //    intro.classList.remove('fade-out');
-    //    intro.addEventListener('click', startTour);
-    //}
 
-    // VR включение - выключение
+ // VR включение - выключение
     var vrBtn = document.getElementById('vrBtn');
     async function enableVR() {
         var sceneId = null;
@@ -740,7 +735,8 @@
         await enableVR();
         });
     }
-    //Срабатывает после полной загрузки компонентов.
+
+//Загрузка - Срабатывает после полной загрузки компонентов.
     window.onload = function () {
         setTimeout(function () {
             var loader = document.getElementById("preloader");
