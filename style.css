@@ -704,14 +704,48 @@ body.view-control-buttons .viewControlButton {
 .floorplan-image {width: 100%; max-height: 200px;}
 }
 
-/* Когда открыта стартовая сцена - скрываются кнопки */
-body.is-start-screen #bottom-toolbar, /* Нижее меню */
-body.is-start-screen #viewUp, /* Стрелка вверх */
-body.is-start-screen #viewDown, /* Стрелка вниз */
-body.is-start-screen #viewLeft, /* Стрелка влево */
-body.is-start-screen #viewRight, /* Стрелка вправо */
-body.is-start-screen #viewIn, /* Зум + */
-body.is-start-screen #viewOut /* Зум - */
-{ 
-    display: none !important;
+/* Стартовый экран */
+#intro-screen {
+    position: fixed; /* Перекрывает всё сверху */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000; /* Поверх всех элементов, включая VR-курсор */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.intro-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+.intro-button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(103, 115, 131, 0.8);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.intro-button:hover {
+    background-color: rgba(103, 115, 131, 1);
+}
+
+/* Класс для скрытия обложки через JS */
+.fade-out {
+    opacity: 0 !important;
+    pointer-events: none;
 }

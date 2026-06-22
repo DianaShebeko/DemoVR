@@ -1,195 +1,224 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ChesmaVirtualTour</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<meta charset="utf-8">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style>
-@-ms-viewport {
-width: device-width;
-}
-</style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>ChesmaVirtualTour</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+    </style>
+    <link rel="stylesheet" href="vendor/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body class="multiple-scenes ">
-<div id="pano"></div>
-<div id="preloader">
-<div> Пожалуйста, подождите, загрузка виртуального тура может занять некоторое время ...</div>
-</div>
-<div id="sceneList">
-<div class="sceneList-inner">
-<ul class="scenes">
-<a href="javascript:void(0)" class="scene" data-id="0--">
-    <li class="text">Исторический вход</li></a>
-<a href="javascript:void(0)" class="scene" data-id="1--">
-<li class="text">Главный вход</li></a>
-<a href="javascript:void(0)" class="scene" data-id="2--">
-<li class="text">Главная лестница</li></a>
-<a href="javascript:void(0)" class="scene" data-id="3-----2-">
-<li class="text">Главная лестница - 2 этаж</li></a>
-<a href="javascript:void(0)" class="scene" data-id="4---1">
-<li class="text">Читальный зал (1)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="5---2">
-<li class="text">Читальный зал (2)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="6---3">
-<li class="text">Читальный зал (3)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="7-">
-<li class="text">Холл</li></a>
-<a href="javascript:void(0)" class="scene" data-id="8--">
-<li class="text">Георгиевский зал</li></a>
-<a href="javascript:void(0)" class="scene" data-id="9-_1">
-<li class="text">Георгиевский зал (1)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="10--">
-<li class="text">Выставочный зал</li></a>
-<a href="javascript:void(0)" class="scene" data-id="11---1">
-<li class="text">Выставочный зал (1)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="12---2">
-<li class="text">Выставочный зал (2)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="13---3">
-<li class="text">Выставочный зал (3)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="14---4">
-<li class="text">Выставочный зал (4)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="15---5">
-<li class="text">Выставочный зал (5)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="16---6">
-<li class="text">Выставочный зал (6)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="17---7">
-<li class="text">Выставочный зал (7)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="18--">
-<li class="text">Екатерининский зал</li></a>
-<a href="javascript:void(0)" class="scene" data-id="19---2">
-<li class="text">Екатерининский зал (2)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="20---3">
-<li class="text">Екатерининский зал (3)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="21---4">
-<li class="text">Екатерининский зал (4)</li></a>
-<a href="javascript:void(0)" class="scene" data-id="22--">
-<li class="text">Обеденный зал</li></a>
-<a href="javascript:void(0)" class="scene" data-id="23--">
-<li class="text">Лестничный пролет</li></a>
-<a href="javascript:void(0)" class="scene" data-id="24-----2">
-<li class="text">Коридор - корпус 1</li></a>
-<a href="javascript:void(0)" class="scene" data-id="25-----1">
-<li class="text">Коридор - Корпус 2</li></a>
-<a href="javascript:void(0)" class="scene" data-id="26-----3">
-<li class="text">Коридор - Корпус 3</li></a>
-<a href="javascript:void(0)" class="scene" data-id="27--">
-<li class="text">Учебный класс</li></a>
-</ul>
-<!-- Правая часть — карта + кнопки -->
-<div class="floorplan-right">
-<!-- Карта -->
-<div class="floorplan">
-<div class="map-wrapper">
-<img src="img/floorplan.jpg" class="floorplan-image">
-<!-- 1 этаж -->
-<div class="floor-point" title="Исторический вход" data-scene="0--" data-floor="1" style="top:45%; left:25%;"></div>
-<div class="floor-point" title="Главный вход" data-scene="1--" data-floor="1" style="top:90%; left:50%;"></div>
-<div class="floor-point" title="Главная лестница" data-scene="2--" data-floor="1" style="top:78%; left:82%;"></div>
-<div class="floor-point" title="Обеденный зал" data-scene="22--" data-floor="1" style="top:50%; left:67%;"></div>
-<div class="floor-point" title="Лестничный пролет" data-scene="23--" data-floor="1" style="top:84%; left:85%;"></div>
-<!-- 2 этаж -->
-<div class="floor-point" title="Георгиевский зал" data-scene="8--" data-floor="2" style="top:58%; left:52%;"></div>
-<div class="floor-point" title="Главная лестница" data-scene="3-----2-" data-floor="2" style="top:73%; left:78%;"></div>
-<div class="floor-point" title="Читальный зал" data-scene="4---1" data-floor="2" style="top:65%; left:75%;"></div>
-<div class="floor-point" title="Читальный зал" data-scene="5---2" data-floor="2" style="top:50%; left:67%;"></div>
-<div class="floor-point" title="Читальный зал" data-scene="6---3" data-floor="2" style="top:35%; left:60%;"></div>
-<div class="floor-point" title="Восточная башня" data-scene="7-" data-floor="2" style="top:22%; left:52%;"></div>
-</div></div>
-<!-- Переключатель этажей -->
-<div class="floor-toggle">
-<span class="floor-label">Этаж</span>
-<a href="javascript:void(0)" class="floor-btn active" data-floor="1">1</a>
-<a href="javascript:void(0)" class="floor-btn" data-floor="2">2</a>
-</div></div></div>
-</div>
-<div id="titleBar">
-<a href="https://guap.ru/" class="title-logo"><img src="img/logo.png"></a>
-<h1 class="sceneName"></h1>
-</div>
-<a href="javascript:void(0)" id="sceneInfoToggle"><img class="icon" src="img/info.png"></a>
-<div class="bottom-toolbar">
-<!-- Левые кнопки нижнего меню -->
-<div class="toolbar-left">
-<a href="javascript:void(0)" id="sceneListToggle" title="Список сцен">
-<img class="icon off" src="img/plan.png">
-<img class="icon on" src="img/planOpened.png"></a>
-<a href="javascript:void(0)" id="sceneHome" title="Стартовая сцена">
-<img class="icon" src="img/home.png">
-</a>
-</div>
-<!-- Правые кнопки нижнего меню -->
-<div class="toolbar-right">
-<!-- Обёртка для плеера -->
-<div class="audio-wrapper">
-<a href="javascript:void(0)" id="audioBtn" title="Аудиогид">
-<img class="icon off" src="img/audioPlay.png">
-<img class="icon on" src="img/audioPause.png"></a>
-<!-- Панель выезжает над кнопкой -->
-<div id="audioBar">
-<input type="range" id="audioSeek" min="0" max="100" value="0">
-<span id="audioTime">0:00</span></div></div>
-<!-- Обёртка для выпадающего меню -->
-<div class="menu-wrapper">
-<a href="javascript:void(0)" id="btnMenuHidden">
-<img class="icon off" src="img/expand.png">
-<img class="icon on" src="img/collapse.png"></a>
-<!-- Скрытое меню -->
-<div class="hidden-menu" id="hiddenMenu">
-<a href="javascript:void(0)" id="audioOnOff" title="Включить/выключить звук">
-<img class="icon off" src="img/audioOn.png">
-<img class="icon on" src="img/audioOff.png"></a>
-<a href="javascript:void(0)" id="autorotateToggle" title="Автоповорот">
-<img class="icon off" src="img/play.png">
-<img class="icon on" src="img/pause.png"></a>
-<!-- VR- режим -->
-<a href="javascript:void(0)" id="vrBtn" class="future-btn" title="Активировать режим VR">
-<span>VR</span></a></div></div></div></div>
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-<img class="icon" src="img/up.png"></a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-<img class="icon" src="img/down.png"></a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-<img class="icon" src="img/left.png"></a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-<img class="icon" src="img/right.png"></a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-<img class="icon" src="img/plus.png"></a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-<img class="icon" src="img/minus.png"></a>
-<!-- Модальное окно информации о сцене -->
-<div id="sceneInfoModal">
-<div class="scene-info-header">
-<div class="scene-info-icon-wrapper">
-<img src="img/info.png" class="scene-info-icon">
-</div>
-<div class="scene-info-title-wrapper">
-<div class="scene-info-title" id="sceneInfoTitle" title="О сцене"></div>
-</div>
-<div class="scene-info-close-wrapper" id="sceneInfoClose">
-<img src="img/close.png" class="scene-info-close-icon">
-</div>
-</div>
-<div class="scene-info-text" id="sceneInfoText">
-<div class="content-block">
-<p class="content-text">
-<br><br>
-<em></em>
-</p>
-</div>
-<div class="content-note"></div>
-</div>
-</div>
-<div id="vr-container" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999999;"></div>
-<script src="vendor/screenfull.min.js"></script>
-<script src="vendor/bowser.min.js"></script>
-<script src="vendor/marzipano.js"></script>
-<script src="texts.js"></script>
-<script src="data.js"></script>
-<script src="index.js"></script>
+    <!-- === СТАРТОВЫЙ ЭКРАН (ФОТО) === -->
+    <div id="intro-screen">
+        <img class="intro-img" src="img/intro.jpg" alt="Главный экран">
+        <a href="javascript:void(0)" class="intro-button" onclick="startTour()">Начать просмотр тура</a>
+    </div>
+    <div id="pano"></div>
+    <div id="preloader">
+        <div> Пожалуйста, подождите, загрузка виртуального тура может занять некоторое время ...</div>
+    </div>
+    <div id="sceneList">
+        <div class="sceneList-inner">
+            <ul class="scenes">
+                <a href="javascript:void(0)" class="scene" data-id="0--">
+                <li class="text">Исторический вход</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="1--">
+                <li class="text">Главный вход</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="2--">
+                <li class="text">Главная лестница</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="3-----2-">
+                <li class="text">Главная лестница - 2 этаж</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="4---1">
+                <li class="text">Читальный зал (1)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="5---2">
+                <li class="text">Читальный зал (2)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="6---3">
+                <li class="text">Читальный зал (3)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="7-">
+                <li class="text">Холл</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="8--">
+                <li class="text">Георгиевский зал</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="9-_1">
+                <li class="text">Георгиевский зал (1)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="10--">
+                <li class="text">Выставочный зал</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="11---1">
+                <li class="text">Выставочный зал (1)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="12---2">
+                <li class="text">Выставочный зал (2)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="13---3">
+                <li class="text">Выставочный зал (3)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="14---4">
+                <li class="text">Выставочный зал (4)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="15---5">
+                <li class="text">Выставочный зал (5)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="16---6">
+                <li class="text">Выставочный зал (6)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="17---7">
+                <li class="text">Выставочный зал (7)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="18--">
+                <li class="text">Екатерининский зал</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="19---2">
+                <li class="text">Екатерининский зал (2)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="20---3">
+                <li class="text">Екатерининский зал (3)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="21---4">
+                <li class="text">Екатерининский зал (4)</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="22--">
+                <li class="text">Обеденный зал</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="23--">
+                <li class="text">Лестничный пролет</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="24-----2">
+                <li class="text">Коридор - корпус 1</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="25-----1">
+                <li class="text">Коридор - Корпус 2</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="26-----3">
+                <li class="text">Коридор - Корпус 3</li></a>
+                <a href="javascript:void(0)" class="scene" data-id="27--">
+                <li class="text">Учебный класс</li></a>
+            </ul>
+            <!-- Правая часть — карта + кнопки -->
+            <div class="floorplan-right">
+                <!-- Карта -->
+                <div class="floorplan">
+                    <div class="map-wrapper">
+                        <img src="img/floorplan.jpg" class="floorplan-image">
+                        <!-- 1 этаж -->
+                        <div class="floor-point" title="Исторический вход" data-scene="0--" data-floor="1" style="top:45%; left:25%;"></div>
+                        <div class="floor-point" title="Главный вход" data-scene="1--" data-floor="1" style="top:90%; left:50%;"></div>
+                        <div class="floor-point" title="Главная лестница" data-scene="2--" data-floor="1" style="top:78%; left:82%;"></div>
+                        <div class="floor-point" title="Обеденный зал" data-scene="22--" data-floor="1" style="top:50%; left:67%;"></div>
+                        <div class="floor-point" title="Лестничный пролет" data-scene="23--" data-floor="1" style="top:84%; left:85%;"></div>
+                        <!-- 2 этаж -->
+                        <div class="floor-point" title="Георгиевский зал" data-scene="8--" data-floor="2" style="top:58%; left:52%;"></div>
+                        <div class="floor-point" title="Главная лестница" data-scene="3-----2-" data-floor="2" style="top:73%; left:78%;"></div>
+                        <div class="floor-point" title="Читальный зал" data-scene="4---1" data-floor="2" style="top:65%; left:75%;"></div>
+                        <div class="floor-point" title="Читальный зал" data-scene="5---2" data-floor="2" style="top:50%; left:67%;"></div>
+                        <div class="floor-point" title="Читальный зал" data-scene="6---3" data-floor="2" style="top:35%; left:60%;"></div>
+                        <div class="floor-point" title="Восточная башня" data-scene="7-" data-floor="2" style="top:22%; left:52%;"></div>
+                    </div>
+                </div>
+                <!-- Переключатель этажей -->
+                <div class="floor-toggle">
+                    <span class="floor-label">Этаж</span>
+                    <a href="javascript:void(0)" class="floor-btn active" data-floor="1">1</a>
+                    <a href="javascript:void(0)" class="floor-btn" data-floor="2">2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="titleBar">
+        <a href="https://guap.ru/" class="title-logo"><img src="img/logo.png"></a>
+        <h1 class="sceneName"></h1>
+    </div>
+    <a href="javascript:void(0)" id="sceneInfoToggle"><img class="icon" src="img/info.png"></a>
+    <div class="bottom-toolbar">
+        <!-- Левые кнопки нижнего меню -->
+        <div class="toolbar-left">
+            <a href="javascript:void(0)" id="sceneListToggle" title="Список сцен">
+                <img class="icon off" src="img/plan.png">
+                <img class="icon on" src="img/planOpened.png">
+            </a>
+            <a href="javascript:void(0)" id="sceneHome" title="Стартовая сцена">
+                <img class="icon" src="img/home.png">
+            </a>
+        </div>
+        <!-- Правые кнопки нижнего меню -->
+        <div class="toolbar-right">
+            <!-- Обёртка для плеера -->
+            <div class="audio-wrapper">
+                <a href="javascript:void(0)" id="audioBtn" title="Аудиогид">
+                    <img class="icon off" src="img/audioPlay.png">
+                    <img class="icon on" src="img/audioPause.png">
+                </a>
+                <!-- Панель выезжает над кнопкой -->
+                <div id="audioBar">
+                    <input type="range" id="audioSeek" min="0" max="100" value="0">
+                    <span id="audioTime">0:00</span>
+                </div>
+            </div>
+            <!-- Обёртка для выпадающего меню -->
+            <div class="menu-wrapper">
+                <a href="javascript:void(0)" id="btnMenuHidden">
+                    <img class="icon off" src="img/expand.png">
+                    <img class="icon on" src="img/collapse.png">
+                </a>
+                <!-- Скрытое меню -->
+                <div class="hidden-menu" id="hiddenMenu">
+                    <a href="javascript:void(0)" id="audioOnOff" title="Включить/выключить звук">
+                        <img class="icon off" src="img/audioOn.png">
+                        <img class="icon on" src="img/audioOff.png">
+                    </a>
+                    <a href="javascript:void(0)" id="autorotateToggle" title="Автоповорот">
+                        <img class="icon off" src="img/play.png">
+                        <img class="icon on" src="img/pause.png">
+                    </a>
+                    <!-- VR- режим -->
+                    <a href="javascript:void(0)" id="vrBtn" class="future-btn" title="Активировать режим VR">
+                        <span>VR</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+        <img class="icon" src="img/up.png">
+    </a>
+    <a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+        <img class="icon" src="img/down.png">
+    </a>
+    <a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+        <img class="icon" src="img/left.png">
+    </a>
+    <a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+        <img class="icon" src="img/right.png">
+    </a>
+    <a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+        <img class="icon" src="img/plus.png">
+    </a>
+    <a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+        <img class="icon" src="img/minus.png">
+    </a>
+    <!-- Модальное окно информации о сцене -->
+    <div id="sceneInfoModal">
+        <div class="scene-info-header">
+            <div class="scene-info-icon-wrapper">
+                <img src="img/info.png" class="scene-info-icon">
+            </div>
+            <div class="scene-info-title-wrapper">
+                <div class="scene-info-title" id="sceneInfoTitle" title="О сцене"></div>
+            </div>
+            <div class="scene-info-close-wrapper" id="sceneInfoClose">
+                <img src="img/close.png" class="scene-info-close-icon">
+            </div>
+        </div>
+        <div class="scene-info-text" id="sceneInfoText">
+            <div class="content-block">
+                <p class="content-text">
+                    <br><br>
+                    <em></em>
+                </p>
+            </div>
+            <div class="content-note"></div>
+        </div>
+    </div>
+
+
+
+    <div id="vr-container" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999999;"></div>
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+    <script src="texts.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
