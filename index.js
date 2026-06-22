@@ -619,13 +619,33 @@ showFloor('1'); //При старте отображается 1-ый этаж
     (function initHomeButton() {
         var homeBtn = document.getElementById('sceneHome');
         if (!homeBtn) return;
-        var HOME_SCENE_ID = '0-image'; //ID домашней страницы
+
         homeBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        // Поиск сцены по ID и переключение
-        var homeScene = scenes.find(function (s) { return s.data.id === HOME_SCENE_ID; });
-        switchScene(homeScene);
+            e.preventDefault();
+            e.stopPropagation();
+
+            // 1. Показываем стартовый экран обратно
+            var intro = document.getElementById('intro-screen');
+            if (intro) {
+                intro.classList.remove('fade-out'); // Убираем скрытие → обложка плавно всплывает
+            }
+
+            // 2. Глушим текущий аудиогид, чтобы звук не накладывался на стартовое окно
+            if (gAudio) {
+                gAudio.pause();
+                gAudio = null;
+                // Сбрасываем визуальное состояние кнопки аудио, если она есть
+                var audioBtn = document.getElementById('audioBtn');
+                if (audioBtn) audioBtn.classList.remove('enabled');
+            }
+
+            // 3. Закрываем боковое меню навигации, если оно было открыто
+            var sceneList = document.getElementById('sceneList');
+            if (sceneList) {
+                sceneList.classList.remove('enabled');
+            }
         });
+
     })();
 
     // Функция запуска тура при клике на обложку
