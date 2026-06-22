@@ -661,6 +661,106 @@ body.view-control-buttons .viewControlButton {
     margin-left: -16px;
     margin-top: -16px;
 }
+
+/* Стартовый экран */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20000;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: opacity 0.8s ease;
+}
+
+.intro-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 19999;
+}
+
+.intro-title-container {
+    z-index: 20005;
+    text-align: center;
+    padding: 30px 50px;
+    background: rgba(29, 29, 31, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    margin-top: 15vh;
+    max-width: 80%;
+}
+
+/* Главный заголовок (Чесменский дворец) */
+.intro-main-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #f7f8fc;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Подзаголовок экскурсии */
+.intro-sub-title {
+    font-size: 20px;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.4em;
+    font-style: italic;
+}
+
+/* Кнопка "Начать путешествие" */
+.intro-button {
+    z-index: 20010;
+    padding: 16px 45px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(103, 115, 131, 0.95);
+    border-radius: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+    .intro-button:hover {
+        background: rgba(103, 115, 131, 1);
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(103, 115, 131, 0.5);
+    }
+
+.intro-author-note {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* МОБИЛЬНАЯ ТИПОГРАФИКА: Оптимизация вывода текстовых блоков */
 .info-hotspot-modal .info-hotspot-text,
 #sceneInfoModal .scene-info-text {
@@ -702,103 +802,47 @@ body.view-control-buttons .viewControlButton {
 }
 .floorplan-right { width: 100%; height: 60%; padding: 10px;}
 .floorplan-image {width: 100%; max-height: 200px;}
-}
 
-/* Стартовый экран */
 #intro-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 20000;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    gap: 40px; 
-    transition: opacity 0.8s ease;
-}
-
-.intro-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    margin-top: 15vh;
-    z-index: 19999;
+    gap: 20px; 
+    padding-top: 10px;
 }
 
 .intro-title-container {
-    z-index: 20005;
-    text-align: center;
-    padding: 30px 50px;
-    background: rgba(29, 29, 31, 0.75); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    max-width: 80%;
+    padding: 20px 15px;
+    max-width: 92%; 
+    border-radius: 10px;
 }
 
-/* Главный заголовок (Чесменский дворец) */
 .intro-main-title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #f7f8fc;
-    margin: 0 0 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 26px; 
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
-/* Подзаголовок экскурсии */
 .intro-sub-title {
-    font-size: 20px;
-    color: #ccc;
-    margin: 0;
-    line-height: 1.4em;
-    font-style: italic;
-}
-
-/* Кнопка "Начать путешествие" */
-.intro-button {
-    z-index: 20010;
-    padding: 16px 45px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    background: rgba(103, 115, 131, 0.95);
-    border-radius: 30px;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-
-.intro-button:hover {
-    background: rgba(103, 115, 131, 1);
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(103, 115, 131, 0.5);
+    font-size: 14px;
+    line-height: 1.3em;
 }
 
 .intro-author-note {
-    font-size: 11px; 
-    color: rgba(255, 255, 255, 0.4); 
-    margin-top: 25px; 
-    margin-bottom: 0; 
-    font-weight: normal;
-    letter-spacing: 0.5px;
-    text-transform: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
-    padding-top: 15px; 
+    font-size: 10px; 
+    margin-top: 15px;
+    padding-top: 10px;
 }
 
-.fade-out {
-    opacity: 0;
-    pointer-events: none;
+.intro-button {
+    position: relative; 
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: 12px 30px;
+    font-size: 15px;
 }
+
+    .intro-button:hover {
+        transform: scale(1.02);
+    }
+
+}
+
