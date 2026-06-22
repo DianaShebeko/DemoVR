@@ -624,33 +624,28 @@ showFloor('1'); //При старте отображается 1-ый этаж
     // Кнопка "Домашняя страница"
     (function initHomeButton() {
         var homeBtn = document.getElementById('sceneHome');
-        if (!homeBtn) return;
+        if (homeBtn) {
+            homeBtn.addEventListener('click', function (e) {
+                e.preventDefault();
 
-        homeBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            // 1. Показываем стартовый экран обратно
-            var intro = document.getElementById('intro-screen');
-            if (intro) {
-                intro.classList.remove('fade-out'); // Убираем скрытие → обложка плавно всплывает
-            }
-
-            // 2. Глушим текущий аудиогид, чтобы звук не накладывался на стартовое окно
-            if (gAudio) {
-                gAudio.pause();
-                gAudio = null;
-                // Сбрасываем визуальное состояние кнопки аудио, если она есть
-                var audioBtn = document.getElementById('audioBtn');
+                if (gAudio) {
+                    gAudio.pause();
+                    gAudio = null;
+                }
                 if (audioBtn) audioBtn.classList.remove('enabled');
-            }
+                if (audioBar) audioBar.style.display = 'none';
 
-            // 3. Закрываем боковое меню навигации, если оно было открыто
-            var sceneList = document.getElementById('sceneList');
-            if (sceneList) {
-                sceneList.classList.remove('enabled');
-            }
-        });
+                if (intro) {
+                    intro.style.display = 'flex';
+                    intro.classList.remove('fade-out');
+                }
+            });
+        }
+    }
+
+    // Вызываем инициализацию кнопки домой
+    initHomeButton();
+
 
     })();
 
