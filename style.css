@@ -593,7 +593,7 @@ body.view-control-buttons .viewControlButton { display: block;}
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, .6);
-    z-index: 11999;
+    z-index: 99999;
 }
 #preloader div {
     background: #fff;
@@ -747,10 +747,9 @@ body.view-control-buttons .viewControlButton {
         min-height: 50px;
         background-color: rgba(29, 29, 31, 0.95);
         padding: 0 20px;
-        display: grid;
-        grid-template-columns: 30px 1fr;
-        gap: 12px;
+        display: flex;
         align-items: center;
+        justify-content: center;
         border-radius: 5px 5px 0 0;
     }
 
