@@ -585,7 +585,12 @@ switchScene = function (scene) {
         }
 };
 
-switchScene(scenes[0]); //запуск стартовой сцены
+    switchScene(scenes[0]); //запуск стартовой сцены
+    if (gAudio) {
+        gAudio.pause();
+        gAudio.currentTime = 0;
+        gAudio = null;
+    }
 
 // Переключатель этажей карты
 (function initFloorToggle() {
