@@ -138,7 +138,7 @@ function autoOpenSceneInfo() {
     renderSceneInfoContent();
     sceneInfoModal.classList.add('visible');
 }}
-setTimeout(autoOpenSceneInfo, 500); // Автозапуск через 500мс
+//setTimeout(autoOpenSceneInfo, 500); // Автозапуск через 500мс
 
 function switchScene(scene) {   /*Оригинальная логика переключения залов */
     stopAutorotate();
