@@ -716,7 +716,8 @@ body.view-control-buttons .viewControlButton {
     display: flex;
     flex-direction: column; /* Элементы идут сверху вниз */
     align-items: center; /* Центрируем окно и кнопку по горизонтали */
-    justify-content: center; /* Центрируем окно и кнопку по вертикали */
+    justify-content: flex-start; /* Центрируем окно и кнопку по вертикали */
+    padding-top: 20px;
     transition: opacity 0.8s ease;
 }
 
@@ -738,7 +739,6 @@ body.view-control-buttons .viewControlButton {
     display: flex;
     flex-direction: column;
     z-index: 20005; /* Окно гарантированно НАД картинкой */
-    margin-bottom: 20px; /* Отступ от нижнего края текстового окна до кнопки */
 }
 
     #introInfoModal .intro-info-header {
@@ -769,7 +769,6 @@ body.view-control-buttons .viewControlButton {
     }
 
 .intro-button {
-    /* Тоже делаем абсолютной, чтобы она встала строго по центру под окном на 82% высоты */
     position: absolute;
     top: 82%;
     left: 50%;
