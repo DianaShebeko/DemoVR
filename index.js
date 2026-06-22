@@ -516,6 +516,12 @@ function renderSceneInfoContent() {
         const img = document.createElement('img');
         img.src = item.src;
         img.className = 'scene-info-image';
+        if (item.images && item.images.length > 0) {
+            img.src = item.images[0];
+        } else {
+            img.src = item.src;
+        }
+        container.appendChild(img);
     }		
     else if (item.type === 'note') { //Подпись
         const p = document.createElement('p');
@@ -586,11 +592,6 @@ switchScene = function (scene) {
 };
 
     switchScene(scenes[0]); //запуск стартовой сцены
-    if (gAudio) {
-        gAudio.pause();
-        gAudio.currentTime = 0;
-        gAudio = null;
-    }
 
 // Переключатель этажей карты
 (function initFloorToggle() {
@@ -668,11 +669,26 @@ showFloor('1'); //При старте отображается 1-ый этаж
     }
     // Показываем стартовый экран обратно
     var intro = document.getElementById('intro-screen');
+    var introBtn = document.querySelector('.intro-button');
+
     if (intro) {
-        intro.style.display = 'flex'; 
+        intro.style.display = 'flex';
         intro.classList.remove('fade-out');
-        intro.addEventListener('click', startTour);
     }
+
+    // Вешаем событие старта строго на КНОПКУ, а не на весь экран
+    if (introBtn) {
+        introBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            startTour();
+        });
+    }
+    //if (intro) {
+    //    intro.style.display = 'flex'; 
+    //    intro.classList.remove('fade-out');
+    //    intro.addEventListener('click', startTour);
+    //}
 
     // VR включение - выключение
     var vrBtn = document.getElementById('vrBtn');
