@@ -150,6 +150,10 @@ function switchScene(scene) {   /*Оригинальная логика пере
     currentSceneWrapper = scene;
 }
 
+function sanitize(s) {
+   return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+}
+
 function updateSceneName(scene) { //ОБновление текстового заголовка зала
     sceneNameElement.innerHTML = sanitize(scene.data.name);
 }
