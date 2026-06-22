@@ -711,7 +711,7 @@ body.view-control-buttons .viewControlButton {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 20000;
+    z-index: 10999;
     background: #000;
     display: flex;
     align-items: center; /* Центрируем картинку по вертикали */
