@@ -610,7 +610,7 @@
         }
     };
 
-    switchScene(scenes[0]); //запуск стартовой сцены
+//    switchScene(scenes[0]); //запуск стартовой сцены
 
     // Переключатель этажей карты
     (function initFloorToggle() {
